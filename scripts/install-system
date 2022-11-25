@@ -1,0 +1,91 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+BASEDIR=$(dirname $(readlink -f $0))
+cd "$BASEDIR"/..
+
+if [ $UID -ne 0 ]; then
+    echo "must be run as root" >&2
+    exit 1
+fi
+
+if [ $# -ne 2 ]; then
+    echo "usage: $0 <device> <host>" >&2
+    exit 1
+fi
+
+DEV=$1
+HOST=$2
+
+if [ ! -b "$DEV" ]; then
+    echo "device $DEV does not exist" >&2
+    exit 1
+fi
+
+if ! nix flake show | grep -q "${HOST}.*NixOS configuration"; then
+    echo "nixos configuration $HOST does not exist" >&2
+    exit 1
+fi
+
+cd $(mktemp -d)
+
+umask 0077
+dd if=/dev/urandom of=crypto_keyfile.bin bs=4K count=1
+dd if=/dev/zero of=crypto_header.bin bs=2M count=1
+cryptsetup luksFormat --type luks1 --batch-mode crypto_header.bin crypto_keyfile.bin
+cryptsetup luksAddKey --key-file crypto_keyfile.bin crypto_header.bin
+mkpasswd -m sha-512 > password_file
+umask 0022
+
+parted "$DEV" -- mklabel gpt
+
+if [ -d /sys/firmware/efi ]; then
+    parted "$DEV" -- mkpart 'esp' 1MiB 512MiB
+    parted "$DEV" -- mkpart 'root' 512MiB 100%
+    parted "$DEV" -- set 1 esp on
+else
+    parted "$DEV" -- mkpart 'bios-grub' 1MiB 2MiB
+    parted "$DEV" -- mkpart 'root' 2MiB 100%
+    parted "$DEV" -- set 1 bios_grub on
+fi
+
+udevadm trigger
+
+cryptsetup luksHeaderRestore --header-backup-file crypto_header.bin --batch-mode /dev/disk/by-partlabel/root
+cryptsetup open --type luks1 --key-file crypto_keyfile.bin /dev/disk/by-partlabel/root luks-root
+
+mkfs.btrfs -L 'nixos-system' /dev/mapper/luks-root
+mount /dev/mapper/luks-root /mnt
+btrfs subvolume create /mnt/root
+btrfs subvolume create /mnt/boot
+btrfs subvolume create /mnt/home
+btrfs subvolume create /mnt/nix
+btrfs subvolume create /mnt/persist
+btrfs subvolume create /mnt/log
+btrfs subvolume create /mnt/swap
+chattr +C /mnt/swap
+btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
+umount /mnt
+
+mount -o subvol=root,compress=zstd,noatime /dev/mapper/luks-root /mnt
+mkdir -p /mnt/{boot,home,nix,persist,var/log,swap}
+mount -o subvol=boot,compress=zstd,noatime /dev/mapper/luks-root /mnt/boot
+mount -o subvol=home,compress=zstd /dev/mapper/luks-root /mnt/home
+mount -o subvol=nix,compress=zstd,noatime /dev/mapper/luks-root /mnt/nix
+mount -o subvol=persist,compress=zstd,noatime /dev/mapper/luks-root /mnt/persist
+mount -o subvol=log,compress=zstd,noatime /dev/mapper/luks-root /mnt/var/log
+mount -o subvol=swap,noatime /dev/mapper/luks-root /mnt/swap
+mv -t /mnt/persist crypto_keyfile.bin password_file
+
+if [ -d /sys/firmware/efi ]; then
+    mkdir -p /mnt/boot/efi
+    mkfs.vfat -n esp /dev/disk/by-partlabel/esp
+    mount -o noatime /dev/disk/by-partlabel/esp /mnt/boot/efi
+fi
+
+cd "$BASEDIR"/..
+nixos-install --no-root-password --flake .\#"$HOST"
+
+cp -a . /mnt/home/tjanas/nix-config
+chown -R 1000:100 /mnt/home/tjanas/nix-config

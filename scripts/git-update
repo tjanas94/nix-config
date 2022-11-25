@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+BASEDIR=$(dirname $(readlink -f $0))
+cd "$BASEDIR"/..
+
+git pull
+sudo nixos-rebuild switch --flake .
+home-manager switch --flake .

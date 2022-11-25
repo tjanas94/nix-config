@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+vm="${1:-dev}"
+
+aws-azure-login --no-prompt -a
+
+cat <<EOF | sftp "$vm"
+mkdir .aws
+put $HOME/.aws/config .aws
+put $HOME/.aws/credentials .aws
+EOF

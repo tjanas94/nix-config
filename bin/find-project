@@ -1,0 +1,24 @@
+#!/usr/bin/env perl
+
+use v5.12;
+use warnings FATAL => "all";
+
+use File::Basename;
+
+my $prefix = "$ENV{HOME}/workspace";
+my $sshPattern = qr "^(ssh\+git|git\+ssh)";
+my $urlPattern = qr "^((?<origin>(?<proto>.+?)://(?<host>.+?))/|(?<origin>.+?):).*?(?<repo>[^/]+/[^/]+?)(\.git)?/?$";
+my $hostPattern = qr "^hostname (.*)\n";
+
+$_ = $ARGV[0] or die "usage: @{[basename $0]} <repository>\n";
+
+s/$sshPattern/ssh/;
+/$urlPattern/ or die "unsupported url format\n";
+
+my ($origin, $proto, $host, $repo) = ($+{origin}, $+{proto} // "ssh", $+{host} // "", $+{repo});
+
+if ($proto eq "ssh") {
+    ($host) = grep { s/$hostPattern/$1/ } `ssh -G $origin`;
+}
+
+say "$prefix/$host/$repo";

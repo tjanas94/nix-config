@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ $# -ne 2 ]; then
+    echo "usage: $0 <source> <target>" >&2
+    exit 1
+fi
+
+SOURCE="$1"
+TARGET="$2"
+RSYNCSOURCE=$(perl -pe "s#$HOME#$HOME/.#" <<<"$SOURCE")
+
+if [ -f "$SOURCE"/.git ]; then
+    IGNORE_GIT="--exclude=.git"
+fi
+
+while true; do
+    rsync -chavzPR --delete "$IGNORE_GIT" --exclude-from=<(git -C "$SOURCE" ls-files --exclude-standard -oi --directory) "$RSYNCSOURCE" "$TARGET"
+    inotifywait -r -e modify,create,delete --excludei='\.log$' "$SOURCE" || exit 0
+done

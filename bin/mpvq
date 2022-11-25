@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if pgrep -f MPV-Q > /dev/null
+then
+    echo '{ "command": [ "loadfile", "'"$1"'", "append-play" ] }' | socat - $HOME/.mpv.socket
+else
+    mpv --no-terminal \
+        --x11-name=MPV-Q \
+        --input-ipc-server=$HOME/.mpv.socket \
+        --player-operation-mode=pseudo-gui \
+        --script-opts=ytdl_hook-ytdl_path=yt-dlp "$1" &
+fi

@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+PREFIX="$HOME/workspace"
+
+if [ $# -eq 1 ]; then
+    SELECTED=$(realpath "$1")
+else
+    SELECTED=$(find "$PREFIX" -mindepth 4 -maxdepth 4 -type d | perl -ne "print s#$PREFIX/##r unless /\.git\$/" | sort | fzf)
+fi
+
+if [ -z "$SELECTED" ]; then
+    exit 0
+fi
+
+PROJECT="$PREFIX/$SELECTED"
+SELECTED_NAME=$(perl -pe "tr#.#_#" <<<"$SELECTED")
+FILTER="#{==:#{?session_group,#{session_group},#S},${SELECTED_NAME}}"
+HAS_SESSION=$(tmux list-sessions -f "$FILTER" 2>/dev/null || true)
+SESSION=$(tmux list-sessions -f "#{&&:#{?session_attached,0,1},${FILTER}}" -F '#S' 2>/dev/null | head -n1 || true)
+
+if [ -z "$HAS_SESSION" ]; then
+    SESSION=$(tmux new-session -ds "$SELECTED_NAME" -c "$PROJECT" -PF '#S' 'vi .')
+elif [ -z "$SESSION" ]; then
+    SESSION=$(tmux new-session -dt "$SELECTED_NAME" -c "$PROJECT" -PF '#S')
+fi
+
+if [ -z $TMUX ]; then
+    tmux attach-session -t "$SESSION"
+else
+    tmux switch-client -t "$SESSION"
+fi

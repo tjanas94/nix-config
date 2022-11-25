@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+PREFIX="$HOME/workspace"
+VM="${1:-dev}"
+SELECTED=$(perl -pe "s#$HOME/##" <<<"$PWD")
+SELECTED_NAME=$(perl -pe "s#$PREFIX/##; tr#.#_#" <<<"$PWD")
+
+sync-directory "$PWD" "$VM": &> .sync.log &
+sleep 1
+ssh "$VM" -t "byobu new -As '$SELECTED_NAME' -c '$SELECTED' bash -l"

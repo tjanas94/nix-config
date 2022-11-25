@@ -1,0 +1,3 @@
+Host github github.com
+    HostName github.com
+    User git
