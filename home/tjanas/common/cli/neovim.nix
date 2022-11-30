@@ -17,10 +17,6 @@ let
     version = "master";
     src = inputs.polyword-vim;
   };
-  nvim-treesitter-full =
-    nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars);
-  refactoring-nvim-custom = refactoring-nvim.overrideAttrs
-    (_: { dependencies = [ nvim-treesitter-full plenary-nvim ]; });
 in {
   programs.neovim = {
     enable = true;
@@ -53,12 +49,12 @@ in {
       luasnip
       nvim-cmp
       nvim-lspconfig
-      nvim-treesitter-full
+      nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects
       polyword-vim
       popup-nvim
       quick-scope
-      refactoring-nvim-custom
+      refactoring-nvim
       registers-nvim
       symbols-outline-nvim
       telescope-fzy-native-nvim
