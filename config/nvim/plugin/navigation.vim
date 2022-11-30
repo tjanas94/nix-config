@@ -5,7 +5,7 @@ nnoremap <leader>j :lprev<cr>zz
 nnoremap <C-q> :call ToggleQFList(1)<cr>
 nnoremap <leader>q :call ToggleQFList(0)<cr>
 
-nnoremap <leader>gll :let g:_search_term = expand("%")<cr><bar>:Gclog -- %<cr>:call search(g:_search_term)<cr>
+nnoremap <leader>gll :let g:_search_term = expand('%')<cr><bar>:Gclog -- %<cr>:call search(g:_search_term)<cr>
 nnoremap <leader>gln :cnext<cr>:call search(_search_term)<cr>
 nnoremap <leader>glp :cprev<cr>:call search(_search_term)<cr>
 

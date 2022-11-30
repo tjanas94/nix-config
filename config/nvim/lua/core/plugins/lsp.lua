@@ -1,5 +1,5 @@
 local lsp = vim.lsp
-local lsp_servers = { 'bashls', 'cssls', 'dockerls', 'html', 'jsonls', 'sumneko_lua', 'tailwindcss', 'tsserver', 'yamlls' }
+local lsp_servers = { 'bashls', 'cssls', 'dockerls', 'eslint', 'html', 'jsonls', 'sumneko_lua', 'tailwindcss', 'tsserver', 'yamlls' }
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
@@ -27,6 +27,13 @@ local servers = {
                 telemetry = {
                     enable = false,
                 },
+            },
+        },
+    },
+    tsserver = {
+        init_options = {
+            tsserver = {
+                path = vim.fn.expand('$HOME/.nix-profile/lib/node_modules/typescript/lib/tsserver.js'),
             },
         },
     },
@@ -86,8 +93,8 @@ cmp.setup({
     },
 })
 
-require("luasnip.loaders.from_vscode").load()
-require("symbols-outline").setup()
+require('luasnip.loaders.from_vscode').load()
+require('symbols-outline').setup()
 
 local map = vim.keymap.set
 map('n', '<leader>vd', function() lsp.buf.definition() end)

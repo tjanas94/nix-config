@@ -88,10 +88,9 @@ in {
         bash-language-server
         dockerfile-language-server-nodejs
         sumneko-lua-language-server
+        typescript
         typescript-language-server
-        vscode-css-languageserver-bin
-        vscode-html-languageserver-bin
-        vscode-json-languageserver-bin
+        vscode-langservers-extracted
         yaml-language-server
       ];
 
