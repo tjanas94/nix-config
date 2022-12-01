@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+xrandr --delmonitor virtual-left
+xrandr --delmonitor virtual-right
+
+if [ $# -gt 0 ]; then
+    go run ~/.local/bin/xrandr-split-screen.go "$@"
+fi
+
+herbstclient reload
