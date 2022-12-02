@@ -12,7 +12,13 @@ let
   };
 in {
   programs = {
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      package = pkgs.firefox.override {
+        cfg.enableTridactylNative = true;
+        extraNativeMessagingHosts = [ pkgs.passff-host ];
+      };
+    };
     google-chrome.enable = true;
 
     mpv = {

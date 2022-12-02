@@ -2,6 +2,14 @@
   xsession = {
     enable = true;
     windowManager.herbstluftwm.enable = true;
+    initExtra = ''
+      PRIMARY=$(xrandr --listactivemonitors | grep -P '\b3440/\d+?x1440/' | awk '$0=$NF')
+
+      if [ -n "$PRIMARY" ]; then
+          xrandr --output "$PRIMARY" --primary
+          go run ~/.local/bin/xrandr-split-screen.go 5
+      fi
+    '';
   };
 
   xdg.configFile = {
