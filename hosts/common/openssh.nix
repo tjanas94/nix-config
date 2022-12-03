@@ -5,6 +5,7 @@
     passwordAuthentication = false;
   };
 
+  programs.ssh.startAgent = true;
   networking.firewall.allowedTCPPorts = [ 22 ];
 
   environment.persistence."/persist" = {

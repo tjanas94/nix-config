@@ -2,7 +2,7 @@
   programs.gpg = {
     enable = true;
     publicKeys = [{
-      source = ../../../../config/gnupg/public.gpg;
+      source = ../../../../config/gnupg/public.asc;
       trust = "ultimate";
     }];
   };

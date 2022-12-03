@@ -4,7 +4,8 @@
     userName = "Tomasz Janas";
     userEmail = "tomek@janas.dev";
     signing = {
-      key = "77D475DAB183F4D7!";
+      key = "EC48ED8BCF7E7E6B!";
+      # key = "77D475DAB183F4D7!";
       # key = "A22B68DB843C5CB5!";
       # key = "6A2CC42E4E64130E!";
       signByDefault = true;

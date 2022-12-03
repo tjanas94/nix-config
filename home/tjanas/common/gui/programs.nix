@@ -79,7 +79,7 @@ in {
     wineWowPackages.stable
     wireshark
     xsel
+    yubikey-manager
     yubikey-manager-qt
-    yubikey-personalization-gui
   ];
 }
