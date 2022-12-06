@@ -96,11 +96,30 @@ cmp.setup({
             end
         end,
     },
-    sources = {
+    sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+    }, {
         { name = 'buffer' },
+    }, {
+        { name = 'nvim_lsp_signature_help' },
+    }, {
         { name = 'path' },
-    },
+    })
+})
+
+cmp.setup.cmdline({ '/', '?' }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = 'buffer' },
+    })
+})
+
+cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = 'path' },
+        { name = 'cmdline' },
+    })
 })
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }

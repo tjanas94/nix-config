@@ -28,7 +28,9 @@ in {
 
     plugins = [
       cmp-buffer
+      cmp-cmdline
       cmp-nvim-lsp
+      cmp-nvim-lsp-signature-help
       cmp-path
       comment-nvim
       filetype-nvim

@@ -63,6 +63,7 @@
     moreutils
     mtr
     nmap
+    node2nix
     nodejs
     openssl
     perl
