@@ -7,10 +7,12 @@
 
       if [ -n "$PRIMARY" ]; then
           xrandr --output "$PRIMARY" --primary
-          go run ~/.local/bin/xrandr-split-screen.go 5
+          go run ~/.local/bin/xrandr-split-screen.go 1 2
       fi
     '';
   };
+
+  xresources.properties."Xft.dpi" = 108;
 
   xdg.configFile = {
     "herbstluftwm/autostart".source =

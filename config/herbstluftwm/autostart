@@ -37,6 +37,7 @@ hc keybind $Mod-Mod1-l spawn sh -c "sleep 0.25 && xset dpms force off"
 hc keybind $Mod-Mod1-b spawn systemd-run-app firefox
 hc keybind $Mod-Mod1-p spawn systemd-run-app rofi-pass
 hc keybind $Mod-Mod1-o spawn systemd-run-app openfm
+hc keybind $Mod-Mod1-s spawn systemd-run-app split-screen
 
 hc keybind $Mod-F9 spawn playerctl -p mpv previous
 hc keybind $Mod-F10 spawn amixer set Master 5%- unmute

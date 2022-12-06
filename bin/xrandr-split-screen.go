@@ -10,12 +10,14 @@ import (
 )
 
 func main() {
-	factor, err := strconv.Atoi(os.Args[1])
+	factorLeft, err := strconv.Atoi(os.Args[1])
 	if err != nil {
 		log.Fatal(err)
 	}
-	if factor == 1 {
-		factor = 5
+
+	factorRight, err := strconv.Atoi(os.Args[2])
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	monitorsList, err := exec.Command("xrandr", "--listmonitors").Output()
@@ -37,8 +39,8 @@ func main() {
 	commands := []string{
 		fmt.Sprintf(
 			"xrandr --setmonitor virtual-left %d/%dx%d/%d+%d+%d %s",
-			geometry.WidthPX*factor/10,
-			geometry.WidthMM*factor/10,
+			geometry.WidthPX*factorLeft/factorRight,
+			geometry.WidthMM*factorLeft/factorRight,
 			geometry.HeightPX,
 			geometry.HeightMM,
 			geometry.XOffsetPX,
@@ -47,14 +49,15 @@ func main() {
 		),
 		fmt.Sprintf(
 			"xrandr --setmonitor virtual-right %d/%dx%d/%d+%d+%d none",
-			geometry.WidthPX-(geometry.WidthPX*factor/10),
-			geometry.WidthMM-(geometry.WidthMM*factor/10),
+			geometry.WidthPX-(geometry.WidthPX*factorLeft/factorRight),
+			geometry.WidthMM-(geometry.WidthMM*factorLeft/factorRight),
 			geometry.HeightPX,
 			geometry.HeightMM,
-			geometry.XOffsetPX+(geometry.WidthPX*factor/10),
+			geometry.XOffsetPX+(geometry.WidthPX*factorLeft/factorRight),
 			geometry.YOffsetPX,
 		),
 	}
+
 	err = execute(commands)
 	if err != nil {
 		log.Fatal(err)

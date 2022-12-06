@@ -2,11 +2,30 @@
 
 set -euo pipefail
 
+OPTIONS=$(cat <<EOF
+1/2
+2/3
+3/4
+1
+EOF
+)
+
+ARGS="$*"
+
+if [ -z "$ARGS" ]; then
+    ARGS=$(rofi -i -dmenu -p split-screen <<<"$OPTIONS")
+    IFS='/' read -r LEFT RIGHT <<<"$ARGS"
+fi
+
+if [ -z "$ARGS" ]; then
+    exit 0
+fi
+
 xrandr --delmonitor virtual-left
 xrandr --delmonitor virtual-right
 
-if [ $# -gt 0 ]; then
-    go run ~/.local/bin/xrandr-split-screen.go "$@"
+if [ -n "$RIGHT" ]; then
+    go run ~/.local/bin/xrandr-split-screen.go "$LEFT" "$RIGHT"
 fi
 
 herbstclient reload

@@ -1,11 +1,17 @@
 local lsp = vim.lsp
-local lsp_servers = { 'bashls', 'cssls', 'dockerls', 'eslint', 'html', 'jsonls', 'sumneko_lua', 'tailwindcss', 'tsserver', 'yamlls' }
+local lsp_servers = { 'bashls', 'cssls', 'dockerls', 'eslint', 'golangci_lint_ls', 'gopls', 'html', 'jsonls',
+    'stylelint_lsp', 'sumneko_lua', 'tailwindcss', 'tsserver', 'yamlls' }
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
 local servers = {
+    eslint = {
+        on_attach = function(client, bufnr)
+            client.server_capabilities.documentFormattingProvider = true
+        end,
+    },
     sumneko_lua = {
         settings = {
             Lua = {
@@ -22,6 +28,7 @@ local servers = {
                 workspace = {
                     -- Make the server aware of Neovim runtime files
                     library = vim.api.nvim_get_runtime_file('', true),
+                    checkThirdParty = false,
                 },
                 -- Do not send telemetry data containing a randomized but unique identifier
                 telemetry = {
@@ -31,31 +38,38 @@ local servers = {
         },
     },
     tsserver = {
-        init_options = {
-            tsserver = {
-                path = vim.fn.expand('$HOME/.nix-profile/lib/node_modules/typescript/lib/tsserver.js'),
+        settings = {
+            diagnostics = {
+                ignoredCodes = { 80001 },
             },
         },
+        init_options = {
+            tsserver = {
+                path = vim.fn.expand('~/.local/lib/node_modules/typescript/lib/tsserver.js'),
+            },
+        },
+        on_attach = function(client, bufnr)
+            client.server_capabilities.documentFormattingProvider = false
+        end,
     },
 }
 
 local lspconfig = require('lspconfig')
+local lsp_defaults = lspconfig.util.default_config
+
+lsp_defaults.capabilities = vim.tbl_deep_extend(
+    'force',
+    lsp_defaults.capabilities,
+    require('cmp_nvim_lsp').default_capabilities()
+)
 
 for _, name in ipairs(lsp_servers) do
-    local opts = servers[name] or {}
-    opts.capabilities = require('cmp_nvim_lsp').default_capabilities()
-    lspconfig[name].setup(opts)
+    lspconfig[name].setup(servers[name] or {})
 end
 
 local cmp = require('cmp')
-local luasnip = require('luasnip')
 
 cmp.setup({
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
     mapping = {
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -70,8 +84,6 @@ cmp.setup({
         ['<Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
             else
                 fallback()
             end
@@ -79,8 +91,6 @@ cmp.setup({
         ['<S-Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
             else
                 fallback()
             end
@@ -88,23 +98,34 @@ cmp.setup({
     },
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'luasnip' },
         { name = 'buffer' },
+        { name = 'path' },
     },
 })
 
-require('luasnip.loaders.from_vscode').load()
-require('symbols-outline').setup()
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+vim.diagnostic.config({
+    virtual_text = false,
+    severity_sort = true,
+})
+
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 local map = vim.keymap.set
-map('n', '<leader>vd', function() lsp.buf.definition() end)
-map('n', '<leader>vi', function() lsp.buf.implementation() end)
-map('n', '<leader>vsh', function() lsp.buf.signature_help() end)
-map('n', '<leader>vrr', function() lsp.buf.references() end)
-map('n', '<leader>vrn', function() lsp.buf.rename() end)
-map('n', '<leader>vh', function() lsp.buf.hover() end)
-map('n', '<leader>vca', function() lsp.buf.code_action() end)
-map('n', '<leader>vsd', function() lsp.diagnostic.show_line_diagnostics() end)
-map('n', '<leader>vn', function() lsp.diagnostic.goto_next() end)
-map('n', '<leader>vll', function() lsp.diagnostic.set_loclist({open_loclist = false}) end)
-vim.cmd("command! Format execute 'lua vim.lsp.buf.formatting()")
+local opts = { silent = true, noremap = true }
+map('n', '<leader>vf', function() lsp.buf.format({ async = true }) end, opts)
+map('n', '<leader>vd', function() lsp.buf.definition() end, opts)
+map('n', '<leader>vi', function() lsp.buf.implementation() end, opts)
+map('n', '<leader>vsh', function() lsp.buf.signature_help() end, opts)
+map('n', '<leader>vrr', function() lsp.buf.references() end, opts)
+map('n', '<leader>vrn', function() lsp.buf.rename() end, opts)
+map('n', '<leader>vh', function() lsp.buf.hover() end, opts)
+map('n', '<leader>vca', function() lsp.buf.code_action() end, opts)
+map('n', '<leader>vsd', function() lsp.diagnostic.show_line_diagnostics() end, opts)
+map('n', '<leader>vn', function() lsp.diagnostic.goto_next() end, opts)
+map('n', '<leader>vll', function() lsp.diagnostic.set_loclist({ open_loclist = false }) end, opts)

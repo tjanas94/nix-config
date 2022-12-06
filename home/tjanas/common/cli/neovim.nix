@@ -7,11 +7,6 @@ let
     version = "master";
     src = inputs.filetype-nvim;
   };
-  lspsaga-nvim = buildVimPluginFrom2Nix {
-    pname = "lspsaga.nvim";
-    version = "master";
-    src = inputs.lspsaga-nvim;
-  };
   polyword-vim = buildVimPluginFrom2Nix {
     pname = "polyword.vim";
     version = "master";
@@ -33,32 +28,26 @@ in {
 
     plugins = [
       cmp-buffer
-      cmp_luasnip
       cmp-nvim-lsp
+      cmp-path
       comment-nvim
       filetype-nvim
-      friendly-snippets
       gitsigns-nvim
-      git-worktree-nvim
       gruvbox-community
       gv-vim
-      harpoon
       impatient-nvim
-      lspsaga-nvim
       lualine-nvim
-      luasnip
       nvim-cmp
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects
+      nvim-web-devicons
       polyword-vim
       popup-nvim
       quick-scope
-      refactoring-nvim
-      registers-nvim
-      symbols-outline-nvim
       telescope-fzy-native-nvim
       telescope-nvim
+      trouble-nvim
       undotree
       vim-abolish
       vim-better-whitespace
@@ -66,7 +55,6 @@ in {
       vim-fugitive
       vim-repeat
       vim-sandwich
-      vim-sayonara
       vim-sleuth
       vim-subversive
     ];
@@ -80,9 +68,13 @@ in {
   home = {
     packages = with pkgs;
       with pkgs.nodePackages; [
+        customNodePackages.stylelint-lsp
         nodePackages."@tailwindcss/language-server"
         bash-language-server
         dockerfile-language-server-nodejs
+        golangci-lint
+        golangci-lint-langserver
+        gopls
         sumneko-lua-language-server
         typescript
         typescript-language-server

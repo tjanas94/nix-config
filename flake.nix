@@ -18,9 +18,6 @@
     filetype-nvim.url = "github:nathom/filetype.nvim";
     filetype-nvim.flake = false;
 
-    lspsaga-nvim.url = "github:glepnir/lspsaga.nvim";
-    lspsaga-nvim.flake = false;
-
     polyword-vim.url = "github:bendk/polyword.vim";
     polyword-vim.flake = false;
 

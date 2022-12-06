@@ -1,11 +1,9 @@
-local map = vim.keymap.set
 local telescope = require('telescope')
 local actions = require('telescope.actions')
 local builtin = require('telescope.builtin')
 local previewers = require('telescope.previewers')
 local sorters = require('telescope.sorters')
-local git_worktree = require('git-worktree')
-local refactoring = require('refactoring')
+local trouble = require('trouble.providers.telescope')
 
 telescope.setup({
     defaults = {
@@ -16,6 +14,11 @@ telescope.setup({
         file_previewer = previewers.vim_buffer_cat.new,
         grep_previewer = previewers.vim_buffer_vimgrep.new,
         qflist_previewer = previewers.vim_buffer_qflist.new,
+
+        mappings = {
+            i = { ["<c-t>"] = trouble.open_with_trouble },
+            n = { ["<c-t>"] = trouble.open_with_trouble },
+        },
     },
     extensions = {
         fzy_native = {
@@ -24,11 +27,9 @@ telescope.setup({
         },
     },
 })
-git_worktree.setup({})
 
-telescope.load_extension('git_worktree')
 telescope.load_extension('fzy_native')
-telescope.load_extension('refactoring')
+require('trouble').setup()
 
 local function git_branches()
     builtin.git_branches({
@@ -40,18 +41,19 @@ local function git_branches()
     })
 end
 
-map('n', '<leader><space>', function() builtin.git_files() end, {silent = true})
-map('n', '<leader>,', function() builtin.buffers() end, {silent = true})
-map('n', '<leader>.', function() builtin.find_files() end, {silent = true})
-map('n', '<leader>ps', function() builtin.grep_string({ search = vim.fn.input('Grep For > ')}) end, {silent = true})
-map('n', '<leader>pw', function() builtin.grep_string { search = vim.fn.expand('<cword>') } end, {silent = true})
-map('n', '<leader>vh', function() builtin.help_tags() end, {silent = true})
+local map = vim.keymap.set
+local opts = { silent = true, noremap = true }
+map('n', '<leader><space>', function() builtin.git_files() end, opts)
+map('n', '<leader>,', function() builtin.buffers() end, opts)
+map('n', '<leader>.', function() builtin.find_files() end, opts)
+map('n', '<leader>ps', function() builtin.grep_string({ search = vim.fn.input('Grep For > ') }) end, opts)
+map('n', '<leader>pw', function() builtin.grep_string { search = vim.fn.expand('<cword>') } end, opts)
+map('n', '<leader>ph', function() builtin.help_tags() end, opts)
+map('n', '<leader>gc', git_branches, opts)
 
-map('n', '<leader>gw', function() telescope.extensions.git_worktree.git_worktrees() end, {silent = true})
-map('n', '<leader>gm', function() telescope.extensions.git_worktree.create_git_worktree() end, {silent = true})
-map('n', '<leader>gc', git_branches, {silent = true})
-
-map('x', '<leader>rr', function() telescope.extensions.refactoring.refactors() end, {silent = true})
-map('n', '<leader>rr', function() telescope.extensions.refactoring.refactors() end, {silent = true})
-map('n', '<leader>lf', function() refactoring.debug.printf({below = false}) end, {silent = true})
-map('n', '<leader>lb', function() refactoring.debug.printf({below = true}) end, {silent = true})
+map('n', '<leader>xx', '<cmd>TroubleToggle<cr>', opts)
+map('n', '<leader>xw', '<cmd>TroubleToggle workspace_diagnostics<cr>', opts)
+map('n', '<leader>xd', '<cmd>TroubleToggle document_diagnostics<cr>', opts)
+map('n', '<leader>xl', '<cmd>TroubleToggle loclist<cr>', opts)
+map('n', '<leader>xq', '<cmd>TroubleToggle quickfix<cr>', opts)
+map('n', 'gR', '<cmd>TroubleToggle lsp_references<cr>', opts)

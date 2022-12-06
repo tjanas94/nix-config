@@ -44,5 +44,5 @@ opt.path:append('**')
 opt.wildmenu = true
 opt.wildmode = { 'longest', 'list', 'full' }
 
-opt.completeopt= { 'menu', 'menuone', 'noselect' }
+opt.completeopt = { 'menu', 'menuone', 'noselect' }
 g.completion_matching_strategy_list = { 'exact', 'substring', 'fuzzy' }
