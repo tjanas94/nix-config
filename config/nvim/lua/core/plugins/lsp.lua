@@ -45,7 +45,7 @@ local servers = {
         },
         init_options = {
             tsserver = {
-                path = vim.fn.expand('~/.local/lib/node_modules/typescript/lib/tsserver.js'),
+                path = vim.fn.expand('~/.nix-profile/lib/node_modules/typescript/lib/tsserver.js'),
             },
         },
         on_attach = function(client, bufnr)
