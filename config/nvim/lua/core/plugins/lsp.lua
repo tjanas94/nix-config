@@ -1,4 +1,3 @@
-local lsp = vim.lsp
 local lsp_servers = { 'bashls', 'cssls', 'dockerls', 'eslint', 'golangci_lint_ls', 'gopls', 'html', 'jsonls',
     'stylelint_lsp', 'sumneko_lua', 'tailwindcss', 'tsserver', 'yamlls' }
 
@@ -7,10 +6,12 @@ table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
 local servers = {
-    eslint = {
-        on_attach = function(client, bufnr)
-            client.server_capabilities.documentFormattingProvider = true
-        end,
+    gopls = {
+        settings = {
+            gopls = {
+                gofumpt = true,
+            },
+        },
     },
     sumneko_lua = {
         settings = {
@@ -48,11 +49,43 @@ local servers = {
                 path = vim.fn.expand('~/.nix-profile/lib/node_modules/typescript/lib/tsserver.js'),
             },
         },
-        on_attach = function(client, bufnr)
-            client.server_capabilities.documentFormattingProvider = false
-        end,
     },
 }
+
+local on_attach = function(client, bufnr)
+    local bufmap = function(mode, lhs, rhs)
+        local opts = { noremap = true, silent = true, buffer = bufnr }
+        vim.keymap.set(mode, lhs, rhs, opts)
+    end
+
+    bufmap('n', 'K', vim.lsp.buf.hover)
+    bufmap('n', 'gd', vim.lsp.buf.definition)
+    bufmap('n', 'gD', vim.lsp.buf.declaration)
+    bufmap('n', 'gi', vim.lsp.buf.implementation)
+    bufmap('n', 'go', vim.lsp.buf.type_definition)
+    bufmap('n', 'gr', vim.lsp.buf.references)
+    bufmap('n', '<leader>K', vim.lsp.buf.signature_help)
+    bufmap('n', '<leader>rn', vim.lsp.buf.rename)
+    bufmap({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action)
+    bufmap('n', '<leader>f', function() vim.lsp.buf.format({ async = true }) end)
+    bufmap('n', 'gl', vim.diagnostic.open_float)
+    bufmap('n', '[d', vim.diagnostic.goto_prev)
+    bufmap('n', ']d', vim.diagnostic.goto_next)
+
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+        buffer = bufnr,
+        callback = function()
+            vim.diagnostic.setloclist({ open = false })
+        end,
+    })
+    vim.api.nvim_create_autocmd('DiagnosticChanged', {
+        buffer = bufnr,
+        callback = function()
+            vim.diagnostic.open_float(nil, { focus = false })
+        end,
+    })
+end
 
 local lspconfig = require('lspconfig')
 local lsp_defaults = lspconfig.util.default_config
@@ -64,7 +97,9 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
 )
 
 for _, name in ipairs(lsp_servers) do
-    lspconfig[name].setup(servers[name] or {})
+    local config = servers[name] or {}
+    config.on_attach = on_attach
+    lspconfig[name].setup(config)
 end
 
 local cmp = require('cmp')
@@ -122,9 +157,20 @@ cmp.setup.cmdline(':', {
     })
 })
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local null_ls = require('null-ls')
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.fixjson,
+        null_ls.builtins.formatting.prettierd,
+        null_ls.builtins.formatting.shfmt,
+        null_ls.builtins.code_actions.gitsigns,
+        null_ls.builtins.code_actions.gitrebase,
+    },
+})
+
+local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
 for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
+    local hl = 'DiagnosticSign' .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
@@ -132,19 +178,3 @@ vim.diagnostic.config({
     virtual_text = false,
     severity_sort = true,
 })
-
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
-
-local map = vim.keymap.set
-local opts = { silent = true, noremap = true }
-map('n', '<leader>vf', function() lsp.buf.format({ async = true }) end, opts)
-map('n', '<leader>vd', function() lsp.buf.definition() end, opts)
-map('n', '<leader>vi', function() lsp.buf.implementation() end, opts)
-map('n', '<leader>vsh', function() lsp.buf.signature_help() end, opts)
-map('n', '<leader>vrr', function() lsp.buf.references() end, opts)
-map('n', '<leader>vrn', function() lsp.buf.rename() end, opts)
-map('n', '<leader>vh', function() lsp.buf.hover() end, opts)
-map('n', '<leader>vca', function() lsp.buf.code_action() end, opts)
-map('n', '<leader>vsd', function() lsp.diagnostic.show_line_diagnostics() end, opts)
-map('n', '<leader>vn', function() lsp.diagnostic.goto_next() end, opts)
-map('n', '<leader>vll', function() lsp.diagnostic.set_loclist({ open_loclist = false }) end, opts)

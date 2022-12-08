@@ -16,8 +16,16 @@ telescope.setup({
         qflist_previewer = previewers.vim_buffer_qflist.new,
 
         mappings = {
-            i = { ["<c-t>"] = trouble.open_with_trouble },
-            n = { ["<c-t>"] = trouble.open_with_trouble },
+            i = {
+                ['<C-q>'] = actions.send_to_qflist,
+                ['<M-q>'] = actions.send_selected_to_qflist,
+                ['<C-t>'] = trouble.open_with_trouble,
+            },
+            n = {
+                ['<C-q>'] = actions.send_to_qflist,
+                ['<M-q>'] = actions.send_selected_to_qflist,
+                ['<C-t>'] = trouble.open_with_trouble,
+            },
         },
     },
     extensions = {
@@ -51,9 +59,18 @@ map('n', '<leader>pw', function() builtin.grep_string { search = vim.fn.expand('
 map('n', '<leader>ph', function() builtin.help_tags() end, opts)
 map('n', '<leader>gc', git_branches, opts)
 
-map('n', '<leader>xx', '<cmd>TroubleToggle<cr>', opts)
-map('n', '<leader>xw', '<cmd>TroubleToggle workspace_diagnostics<cr>', opts)
-map('n', '<leader>xd', '<cmd>TroubleToggle document_diagnostics<cr>', opts)
-map('n', '<leader>xl', '<cmd>TroubleToggle loclist<cr>', opts)
-map('n', '<leader>xq', '<cmd>TroubleToggle quickfix<cr>', opts)
-map('n', 'gR', '<cmd>TroubleToggle lsp_references<cr>', opts)
+map('n', '<leader>xx', ':TroubleToggle<cr>', opts)
+map('n', '<leader>xw', ':TroubleToggle workspace_diagnostics<cr>', opts)
+map('n', '<leader>xd', ':TroubleToggle document_diagnostics<cr>', opts)
+map('n', '<C-q>', ':TroubleToggle quickfix<cr>', opts)
+map('n', '<leader>q', ':TroubleToggle loclist<cr>', opts)
+map('n', 'gR', ':TroubleToggle lsp_references<cr>', opts)
+
+map('n', '<C-k>', ':cnext<cr>zz', opts)
+map('n', '<C-j>', ':cprev<cr>zz', opts)
+map('n', '<leader>k', ':lnext<cr>zz', opts)
+map('n', '<leader>j', ':lprev<cr>zz', opts)
+
+map('n', '<leader>gll', ':let g:_search_term = expand("%")<cr><bar>:Gclog -- %<cr>:call search(g:_search_term)<cr>', opts)
+map('n', '<leader>gln', ':cnext<cr>:call search(_search_term)<cr>', opts)
+map('n', '<leader>glp', ':cprev<cr>:call search(_search_term)<cr>', opts)

@@ -39,6 +39,7 @@ in {
       gv-vim
       impatient-nvim
       lualine-nvim
+      null-ls-nvim
       nvim-cmp
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
@@ -70,13 +71,16 @@ in {
   home = {
     packages = with pkgs;
       with pkgs.nodePackages; [
+        customNodePackages."@fsouza/prettierd"
         customNodePackages.stylelint-lsp
         nodePackages."@tailwindcss/language-server"
         bash-language-server
         dockerfile-language-server-nodejs
+        fixjson
         golangci-lint
         golangci-lint-langserver
         gopls
+        shfmt
         sumneko-lua-language-server
         typescript
         typescript-language-server

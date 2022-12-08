@@ -718,6 +718,16 @@ let
           "ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==";
       };
     };
+    "core_d-5.0.1" = {
+      name = "core_d";
+      packageName = "core_d";
+      version = "5.0.1";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/core_d/-/core_d-5.0.1.tgz";
+        sha512 =
+          "37lZyhJY1hzgFbfU4LzY4zL09QPwPfV2W/3YBOtN7mkdvVaeP1OVnDZI6zxggtlPwG/BuE5wIr0xptlVJk5EPA==";
+      };
+    };
     "cosmiconfig-7.1.0" = {
       name = "cosmiconfig";
       packageName = "cosmiconfig";
@@ -1795,6 +1805,16 @@ let
           "sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==";
       };
     };
+    "nanolru-1.0.0" = {
+      name = "nanolru";
+      packageName = "nanolru";
+      version = "1.0.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/nanolru/-/nanolru-1.0.0.tgz";
+        sha512 =
+          "GyQkE8M32pULhQk7Sko5raoIbPalAk90ICG+An4fq6fCsFHsP6fB2K46WGXVdoJpy4SGMnZ/EKbo123fZJomWg==";
+      };
+    };
     "node-releases-2.0.6" = {
       name = "node-releases";
       packageName = "node-releases";
@@ -2122,6 +2142,16 @@ let
           "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz";
         sha512 =
           "1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==";
+      };
+    };
+    "prettier-2.8.1" = {
+      name = "prettier";
+      packageName = "prettier";
+      version = "2.8.1";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/prettier/-/prettier-2.8.1.tgz";
+        sha512 =
+          "lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==";
       };
     };
     "punycode-2.1.1" = {
@@ -2543,6 +2573,17 @@ let
           "qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==";
       };
     };
+    "supports-color-8.1.1" = {
+      name = "supports-color";
+      packageName = "supports-color";
+      version = "8.1.1";
+      src = fetchurl {
+        url =
+          "https://registry.npmjs.org/supports-color/-/supports-color-8.1.1.tgz";
+        sha512 =
+          "MpUEN2OodtUzxvKQl72cUF7RQ5EiHsGvSsVG0ia9c5RbWGL2CI4C7EpPS8UTBIplnlzZiNuV56w+FuNxy3ty2Q==";
+      };
+    };
     "supports-preserve-symlinks-flag-1.0.0" = {
       name = "supports-preserve-symlinks-flag";
       packageName = "supports-preserve-symlinks-flag";
@@ -2925,6 +2966,33 @@ let
     };
   };
 in {
+  "@fsouza/prettierd" = nodeEnv.buildNodePackage {
+    name = "_at_fsouza_slash_prettierd";
+    packageName = "@fsouza/prettierd";
+    version = "0.22.5";
+    src = fetchurl {
+      url =
+        "https://registry.npmjs.org/@fsouza/prettierd/-/prettierd-0.22.5.tgz";
+      sha512 =
+        "5ie5XsoUGRggQLxFOHNW7Z3VdNUd7ECO8aFT109z/dS42DCvEYsTHuED/AF5syc08aUT2Ym0gTvOPZI4cmCccg==";
+    };
+    dependencies = [
+      sources."core_d-5.0.1"
+      sources."has-flag-4.0.0"
+      sources."nanolru-1.0.0"
+      sources."prettier-2.8.1"
+      sources."supports-color-8.1.1"
+    ];
+    buildInputs = globalBuildInputs;
+    meta = {
+      description = "prettier, as a daemon";
+      homepage = "https://github.com/fsouza/prettierd";
+      license = "ISC";
+    };
+    production = true;
+    bypassCache = true;
+    reconstructLock = true;
+  };
   stylelint-lsp = nodeEnv.buildNodePackage {
     name = "stylelint-lsp";
     packageName = "stylelint-lsp";
