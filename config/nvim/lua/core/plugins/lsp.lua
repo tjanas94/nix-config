@@ -46,7 +46,7 @@ local servers = {
         },
         init_options = {
             tsserver = {
-                path = vim.fn.expand('~/.nix-profile/lib/node_modules/typescript/lib/tsserver.js'),
+                path = vim.fn.expand('~/.local/lib/node_modules/typescript/lib/tsserver.js'),
             },
         },
     },
@@ -76,13 +76,13 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
         buffer = bufnr,
         callback = function()
-            vim.diagnostic.setloclist({ open = false })
+            vim.diagnostic.open_float(nil, { focus = false })
         end,
     })
     vim.api.nvim_create_autocmd('DiagnosticChanged', {
         buffer = bufnr,
         callback = function()
-            vim.diagnostic.open_float(nil, { focus = false })
+            vim.diagnostic.setloclist({ open = false })
         end,
     })
 end

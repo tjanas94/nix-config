@@ -42,8 +42,8 @@ require('trouble').setup()
 local function git_branches()
     builtin.git_branches({
         attach_mappings = function(_, map)
-            map('i', '<c-d>', actions.git_delete_branch)
-            map('n', '<c-d>', actions.git_delete_branch)
+            map('i', '<C-d>', actions.git_delete_branch)
+            map('n', '<C-d>', actions.git_delete_branch)
             return true
         end,
     })
@@ -59,7 +59,7 @@ map('n', '<leader>pw', function() builtin.grep_string { search = vim.fn.expand('
 map('n', '<leader>ph', function() builtin.help_tags() end, opts)
 map('n', '<leader>gc', git_branches, opts)
 
-map('n', '<leader>xx', ':TroubleToggle<cr>', opts)
+map('n', '<leader>/', ':TroubleToggle<cr>', opts)
 map('n', '<leader>xw', ':TroubleToggle workspace_diagnostics<cr>', opts)
 map('n', '<leader>xd', ':TroubleToggle document_diagnostics<cr>', opts)
 map('n', '<C-q>', ':TroubleToggle quickfix<cr>', opts)
