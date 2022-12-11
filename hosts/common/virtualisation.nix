@@ -13,9 +13,9 @@
 
   services.dnsmasq = {
     enable = true;
-    extraConfig = ''
-      address=/.test/192.168.122.1
-    '';
+    settings = {
+      address = "/.test/192.168.122.1";
+    };
   };
 
   system = {
