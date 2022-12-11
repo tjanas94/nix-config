@@ -1,4 +1,4 @@
-local map = vim.keymap.set
+local map = require('core.lib.keymap').map
 
 map('n', '<leader>w', '<plug>(polyword-miniword-w)')
 map('n', '<leader>b', '<plug>(polyword-miniword-b)')

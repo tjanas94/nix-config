@@ -1,4 +1,4 @@
-local map = vim.keymap.set
+local map = require('core.lib.keymap').map
 
 map('n', 'c', '"_c')
 map('x', 'c', '"_c')
@@ -23,8 +23,8 @@ map('x', '<leader>s', '<plug>(SubversiveSubstitute)')
 map('n', '<leader>ss', '<plug>(SubversiveSubstituteLine)')
 map('n', '<leader>S', '<plug>(SubversiveSubstituteToEndOfLine)')
 
-map('n', 'Q', '<nop>', { silent = true })
-map('n', '<C-f>', ':silent !tmux neww switch-project<cr>', { silent = true })
+map('n', 'Q', '<nop>')
+map('n', '<C-f>', ':!tmux neww switch-project<cr>')
 
 map('n', '<leader>u', ':UndotreeToggle<cr>')
 map('n', '<leader>pv', ':Ex<cr>')

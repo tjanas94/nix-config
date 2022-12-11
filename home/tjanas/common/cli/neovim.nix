@@ -29,16 +29,20 @@ in {
     plugins = [
       cmp-buffer
       cmp-cmdline
+      cmp_luasnip
       cmp-nvim-lsp
       cmp-nvim-lsp-signature-help
+      cmp-nvim-lua
       cmp-path
       comment-nvim
       filetype-nvim
+      friendly-snippets
       gitsigns-nvim
       gruvbox-community
       gv-vim
       impatient-nvim
       lualine-nvim
+      luasnip
       null-ls-nvim
       nvim-cmp
       nvim-lspconfig

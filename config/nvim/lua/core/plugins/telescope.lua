@@ -37,7 +37,6 @@ telescope.setup({
 })
 
 telescope.load_extension('fzy_native')
-require('trouble').setup()
 
 local function git_branches()
     builtin.git_branches({
@@ -49,28 +48,12 @@ local function git_branches()
     })
 end
 
-local map = vim.keymap.set
-local opts = { silent = true, noremap = true }
-map('n', '<leader><space>', function() builtin.git_files() end, opts)
-map('n', '<leader>,', function() builtin.buffers() end, opts)
-map('n', '<leader>.', function() builtin.find_files() end, opts)
-map('n', '<leader>ps', function() builtin.grep_string({ search = vim.fn.input('Grep For > ') }) end, opts)
-map('n', '<leader>pw', function() builtin.grep_string { search = vim.fn.expand('<cword>') } end, opts)
-map('n', '<leader>ph', function() builtin.help_tags() end, opts)
-map('n', '<leader>gc', git_branches, opts)
+local map = require('core.lib.keymap').map
 
-map('n', '<leader>/', ':TroubleToggle<cr>', opts)
-map('n', '<leader>xw', ':TroubleToggle workspace_diagnostics<cr>', opts)
-map('n', '<leader>xd', ':TroubleToggle document_diagnostics<cr>', opts)
-map('n', '<C-q>', ':TroubleToggle quickfix<cr>', opts)
-map('n', '<leader>q', ':TroubleToggle loclist<cr>', opts)
-map('n', 'gR', ':TroubleToggle lsp_references<cr>', opts)
-
-map('n', '<C-k>', ':cnext<cr>zz', opts)
-map('n', '<C-j>', ':cprev<cr>zz', opts)
-map('n', '<leader>k', ':lnext<cr>zz', opts)
-map('n', '<leader>j', ':lprev<cr>zz', opts)
-
-map('n', '<leader>gll', ':let g:_search_term = expand("%")<cr><bar>:Gclog -- %<cr>:call search(g:_search_term)<cr>', opts)
-map('n', '<leader>gln', ':cnext<cr>:call search(_search_term)<cr>', opts)
-map('n', '<leader>glp', ':cprev<cr>:call search(_search_term)<cr>', opts)
+map('n', '<leader><space>', function() builtin.git_files() end)
+map('n', '<leader>,', function() builtin.buffers() end)
+map('n', '<leader>.', function() builtin.find_files() end)
+map('n', '<leader>ps', function() builtin.grep_string({ search = vim.fn.input('Grep For > ') }) end)
+map('n', '<leader>pw', function() builtin.grep_string({ search = vim.fn.expand('<cword>') }) end)
+map('n', '<leader>ph', function() builtin.help_tags() end)
+map('n', '<leader>gc', git_branches)
