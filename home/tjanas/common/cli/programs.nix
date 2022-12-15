@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs = {
     bat = {
       enable = true;
@@ -33,8 +33,9 @@
     };
     password-store = {
       enable = true;
-      package = pkgs.pass.withExtensions
-        (exts: with exts; [ pass-import pass-otp pass-update ]);
+      package =
+        pkgs.pass.withExtensions
+        (exts: with exts; [pass-import pass-otp pass-update]);
     };
   };
 

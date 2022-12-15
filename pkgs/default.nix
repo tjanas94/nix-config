@@ -1,1 +1,1 @@
-{ pkgs }: { customNodePackages = pkgs.callPackage ./node-packages { }; }
+{pkgs}: {customNodePackages = pkgs.callPackage ./node-packages {};}

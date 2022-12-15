@@ -1,6 +1,10 @@
-{ config, lib, ... }:
-with lib;
-let cfg = config.swapFile;
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.swapFile;
 in {
   options.swapFile = {
     enable = mkEnableOption "swap file";
@@ -17,9 +21,11 @@ in {
   };
 
   config = mkIf cfg.enable {
-    swapDevices = [{
-      device = cfg.path;
-      size = cfg.size;
-    }];
+    swapDevices = [
+      {
+        device = cfg.path;
+        size = cfg.size;
+      }
+    ];
   };
 }

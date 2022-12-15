@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
-let
+{
+  pkgs,
+  inputs,
+  ...
+}: let
   tmux-gruvbox-truecolor = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "gruvbox-truecolor";
     rtpFilePath = "colorscheme-tpm.tmux";

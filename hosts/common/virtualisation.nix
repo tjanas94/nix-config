@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   virtualisation = {
     docker.rootless = {
       enable = true;
@@ -13,15 +17,15 @@
 
   services.dnsmasq = {
     enable = true;
-    settings = { address = "/.test/192.168.122.1"; };
+    settings = {address = "/.test/192.168.122.1";};
   };
 
   system = {
-    nssModules = [ pkgs.libvirt ];
-    nssDatabases.hosts = lib.mkBefore [ "libvirt" "libvirt_guest" ];
+    nssModules = [pkgs.libvirt];
+    nssDatabases.hosts = lib.mkBefore ["libvirt" "libvirt_guest"];
   };
 
   environment.persistence."/persist" = {
-    directories = [ "/var/lib/libvirt" ];
+    directories = ["/var/lib/libvirt"];
   };
 }

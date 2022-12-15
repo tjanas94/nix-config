@@ -1,5 +1,5 @@
-{ ... }: {
-  imports = [ ./cli ./gui ];
+{...}: {
+  imports = [./cli ./gui];
 
   home = rec {
     username = "tjanas";

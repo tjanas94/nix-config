@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-BASEDIR=$(dirname $(readlink -f $0))
-cd "$BASEDIR"/..
-
-find . -name '*.nix' -print0 | xargs -0 nix fmt

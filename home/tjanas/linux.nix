@@ -1,5 +1,10 @@
-{ config, lib, pkgs, ... }: {
-  imports = [ ./common ];
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [./common];
 
   targets.genericLinux.enable = true;
 
@@ -14,6 +19,7 @@
   };
 
   services.screen-locker.lockCmd = lib.mkForce "/usr/bin/i3lock -nec000000";
-  xsession.windowManager.command = lib.mkForce
+  xsession.windowManager.command =
+    lib.mkForce
     "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel ${config.xsession.windowManager.herbstluftwm.package}/bin/herbstluftwm --locked";
 }

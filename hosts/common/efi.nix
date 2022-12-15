@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -17,7 +17,7 @@
     "/boot/efi" = {
       device = "/dev/disk/by-partlabel/esp";
       fsType = "vfat";
-      options = [ "noatime" ];
+      options = ["noatime"];
     };
   };
 }

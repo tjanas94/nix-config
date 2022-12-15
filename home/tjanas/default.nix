@@ -1,5 +1,5 @@
-{ ... }: {
-  imports = [ ./common ];
+{...}: {
+  imports = [./common];
 
   home.file.".ssh" = {
     source = ../../../../config/ssh;

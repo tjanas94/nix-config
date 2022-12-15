@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   sound.enable = true;
 
   hardware = {
@@ -26,22 +30,23 @@
         enable = true;
         touchpad.disableWhileTyping = true;
       };
-      xkbOptions =
-        "caps:ctrl_modifier,shift:both_capslock,terminate:ctrl_alt_bksp";
+      xkbOptions = "caps:ctrl_modifier,shift:both_capslock,terminate:ctrl_alt_bksp";
 
       displayManager = {
         lightdm.enable = true;
         defaultSession = "xsession";
-        session = [{
-          manage = "desktop";
-          name = "xsession";
-          start = "exec $HOME/.xsession";
-        }];
+        session = [
+          {
+            manage = "desktop";
+            name = "xsession";
+            start = "exec $HOME/.xsession";
+          }
+        ];
       };
     };
   };
 
   environment.persistence."/persist" = {
-    directories = [ "/var/lib/alsa" "/var/lib/bluetooth" ];
+    directories = ["/var/lib/alsa" "/var/lib/bluetooth"];
   };
 }

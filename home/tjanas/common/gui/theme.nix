@@ -1,5 +1,5 @@
-{ pkgs, ... }:
-let hasklig-nerdfont = pkgs.nerdfonts.override { fonts = [ "Hasklig" ]; };
+{pkgs, ...}: let
+  hasklig-nerdfont = pkgs.nerdfonts.override {fonts = ["Hasklig"];};
 in {
   fonts.fontconfig.enable = true;
 

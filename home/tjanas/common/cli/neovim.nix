@@ -1,6 +1,9 @@
-{ pkgs, inputs, ... }:
-with pkgs.vimPlugins;
-let
+{
+  pkgs,
+  inputs,
+  ...
+}:
+with pkgs.vimPlugins; let
   inherit (pkgs.vimUtils) buildVimPluginFrom2Nix;
   filetype-nvim = buildVimPluginFrom2Nix {
     pname = "filetype.nvim";
@@ -74,23 +77,23 @@ in {
 
   home = {
     packages = with pkgs;
-      with pkgs.nodePackages; [
-        customNodePackages."@fsouza/prettierd"
-        customNodePackages.stylelint-lsp
-        nodePackages."@tailwindcss/language-server"
-        bash-language-server
-        dockerfile-language-server-nodejs
-        fixjson
-        golangci-lint
-        golangci-lint-langserver
-        gopls
-        shfmt
-        sumneko-lua-language-server
-        typescript
-        typescript-language-server
-        vscode-langservers-extracted
-        yaml-language-server
-      ];
+    with pkgs.nodePackages; [
+      customNodePackages."@fsouza/prettierd"
+      customNodePackages.stylelint-lsp
+      nodePackages."@tailwindcss/language-server"
+      bash-language-server
+      dockerfile-language-server-nodejs
+      fixjson
+      golangci-lint
+      golangci-lint-langserver
+      gopls
+      shfmt
+      sumneko-lua-language-server
+      typescript
+      typescript-language-server
+      vscode-langservers-extracted
+      yaml-language-server
+    ];
 
     sessionVariables.EDITOR = "nvim";
   };

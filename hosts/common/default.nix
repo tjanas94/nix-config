@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{inputs, ...}: {
   imports = [
     inputs.impermanence.nixosModule
     ./boot.nix
@@ -19,6 +19,6 @@
 
   environment.persistence."/persist" = {
     hideMounts = true;
-    files = [ "/etc/machine-id" ];
+    files = ["/etc/machine-id"];
   };
 }

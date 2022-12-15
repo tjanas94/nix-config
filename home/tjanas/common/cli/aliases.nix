@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   home = {
     shellAliases = {
       cat = "bat -p";

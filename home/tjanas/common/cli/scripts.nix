@@ -1,10 +1,10 @@
-{ ... }: {
+{...}: {
   home = {
     file.".local/bin" = {
       source = ../../../../bin;
       recursive = true;
     };
 
-    sessionPath = [ "$HOME/.local/bin" ];
+    sessionPath = ["$HOME/.local/bin"];
   };
 }

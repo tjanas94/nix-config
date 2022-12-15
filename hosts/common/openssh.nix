@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   services.openssh = {
     enable = true;
     permitRootLogin = "no";
@@ -6,7 +6,7 @@
   };
 
   programs.ssh.startAgent = true;
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.allowedTCPPorts = [22];
 
   environment.persistence."/persist" = {
     files = [

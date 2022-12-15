@@ -1,10 +1,12 @@
-{ ... }: {
+{...}: {
   programs.gpg = {
     enable = true;
-    publicKeys = [{
-      source = ../../../../config/gnupg/public.asc;
-      trust = "ultimate";
-    }];
+    publicKeys = [
+      {
+        source = ../../../../config/gnupg/public.asc;
+        trust = "ultimate";
+      }
+    ];
   };
 
   services = {

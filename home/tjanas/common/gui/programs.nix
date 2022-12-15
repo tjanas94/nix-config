@@ -1,14 +1,14 @@
-{ pkgs, ... }:
-let
-  mpv = pkgs.wrapMpv (pkgs.mpv-unwrapped.override {
-    pipewireSupport = false;
-    vapoursynthSupport = true;
-  }) {
-    scripts = with pkgs.mpvScripts; [ mpris sponsorblock youtube-quality ];
-    youtubeSupport = true;
-  };
+{pkgs, ...}: let
+  mpv =
+    pkgs.wrapMpv (pkgs.mpv-unwrapped.override {
+      pipewireSupport = false;
+      vapoursynthSupport = true;
+    }) {
+      scripts = with pkgs.mpvScripts; [mpris sponsorblock youtube-quality];
+      youtubeSupport = true;
+    };
   thunar = pkgs.xfce.thunar.override {
-    thunarPlugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+    thunarPlugins = with pkgs.xfce; [thunar-archive-plugin thunar-volman];
   };
 in {
   programs = {
@@ -16,7 +16,7 @@ in {
       enable = true;
       package = pkgs.firefox.override {
         cfg.enableTridactylNative = true;
-        extraNativeMessagingHosts = [ pkgs.passff-host ];
+        extraNativeMessagingHosts = [pkgs.passff-host];
       };
     };
     google-chrome.enable = true;
@@ -46,7 +46,7 @@ in {
 
     xcape = {
       enable = true;
-      mapExpression = { Caps_Lock = "Escape"; };
+      mapExpression = {Caps_Lock = "Escape";};
     };
   };
 

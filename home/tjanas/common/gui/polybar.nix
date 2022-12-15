@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   services.polybar = {
     enable = true;
     package = pkgs.polybarFull;

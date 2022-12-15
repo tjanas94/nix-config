@@ -1,5 +1,5 @@
-{ ... }: {
-  imports = [ ./hardware-configuration.nix ../common ../common/efi.nix ];
+{...}: {
+  imports = [./hardware-configuration.nix ../common ../common/efi.nix];
 
   networking.hostName = "nixos-vm";
   swapFile.size = 2 * 1024;

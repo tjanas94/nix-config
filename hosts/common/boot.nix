@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   boot = {
     loader.grub = {
       enable = true;
@@ -30,7 +34,7 @@
         umount /mnt
       '';
 
-      secrets = { "/persist/crypto_keyfile.bin" = null; };
+      secrets = {"/persist/crypto_keyfile.bin" = null;};
 
       luks.devices."luks-root" = {
         device = "/dev/disk/by-partlabel/root";
@@ -43,45 +47,45 @@
     "/" = {
       device = "/dev/disk/by-label/nixos-system";
       fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" "noatime" ];
+      options = ["subvol=root" "compress=zstd" "noatime"];
     };
 
     "/boot" = {
       device = "/dev/disk/by-label/nixos-system";
       fsType = "btrfs";
-      options = [ "subvol=boot" "compress=zstd" "noatime" ];
+      options = ["subvol=boot" "compress=zstd" "noatime"];
     };
 
     "/home" = {
       device = "/dev/disk/by-label/nixos-system";
       fsType = "btrfs";
-      options = [ "subvol=home" "compress=zstd" ];
+      options = ["subvol=home" "compress=zstd"];
     };
 
     "/nix" = {
       device = "/dev/disk/by-label/nixos-system";
       fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "noatime" ];
+      options = ["subvol=nix" "compress=zstd" "noatime"];
     };
 
     "/persist" = {
       device = "/dev/disk/by-label/nixos-system";
       fsType = "btrfs";
-      options = [ "subvol=persist" "compress=zstd" "noatime" ];
+      options = ["subvol=persist" "compress=zstd" "noatime"];
       neededForBoot = true;
     };
 
     "/var/log" = {
       device = "/dev/disk/by-label/nixos-system";
       fsType = "btrfs";
-      options = [ "subvol=log" "compress=zstd" "noatime" ];
+      options = ["subvol=log" "compress=zstd" "noatime"];
       neededForBoot = true;
     };
 
     "/swap" = {
       device = "/dev/disk/by-label/nixos-system";
       fsType = "btrfs";
-      options = [ "subvol=swap" "noatime" ];
+      options = ["subvol=swap" "noatime"];
     };
   };
 

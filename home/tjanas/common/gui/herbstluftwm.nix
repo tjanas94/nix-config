@@ -1,4 +1,8 @@
-{ inputs, lib, ... }: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   xsession = {
     enable = true;
     windowManager.herbstluftwm.enable = true;

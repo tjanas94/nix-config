@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ newsboat ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [newsboat];
 
   xdg.configFile.newsboat = {
     source = ../../../../config/newsboat;

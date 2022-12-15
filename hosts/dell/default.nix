@@ -1,4 +1,8 @@
-{ config, inputs, ... }: {
+{
+  config,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.hardware.nixosModules.dell-latitude-5520
     ./hardware-configuration.nix
