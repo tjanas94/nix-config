@@ -24,7 +24,7 @@ in {
     swapDevices = [
       {
         device = cfg.path;
-        size = cfg.size;
+        inherit (cfg) size;
       }
     ];
   };

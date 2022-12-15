@@ -81,6 +81,7 @@ in {
       customNodePackages."@fsouza/prettierd"
       customNodePackages.stylelint-lsp
       nodePackages."@tailwindcss/language-server"
+      alejandra
       bash-language-server
       dockerfile-language-server-nodejs
       fixjson
@@ -88,6 +89,7 @@ in {
       golangci-lint-langserver
       gopls
       shfmt
+      statix
       sumneko-lua-language-server
       typescript
       typescript-language-server

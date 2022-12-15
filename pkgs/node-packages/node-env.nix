@@ -12,14 +12,10 @@
 }: let
   # Workaround to cope with utillinux in Nixpkgs 20.09 and util-linux in Nixpkgs master
   utillinux =
-    if pkgs ? utillinux
-    then pkgs.utillinux
-    else pkgs.util-linux;
+    pkgs.utillinux or pkgs.util-linux;
 
   python =
-    if nodejs ? python
-    then nodejs.python
-    else python2;
+    nodejs.python or python2;
 
   # Create a tar wrapper that filters all the 'Ignoring unknown extended header keyword' noise
   tarWrapper = runCommand "tarWrapper" {} ''
@@ -209,7 +205,7 @@
           cd node_modules
           ${
         lib.concatMapStrings
-        (dependency: pinpointDependenciesOfPackage dependency)
+        pinpointDependenciesOfPackage
         dependencies
       }
           cd ..
@@ -558,8 +554,8 @@
         }";
         buildInputs =
           [tarWrapper python nodejs]
-          ++ lib.optional (stdenv.isLinux) utillinux
-          ++ lib.optional (stdenv.isDarwin) libtool
+          ++ lib.optional stdenv.isLinux utillinux
+          ++ lib.optional stdenv.isDarwin libtool
           ++ buildInputs;
 
         inherit nodejs;
@@ -623,7 +619,7 @@
         meta =
           {
             # default to Node.js' platforms
-            platforms = nodejs.meta.platforms;
+            inherit (nodejs.meta) platforms;
           }
           // meta;
       }
@@ -658,8 +654,8 @@
 
         buildInputs =
           [tarWrapper python nodejs]
-          ++ lib.optional (stdenv.isLinux) utillinux
-          ++ lib.optional (stdenv.isDarwin) libtool
+          ++ lib.optional stdenv.isLinux utillinux
+          ++ lib.optional stdenv.isDarwin libtool
           ++ buildInputs;
 
         inherit
@@ -749,7 +745,7 @@
 
         buildInputs =
           [python nodejs]
-          ++ lib.optional (stdenv.isLinux) utillinux
+          ++ lib.optional stdenv.isLinux utillinux
           ++ buildInputs;
         buildCommand = ''
           mkdir -p $out/bin
