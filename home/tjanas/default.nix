@@ -1,9 +1,8 @@
 { ... }: {
-  imports = [ ./common/cli ./common/gui ];
+  imports = [ ./common ];
 
-  home = rec {
-    username = "tjanas";
-    homeDirectory = "/home/${username}";
-    stateVersion = "22.11";
+  home.file.".ssh" = {
+    source = ../../../../config/ssh;
+    recursive = true;
   };
 }

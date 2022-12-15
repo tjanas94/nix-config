@@ -13,8 +13,8 @@
     '';
   };
 
-  home.file.".ssh" = {
-    source = ../../../../config/ssh;
+  home.file.".ssh/config.d" = {
+    source = ../../../../config/ssh/config.d;
     recursive = true;
   };
 }

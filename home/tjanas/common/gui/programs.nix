@@ -51,7 +51,6 @@ in {
   };
 
   home.packages = with pkgs; [
-    alsa-utils
     android-tools
     arandr
     feh

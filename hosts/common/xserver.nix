@@ -1,4 +1,6 @@
 { lib, pkgs, ... }: {
+  sound.enable = true;
+
   hardware = {
     bluetooth.enable = true;
     pulseaudio = {
@@ -40,6 +42,6 @@
   };
 
   environment.persistence."/persist" = {
-    directories = [ "/var/lib/bluetooth" ];
+    directories = [ "/var/lib/alsa" "/var/lib/bluetooth" ];
   };
 }

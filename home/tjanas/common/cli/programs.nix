@@ -1,6 +1,9 @@
 { pkgs, ... }: {
   programs = {
-    bat.enable = true;
+    bat = {
+      enable = true;
+      config.theme = "gruvbox-dark";
+    };
     broot = {
       enable = true;
       settings.modal = true;

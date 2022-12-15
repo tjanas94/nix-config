@@ -10,6 +10,7 @@ fi
 SOURCE="$1"
 TARGET="$2"
 RSYNCSOURCE=$(perl -pe "s#$HOME#$HOME/.#" <<<"$SOURCE")
+IGNORE_GIT=""
 
 if [ -f "$SOURCE"/.git ]; then
     IGNORE_GIT="--exclude=.git"

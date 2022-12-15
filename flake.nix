@@ -9,8 +9,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixfmt.url = "github:serokell/nixfmt";
-    nixfmt.inputs.nixpkgs.follows = "nixpkgs";
+    nixgl.url = "github:guibou/nixGL";
+    nixgl.inputs.nixpkgs.follows = "nixpkgs";
 
     neovim-flake.url = "github:neovim/neovim?dir=contrib";
     neovim-flake.inputs.nixpkgs.follows = "nixpkgs";
@@ -32,7 +32,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nixfmt, neovim-flake, ... }@inputs:
+  outputs = { nixpkgs, home-manager, nixgl, neovim-flake, ... }@inputs:
     let
       forAllSystems = nixpkgs.lib.genAttrs [
         "aarch64-linux"
@@ -45,6 +45,7 @@
       overlays = {
         default = import ./overlay { inherit inputs; };
         neovim = neovim-flake.overlay;
+        nixgl = nixgl.overlay;
       };
 
       nixosModules = import ./modules/nixos;
@@ -54,15 +55,15 @@
         default = nixpkgs.legacyPackages.${system}.callPackage ./shell.nix { };
       });
 
+      formatter =
+        forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
+
       legacyPackages = forAllSystems (system:
         import inputs.nixpkgs {
           inherit system;
           overlays = builtins.attrValues overlays;
           config.allowUnfree = true;
         });
-
-      apps =
-        forAllSystems (system: { nixfmt = nixfmt.apps.${system}.default; });
 
       packages.x86_64-linux.nixos-iso =
         nixosConfigurations.nixos-iso.config.system.build.isoImage;
@@ -96,6 +97,12 @@
           extraSpecialArgs = { inherit inputs; };
           modules = (builtins.attrValues homeManagerModules)
             ++ [ ./home/tjanas ];
+        };
+        "tjanas@lenovo" = home-manager.lib.homeManagerConfiguration {
+          pkgs = legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs; };
+          modules = (builtins.attrValues homeManagerModules)
+            ++ [ ./home/tjanas/linux.nix ];
         };
         "tjanas@nixos-vm" = home-manager.lib.homeManagerConfiguration {
           pkgs = legacyPackages.x86_64-linux;

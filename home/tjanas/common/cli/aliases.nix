@@ -1,7 +1,7 @@
 { ... }: {
   home = {
     shellAliases = {
-      cat = "bat";
+      cat = "bat -p";
       df = "df -h";
       free = "free -h";
       rm = "rm -I";

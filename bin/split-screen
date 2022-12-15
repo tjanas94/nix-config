@@ -29,3 +29,4 @@ if [ -n "$RIGHT" ]; then
 fi
 
 herbstclient reload
+systemctl --user restart polybar.service
