@@ -46,7 +46,7 @@ local servers = {
         },
         init_options = {
             tsserver = {
-                path = vim.fn.expand('~/.nix-profile/lib/node_modules/typescript/lib/tsserver.js'),
+                path = vim.g.tsserver_path,
             },
         },
     },

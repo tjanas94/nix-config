@@ -37,7 +37,8 @@
   environment = {
     persistence."/persist" = {
       hideMounts = true;
-      files = ["/etc/machine-id" "/var/lib/systemd"];
+      files = ["/etc/machine-id"];
+      directories = ["/var/lib/systemd"];
     };
     enableAllTerminfo = true;
   };

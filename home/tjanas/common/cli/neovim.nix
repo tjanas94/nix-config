@@ -13,6 +13,7 @@
     withRuby = true;
     withPython3 = true;
     extraConfig = ''
+      let g:tsserver_path = '${pkgs.typescript}/lib/node_modules/typescript/lib/tsserver.js'
       lua require('core')
     '';
 
