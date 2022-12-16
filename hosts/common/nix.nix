@@ -17,7 +17,7 @@
       warn-dirty = false;
     };
 
-    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+    registry = lib.mapAttrs (_: flake: {inherit flake;}) inputs;
 
     nixPath =
       lib.mapAttrsToList (key: value: "${key}=${value.to.path}")

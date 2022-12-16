@@ -2,14 +2,7 @@
   pkgs,
   inputs,
   ...
-}: let
-  tmux-gruvbox-truecolor = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "gruvbox-truecolor";
-    rtpFilePath = "colorscheme-tpm.tmux";
-    version = "master";
-    src = inputs.tmux-gruvbox-truecolor;
-  };
-in {
+}: {
   programs.tmux = {
     enable = true;
     aggressiveResize = true;

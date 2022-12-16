@@ -24,6 +24,7 @@ in {
     };
   };
 
+  home-manager.users.tjanas = import ../../../home/tjanas;
   security.sudo.extraConfig = ''Defaults lecture="never"'';
 
   services.xserver.displayManager.autoLogin = {

@@ -495,13 +495,13 @@
         sha512 = "YrwaA0vEKazPBkn0ipTiMpSajYDSe+KjQfrjhcBMxJt/znbvlHd8Pw/Vamaz5EB4Wfhs3SUR3Z9mwRu/P3s3Yg==";
       };
     };
-    "caniuse-lite-1.0.30001436" = {
+    "caniuse-lite-1.0.30001439" = {
       name = "caniuse-lite";
       packageName = "caniuse-lite";
-      version = "1.0.30001436";
+      version = "1.0.30001439";
       src = fetchurl {
-        url = "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001436.tgz";
-        sha512 = "ZmWkKsnC2ifEPoWUvSAIGyOYwT+keAaaWPHiQ9DfMqS1t6tfuyFYoWR78TeZtznkEQ64+vGXH9cZrElwR2Mrxg==";
+        url = "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001439.tgz";
+        sha512 = "1MgUzEkoMO6gKfXflStpYgZDlFM7M/ck/bgfVCACO5vnAf0fXoNVHdWtqGU+MYca+4bL9Z5bpOVmR33cWW9G2A==";
       };
     };
     "chalk-2.4.2" = {
@@ -1332,13 +1332,13 @@
         sha512 = "NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==";
       };
     };
-    "json5-2.2.1" = {
+    "json5-2.2.2" = {
       name = "json5";
       packageName = "json5";
-      version = "2.2.1";
+      version = "2.2.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/json5/-/json5-2.2.1.tgz";
-        sha512 = "1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA==";
+        url = "https://registry.npmjs.org/json5/-/json5-2.2.2.tgz";
+        sha512 = "46Tk9JiOL2z7ytNQWFLpj99RZkVgeHf87yGQKsIkaPz1qSH9UczKH1rO7K3wgRselo0tYMUNfecYpm/p1vC7tQ==";
       };
     };
     "kind-of-6.0.3" = {
@@ -1566,13 +1566,13 @@
         sha512 = "GyQkE8M32pULhQk7Sko5raoIbPalAk90ICG+An4fq6fCsFHsP6fB2K46WGXVdoJpy4SGMnZ/EKbo123fZJomWg==";
       };
     };
-    "node-releases-2.0.6" = {
+    "node-releases-2.0.7" = {
       name = "node-releases";
       packageName = "node-releases";
-      version = "2.0.6";
+      version = "2.0.7";
       src = fetchurl {
-        url = "https://registry.npmjs.org/node-releases/-/node-releases-2.0.6.tgz";
-        sha512 = "PiVXnNuFm5+iYkLBNeq5211hvO38y63T0i2KKh2KnUs3RpzJ+JtODFjkD8yjLwnDkTYF1eKXheUwdssR+NRZdg==";
+        url = "https://registry.npmjs.org/node-releases/-/node-releases-2.0.7.tgz";
+        sha512 = "EJ3rzxL9pTWPjk5arA0s0dgXpnyiAbJDE6wHT62g7VsgrgQgmmZ+Ru++M1BFofncWja+Pnn3rEr3fieRySAdKQ==";
       };
     };
     "normalize-package-data-2.5.0" = {
@@ -2457,13 +2457,13 @@
         sha512 = "zrMuwHOAQRhjDSnflWdJG+O2ztMWss8GqUUB8dXLR/FPenwkiBNkMIJJYfSN6sgskvsF0rHAoBowNQfbyZnnvw==";
       };
     };
-    "vscode-languageserver-textdocument-1.0.7" = {
+    "vscode-languageserver-textdocument-1.0.8" = {
       name = "vscode-languageserver-textdocument";
       packageName = "vscode-languageserver-textdocument";
-      version = "1.0.7";
+      version = "1.0.8";
       src = fetchurl {
-        url = "https://registry.npmjs.org/vscode-languageserver-textdocument/-/vscode-languageserver-textdocument-1.0.7.tgz";
-        sha512 = "bFJH7UQxlXT8kKeyiyu41r22jCZXG8kuuVVA33OEJn1diWOZK5n8zBSPZFHVBOu8kXZ6h0LIRhf5UnCo61J4Hg==";
+        url = "https://registry.npmjs.org/vscode-languageserver-textdocument/-/vscode-languageserver-textdocument-1.0.8.tgz";
+        sha512 = "1bonkGqQs5/fxGT5UchTgjGVnfysL0O8v1AYMBjqTbWQTFn721zaPGDYFkOKtfDgFiSgXM3KwaG3FMGfW4Ed9Q==";
       };
     };
     "vscode-languageserver-types-3.15.1" = {
@@ -2589,7 +2589,9 @@ in {
       sources."@babel/core-7.20.5"
       (sources."@babel/generator-7.20.5"
         // {
-          dependencies = [sources."@jridgewell/gen-mapping-0.3.2"];
+          dependencies = [
+            sources."@jridgewell/gen-mapping-0.3.2"
+          ];
         })
       sources."@babel/helper-compilation-targets-7.20.0"
       sources."@babel/helper-environment-visitor-7.18.9"
@@ -2605,7 +2607,9 @@ in {
       sources."@babel/helpers-7.20.6"
       (sources."@babel/highlight-7.18.6"
         // {
-          dependencies = [sources."chalk-2.4.2"];
+          dependencies = [
+            sources."chalk-2.4.2"
+          ];
         })
       sources."@babel/parser-7.20.5"
       sources."@babel/template-7.18.10"
@@ -2634,7 +2638,9 @@ in {
       sources."astral-regex-2.0.0"
       (sources."autoprefixer-9.8.8"
         // {
-          dependencies = [sources."picocolors-0.2.1"];
+          dependencies = [
+            sources."picocolors-0.2.1"
+          ];
         })
       sources."bail-1.0.5"
       sources."balanced-match-1.0.2"
@@ -2644,7 +2650,7 @@ in {
       sources."callsites-3.1.0"
       sources."camelcase-5.3.1"
       sources."camelcase-keys-6.2.2"
-      sources."caniuse-lite-1.0.30001436"
+      sources."caniuse-lite-1.0.30001439"
       (sources."chalk-4.1.2"
         // {
           dependencies = [
@@ -2669,12 +2675,17 @@ in {
       sources."decamelize-1.2.0"
       (sources."decamelize-keys-1.1.1"
         // {
-          dependencies = [sources."map-obj-1.0.1"];
+          dependencies = [
+            sources."map-obj-1.0.1"
+          ];
         })
       sources."dir-glob-3.0.1"
       (sources."dom-serializer-0.2.2"
         // {
-          dependencies = [sources."domelementtype-2.3.0" sources."entities-2.2.0"];
+          dependencies = [
+            sources."domelementtype-2.3.0"
+            sources."entities-2.2.0"
+          ];
         })
       sources."domelementtype-1.3.1"
       sources."domhandler-2.4.2"
@@ -2718,7 +2729,9 @@ in {
       sources."ignore-5.2.1"
       (sources."import-fresh-3.3.0"
         // {
-          dependencies = [sources."resolve-from-4.0.0"];
+          dependencies = [
+            sources."resolve-from-4.0.0"
+          ];
         })
       sources."import-lazy-4.0.0"
       sources."imurmurhash-0.1.4"
@@ -2746,7 +2759,7 @@ in {
       sources."jsesc-2.5.2"
       sources."json-parse-even-better-errors-2.3.1"
       sources."json-schema-traverse-1.0.0"
-      sources."json5-2.2.1"
+      sources."json5-2.2.2"
       sources."kind-of-6.0.3"
       sources."known-css-properties-0.21.0"
       sources."lines-and-columns-1.2.4"
@@ -2770,13 +2783,17 @@ in {
       sources."minimist-1.2.7"
       (sources."minimist-options-4.1.0"
         // {
-          dependencies = [sources."is-plain-obj-1.1.0"];
+          dependencies = [
+            sources."is-plain-obj-1.1.0"
+          ];
         })
       sources."ms-2.1.2"
-      sources."node-releases-2.0.6"
+      sources."node-releases-2.0.7"
       (sources."normalize-package-data-3.0.3"
         // {
-          dependencies = [sources."semver-7.3.8"];
+          dependencies = [
+            sources."semver-7.3.8"
+          ];
         })
       sources."normalize-range-0.1.2"
       sources."normalize-selector-0.2.0"
@@ -2796,7 +2813,9 @@ in {
       sources."picomatch-2.3.1"
       (sources."postcss-7.0.39"
         // {
-          dependencies = [sources."picocolors-0.2.1"];
+          dependencies = [
+            sources."picocolors-0.2.1"
+          ];
         })
       sources."postcss-html-0.36.0"
       sources."postcss-less-3.1.4"
@@ -2822,7 +2841,9 @@ in {
         })
       (sources."read-pkg-up-7.0.1"
         // {
-          dependencies = [sources."type-fest-0.8.1"];
+          dependencies = [
+            sources."type-fest-0.8.1"
+          ];
         })
       sources."readable-stream-3.6.0"
       sources."redent-3.0.0"
@@ -2886,7 +2907,7 @@ in {
       sources."vscode-jsonrpc-5.0.1"
       sources."vscode-languageserver-6.1.1"
       sources."vscode-languageserver-protocol-3.15.3"
-      sources."vscode-languageserver-textdocument-1.0.7"
+      sources."vscode-languageserver-textdocument-1.0.8"
       sources."vscode-languageserver-types-3.15.1"
       sources."vscode-uri-2.1.2"
       sources."which-1.3.1"

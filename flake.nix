@@ -24,20 +24,19 @@
     tmux-gruvbox-truecolor.url = "github:lawabidingcactus/tmux-gruvbox-truecolor";
     tmux-gruvbox-truecolor.flake = false;
 
-    wallpapers = {
-      type = "git";
-      url = "https://gitlab.com/dwt1/wallpapers.git";
-      flake = false;
-    };
+    wallpapers.url = "git+https://gitlab.com/dwt1/wallpapers.git";
+    wallpapers.flake = false;
   };
 
   outputs = {
+    self,
     nixpkgs,
     home-manager,
     nixgl,
     neovim-flake,
     ...
   } @ inputs: let
+    inherit (self) outputs;
     forAllSystems = nixpkgs.lib.genAttrs [
       "aarch64-linux"
       "i686-linux"
@@ -46,83 +45,74 @@
       "x86_64-darwin"
     ];
   in rec {
-    overlays = {
-      default = import ./overlay {inherit inputs;};
-      neovim = neovim-flake.overlay;
-      nixgl = nixgl.overlay;
-    };
-
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
+    overlays =
+      import ./overlays {inherit inputs;};
 
-    devShells = forAllSystems (system: {
-      default = nixpkgs.legacyPackages.${system}.callPackage ./shell.nix {};
-    });
+    packages =
+      forAllSystems (
+        system:
+          import ./pkgs {pkgs = nixpkgs.legacyPackages.${system};}
+      )
+      // {
+        x86_64-linux.nixos-iso = nixosConfigurations.nixos-iso.config.system.build.isoImage;
+      };
+
+    devShells = forAllSystems (
+      system:
+        import ./shell.nix {pkgs = nixpkgs.legacyPackages.${system};}
+    );
 
     formatter =
       forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     legacyPackages = forAllSystems (system:
-      import inputs.nixpkgs {
+      import nixpkgs {
         inherit system;
         overlays = builtins.attrValues overlays;
         config.allowUnfree = true;
       });
 
-    packages.x86_64-linux.nixos-iso =
-      nixosConfigurations.nixos-iso.config.system.build.isoImage;
-
     nixosConfigurations = {
       dell = nixpkgs.lib.nixosSystem {
-        pkgs = legacyPackages.x86_64-linux;
-        specialArgs = {inherit inputs;};
-        modules = (builtins.attrValues nixosModules) ++ [./hosts/dell];
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/dell];
       };
       nixos-iso = nixpkgs.lib.nixosSystem {
-        pkgs = legacyPackages.x86_64-linux;
-        specialArgs = {inherit inputs;};
-        modules = (builtins.attrValues nixosModules) ++ [./hosts/nixos-iso];
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/nixos-iso];
       };
       nixos-vm = nixpkgs.lib.nixosSystem {
-        pkgs = legacyPackages.x86_64-linux;
-        specialArgs = {inherit inputs;};
-        modules = (builtins.attrValues nixosModules) ++ [./hosts/nixos-vm];
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/nixos-vm];
       };
       x230t = nixpkgs.lib.nixosSystem {
-        pkgs = legacyPackages.x86_64-linux;
-        specialArgs = {inherit inputs;};
-        modules = (builtins.attrValues nixosModules) ++ [./hosts/x230t];
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/x230t];
       };
     };
 
     homeConfigurations = {
       "tjanas@dell" = home-manager.lib.homeManagerConfiguration {
-        pkgs = legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs;};
-        modules =
-          (builtins.attrValues homeManagerModules)
-          ++ [./home/tjanas];
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home/tjanas];
       };
       "tjanas@lenovo" = home-manager.lib.homeManagerConfiguration {
-        pkgs = legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs;};
-        modules =
-          (builtins.attrValues homeManagerModules)
-          ++ [./home/tjanas/linux.nix];
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home/tjanas/linux.nix];
       };
       "tjanas@nixos-vm" = home-manager.lib.homeManagerConfiguration {
-        pkgs = legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs;};
-        modules =
-          (builtins.attrValues homeManagerModules)
-          ++ [./home/tjanas];
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home/tjanas];
       };
       "tjanas@x230t" = home-manager.lib.homeManagerConfiguration {
-        pkgs = legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs;};
-        modules =
-          (builtins.attrValues homeManagerModules)
-          ++ [./home/tjanas];
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home/tjanas];
       };
     };
   };

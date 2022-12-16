@@ -6,5 +6,9 @@ BASEDIR=$(dirname $(readlink -f $0))
 cd "$BASEDIR"/..
 
 nix flake update
-sudo nixos-rebuild switch --flake .
-home-manager switch --flake .
+
+if [ -f /etc/NIXOS ]; then
+    sudo nixos-rebuild switch --flake .
+else
+    home-manager switch --flake .
+fi

@@ -1,4 +1,4 @@
-{...}: {
+_: {
   imports = [
     ./aliases.nix
     ./fish.nix
@@ -13,12 +13,4 @@
     ./ssh.nix
     ./tmux.nix
   ];
-
-  programs = {
-    bash.enable = true;
-    home-manager.enable = true;
-  };
-
-  xdg.enable = true;
-  systemd.user.startServices = "sd-switch";
 }

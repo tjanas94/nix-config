@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -11,11 +12,14 @@
   nix = {
     enable = true;
     package = pkgs.nix;
+
     settings = {
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
       warn-dirty = false;
     };
+
+    registry = lib.mapAttrs (_: flake: {inherit flake;}) inputs;
   };
 
   services.screen-locker.lockCmd = lib.mkForce "/usr/bin/i3lock -nec000000";

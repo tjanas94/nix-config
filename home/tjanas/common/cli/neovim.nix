@@ -2,20 +2,7 @@
   pkgs,
   inputs,
   ...
-}:
-with pkgs.vimPlugins; let
-  inherit (pkgs.vimUtils) buildVimPluginFrom2Nix;
-  filetype-nvim = buildVimPluginFrom2Nix {
-    pname = "filetype.nvim";
-    version = "master";
-    src = inputs.filetype-nvim;
-  };
-  polyword-vim = buildVimPluginFrom2Nix {
-    pname = "polyword.vim";
-    version = "master";
-    src = inputs.polyword-vim;
-  };
-in {
+}: {
   programs.neovim = {
     enable = true;
     package = pkgs.neovim;
@@ -29,7 +16,7 @@ in {
       lua require('core')
     '';
 
-    plugins = [
+    plugins = with pkgs.vimPlugins; [
       cmp-buffer
       cmp-cmdline
       cmp_luasnip
@@ -78,8 +65,7 @@ in {
   home = {
     packages = with pkgs;
     with pkgs.nodePackages; [
-      customNodePackages."@fsouza/prettierd"
-      customNodePackages.stylelint-lsp
+      nodePackages."@fsouza/prettierd"
       nodePackages."@tailwindcss/language-server"
       alejandra
       bash-language-server
@@ -90,6 +76,7 @@ in {
       gopls
       shfmt
       statix
+      stylelint-lsp
       sumneko-lua-language-server
       typescript
       typescript-language-server
