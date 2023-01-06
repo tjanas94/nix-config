@@ -55,9 +55,6 @@ hc keybind XF86AudioPlay spawn playerctl -p mpv play-pause
 hc keybind XF86AudioStop spawn playerctl -a pause
 hc keybind Print spawn systemd-run-app scrot -s
 
-hc keybind $Mod-F1 detect_monitors
-hc keybind $Mod-F2 set_monitors 1920x1080+0+0 1720x1440+1920+0 1200x1920+5360+0 1720x1440+3640+0
-
 # basic movement in tiling and floating mode
 # focusing clients
 hc keybind $Mod-Left  focus left
