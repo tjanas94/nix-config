@@ -50,6 +50,7 @@
     docker-credential-helpers
     dogdns
     duf
+    duplicity
     fd
     fluxcd
     fx
@@ -75,6 +76,7 @@
     procs
     python3Full
     pv
+    rdiff-backup
     ripgrep
     screen
     sd

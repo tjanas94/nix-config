@@ -9,9 +9,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixgl.url = "github:guibou/nixGL";
-    nixgl.inputs.nixpkgs.follows = "nixpkgs";
-
     neovim-flake.url = "github:neovim/neovim?dir=contrib";
     neovim-flake.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -32,7 +29,6 @@
     self,
     nixpkgs,
     home-manager,
-    nixgl,
     neovim-flake,
     ...
   } @ inputs: let
@@ -79,6 +75,10 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/dell];
       };
+      lenovo = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/lenovo];
+      };
       nixos-iso = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/nixos-iso];
@@ -102,7 +102,7 @@
       "tjanas@lenovo" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/tjanas/linux.nix];
+        modules = [./home/tjanas];
       };
       "tjanas@nixos-vm" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;

@@ -8,5 +8,4 @@
   };
 
   neovim = inputs.neovim-flake.overlay;
-  nixgl = inputs.nixgl.overlay;
 }
