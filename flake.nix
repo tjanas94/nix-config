@@ -9,9 +9,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    neovim-flake.url = "github:neovim/neovim?dir=contrib";
-    neovim-flake.inputs.nixpkgs.follows = "nixpkgs";
-
     filetype-nvim.url = "github:nathom/filetype.nvim";
     filetype-nvim.flake = false;
 
@@ -29,7 +26,6 @@
     self,
     nixpkgs,
     home-manager,
-    neovim-flake,
     ...
   } @ inputs: let
     inherit (self) outputs;

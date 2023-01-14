@@ -80,6 +80,7 @@
     ripgrep
     screen
     sd
+    socat
     vcsh
     wget
     unzip
