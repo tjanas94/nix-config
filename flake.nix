@@ -9,9 +9,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    filetype-nvim.url = "github:nathom/filetype.nvim";
-    filetype-nvim.flake = false;
-
     polyword-vim.url = "github:bendk/polyword.vim";
     polyword-vim.flake = false;
 

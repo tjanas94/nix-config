@@ -46,3 +46,11 @@ opt.wildmode = { 'longest', 'list', 'full' }
 
 opt.completeopt = { 'menu', 'menuone', 'noselect' }
 g.completion_matching_strategy_list = { 'exact', 'substring', 'fuzzy' }
+
+vim.filetype.add({
+    extension = {
+        cdt = 'javascript',
+        ctp = 'php',
+        jqtpl = 'html',
+    },
+});

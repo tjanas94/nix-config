@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "filetype-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1654194633,
-        "narHash": "sha256-B+VvgQj8akiKe+MX/dV2/mdaaqF8s2INW3phdPJ5TFA=",
-        "owner": "nathom",
-        "repo": "filetype.nvim",
-        "rev": "b522628a45a17d58fc0073ffd64f9dc9530a8027",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nathom",
-        "repo": "filetype.nvim",
-        "type": "github"
-      }
-    },
     "hardware": {
       "locked": {
         "lastModified": 1673440569,
@@ -101,7 +85,6 @@
     },
     "root": {
       "inputs": {
-        "filetype-nvim": "filetype-nvim",
         "hardware": "hardware",
         "home-manager": "home-manager",
         "impermanence": "impermanence",

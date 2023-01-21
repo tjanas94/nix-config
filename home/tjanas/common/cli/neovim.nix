@@ -26,7 +26,6 @@
       cmp-nvim-lua
       cmp-path
       comment-nvim
-      filetype-nvim
       friendly-snippets
       gitsigns-nvim
       gruvbox-community

@@ -3,7 +3,7 @@
   vimUtils,
 }:
 vimUtils.buildVimPluginFrom2Nix {
-  pname = "filetype.nvim";
+  pname = "polyword.vim";
   version = "master";
-  src = inputs.filetype-nvim;
+  src = inputs.polyword-vim;
 }

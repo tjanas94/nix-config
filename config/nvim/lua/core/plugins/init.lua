@@ -1,5 +1,4 @@
 require('core.plugins.comment')
-require('core.plugins.filetype')
 require('core.plugins.fugitive')
 require('core.plugins.gitsigns')
 require('core.plugins.lsp')
