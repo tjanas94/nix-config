@@ -12,6 +12,7 @@ in {
         ++ ifTheyExist [
           "audio"
           "dialout"
+          "docker"
           "libvirtd"
           "lp"
           "networkmanager"
