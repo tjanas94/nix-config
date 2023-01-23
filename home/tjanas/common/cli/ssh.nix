@@ -6,6 +6,7 @@ _: {
     extraConfig = ''
       AddKeysToAgent yes
       IdentitiesOnly yes
+      IdentityFile ~/.ssh/id_ed25519_5.pub
       IdentityFile ~/.ssh/id_ed25519_4.pub
       IdentityFile ~/.ssh/id_rsa_3.pub
       IdentityFile ~/.ssh/id_ed25519_2.pub
