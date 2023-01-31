@@ -26,4 +26,10 @@
 
     sessionPath = ["$XDG_CONFIG_HOME/emacs/bin"];
   };
+
+  xdg.configFile.doom = {
+    source = ../../../../config/doom;
+    recursive = true;
+  };
+
 }
