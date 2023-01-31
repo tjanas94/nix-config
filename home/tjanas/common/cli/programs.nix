@@ -4,10 +4,6 @@
       enable = true;
       config.theme = "gruvbox-dark";
     };
-    broot = {
-      enable = true;
-      settings.modal = true;
-    };
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -29,7 +25,6 @@
     mcfly = {
       enable = true;
       fuzzySearchFactor = 2;
-      keyScheme = "vim";
     };
     password-store = {
       enable = true;
@@ -45,21 +40,16 @@
     awscli2
     binutils
     btop
-    choose
+    dnsutils
     docker-compose
     docker-credential-helpers
-    dogdns
     duf
     duplicity
     fd
     fluxcd
-    fx
     file
     go
-    gping
-    httpie
-    inotify-tools
-    jc
+    imagemagick
     jdk
     kubectx
     kubectl
@@ -71,6 +61,7 @@
     node2nix
     nodejs
     openssl
+    pandoc
     perl
     pciutils
     procs
@@ -79,7 +70,6 @@
     rdiff-backup
     ripgrep
     screen
-    sd
     socat
     vcsh
     wget

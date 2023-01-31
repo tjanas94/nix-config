@@ -24,7 +24,6 @@ map('n', '<leader>ss', '<plug>(SubversiveSubstituteLine)')
 map('n', '<leader>S', '<plug>(SubversiveSubstituteToEndOfLine)')
 
 map('n', 'Q', '<nop>')
-map('n', '<C-f>', ':!tmux neww switch-project<cr>')
 
 map('n', '<leader>u', ':UndotreeToggle<cr>')
 map('n', '<leader>pv', ':Ex<cr>')

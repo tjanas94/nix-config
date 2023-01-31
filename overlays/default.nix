@@ -10,4 +10,6 @@
       doCheck = false;
     });
   };
+
+  emacs-overlay = inputs.emacs-overlay.overlays.default;
 }

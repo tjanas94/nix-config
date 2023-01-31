@@ -1,6 +1,7 @@
 _: {
   imports = [
     ./aliases.nix
+    ./emacs.nix
     ./fish.nix
     ./fzf-fish.nix
     ./git.nix

@@ -10,12 +10,9 @@ _: {
       colored-stats = true;
       completion-ignore-case = true;
       completion-prefix-display-length = 3;
-      editing-mode = "vi";
-      keymap = "vi-insert";
       mark-symlinked-directories = true;
       show-all-if-ambiguous = true;
       show-all-if-unmodified = true;
-      show-mode-in-prompt = true;
       visible-stats = true;
     };
   };

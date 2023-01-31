@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-unwrapped;
@@ -62,28 +58,22 @@
     recursive = true;
   };
 
-  home = {
-    packages = with pkgs;
-    with pkgs.nodePackages; [
-      nodePackages."@fsouza/prettierd"
-      nodePackages."@tailwindcss/language-server"
-      alejandra
-      bash-language-server
-      dockerfile-language-server-nodejs
-      fixjson
-      golangci-lint
-      golangci-lint-langserver
-      gopls
-      shfmt
-      statix
-      stylelint-lsp
-      sumneko-lua-language-server
-      typescript
-      typescript-language-server
-      vscode-langservers-extracted
-      yaml-language-server
-    ];
-
-    sessionVariables.EDITOR = "nvim";
-  };
+  home.packages = with pkgs; [
+    nodePackages."@fsouza/prettierd"
+    nodePackages."@tailwindcss/language-server"
+    nodePackages.bash-language-server
+    nodePackages.dockerfile-language-server-nodejs
+    nodePackages.stylelint-lsp
+    nodePackages.typescript
+    nodePackages.typescript-language-server
+    nodePackages.vscode-langservers-extracted
+    nodePackages.yaml-language-server
+    alejandra
+    golangci-lint
+    golangci-lint-langserver
+    gopls
+    shfmt
+    statix
+    sumneko-lua-language-server
+  ];
 }
