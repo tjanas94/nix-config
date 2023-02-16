@@ -37,11 +37,6 @@ in {
   };
 
   services = {
-    screen-locker = {
-      enable = true;
-      lockCmd = "${pkgs.i3lock}/bin/i3lock -nec000000";
-    };
-
     unclutter.enable = true;
 
     xcape = {

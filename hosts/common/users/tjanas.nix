@@ -1,6 +1,11 @@
-{config, ...}: let
+{config, pkgs, ...}: let
   ifTheyExist = groups:
     builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
+  lockscreen = pkgs.writeShellScript "lockscreen" ''
+    if [ -z "$(lsusb | grep Yubico)" ]; then
+      loginctl list-sessions --no-legend | cut -d' ' -f1 | xargs -n1 loginctl lock-session
+    fi
+  '';
 in {
   users = {
     mutableUsers = false;
@@ -26,7 +31,27 @@ in {
   };
 
   home-manager.users.tjanas = import ../../../home/tjanas;
-  security.sudo.extraConfig = ''Defaults lecture="never"'';
+  security = {
+    sudo.extraConfig = ''Defaults lecture="never"'';
+    pam = {
+      u2f.enable = true;
+      services = {
+        i3lock.u2fAuth = true;
+        login.u2fAuth = true;
+        sudo.u2fAuth = true;
+      };
+    };
+  };
+
+  services.udev = {
+    path = with pkgs; [
+      findutils
+      usbutils
+    ];
+    extraRules = ''
+      ACTION=="remove", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ENV{PRODUCT}=="1050/406/*", RUN+="${lockscreen}"
+    '';
+  };
 
   services.xserver.displayManager.autoLogin = {
     enable = true;

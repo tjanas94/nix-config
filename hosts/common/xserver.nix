@@ -17,6 +17,17 @@
     dconf.enable = true;
     steam.enable = true;
     wireshark.enable = true;
+
+    i3lock = {
+      enable = true;
+      u2fSupport = true;
+    };
+
+    xss-lock = {
+      enable = true;
+      lockerCommand = "${pkgs.i3lock}/bin/i3lock -nc000000";
+    };
+
   };
 
   services = {
