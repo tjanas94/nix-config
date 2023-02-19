@@ -5,8 +5,9 @@
 }: {
   boot = {
     loader.grub = {
-      enable = true;
-      enableCryptodisk = true;
+      efiSupport = true;
+      efiInstallAsRemovable = true;
+      devices = ["nodev"];
     };
 
     kernel.sysctl = {
@@ -34,11 +35,17 @@
         umount /mnt
       '';
 
-      secrets = {"/persist/crypto_keyfile.bin" = null;};
+      luks = {
+        gpgSupport = true;
 
-      luks.devices."luks-root" = {
-        device = "/dev/disk/by-partlabel/root";
-        keyFile = "/persist/crypto_keyfile.bin";
+        devices."luks-root" = {
+          device = "/dev/disk/by-partlabel/root";
+
+          gpgCard = {
+            encryptedPass = ../../config/gnupg/cryptkey.gpg;
+            publicKey = ../../config/gnupg/public.asc;
+          };
+        };
       };
     };
   };
@@ -51,9 +58,9 @@
     };
 
     "/boot" = {
-      device = "/dev/disk/by-label/nixos-system";
-      fsType = "btrfs";
-      options = ["subvol=boot" "compress=zstd" "noatime"];
+      device = "/dev/disk/by-label/boot";
+      fsType = "vfat";
+      options = ["noatime"];
     };
 
     "/home" = {

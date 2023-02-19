@@ -10,12 +10,9 @@
     ../common
   ];
 
-  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.devices = ["/dev/sda"];
   networking.hostName = "x230t";
-  services.xserver = {
-    videoDrivers = ["displaylink" "modesetting"];
-    wacom.enable = true;
-  };
+  services.xserver.wacom.enable = true;
   swapFile.size = 4 * 1024;
   system.stateVersion = "22.11";
 }
