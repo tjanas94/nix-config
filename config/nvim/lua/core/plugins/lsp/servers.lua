@@ -1,5 +1,5 @@
 local lsp_servers = { 'bashls', 'cssls', 'dockerls', 'eslint', 'golangci_lint_ls', 'gopls', 'html', 'jsonls',
-    'stylelint_lsp', 'sumneko_lua', 'tailwindcss', 'tsserver', 'yamlls' }
+    'lua_ls', 'stylelint_lsp', 'tailwindcss', 'tsserver', 'yamlls' }
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
@@ -13,7 +13,7 @@ local servers = {
             },
         },
     },
-    sumneko_lua = {
+    lua_ls = {
         settings = {
             Lua = {
                 runtime = {

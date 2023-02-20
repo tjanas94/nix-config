@@ -36,7 +36,6 @@ in {
     pam = {
       u2f.enable = true;
       services = {
-        i3lock.u2fAuth = true;
         login.u2fAuth = true;
         sudo.u2fAuth = true;
       };

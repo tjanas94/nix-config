@@ -9,6 +9,8 @@
     herbstluftwm = prev.herbstluftwm.overrideAttrs (old: {
       doCheck = false;
     });
+
+    stable = import inputs.stable { system = final.system; };
   };
 
   emacs-overlay = inputs.emacs-overlay.overlays.default;

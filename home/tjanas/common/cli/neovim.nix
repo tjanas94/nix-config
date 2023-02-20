@@ -72,8 +72,8 @@
     golangci-lint
     golangci-lint-langserver
     gopls
+    lua-language-server
     shfmt
     statix
-    sumneko-lua-language-server
   ];
 }
