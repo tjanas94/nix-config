@@ -70,7 +70,7 @@ in {
     transmission-gtk
     virt-manager
     winetricks
-    stable.wineWowPackages.stable
+    nixpkgs-stable.wineWowPackages.stable
     wireshark
     xsel
     yubikey-manager

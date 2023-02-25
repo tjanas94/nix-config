@@ -32,7 +32,7 @@
       null-ls-nvim
       nvim-cmp
       nvim-lspconfig
-      nvim-treesitter.withAllGrammars
+      pkgs.nixpkgs-master.vimPlugins.nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects
       nvim-web-devicons
       polyword-vim

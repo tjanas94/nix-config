@@ -9,8 +9,20 @@
     herbstluftwm = prev.herbstluftwm.overrideAttrs (old: {
       doCheck = false;
     });
+  };
 
-    stable = import inputs.stable { system = final.system; };
+  stable-packages = final: _prev: {
+    nixpkgs-stable = import inputs.nixpkgs-stable {
+      system = final.system;
+      config.allowUnfree = true;
+    };
+  };
+
+  master-packages = final: _prev: {
+    nixpkgs-master = import inputs.nixpkgs-master {
+      system = final.system;
+      config.allowUnfree = true;
+    };
   };
 
   emacs-overlay = inputs.emacs-overlay.overlays.default;
