@@ -14,8 +14,8 @@ _: {
     '';
   };
 
-  home.file.".ssh/config.d" = {
-    source = ../../../../config/ssh/config.d;
+  home.file.".ssh" = {
+    source = ../../../../config/ssh;
     recursive = true;
   };
 }

@@ -36,7 +36,9 @@
 
   home.packages = with pkgs; [
     nodePackages.aws-azure-login
+    python3Packages.grip
     amazon-ecr-credential-helper
+    ansible
     awscli2
     binutils
     btop
@@ -45,6 +47,7 @@
     docker-credential-helpers
     duf
     duplicity
+    editorconfig-core-c
     fd
     fluxcd
     file
@@ -77,4 +80,9 @@
     usbutils
     zip
   ];
+
+  xdg.configFile.Yubico = {
+    source = ../../../../config/Yubico;
+    recursive = true;
+  };
 }

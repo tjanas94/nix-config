@@ -32,6 +32,7 @@ _: {
       "*.py[cod]"
       "*.retry"
       "*.swp"
+      "*.tmp"
       "*~"
     ];
     delta.enable = true;
