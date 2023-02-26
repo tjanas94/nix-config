@@ -65,7 +65,7 @@ in {
     remmina
     scrot
     simple-scan
-    teams
+    nixpkgs-master.teams
     thunar
     transmission-gtk
     virt-manager
