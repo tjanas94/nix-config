@@ -34,7 +34,10 @@ in {
   security = {
     sudo.extraConfig = ''Defaults lecture="never"'';
     pam = {
-      u2f.enable = true;
+      u2f = {
+        enable = true;
+        origin = "pam://janas.dev";
+      };
       services = {
         login.u2fAuth = true;
         sudo.u2fAuth = true;
