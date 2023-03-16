@@ -50,3 +50,5 @@
 ;(unpin! t)
 
 (package! ob-http)
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))

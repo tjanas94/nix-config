@@ -2,7 +2,9 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  dnsmasq-dir = "/etc/dnsmasq.d";
+in {
   virtualisation = {
     docker.enable = true;
 
@@ -19,7 +21,10 @@
 
   services.dnsmasq = {
     enable = true;
-    settings = {address = "/.test/192.168.122.1";};
+    settings = {
+      address = "/.test/192.168.122.1";
+      conf-dir = dnsmasq-dir;
+    };
   };
 
   system = {
@@ -28,6 +33,6 @@
   };
 
   environment.persistence."/persist" = {
-    directories = ["/var/lib/libvirt"];
+    directories = ["/var/lib/libvirt" dnsmasq-dir];
   };
 }

@@ -82,3 +82,15 @@
 (setq
   projectile-project-search-path '(("~/workspace" . 4))
   projectile-project-name-function #'tjanas/default-project-name)
+
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (("C-TAB" . 'copilot-accept-completion-by-word)
+         ("C-<tab>" . 'copilot-accept-completion-by-word)
+         :map copilot-completion-map
+         ("<tab>" . 'copilot-accept-completion)
+         ("TAB" . 'copilot-accept-completion)))
+
+(add-to-list 'auto-mode-alist '("\\.cdt\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.ctp\\'" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.jqtpl\\'" . web-mode))

@@ -1,4 +1,8 @@
-{config, pkgs, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   ifTheyExist = groups:
     builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
   lockscreen = pkgs.writeShellScript "lockscreen" ''
@@ -45,18 +49,20 @@ in {
     };
   };
 
-  services.udev = {
-    path = with pkgs; [
-      findutils
-      usbutils
-    ];
-    extraRules = ''
-      ACTION=="remove", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ENV{PRODUCT}=="1050/406/*", RUN+="${lockscreen}"
-    '';
-  };
+  services = {
+    udev = {
+      path = with pkgs; [
+        findutils
+        usbutils
+      ];
+      extraRules = ''
+        ACTION=="remove", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ENV{PRODUCT}=="1050/406/*", RUN+="${lockscreen}"
+      '';
+    };
 
-  services.xserver.displayManager.autoLogin = {
-    enable = true;
-    user = "tjanas";
+    xserver.displayManager.autoLogin = {
+      enable = true;
+      user = "tjanas";
+    };
   };
 }

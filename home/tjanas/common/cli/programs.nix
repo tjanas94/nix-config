@@ -76,6 +76,7 @@
     socat
     vcsh
     wget
+    whois
     unzip
     usbutils
     zip

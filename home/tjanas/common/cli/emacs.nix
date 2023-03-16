@@ -31,5 +31,4 @@
     source = ../../../../config/doom;
     recursive = true;
   };
-
 }

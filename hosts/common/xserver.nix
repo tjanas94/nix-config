@@ -27,13 +27,13 @@
       enable = true;
       lockerCommand = "${pkgs.i3lock}/bin/i3lock -nc000000";
     };
-
   };
 
   services = {
     blueman.enable = true;
     gvfs.enable = true;
     redshift.enable = true;
+    trezord.enable = true;
 
     xserver = {
       enable = true;

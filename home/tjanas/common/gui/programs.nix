@@ -68,6 +68,7 @@ in {
     nixpkgs-master.teams
     thunar
     transmission-gtk
+    trezor-suite
     virt-manager
     winetricks
     nixpkgs-stable.wineWowPackages.stable
