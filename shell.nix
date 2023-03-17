@@ -6,4 +6,7 @@
     NIX_CONFIG = "experimental-features = nix-command flakes";
     nativeBuildInputs = with pkgs; [nix home-manager git];
   };
+  node14 = pkgs.mkShell {
+    nativeBuildInputs = with pkgs; [nodejs-slim-14_x nodejs-14_x.pkgs.npm];
+  };
 }
