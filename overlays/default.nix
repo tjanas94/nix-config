@@ -9,6 +9,11 @@
     herbstluftwm = prev.herbstluftwm.overrideAttrs (old: {
       doCheck = false;
     });
+
+    qutebrowser-qt6 = prev.qutebrowser-qt6.overrideAttrs (old: {
+      name = "qutebrowser-git";
+      src = inputs.qutebrowser;
+    });
   };
 
   stable-packages = final: _prev: {

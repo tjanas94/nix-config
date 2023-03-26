@@ -14,6 +14,9 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
+    qutebrowser.url = "github:qutebrowser/qutebrowser";
+    qutebrowser.flake = false;
+
     polyword-vim.url = "github:bendk/polyword.vim";
     polyword-vim.flake = false;
 

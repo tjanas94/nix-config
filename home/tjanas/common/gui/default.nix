@@ -9,6 +9,7 @@ _: {
     ./rofi-pass.nix
     ./sxiv.nix
     ./theme.nix
+    ./xsession.nix
     ./zathura.nix
   ];
 }

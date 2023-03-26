@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   mpv =
     pkgs.wrapMpv (pkgs.mpv-unwrapped.override {
       pipewireSupport = false;
@@ -24,6 +28,11 @@ in {
     mpv = {
       enable = true;
       package = mpv;
+    };
+
+    qutebrowser = {
+      enable = true;
+      package = pkgs.qutebrowser-qt6;
     };
 
     rofi = {
