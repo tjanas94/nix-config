@@ -4,8 +4,7 @@ set -euo pipefail
 
 OPTIONS=$(cat <<EOF
 1/2
-2/3
-3/4
+3/5
 1
 EOF
 )
@@ -29,4 +28,3 @@ if [ -n "$RIGHT" ]; then
 fi
 
 herbstclient reload
-systemctl --user restart polybar.service
