@@ -14,15 +14,6 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
-    qutebrowser.url = "github:qutebrowser/qutebrowser";
-    qutebrowser.flake = false;
-
-    polyword-vim.url = "github:bendk/polyword.vim";
-    polyword-vim.flake = false;
-
-    tmux-gruvbox-truecolor.url = "github:lawabidingcactus/tmux-gruvbox-truecolor";
-    tmux-gruvbox-truecolor.flake = false;
-
     wallpapers.url = "git+https://gitlab.com/dwt1/wallpapers.git";
     wallpapers.flake = false;
   };
@@ -30,7 +21,6 @@
   outputs = {
     self,
     nixpkgs,
-    home-manager,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -91,29 +81,6 @@
       x230t = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/x230t];
-      };
-    };
-
-    homeConfigurations = {
-      "tjanas@dell" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/tjanas];
-      };
-      "tjanas@lenovo" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/tjanas];
-      };
-      "tjanas@nixos-vm" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/tjanas];
-      };
-      "tjanas@x230t" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/tjanas];
       };
     };
   };

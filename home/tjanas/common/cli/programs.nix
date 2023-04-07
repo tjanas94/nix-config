@@ -36,7 +36,6 @@
 
   home.packages = with pkgs; [
     nodePackages.aws-azure-login
-    python3Packages.grip
     amazon-ecr-credential-helper
     ansible
     awscli2
@@ -47,29 +46,23 @@
     docker-credential-helpers
     duf
     duplicity
-    editorconfig-core-c
     fd
     fluxcd
     file
-    go
     imagemagick
-    jdk
     kubectx
     kubectl
     lynx
-    maven
     moreutils
     mtr
     nmap
-    node2nix
-    nodejs
     openssl
     pandoc
     perl
     pciutils
     procs
-    python3Full
     pv
+    pwgen
     rdiff-backup
     ripgrep
     screen

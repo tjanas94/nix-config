@@ -26,9 +26,9 @@
     shell = "${pkgs.fish}/bin/fish";
     terminal = "screen-256color";
     plugins = with pkgs.tmuxPlugins; [
+      gruvbox
       open
       pain-control
-      tmux-gruvbox-truecolor
       yank
     ];
   };

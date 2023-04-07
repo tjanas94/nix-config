@@ -30,11 +30,6 @@ in {
       package = mpv;
     };
 
-    qutebrowser = {
-      enable = true;
-      package = pkgs.qutebrowser-qt6;
-    };
-
     rofi = {
       enable = true;
       theme = "gruvbox-dark";
@@ -64,7 +59,7 @@ in {
     jetbrains.idea-community
     keepassxc
     libnotify
-    libreoffice
+    libreoffice-fresh
     networkmanagerapplet
     pavucontrol
     pgadmin4
