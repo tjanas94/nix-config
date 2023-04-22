@@ -10,4 +10,6 @@ cat <<EOF | sftp "$vm"
 mkdir .aws
 put $HOME/.aws/config .aws
 put $HOME/.aws/credentials .aws
+mkdir .kube
+put $HOME/.kube/config .kube
 EOF
