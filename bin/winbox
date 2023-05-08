@@ -1,3 +1,0 @@
-#!/bin/sh
-
-exec wine ~/.local/bin/winbox64.exe "$@"

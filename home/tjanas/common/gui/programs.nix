@@ -74,8 +74,6 @@ in {
     transmission-gtk
     trezor-suite
     virt-manager
-    winetricks
-    nixpkgs-stable.wineWowPackages.stable
     wireshark
     xsel
     yubikey-manager

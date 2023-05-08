@@ -1,4 +1,12 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [
+    inputs.nix-index-database.hmModules.nix-index
+  ];
+
   programs = {
     bat = {
       enable = true;
@@ -58,11 +66,13 @@
     nmap
     openssl
     pandoc
+    paperkey
     perl
     pciutils
     procs
     pv
     pwgen
+    qrencode
     rdiff-backup
     ripgrep
     screen
@@ -72,6 +82,8 @@
     whois
     unzip
     usbutils
+    xkcdpass
+    zbar
     zip
   ];
 
