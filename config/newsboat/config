@@ -4,9 +4,9 @@ auto-reload yes
 reload-time 60
 prepopulate-query-feeds yes
 
-browser "/usr/bin/env firefox %u"
-macro m set browser "/usr/bin/env mpvq %u"; open-in-browser; set browser "/usr/bin/env firefox %u"
-macro b set browser "/usr/bin/env lynx -accept_all_cookies %u"; open-in-browser; set browser "/usr/bin/env firefox %u"
+browser "/usr/bin/env brave %u"
+macro m set browser "/usr/bin/env mpvq %u"; open-in-browser; set browser "/usr/bin/env brave %u"
+macro b set browser "/usr/bin/env lynx -accept_all_cookies %u"; open-in-browser; set browser "/usr/bin/env brave %u"
 
 bind-key j down
 bind-key k up

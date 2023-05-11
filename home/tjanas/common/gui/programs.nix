@@ -16,13 +16,9 @@
   };
 in {
   programs = {
-    firefox = {
-      enable = true;
-      package = pkgs.firefox.override {
-        cfg.enableTridactylNative = true;
-        extraNativeMessagingHosts = [pkgs.passff-host];
-      };
-    };
+    brave.enable = true;
+    browserpass.enable = true;
+    firefox.enable = true;
     google-chrome.enable = true;
 
     mpv = {

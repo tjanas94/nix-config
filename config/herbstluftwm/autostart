@@ -34,7 +34,7 @@ hc keybind $Mod-space spawn systemd-run-app rofi -modi combi -show combi -combi-
 hc keybind $Mod-slash spawn systemd-run-app rofi -show window
 
 hc keybind $Mod-Mod1-l spawn sh -c "sleep 0.25 && xset dpms force off"
-hc keybind $Mod-Mod1-b spawn systemd-run-app firefox
+hc keybind $Mod-Mod1-b spawn systemd-run-app brave
 hc keybind $Mod-Mod1-p spawn systemd-run-app rofi-pass
 hc keybind $Mod-Mod1-o spawn systemd-run-app openfm
 hc keybind $Mod-Mod1-s spawn systemd-run-app split-screen
