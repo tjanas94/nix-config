@@ -38,7 +38,7 @@
       enable = true;
       package =
         pkgs.pass.withExtensions
-        (exts: with exts; [pass-import pass-otp pass-update]);
+        (exts: with exts; [pass-import pass-update]);
     };
   };
 
