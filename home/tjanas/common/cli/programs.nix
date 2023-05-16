@@ -2,7 +2,11 @@
   inputs,
   pkgs,
   ...
-}: {
+}: let
+  pass =
+    pkgs.pass.withExtensions
+    (exts: with exts; [pass-import pass-update]);
+in {
   imports = [
     inputs.nix-index-database.hmModules.nix-index
   ];
@@ -36,9 +40,7 @@
     };
     password-store = {
       enable = true;
-      package =
-        pkgs.pass.withExtensions
-        (exts: with exts; [pass-import pass-update]);
+      package = pass;
     };
   };
 
@@ -87,8 +89,12 @@
     zip
   ];
 
-  xdg.configFile.Yubico = {
-    source = ../../../../config/Yubico;
-    recursive = true;
+  xdg.configFile = {
+    Yubico = {
+      source = ../../../../config/Yubico;
+      recursive = true;
+    };
+    "fish/completions/nix.fish".source = "${pkgs.nix}/share/fish/vendor_completions.d/nix.fish";
+    "fish/completions/pass.fish".source = "${pass}/share/fish/vendor_completions.d/pass.fish";
   };
 }
