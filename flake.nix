@@ -7,6 +7,7 @@
     nixpkgs-master.url = "github:nixos/nixpkgs";
     hardware.url = "github:nixos/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
+    sops-nix.url = "github:mic92/sops-nix";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -46,7 +47,7 @@
           import ./pkgs {pkgs = nixpkgs.legacyPackages.${system};}
       )
       // {
-        x86_64-linux.nixos-iso = nixosConfigurations.nixos-iso.config.system.build.isoImage;
+        x86_64-linux.installer = nixosConfigurations.installer.config.system.build.isoImage;
       };
 
     devShells = forAllSystems (
@@ -69,13 +70,13 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/dell];
       };
+      installer = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/installer];
+      };
       lenovo = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/lenovo];
-      };
-      nixos-iso = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/nixos-iso];
       };
       nixos-vm = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};

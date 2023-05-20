@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-BASEDIR=$(dirname $(readlink -f $0))
-cd "$BASEDIR"/..
-
-nix flake update
-sudo nixos-rebuild switch --flake .

@@ -10,6 +10,7 @@
     ../common
   ];
 
+  sops.defaultSopsFile = ./secrets.yaml;
   boot.loader.grub.devices = ["/dev/sda"];
   networking.hostName = "x230t";
   services.xserver.wacom.enable = true;

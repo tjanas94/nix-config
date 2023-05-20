@@ -32,6 +32,7 @@
     nvidiaBusId = "PCI:1:0:0";
   };
 
+  sops.defaultSopsFile = ./secrets.yaml;
   networking.hostName = "lenovo";
   services.xserver.videoDrivers = ["displaylink" "modesetting" "nvidia"];
   system.stateVersion = "22.11";

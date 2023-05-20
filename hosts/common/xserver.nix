@@ -32,6 +32,7 @@
   services = {
     blueman.enable = true;
     gvfs.enable = true;
+    pcscd.enable = true;
     redshift.enable = true;
     trezord.enable = true;
 

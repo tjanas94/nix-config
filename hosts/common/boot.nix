@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -33,6 +34,8 @@
         btrfs subvolume snapshot /mnt/root-blank /mnt/root
 
         umount /mnt
+
+        rm -r /run/secrets
       '';
 
       luks = {
@@ -44,7 +47,19 @@
           gpgCard = {
             encryptedPass = ../../config/gnupg/cryptkey.gpg;
             publicKey = ../../config/gnupg/public.asc;
+            gracePeriod = 0;
           };
+        };
+      };
+
+      network = {
+        enable = true;
+
+        ssh = {
+          enable = true;
+          port = 2222;
+          authorizedKeys = (import ./users/authorized-keys.nix).authorizedKeys.keys;
+          hostKeys = [config.sops.secrets.initrd-host-key.path];
         };
       };
     };
@@ -106,4 +121,6 @@
     enable = true;
     memoryPercent = 150;
   };
+
+  sops.secrets.initrd-host-key = {};
 }

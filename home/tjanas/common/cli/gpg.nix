@@ -7,11 +7,15 @@ _: {
         trust = "ultimate";
       }
     ];
+    scdaemonSettings = {
+      disable-ccid = true;
+    };
   };
 
   services = {
     gpg-agent = {
       enable = true;
+      grabKeyboardAndMouse = false;
       defaultCacheTtl = 300;
       defaultCacheTtlSsh = 300;
       maxCacheTtl = 900;

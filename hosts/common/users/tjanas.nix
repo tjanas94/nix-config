@@ -29,7 +29,7 @@ in {
           "video"
           "wireshark"
         ];
-      passwordFile = "/persist/password_file";
+      passwordFile = config.sops.secrets.tjanas-password.path;
       openssh = import ./authorized-keys.nix;
     };
   };
@@ -65,5 +65,10 @@ in {
       enable = true;
       user = "tjanas";
     };
+  };
+
+  sops.secrets.tjanas-password = {
+    sopsFile = ../secrets.yaml;
+    neededForUsers = true;
   };
 }

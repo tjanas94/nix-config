@@ -11,6 +11,7 @@
   imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
   boot.initrd.availableKernelModules = [
+    "e1000e"
     "xhci_pci"
     "ehci_pci"
     "ahci"

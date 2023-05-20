@@ -2,46 +2,48 @@
 
 set -euo pipefail
 
-BASEDIR=$(dirname $(dirname $(readlink -f $0)))
+export NIX_CONFIG='experimental-features = nix-command flakes'
+
+FLAKE=github:tjanas94/nix-config
 
 if [ $UID -ne 0 ]; then
-    echo "must be run as root" >&2
-    exit 1
+	echo "must be run as root" >&2
+	exit 1
 fi
 
-if [ $# -ne 2 ]; then
-    echo "usage: $0 <device> <host>" >&2
-    exit 1
+if [ $# -ne 1 ]; then
+	echo "usage: $0 <host>" >&2
+	exit 1
 fi
 
-DEV=$1
-HOST=$2
+HOST=$1
 
-if [ ! -b "$DEV" ]; then
-    echo "device $DEV does not exist" >&2
-    exit 1
+if ! nix flake show --json "$FLAKE" | jq -e ".nixosConfigurations.${HOST}.type == \"nixos-configuration\""; then
+	echo "nixos configuration $HOST does not exist" >&2
+	exit 1
 fi
 
-if ! nix flake show "$BASEDIR" | grep -q "${HOST}.*NixOS configuration"; then
-    echo "nixos configuration $HOST does not exist" >&2
-    exit 1
+SRC=$(nix flake metadata "$FLAKE" --json | jq -r .path)
+
+# shellcheck source=/dev/null
+source "$SRC/hosts/$HOST/config.sh"
+
+cd "$(mktemp -d)"
+
+if [ ! -S "$(gpgconf --list-dirs agent-socket)" ]; then
+	GPG_TTY=$(tty)
+	GNUPGHOME="$(pwd)/gnupg"
+	export GPG_TTY GNUPGHOME
+
+	mkdir -p "$GNUPGHOME"
+	echo "pinentry-program $(command -v pinentry-curses)" >"$GNUPGHOME/gpg-agent.conf"
+	gpg --import "$SRC/config/gnupg/public.asc"
+	gpg --card-status
 fi
-
-cd $(mktemp -d)
-
-export GPG_TTY=$(tty)
-export GNUPGHOME="$(pwd)/gnupg"
-mkdir -p "$GNUPGHOME"
-echo "pinentry-program $(command -v pinentry-curses)" > "$GNUPGHOME/gpg-agent.conf"
-gpg --import "$BASEDIR/config/gnupg/public.asc"
-gpg --card-status
 
 umask 0077
-gpg -d "$BASEDIR/config/gnupg/cryptkey.gpg" > crypto_keyfile.bin
-dd if=/dev/zero of=crypto_header.bin bs=16M count=1
-cryptsetup luksFormat --batch-mode crypto_header.bin crypto_keyfile.bin
-cryptsetup luksAddKey --key-file crypto_keyfile.bin crypto_header.bin
-mkpasswd -m sha-512 > password_file
+gpg -d "$SRC/config/gnupg/cryptkey.gpg" >crypto_keyfile.bin
+gpg -d "$SRC/hosts/$HOST/ssh_host_ed25519_key.gpg" >ssh_host_ed25519_key
 umask 0022
 
 parted "$DEV" -- mklabel gpt
@@ -52,7 +54,7 @@ parted "$DEV" -- set 1 bios_grub on
 parted "$DEV" -- set 2 esp on
 udevadm trigger
 
-cryptsetup luksHeaderRestore --header-backup-file crypto_header.bin --batch-mode /dev/disk/by-partlabel/root
+cryptsetup luksFormat --batch-mode /dev/disk/by-partlabel/root crypto_keyfile.bin
 cryptsetup open --key-file crypto_keyfile.bin /dev/disk/by-partlabel/root luks-root
 
 mkfs.btrfs -L 'nixos-system' /dev/mapper/luks-root
@@ -74,9 +76,12 @@ mount -o subvol=nix,compress=zstd,noatime /dev/mapper/luks-root /mnt/nix
 mount -o subvol=persist,compress=zstd,noatime /dev/mapper/luks-root /mnt/persist
 mount -o subvol=log,compress=zstd,noatime /dev/mapper/luks-root /mnt/var/log
 mount -o subvol=swap,noatime /dev/mapper/luks-root /mnt/swap
-mv -t /mnt/persist password_file
 
 mkfs.vfat -n boot /dev/disk/by-partlabel/boot
 mount -o noatime /dev/disk/by-partlabel/boot /mnt/boot
 
-nixos-install --no-root-password --flake "$BASEDIR#$HOST"
+mkdir -p /mnt/persist/etc/ssh
+mv -t /mnt/persist/etc/ssh ssh_host_ed25519_key "$SRC/hosts/$HOST/ssh_host_ed25519_key.pub"
+mv -t /mnt/persist crypto_keyfile.bin
+
+nixos-install --no-root-password --flake "$FLAKE#$HOST"
