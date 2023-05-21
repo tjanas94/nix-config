@@ -54,6 +54,7 @@
 
       network = {
         enable = true;
+        udhcpc.extraArgs = ["--timeout 5 --tryagain 20 --background"];
 
         ssh = {
           enable = true;
