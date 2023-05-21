@@ -8,7 +8,7 @@ in {
   services.openssh = {
     enable = true;
     settings = {
-      PermitRootLogin = "no";
+      PermitRootLogin = "prohibit-password";
       PasswordAuthentication = false;
       StreamLocalBindUnlink = "yes";
       GatewayPorts = "clientspecified";
@@ -26,4 +26,6 @@ in {
   networking.firewall.allowedTCPPorts = [22];
   security.pam.enableSSHAgentAuth = true;
   sops.age.sshKeyPaths = [hostKey];
+
+  users.users.root.openssh = import ./users/authorized-keys.nix;
 }

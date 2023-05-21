@@ -43,10 +43,7 @@ in {
         origin = "pam://janas.dev";
         cue = true;
       };
-      services = {
-        login.u2fAuth = true;
-        sudo.u2fAuth = true;
-      };
+      services.login.u2fAuth = true;
     };
   };
 
