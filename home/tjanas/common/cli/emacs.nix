@@ -1,15 +1,7 @@
 {pkgs, ...}: {
-  programs = {
-    emacs = {
-      enable = true;
-      extraPackages = epkgs: [epkgs.vterm];
-    };
-
-    bash.initExtra = ''
-      if [[ -n "$INSIDE_EMACS" && $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z "$BASH_EXECUTION_STRING" ]]; then
-        exec fish
-      fi
-    '';
+  programs.emacs = {
+    enable = true;
+    extraPackages = epkgs: [epkgs.vterm];
   };
 
   services.emacs = {

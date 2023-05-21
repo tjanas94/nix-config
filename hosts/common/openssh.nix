@@ -24,5 +24,6 @@ in {
 
   programs.ssh.startAgent = true;
   networking.firewall.allowedTCPPorts = [22];
+  security.pam.enableSSHAgentAuth = true;
   sops.age.sshKeyPaths = [hostKey];
 }

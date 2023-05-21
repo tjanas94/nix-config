@@ -9,9 +9,6 @@ _: {
       scu = "systemctl --user";
     };
 
-    sessionVariables = {
-      LIBVIRT_DEFAULT_URI = "qemu:///system";
-      SSH_AUTH_SOCK = "";
-    };
+    sessionVariables.LIBVIRT_DEFAULT_URI = "qemu:///system";
   };
 }

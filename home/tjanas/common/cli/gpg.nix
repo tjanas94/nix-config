@@ -1,4 +1,4 @@
-_: {
+{config, ...}: {
   programs.gpg = {
     enable = true;
     publicKeys = [
@@ -24,4 +24,10 @@ _: {
       enableExtraSocket = true;
     };
   };
+
+  home.sessionVariablesExtra = ''
+    if [[ "$SSH_AUTH_SOCK" != /tmp/* ]]; then
+      export SSH_AUTH_SOCK="$(${config.programs.gpg.package}/bin/gpgconf --list-dirs agent-ssh-socket)"
+    fi
+  '';
 }

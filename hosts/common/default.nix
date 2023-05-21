@@ -8,6 +8,7 @@
       inputs.impermanence.nixosModules.impermanence
       inputs.home-manager.nixosModules.home-manager
       ./boot.nix
+      ./fish.nix
       ./locale.nix
       ./network.nix
       ./nix.nix

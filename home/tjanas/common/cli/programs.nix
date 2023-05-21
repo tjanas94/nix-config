@@ -92,12 +92,8 @@ in {
     zip
   ];
 
-  xdg.configFile = {
-    Yubico = {
-      source = ../../../../config/Yubico;
-      recursive = true;
-    };
-    "fish/completions/nix.fish".source = "${pkgs.nix}/share/fish/vendor_completions.d/nix.fish";
-    "fish/completions/pass.fish".source = "${pass}/share/fish/vendor_completions.d/pass.fish";
+  xdg.configFile.Yubico = {
+    source = ../../../../config/Yubico;
+    recursive = true;
   };
 }
