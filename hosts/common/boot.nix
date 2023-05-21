@@ -9,6 +9,7 @@
       efiSupport = true;
       efiInstallAsRemovable = true;
       devices = ["nodev"];
+      users.root.hashedPasswordFile = config.sops.secrets.grub-password.path;
     };
 
     kernel.sysctl = {
@@ -124,4 +125,5 @@
   };
 
   sops.secrets.initrd-host-key = {};
+  sops.secrets.grub-password.sopsFile = ./secrets.yaml;
 }
