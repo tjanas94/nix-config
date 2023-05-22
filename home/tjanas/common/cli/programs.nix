@@ -91,9 +91,4 @@ in {
     zbar
     zip
   ];
-
-  xdg.configFile.Yubico = {
-    source = ../../../../config/Yubico;
-    recursive = true;
-  };
 }

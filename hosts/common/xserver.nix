@@ -15,13 +15,9 @@
 
   programs = {
     dconf.enable = true;
+    i3lock.enable = true;
     steam.enable = true;
     wireshark.enable = true;
-
-    i3lock = {
-      enable = true;
-      u2fSupport = true;
-    };
 
     xss-lock = {
       enable = true;

@@ -35,17 +35,7 @@ in {
   };
 
   home-manager.users.tjanas = import ../../../home/tjanas;
-  security = {
-    sudo.extraConfig = ''Defaults lecture="never"'';
-    pam = {
-      u2f = {
-        enable = true;
-        origin = "pam://janas.dev";
-        cue = true;
-      };
-      services.login.u2fAuth = true;
-    };
-  };
+  security.sudo.extraConfig = ''Defaults lecture="never"'';
 
   services = {
     udev = {
