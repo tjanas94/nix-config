@@ -48,7 +48,6 @@
           gpgCard = {
             encryptedPass = ../../config/gnupg/cryptkey.gpg;
             publicKey = ../../config/gnupg/public.asc;
-            gracePeriod = 0;
           };
         };
       };

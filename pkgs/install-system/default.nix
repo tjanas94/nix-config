@@ -10,14 +10,13 @@
     cryptsetup
     dosfstools
     e2fsprogs
+    git
     gnupg
     jq
-    mkpasswd
     nix
     nixos-install-tools
     parted
     pinentry-curses
-    systemd
     util-linux
   ];
 in
