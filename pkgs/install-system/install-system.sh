@@ -39,9 +39,9 @@ source "$SRC/hosts/$HOST/config.sh"
 TMPDIR="$(mktemp -d)"
 trap 'rm -rf $TMPDIR' EXIT
 
-# ssh "root@$HOST" mkdir -p .gnupg
-# ssh -o "RemoteForward /root/.gnupg/S.gpg-agent $(gpgconf --list-dirs agent-extra-socket)" "root@$HOST"
-if [ -S /root/.gnupg/S.gpg-agent ]; then
+# ssh "root@$HOST" mkdir -p .gnupg /run/user/0/gnupg
+# ssh -R "/root/.gnupg/S.gpg-agent:$(gpgconf --list-dirs agent-extra-socket)" -R "/run/user/0/gnupg/S.gpg-agent:$(gpgconf --list-dirs agent-extra-socket)" "root@$HOST"
+if [ -S "$(gpgconf --list-dirs agent-socket)" ]; then
 	gpg --import "$SRC/config/gnupg/public.asc"
 else
 	GPG_TTY=$(tty)
