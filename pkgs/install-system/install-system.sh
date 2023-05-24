@@ -4,7 +4,7 @@ set -euo pipefail
 
 export NIX_CONFIG='experimental-features = nix-command flakes'
 
-if [ -z "$FLAKE" ]; then
+if [ -z ${FLAKE+x} ]; then
 	FLAKE=github:tjanas94/nix-config
 fi
 
@@ -19,7 +19,6 @@ if [ $# -eq 0 ]; then
 fi
 
 HOST=$1
-CLOSURE=""
 
 # nixos-rebuild build --flake "$FLAKE#$HOST"
 # readlink result
@@ -103,12 +102,12 @@ mount -o noatime /dev/disk/by-label/boot /mnt/boot
 mkdir -p /mnt/persist/etc/ssh
 cp -t /mnt/persist/etc/ssh "$TMPDIR/ssh_host_ed25519_key"
 
-if [ -n "$CLOSURE" ]; then
+if [ -z ${CLOSURE+x} ]; then
+	nixos-install --no-channel-copy --no-root-password --flake "$FLAKE#$HOST"
+else
 	echo "Copy system closure to remote host:"
 	echo "nix copy --to \"ssh://root@$HOST?remote-store=local?root=/mnt\" $CLOSURE"
 	read -rn1 -p 'Press any key to continue'
 
 	nixos-install --no-channel-copy --no-root-password --system "$CLOSURE"
-else
-	nixos-install --no-channel-copy --no-root-password --flake "$FLAKE#$HOST"
 fi
