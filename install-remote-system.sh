@@ -45,3 +45,7 @@ gpg -d "$SRC/config/gnupg/cryptkey.gpg" | $SSH \
 pass "devices/$HOST/luks" | $SSH \
     "root@$HOST" \
     "cat | cryptsetup luksAddKey --key-file=/root/cryptkey /dev/disk/by-partlabel/root"
+
+$SSH \
+    "root@$HOST" \
+    "reboot"
