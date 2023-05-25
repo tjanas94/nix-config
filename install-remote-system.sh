@@ -35,3 +35,13 @@ nix copy --to "ssh://root@$HOST?remote-store=local?root=/mnt" "$CLOSURE"
 $SSH \
     "root@$HOST" \
     "nixos-install --no-channel-copy --no-root-password --system $CLOSURE"
+
+SRC=$(nix flake metadata "$FLAKE" --json | jq -r .path)
+
+gpg -d "$SRC/config/gnupg/cryptkey.gpg" | $SSH \
+    "root@$HOST" \
+    "cat > /root/cryptkey"
+
+pass "devices/$HOST/luks" | $SSH \
+    "root@$HOST" \
+    "cat | cryptsetup luksAddKey --key-file=/root/cryptkey /dev/disk/by-partlabel/root"
