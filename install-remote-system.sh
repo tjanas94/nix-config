@@ -16,7 +16,8 @@ HOST=$1
 nixos-rebuild build --flake "$FLAKE#$HOST"
 CLOSURE=$(readlink -f result)
 
-SSH='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+export NIX_SSHOPTS='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+SSH="ssh $NIX_SSHOPTS"
 GPG_SOCKET="$(gpgconf --list-dirs agent-extra-socket)"
 
 $SSH \
@@ -28,6 +29,8 @@ $SSH \
     -R "/run/user/0/gnupg/S.gpg-agent:$GPG_SOCKET" \
     "root@$HOST" \
     "SKIP_INSTALL=1 nix run $FLAKE#install-system -- $HOST"
+
+nix copy --to "ssh://root@$HOST?remote-store=local?root=/mnt" "$CLOSURE"
 
 $SSH \
     "root@$HOST" \

@@ -6,7 +6,15 @@
   services.polybar = {
     enable = true;
     package = pkgs.polybarFull;
-    script = "polybar main &";
+    script = ''
+      MONITOR=""
+
+      if polybar -m | ${pkgs.gnugrep}/bin/grep -q "eDP-1:"; then
+        MONITOR=eDP-1
+      fi
+
+      MONITOR=$MONITOR polybar main &
+    '';
   };
 
   xdg.configFile."polybar/config.ini".source =
