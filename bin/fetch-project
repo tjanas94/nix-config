@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ $# -eq 0 ]; then
+    echo "usage: $(basename "$0") <repository>" >&2
+    exit 1
+fi
+
+URL=$1
+PROJECT=$(find-project "$URL")
+
+if [ -d "$PROJECT/.bare" ]; then
+    echo "project exists: $PROJECT" >&2
+    exit 1
+fi
+
+mkdir -p "$PROJECT"
+cd "$PROJECT"
+
+if git ls-remote --heads "$URL" &>/dev/null; then
+    REMOTE=1
+    git clone --separate-git-dir=.bare -n "$URL" .
+else
+    REMOTE=0
+    git init --separate-git-dir=.bare
+    git remote add origin "$URL"
+fi
+
+git config core.bare true
+
+BRANCH=$(git symbolic-ref HEAD | perl -pe 's#refs/heads/##')
+WORKTREE=$(basename "$BRANCH")
+
+if [ $REMOTE -eq 1 ]; then
+    git worktree add "$WORKTREE" "$BRANCH"
+else
+    EMPTY_COMMIT=$(git commit-tree -m 'initial commit' "$(git mktree </dev/null)")
+    git worktree add -b "$BRANCH" "$WORKTREE" "$EMPTY_COMMIT"
+fi
+
+rm .git

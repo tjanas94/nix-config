@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-set -eo pipefail
+set -euo pipefail
 
 PREFIX="$HOME/workspace"
 
-if [ $# -eq 1 ]; then
-    SELECTED=$(realpath "$1" | perl -pe "s#$PREFIX/##")
+if [ $# -eq 0 ]; then
+    SELECTED=$(find "$PREFIX" -mindepth 4 -maxdepth 4 -type d | perl -ne "print s#$PREFIX/##r unless /\.bare\$/" | sort | fzf)
 else
-    SELECTED=$(find "$PREFIX" -mindepth 4 -maxdepth 4 -type d | perl -ne "print s#$PREFIX/##r unless /\.git\$/" | sort | fzf)
+    SELECTED=$(realpath "$1" | perl -pe "s#$PREFIX/##")
 fi
 
 if [ -z "$SELECTED" ]; then
@@ -26,7 +26,7 @@ elif [ -z "$SESSION" ]; then
     SESSION=$(tmux new-session -dt "$SELECTED_NAME" -c "$PROJECT" -PF '#S')
 fi
 
-if [ -z $TMUX ]; then
+if [ -z ${TMUX+x} ]; then
     tmux attach-session -t "$SESSION"
 else
     tmux switch-client -t "$SESSION"
