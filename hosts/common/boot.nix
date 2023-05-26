@@ -41,6 +41,7 @@
 
       luks = {
         gpgSupport = true;
+        reusePassphrases = true;
 
         devices."luks-root" = {
           device = "/dev/disk/by-partlabel/root";

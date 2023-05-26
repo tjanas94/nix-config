@@ -14,17 +14,19 @@
     ../common
   ];
 
+  boot.initrd.luks.devices."luks-data" = {
+    device = "/dev/disk/by-partlabel/data";
+
+    gpgCard = {
+      encryptedPass = ../../config/gnupg/cryptkey.gpg;
+      publicKey = ../../config/gnupg/public.asc;
+    };
+  };
+
   fileSystems."/data" = {
     device = "/dev/mapper/luks-data";
     fsType = "btrfs";
     options = ["subvol=data" "compress=zstd"];
-
-    encrypted = {
-      enable = true;
-      blkDev = "/dev/disk/by-partlabel/data";
-      label = "luks-data";
-      keyFile = "/mnt-root/persist/crypto_keyfile.bin";
-    };
   };
 
   hardware.nvidia.prime = {
