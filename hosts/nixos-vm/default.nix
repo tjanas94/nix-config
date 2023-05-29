@@ -1,9 +1,10 @@
-_: {
-  imports = [./hardware-configuration.nix ../common];
+{
+  imports = [./hardware-configuration.nix ../workstation.nix];
+
+  boot.loader.grub.devices = ["/dev/vda"];
+  swapFile.size = 2 * 1024;
 
   sops.defaultSopsFile = ./secrets.yaml;
-  boot.loader.grub.devices = ["/dev/vda"];
   networking.hostName = "nixos-vm";
-  swapFile.size = 2 * 1024;
   system.stateVersion = "22.11";
 }

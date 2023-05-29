@@ -1,4 +1,4 @@
-_: {
+{
   programs.git = {
     enable = true;
     userName = "Tomasz Janas";
@@ -14,7 +14,7 @@ _: {
     extraConfig = {
       apply.whitespace = "nowarn";
       init.defaultBranch = "master";
-      merge.tool = "nvimdiff";
+      merge.tool = "vimdiff";
       mergetool = {
         keepBackup = false;
         prompt = false;

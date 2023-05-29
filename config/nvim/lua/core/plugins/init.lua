@@ -1,8 +1,0 @@
-require('core.plugins.comment')
-require('core.plugins.fugitive')
-require('core.plugins.gitsigns')
-require('core.plugins.lsp')
-require('core.plugins.lualine')
-require('core.plugins.polyword')
-require('core.plugins.telescope')
-require('core.plugins.treesitter')

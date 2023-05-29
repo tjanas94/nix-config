@@ -6,7 +6,7 @@
   imports = [
     inputs.hardware.nixosModules.dell-latitude-5520
     ./hardware-configuration.nix
-    ../common
+    ../workstation.nix
   ];
 
   sops.defaultSopsFile = ./secrets.yaml;

@@ -11,7 +11,7 @@
     inputs.hardware.nixosModules.common-pc-laptop-ssd
     inputs.hardware.nixosModules.common-pc-laptop-hdd
     ./hardware-configuration.nix
-    ../common
+    ../workstation.nix
   ];
 
   boot.initrd.luks.devices."luks-data" = {
@@ -34,8 +34,9 @@
     nvidiaBusId = "PCI:1:0:0";
   };
 
+  services.xserver.videoDrivers = ["displaylink" "modesetting" "nvidia"];
+
   sops.defaultSopsFile = ./secrets.yaml;
   networking.hostName = "lenovo";
-  services.xserver.videoDrivers = ["displaylink" "modesetting" "nvidia"];
   system.stateVersion = "22.11";
 }

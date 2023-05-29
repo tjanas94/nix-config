@@ -72,7 +72,7 @@ xdotool_delay=12
 
 ## Programs to be used
 # Editor
-EDITOR='alacritty -e nvim'
+EDITOR='emacsclient -c'
 
 # Browser
 BROWSER='xdg-open'

@@ -13,8 +13,8 @@
   };
 
   users.users = {
-    root.openssh = import ../common/users/authorized-keys.nix;
-    nixos.openssh = import ../common/users/authorized-keys.nix;
+    root.openssh.authorizedKeys.keys = import ../common/users/tjanas/authorized-keys.nix;
+    nixos.openssh.authorizedKeys.keys = import ../common/users/tjanas/authorized-keys.nix;
   };
 
   nixpkgs.hostPlatform = "x86_64-linux";

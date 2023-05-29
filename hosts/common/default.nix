@@ -1,46 +1,22 @@
-{
-  inputs,
-  outputs,
-  ...
-}: {
+{outputs, ...}: {
   imports =
     [
-      inputs.impermanence.nixosModules.impermanence
-      inputs.home-manager.nixosModules.home-manager
-      ./boot.nix
-      ./fish.nix
-      ./locale.nix
-      ./network.nix
-      ./nix.nix
-      ./openssh.nix
-      ./printing.nix
-      ./programs.nix
-      ./users/tjanas.nix
-      ./virtualisation.nix
-      ./xserver.nix
+      ./boot/btrfs.nix
+      ./boot/grub.nix
+      ./boot/luks.nix
+      ./boot/network.nix
+      ./boot/swap.nix
+      ./home-manager.nix
+      ./persistence.nix
+      ./programs/fish.nix
+      ./programs/global.nix
+      ./services/avahi.nix
+      ./services/openssh.nix
+      ./sops.nix
+      ./system/locale.nix
+      ./system/network.nix
+      ./system/nix.nix
+      ./users/tjanas
     ]
     ++ (builtins.attrValues outputs.nixosModules);
-
-  home-manager = {
-    useUserPackages = true;
-    extraSpecialArgs = {inherit inputs outputs;};
-  };
-
-  nixpkgs = {
-    overlays = builtins.attrValues outputs.overlays;
-    config.allowUnfree = true;
-  };
-
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
-
-  environment = {
-    persistence."/persist" = {
-      hideMounts = true;
-      files = ["/etc/machine-id"];
-      directories = ["/var/lib/systemd"];
-    };
-    enableAllTerminfo = true;
-  };
 }
