@@ -8,6 +8,7 @@
     inputs.hardware.nixosModules.common-pc-laptop-ssd
     ./hardware-configuration.nix
     ../server.nix
+    ./services
   ];
 
   boot.loader.grub.devices = ["/dev/sda"];
