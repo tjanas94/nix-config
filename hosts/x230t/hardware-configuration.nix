@@ -29,7 +29,10 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  networking.interfaces.eno0.useDHCP = lib.mkDefault true;
+  networking.interfaces.eno0 = {
+    useDHCP = true;
+    wakeOnLan.enable = true;
+  };
   # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wwp0s29u1u4i6.useDHCP = lib.mkDefault true;
 

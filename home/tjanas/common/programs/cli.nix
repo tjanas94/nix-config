@@ -56,6 +56,7 @@ in {
     whois
     unzip
     usbutils
+    wol
     xkcdpass
     zbar
     zip
