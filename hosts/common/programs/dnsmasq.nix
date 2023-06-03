@@ -5,7 +5,9 @@ in {
     enable = true;
     settings = {
       address = "/.test/192.168.122.1";
+      bind-interfaces = true;
       conf-dir = dnsmasq-dir;
+      interface = "lo";
     };
   };
 
