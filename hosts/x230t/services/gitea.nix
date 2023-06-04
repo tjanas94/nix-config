@@ -21,6 +21,7 @@
       settings = {
         server = {
           DOMAIN = "git.janas.dev";
+          HTTP_ADDR = "127.0.0.1";
           ROOT_URL = "https://git.janas.dev/";
         };
         session.COOKIE_SECURE = true;
