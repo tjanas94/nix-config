@@ -20,7 +20,10 @@
         prompt = false;
       };
       pull.ff = "only";
-      push.default = "current";
+      push = {
+        default = "current";
+        autoSetupRemote = true;
+      };
       tag.gpgSign = true;
     };
     ignores = [
