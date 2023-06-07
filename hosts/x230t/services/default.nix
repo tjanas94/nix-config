@@ -7,6 +7,7 @@
     ./nginx.nix
     ./photoprism.nix
     ./postgresql.nix
+    ./samba.nix
     ./vaultwarden.nix
   ];
 }

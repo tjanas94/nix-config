@@ -11,6 +11,29 @@
     ./services
   ];
 
+  boot.initrd.luks.devices."luks-usb-data" = {
+    device = "/dev/disk/by-partlabel/usb-data";
+
+    gpgCard = {
+      encryptedPass = ../../config/gnupg/cryptkey.gpg;
+      publicKey = ../../config/gnupg/public.asc;
+    };
+  };
+
+  fileSystems = {
+    "/data" = {
+      device = "/dev/disk/by-label/nixos-usb-data";
+      fsType = "btrfs";
+      options = ["subvol=data" "compress=zstd"];
+    };
+
+    "/mnt/btrfs_data" = {
+      device = "/dev/disk/by-label/nixos-usb-data";
+      fsType = "btrfs";
+      options = ["subvolid=5" "noatime"];
+    };
+  };
+
   boot.loader.grub.devices = ["/dev/sda"];
   services.xserver.wacom.enable = true;
   swapFile.size = 4 * 1024;

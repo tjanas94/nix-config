@@ -12,6 +12,7 @@
 
   boot.initrd.availableKernelModules = [
     "e1000e"
+    "uas"
     "xhci_pci"
     "ehci_pci"
     "ahci"

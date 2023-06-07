@@ -68,5 +68,11 @@
       fsType = "btrfs";
       options = ["subvol=swap" "noatime"];
     };
+
+    "/mnt/btrfs_system" = {
+      device = "/dev/disk/by-label/nixos-system";
+      fsType = "btrfs";
+      options = ["subvolid=5" "noatime"];
+    };
   };
 }

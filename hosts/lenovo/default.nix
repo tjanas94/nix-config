@@ -23,10 +23,18 @@
     };
   };
 
-  fileSystems."/data" = {
-    device = "/dev/mapper/luks-data";
-    fsType = "btrfs";
-    options = ["subvol=data" "compress=zstd"];
+  fileSystems = {
+    "/data" = {
+      device = "/dev/disk/by-label/nixos-data";
+      fsType = "btrfs";
+      options = ["subvol=data" "compress=zstd"];
+    };
+
+    "/mnt/btrfs_data" = {
+      device = "/dev/disk/by-label/nixos-data";
+      fsType = "btrfs";
+      options = ["subvolid=5" "noatime"];
+    };
   };
 
   hardware.nvidia.prime = {
