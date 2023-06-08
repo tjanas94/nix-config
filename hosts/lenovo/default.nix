@@ -12,6 +12,7 @@
     inputs.hardware.nixosModules.common-pc-laptop-hdd
     ./hardware-configuration.nix
     ../workstation.nix
+    ../common/btrbk/data.nix
   ];
 
   boot.initrd.luks.devices."luks-data" = {

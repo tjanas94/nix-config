@@ -83,7 +83,7 @@ btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
 umount /mnt
 
 mount -o subvol=root,compress=zstd,noatime /dev/disk/by-label/nixos-system /mnt
-mkdir -p /mnt/{boot,home,nix,persist,var/log,swap}
+mkdir -p /mnt/{boot,home,nix,persist,var/log,swap,backup/local-system}
 mount -o subvol=home,compress=zstd /dev/disk/by-label/nixos-system /mnt/home
 mount -o subvol=nix,compress=zstd,noatime /dev/disk/by-label/nixos-system /mnt/nix
 mount -o subvol=persist,compress=zstd,noatime /dev/disk/by-label/nixos-system /mnt/persist

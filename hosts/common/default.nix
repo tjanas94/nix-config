@@ -6,6 +6,7 @@
       ./boot/luks.nix
       ./boot/network.nix
       ./boot/swap.nix
+      ./btrbk/system.nix
       ./home-manager.nix
       ./persistence.nix
       ./programs/fish.nix

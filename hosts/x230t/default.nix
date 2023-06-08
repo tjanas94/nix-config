@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     ../server.nix
     ./services
+    ../common/btrbk/data.nix
   ];
 
   boot.initrd.luks.devices."luks-usb-data" = {
