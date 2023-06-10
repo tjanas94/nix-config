@@ -38,6 +38,11 @@
     };
   };
 
+  fileSystems."/var/lib/private/photoprism/originals" = {
+    device = "/data/shares/public";
+    options = ["bind"];
+  };
+
   environment.persistence."/persist".directories = ["/var/lib/private/photoprism"];
   sops.secrets.photoprism-adminpass = {};
 }
