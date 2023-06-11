@@ -12,6 +12,7 @@
     inputs.hardware.nixosModules.common-pc-laptop-hdd
     ./hardware-configuration.nix
     ../workstation.nix
+    ./services
     ../common/btrbk/data.nix
   ];
 

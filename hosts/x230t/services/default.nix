@@ -1,6 +1,7 @@
 {
   imports = [
     ./acme.nix
+    ./borgbackup.nix
     ./btrbk-pull.nix
     ./gitea.nix
     ./mysql.nix
