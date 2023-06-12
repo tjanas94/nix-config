@@ -30,7 +30,7 @@
       ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/lenovo-data/data.* | sort -r | head -1) /mnt/snapshots/lenovo-data
       ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/lenovo-system/persist.* | sort -r | head -1) /mnt/snapshots/lenovo-persist
       ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/local-data/data.* | sort -r | head -1) /mnt/snapshots/x230t-data
-      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/local-system/persist.* | sort -r | head -1) /mnt/snapshots/x230t-persist
+      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_system/backup/local-system/persist.* | sort -r | head -1) /mnt/snapshots/x230t-persist
     '';
     prune.keep = {
       within = "2d";
@@ -52,7 +52,7 @@ in {
       common-config
       // {
         repo = "remote-backup:repo";
-        startAt = "16:00";
+        startAt = "16:30";
       };
   };
 
