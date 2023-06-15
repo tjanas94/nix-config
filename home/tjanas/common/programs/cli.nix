@@ -29,6 +29,7 @@ in {
     fd
     fluxcd
     file
+    glib
     imagemagick
     kubectx
     kubectl
@@ -41,6 +42,7 @@ in {
     paperkey
     perl
     pciutils
+    poppler_utils
     procs
     pv
     pwgen
@@ -48,6 +50,7 @@ in {
     rdiff-backup
     ripgrep
     screen
+    samba
     socat
     sops
     ssh-to-age

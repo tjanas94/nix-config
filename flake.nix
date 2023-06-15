@@ -20,6 +20,9 @@
 
     wallpapers.url = "git+https://gitlab.com/dwt1/wallpapers.git";
     wallpapers.flake = false;
+
+    doomemacs.url = "github:doomemacs/doomemacs";
+    doomemacs.flake = false;
   };
 
   outputs = {

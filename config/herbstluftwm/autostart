@@ -38,8 +38,9 @@ hc keybind $Mod-Mod1-b spawn systemd-run-app brave
 hc keybind $Mod-Mod1-p spawn systemd-run-app rofi-pass
 hc keybind $Mod-Mod1-o spawn systemd-run-app openfm
 hc keybind $Mod-Mod1-s spawn systemd-run-app split-screen
-hc keybind $Mod-Mod1-n spawn systemd-run-app "${TERMINAL:-xterm}" -e newsboat
 hc keybind $Mod-Mod1-e spawn systemd-run-app emacsclient -c
+hc keybind $Mod-Mod1-f spawn systemd-run-app emacsclient -ce '(dired-jump)'
+hc keybind $Mod-Mod1-n spawn systemd-run-app emacsclient -ce '(elfeed)'
 hc keybind $Mod-Mod1-Return spawn systemd-run-app emacsclient -ce '(projectile-switch-project)'
 
 hc keybind $Mod-F9 spawn playerctl -p mpv previous

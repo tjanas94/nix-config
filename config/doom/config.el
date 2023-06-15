@@ -79,17 +79,32 @@
 (defun tjanas/default-project-name (project-root)
   (string-replace (expand-file-name "~/workspace/") "" (directory-file-name project-root)))
 
-(setq
-  projectile-project-search-path '(("~/workspace" . 4))
-  projectile-project-name-function #'tjanas/default-project-name)
+(after! projectile
+  (setq
+   projectile-project-search-path '(("~/workspace" . 4))
+   projectile-project-name-function #'tjanas/default-project-name))
 
-(use-package! copilot
-  :hook (prog-mode . copilot-mode)
-  :bind (("C-TAB" . 'copilot-accept-completion-by-word)
-         ("C-<tab>" . 'copilot-accept-completion-by-word)
-         :map copilot-completion-map
-         ("<tab>" . 'copilot-accept-completion)
-         ("TAB" . 'copilot-accept-completion)))
+(after! elfeed
+  (setq elfeed-goodies/entry-pane-size 0.5)
+  (evil-define-key 'normal elfeed-show-mode-map
+    (kbd "J") 'elfeed-goodies/split-show-next
+    (kbd "K") 'elfeed-goodies/split-show-prev)
+  (evil-define-key 'normal elfeed-search-mode-map
+    (kbd "J") 'elfeed-goodies/split-show-next
+    (kbd "K") 'elfeed-goodies/split-show-prev)
+  (add-hook! 'elfeed-search-mode-hook #'elfeed-update))
+
+(use-package! elfeed-tube
+  :after elfeed
+  :config
+  (elfeed-tube-setup))
+
+(use-package elfeed-tube-mpv
+  :config
+  (evil-define-key 'normal elfeed-show-mode-map
+    (kbd "m") 'elfeed-tube-mpv)
+  (evil-define-key 'normal elfeed-search-mode-map
+    (kbd "m") 'elfeed-tube-mpv))
 
 (add-to-list 'auto-mode-alist '("\\.cdt\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.ctp\\'" . php-mode))
