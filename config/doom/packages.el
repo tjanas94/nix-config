@@ -52,3 +52,4 @@
 (package! ob-http)
 (package! elfeed-tube)
 (package! elfeed-tube-mpv)
+(unpin! eglot)
