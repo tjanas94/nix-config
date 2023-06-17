@@ -38,6 +38,7 @@ in {
     mtr
     nmap
     openssl
+    p7zip
     pandoc
     paperkey
     perl
