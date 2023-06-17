@@ -7,10 +7,7 @@ in {
     htop.enable = true;
     jq.enable = true;
     k9s.enable = true;
-    password-store = {
-      enable = true;
-      package = pass;
-    };
+    password-store.enable = true;
   };
 
   home.packages = with pkgs; [

@@ -3,6 +3,7 @@
     ./common
     ./common/devenv/devtools.nix
     ./common/devenv/emacs.nix
+    ./common/devenv/email.nix
     ./common/devenv/scripts.nix
     ./common/programs/alacritty.nix
     ./common/programs/dunst.nix
