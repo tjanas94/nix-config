@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   services = {
     nginx.virtualHosts."photoprism.janas.dev" = {
       forceSSL = true;
@@ -33,6 +33,47 @@
         PHOTOPRISM_DATABASE_USER = "photoprism";
         PHOTOPRISM_SITE_URL = "https://photoprism.janas.dev";
       };
+    };
+  };
+
+  systemd = {
+    timers."photoprism-index" = {
+      wantedBy = ["timers.target"];
+      timerConfig.OnCalendar = "hourly";
+    };
+
+    services."photoprism-index" = {
+      script = ''
+        ${config.services.photoprism.package}/bin/photoprism index
+      '';
+      serviceConfig = {
+        Type = "oneshot";
+        User = "photoprism";
+        Group = "photoprism";
+        DynamicUser = true;
+        StateDirectory = "photoprism";
+        WorkingDirectory = "/var/lib/photoprism";
+        RuntimeDirectory = "photoprism";
+
+        CapabilityBoundingSet = "";
+        LockPersonality = true;
+        PrivateDevices = true;
+        PrivateUsers = true;
+        ProtectClock = true;
+        ProtectControlGroups = true;
+        ProtectHome = true;
+        ProtectHostname = true;
+        ProtectKernelLogs = true;
+        ProtectKernelModules = true;
+        ProtectKernelTunables = true;
+        RestrictAddressFamilies = ["AF_UNIX" "AF_INET" "AF_INET6"];
+        RestrictNamespaces = true;
+        RestrictRealtime = true;
+        SystemCallArchitectures = "native";
+        SystemCallFilter = ["@system-service" "~@privileged @setuid @keyring"];
+        UMask = "0066";
+      };
+      environment = config.systemd.services.photoprism.environment;
     };
   };
 
