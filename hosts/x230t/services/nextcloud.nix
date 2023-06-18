@@ -30,6 +30,15 @@
         dbtype = "pgsql";
       };
       extraOptions.default_phone_region = "PL";
+      phpExtraExtensions = all: [
+        (all.smbclient.overrideAttrs (_: {
+          name = "php-smbclient-1.1.1";
+          src = pkgs.fetchurl {
+            url = "https://pecl.php.net/get/smbclient-1.1.1.tgz";
+            sha256 = "sha256-hFINXHP4t8n1kDccUQzPHw13QFz5p2cmaHNZ5t+elrI=";
+          };
+        }))
+      ];
     };
   };
 
