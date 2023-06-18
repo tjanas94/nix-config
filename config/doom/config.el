@@ -106,15 +106,14 @@
   (evil-define-key 'normal elfeed-search-mode-map
     (kbd "m") 'elfeed-tube-mpv))
 
-(after! notmuch
-  (setq
-   +notmuch-sync-backend 'mbsync
-   +notmuch-home-function (lambda () (notmuch-search "tag:inbox"))))
-
 (after! org-mime
   (setq org-mime-export-options '(:section-numbers nil
                                   :with-author nil
                                   :with-toc nil)))
+
+(setq
+ +notmuch-sync-backend 'mbsync
+ +notmuch-home-function (lambda () (notmuch-search "tag:inbox")))
 
 (add-to-list 'auto-mode-alist '("\\.cdt\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.ctp\\'" . php-mode))
