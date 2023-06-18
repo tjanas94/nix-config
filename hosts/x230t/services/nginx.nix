@@ -5,7 +5,7 @@
     recommendedProxySettings = true;
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
-    clientMaxBodySize = "300m";
+    clientMaxBodySize = "1g";
   };
 
   networking.firewall.allowedTCPPorts = [80 443];
