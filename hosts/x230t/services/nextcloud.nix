@@ -20,7 +20,7 @@
 
     nextcloud = {
       enable = true;
-      package = pkgs.nextcloud26;
+      package = pkgs.nextcloud27;
       hostName = "nextcloud.janas.dev";
       https = true;
       database.createLocally = true;
@@ -29,6 +29,7 @@
         adminpassFile = config.sops.secrets.nextcloud-adminpass.path;
         dbtype = "pgsql";
       };
+      extraOptions.default_phone_region = "PL";
     };
   };
 
