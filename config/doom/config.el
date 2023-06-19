@@ -115,6 +115,12 @@
  +notmuch-sync-backend 'mbsync
  +notmuch-home-function (lambda () (notmuch-search "tag:inbox")))
 
+(use-package! calfw
+  :custom
+  (cfw:display-calendar-holidays nil))
+
+(setq calendar-week-start-day 1)
+
 (add-to-list 'auto-mode-alist '("\\.cdt\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.ctp\\'" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.jqtpl\\'" . web-mode))
