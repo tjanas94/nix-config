@@ -6,7 +6,7 @@
 }: {
   programs.emacs = {
     enable = true;
-    extraPackages = epkgs: with epkgs; [pdf-tools vterm];
+    extraPackages = epkgs: with epkgs; [emacsql-sqlite pdf-tools vterm];
   };
 
   services.emacs = {

@@ -52,4 +52,9 @@
 (package! ob-http)
 (package! elfeed-tube)
 (package! elfeed-tube-mpv)
+
+(package! emacsql :built-in 'prefer)
+(package! emacsql-sqlite :built-in 'prefer)
+(package! pdf-tools :built-in 'prefer)
+
 (unpin! eglot)
