@@ -10,6 +10,9 @@
     home-manager.enable = true;
   };
 
-  xdg.enable = true;
+  xdg = {
+    enable = true;
+    userDirs.enable = true;
+  };
   systemd.user.startServices = "sd-switch";
 }

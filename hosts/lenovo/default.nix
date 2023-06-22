@@ -16,6 +16,10 @@
     ../common/btrbk/data.nix
   ];
 
+  home-manager.users.tjanas.imports = [
+    ../../home/tjanas/common/cli/email.nix
+  ];
+
   boot.initrd.luks.devices."luks-data" = {
     device = "/dev/disk/by-partlabel/data";
 

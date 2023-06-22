@@ -106,6 +106,9 @@
   (evil-define-key 'normal elfeed-search-mode-map
     (kbd "m") 'elfeed-tube-mpv))
 
+(after! emms
+  (setq emms-player-mpv-parameters '("--really-quiet" "--no-video")))
+
 (after! org-mime
   (setq org-mime-export-options '(:section-numbers nil
                                   :with-author nil
