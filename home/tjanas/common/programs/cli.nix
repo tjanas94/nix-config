@@ -33,6 +33,7 @@ in {
     lynx
     moreutils
     mtr
+    ncdu
     nmap
     openssl
     p7zip

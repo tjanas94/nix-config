@@ -4,18 +4,6 @@
   ...
 }: let
   common-config = {
-    paths = [
-      "/mnt/snapshots/lenovo-data/archiwum"
-      "/mnt/snapshots/lenovo-data/Documents"
-      "/mnt/snapshots/lenovo-persist"
-      "/mnt/snapshots/x230t-data/shares"
-      "/mnt/snapshots/x230t-persist"
-    ];
-    exclude = [
-      "**/var/lib/docker"
-      "**/var/lib/libvirt"
-      "**/var/lib/systemd"
-    ];
     encryption = {
       mode = "repokey-blake2";
       passCommand = "cat ${config.sops.secrets.borgbackup-passphrase.path}";
@@ -28,8 +16,10 @@
         ${utillinux}/bin/mountpoint -q $i && ${utillinux}/bin/umount $i
       done
       ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/lenovo-data/data.* | sort -r | head -1) /mnt/snapshots/lenovo-data
+      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/lenovo-system/home.* | sort -r | head -1) /mnt/snapshots/lenovo-home
       ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/lenovo-system/persist.* | sort -r | head -1) /mnt/snapshots/lenovo-persist
       ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/local-data/data.* | sort -r | head -1) /mnt/snapshots/x230t-data
+      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_system/backup/local-system/home.* | sort -r | head -1) /mnt/snapshots/x230t-home
       ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_system/backup/local-system/persist.* | sort -r | head -1) /mnt/snapshots/x230t-persist
     '';
     prune.keep = {
@@ -42,17 +32,57 @@
   };
 in {
   services.borgbackup.jobs = {
+    "home-backup" =
+      common-config
+      // {
+        repo = "local-backup:home-backup.borg";
+        startAt = [];
+        paths = [
+          "/mnt/snapshots/lenovo-home"
+          "/mnt/snapshots/x230t-home"
+        ];
+        exclude = [
+          "**/.cache"
+          "**/.local/share/docker"
+          "**/.local/share/Steam"
+          "**/.npm"
+        ];
+      };
     "usb-backup" =
       common-config
       // {
         repo = "local-backup:usb-backup.borg";
         startAt = [];
+        paths = [
+          "/mnt/snapshots/lenovo-data/archiwum"
+          "/mnt/snapshots/lenovo-data/Documents"
+          "/mnt/snapshots/lenovo-persist"
+          "/mnt/snapshots/x230t-data/shares"
+          "/mnt/snapshots/x230t-persist"
+        ];
+        exclude = [
+          "**/var/lib/docker"
+          "**/var/lib/libvirt"
+          "**/var/lib/systemd"
+        ];
       };
     "remote-backup" =
       common-config
       // {
         repo = "remote-backup:repo";
         startAt = "16:30";
+        paths = [
+          "/mnt/snapshots/lenovo-data/archiwum"
+          "/mnt/snapshots/lenovo-data/Documents"
+          "/mnt/snapshots/lenovo-persist"
+          "/mnt/snapshots/x230t-data/shares"
+          "/mnt/snapshots/x230t-persist"
+        ];
+        exclude = [
+          "**/var/lib/docker"
+          "**/var/lib/libvirt"
+          "**/var/lib/systemd"
+        ];
       };
   };
 
