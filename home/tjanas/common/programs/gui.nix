@@ -65,9 +65,8 @@ in {
     remmina
     scrot
     simple-scan
-    nixpkgs-master.teams
+    teams
     thunar
-    transmission-gtk
     trezor-suite
     virt-manager
     wireshark

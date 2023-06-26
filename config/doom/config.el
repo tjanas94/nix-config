@@ -100,6 +100,7 @@
   (elfeed-tube-setup))
 
 (use-package elfeed-tube-mpv
+  :after elfeed
   :config
   (evil-define-key 'normal elfeed-show-mode-map
     (kbd "m") 'elfeed-tube-mpv)
@@ -118,9 +119,8 @@
  +notmuch-sync-backend 'mbsync
  +notmuch-home-function (lambda () (notmuch-search "tag:inbox")))
 
-(use-package! calfw
-  :custom
-  (cfw:display-calendar-holidays nil))
+(after! calfw
+  (setq cfw:display-calendar-holidays nil))
 
 (setq calendar-week-start-day 1)
 

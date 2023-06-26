@@ -6,13 +6,16 @@
 }: {
   programs.emacs = {
     enable = true;
-    extraPackages = epkgs: with epkgs; [emacsql-sqlite pdf-tools vterm];
-  };
-
-  services.emacs = {
-    enable = true;
-    client.enable = true;
-    defaultEditor = true;
+    extraPackages = epkgs:
+      with epkgs; [
+        eglot
+        elfeed-tube
+        elfeed-tube-mpv
+        emacsql
+        emacsql-sqlite
+        ob-http
+        vterm
+      ];
   };
 
   home = {

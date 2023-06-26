@@ -49,12 +49,10 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! ob-http)
-(package! elfeed-tube)
-(package! elfeed-tube-mpv)
-
+(package! eglot :built-in 'prefer)
+(package! elfeed-tube :built-in 'prefer)
+(package! elfeed-tube-mpv :built-in 'prefer)
 (package! emacsql :built-in 'prefer)
 (package! emacsql-sqlite :built-in 'prefer)
-(package! pdf-tools :built-in 'prefer)
-
-(unpin! eglot)
+(package! ob-http :built-in 'prefer)
+(package! vterm :built-in 'prefer)
