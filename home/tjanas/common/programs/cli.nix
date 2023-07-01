@@ -27,6 +27,7 @@ in {
     fluxcd
     file
     glib
+    gping
     imagemagick
     kubectx
     kubectl
