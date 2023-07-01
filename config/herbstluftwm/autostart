@@ -8,10 +8,6 @@ hc() {
 
 hc emit_hook reload
 
-xset r rate 300 50
-~/.config/screenlayout/current 2>/dev/null
-feh --bg-fill --no-fehbg --randomize ~/.config/wallpapers
-
 hc set_layout max
 hc set default_frame_layout max
 hc set wmname LG3D
@@ -221,4 +217,5 @@ hc unlock
 # do multi monitor setup here, e.g.:
 # hc set_monitors 1280x1024+0+0 1280x1024+1280+0
 # or simply:
-hc detect_monitors
+# hc detect_monitors
+autorandr -c

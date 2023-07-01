@@ -5,6 +5,7 @@
     ./common/devenv/emacs.nix
     ./common/devenv/scripts.nix
     ./common/programs/alacritty.nix
+    ./common/programs/autorandr.nix
     ./common/programs/dunst.nix
     ./common/programs/gui.nix
     ./common/programs/herbstluftwm.nix

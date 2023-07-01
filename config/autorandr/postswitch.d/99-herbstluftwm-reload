@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+herbstclient detect_monitors
+feh --bg-fill --no-fehbg --randomize ~/.config/wallpapers
+
+exit 0
