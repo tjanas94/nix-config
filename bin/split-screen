@@ -27,4 +27,5 @@ if [ -n "$RIGHT" ]; then
     go run ~/.local/bin/xrandr-split-screen.go "$LEFT" "$RIGHT"
 fi
 
-herbstclient reload
+herbstclient detect_monitors
+feh --bg-fill --no-fehbg --randomize ~/.config/wallpapers
