@@ -39,7 +39,9 @@ hc keybind $Mod-Mod1-c spawn systemd-run-app emacsclient -a emacs -ce '(funcall 
 hc keybind $Mod-Mod1-f spawn systemd-run-app emacsclient -a emacs -ce '(dired-jump)'
 hc keybind $Mod-Mod1-n spawn systemd-run-app emacsclient -a emacs -ce '(elfeed)'
 hc keybind $Mod-Mod1-m spawn systemd-run-app emacsclient -a emacs -ce '(funcall +notmuch-home-function)'
-hc keybind $Mod-Mod1-Return spawn systemd-run-app emacsclient -a emacs -ce '(projectile-switch-project)'
+hc keybind $Mod-Mod1-t spawn systemd-run-app emacsclient -a emacs -ce '(eshell)'
+hc keybind $Mod-Mod1-Return spawn systemd-run-app emacsclient -a emacs -ce '(+vterm/here nil)'
+hc keybind $Mod-Mod1-Shift-Return spawn systemd-run-app emacsclient -a emacs -ce '(projectile-switch-project)'
 
 hc keybind $Mod-F9 spawn playerctl -p mpv previous
 hc keybind $Mod-F10 spawn amixer set Master 5%- unmute

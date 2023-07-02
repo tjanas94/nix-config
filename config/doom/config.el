@@ -75,6 +75,8 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(setq doom-scratch-initial-major-mode 'org-mode
+      initial-major-mode 'org-mode)
 
 (defun tjanas/default-project-name (project-root)
   (string-replace (expand-file-name "~/workspace/") "" (directory-file-name project-root)))
