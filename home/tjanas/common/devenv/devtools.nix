@@ -18,7 +18,6 @@
     jdt-language-server
     maven
     nodejs
-    poetry
     (python3.withPackages (ps: with ps; [black grip isort mypy pip python-lsp-server pyls-isort pylsp-mypy python-lsp-black] ++ black.optional-dependencies.d ++ python-lsp-server.optional-dependencies.all))
     rnix-lsp
     shellcheck
