@@ -126,6 +126,9 @@
 
 (setq calendar-week-start-day 1)
 
+(add-hook 'after-change-major-mode-hook (lambda() (electric-indent-mode -1)))
+(remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
+
 (add-to-list 'auto-mode-alist '("\\.cdt\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.ctp\\'" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.jqtpl\\'" . web-mode))

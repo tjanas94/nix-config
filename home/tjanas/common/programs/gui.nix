@@ -65,7 +65,6 @@ in {
     remmina
     scrot
     simple-scan
-    teams
     thunar
     trezor-suite
     virt-manager
