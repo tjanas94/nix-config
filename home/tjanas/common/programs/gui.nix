@@ -8,7 +8,7 @@
       pipewireSupport = false;
       vapoursynthSupport = true;
     }) {
-      scripts = with pkgs.mpvScripts; [mpris sponsorblock youtube-quality];
+      scripts = with pkgs.mpvScripts; [mpris sponsorblock quality-menu];
       youtubeSupport = true;
     };
   thunar = pkgs.xfce.thunar.override {
