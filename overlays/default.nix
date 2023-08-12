@@ -1,7 +1,11 @@
 {inputs}: {
   additions = pkgs: _: import ../pkgs {inherit pkgs;};
 
-  modifications = final: prev: {};
+  modifications = final: prev: {
+    herbstluftwm = prev.herbstluftwm.overrideAttrs (old: {
+      doCheck = false;
+    });
+  };
 
   stable-packages = final: _prev: {
     nixpkgs-stable = import inputs.nixpkgs-stable {

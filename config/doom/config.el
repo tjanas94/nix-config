@@ -126,6 +126,8 @@
 
 (setq calendar-week-start-day 1)
 
+(setq +format-with-lsp nil)
+
 (add-hook 'after-change-major-mode-hook (lambda() (electric-indent-mode -1)))
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 

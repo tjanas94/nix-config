@@ -13,8 +13,6 @@
     go
     gotools
     gopls
-    haskell-language-server
-    (haskellPackages.ghcWithHoogle (hp: with hp; [cabal-install stack]))
     html-tidy
     jdk
     jdt-language-server
