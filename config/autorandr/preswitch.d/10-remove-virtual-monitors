@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-xrandr --delmonitor virtual-left &>/dev/null
-xrandr --delmonitor virtual-right &>/dev/null
-
-exit 0

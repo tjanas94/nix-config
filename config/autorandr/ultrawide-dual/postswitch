@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-xrandr --setmonitor virtual-left 1720/398x1440/334+1920+0 HDMI-1
-xrandr --setmonitor virtual-right 1720/399x1440/334+3640+0 none
-
-exit 0

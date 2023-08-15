@@ -33,7 +33,6 @@ hc keybind $Mod-Mod1-l spawn sh -c "sleep 0.25 && xset dpms force off"
 hc keybind $Mod-Mod1-b spawn systemd-run-app brave
 hc keybind $Mod-Mod1-p spawn systemd-run-app rofi-pass
 hc keybind $Mod-Mod1-o spawn systemd-run-app openfm
-hc keybind $Mod-Mod1-s spawn systemd-run-app split-screen
 hc keybind $Mod-Mod1-e spawn systemd-run-app emacsclient -a emacs -c
 hc keybind $Mod-Mod1-c spawn systemd-run-app emacsclient -a emacs -ce '(funcall +calendar-open-function)'
 hc keybind $Mod-Mod1-f spawn systemd-run-app emacsclient -a emacs -ce '(dired nil)'
@@ -84,6 +83,7 @@ hc keybind $Mod-Shift-l     shift right
 # create an empty frame at the specified direction
 hc keybind $Mod-u       split   bottom  0.5
 hc keybind $Mod-o       split   right   0.5
+hc keybind $Mod-Shift-o split   right   0.6
 # let the current frame explode into subframes
 hc keybind $Mod-Control-space split explode
 
