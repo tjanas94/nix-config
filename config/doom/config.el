@@ -101,7 +101,7 @@
   :config
   (elfeed-tube-setup))
 
-(use-package elfeed-tube-mpv
+(use-package! elfeed-tube-mpv
   :after elfeed
   :config
   (evil-define-key 'normal elfeed-show-mode-map

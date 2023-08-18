@@ -35,7 +35,7 @@ hc keybind $Mod-Mod1-p spawn systemd-run-app rofi-pass
 hc keybind $Mod-Mod1-o spawn systemd-run-app openfm
 hc keybind $Mod-Mod1-e spawn systemd-run-app emacsclient -a emacs -c
 hc keybind $Mod-Mod1-c spawn systemd-run-app emacsclient -a emacs -ce '(funcall +calendar-open-function)'
-hc keybind $Mod-Mod1-f spawn systemd-run-app emacsclient -a emacs -ce '(dired nil)'
+hc keybind $Mod-Mod1-f spawn systemd-run-app emacsclient -a emacs -ce '(dired-jump)'
 hc keybind $Mod-Mod1-n spawn systemd-run-app emacsclient -a emacs -ce '(elfeed)'
 hc keybind $Mod-Mod1-m spawn systemd-run-app emacsclient -a emacs -ce '(funcall +notmuch-home-function)'
 hc keybind $Mod-Mod1-t spawn systemd-run-app emacsclient -a emacs -ce '(+eshell/here)'
@@ -142,9 +142,9 @@ hc mousebind $Mod-Button3 resize
 # focus
 hc keybind $Mod-BackSpace   cycle_monitor +1
 hc keybind $Mod-Shift-BackSpace   cycle_monitor -1
-hc keybind $Mod-Tab         cycle_all +1
-hc keybind $Mod-Shift-Tab   cycle_all -1
-hc keybind $Mod-c cycle
+hc keybind $Mod-Tab         cycle +1
+hc keybind $Mod-Shift-Tab   cycle -1
+hc keybind $Mod-c cycle_all
 hc keybind $Mod-i jumpto urgent
 
 # theme
