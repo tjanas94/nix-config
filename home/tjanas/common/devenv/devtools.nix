@@ -8,14 +8,19 @@
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
     alejandra
+    cmake
     dockfmt
     editorconfig-core-c
+    gcc
+    gnumake
     go
     gotools
     gopls
     html-tidy
     jdk
     jdt-language-server
+    lazydocker
+    lazygit
     maven
     nodejs
     (python3.withPackages (ps: with ps; [black grip isort mypy pip python-lsp-server pyls-isort pylsp-mypy python-lsp-black] ++ black.optional-dependencies.d ++ python-lsp-server.optional-dependencies.all))

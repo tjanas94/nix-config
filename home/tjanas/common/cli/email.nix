@@ -16,9 +16,4 @@
     realName = "Tomasz Janas";
     passwordCommand = "${pkgs.pass}/bin/pass web/live.com/tomek";
   };
-
-  services.mbsync = {
-    enable = true;
-    postExec = "${pkgs.notmuch}/bin/notmuch new";
-  };
 }

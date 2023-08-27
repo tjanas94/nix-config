@@ -25,6 +25,7 @@ in {
         ob-http
         vterm
       ];
+    package = pkgs.emacs29;
   };
 
   home = {
