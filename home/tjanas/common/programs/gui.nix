@@ -37,6 +37,7 @@ in {
   };
 
   services = {
+    picom.enable = true;
     unclutter.enable = true;
 
     xcape = {
