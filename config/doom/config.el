@@ -84,7 +84,9 @@
 (after! projectile
   (setq
    projectile-project-search-path '(("~/workspace" . 4))
-   projectile-project-name-function #'tjanas/default-project-name))
+   projectile-project-name-function #'tjanas/default-project-name
+   projectile-file-exists-local-cache-expire (* 5 60)
+   projectile-file-exists-remote-cache-expire nil))
 
 (after! elfeed
   (setq elfeed-goodies/entry-pane-size 0.5)
