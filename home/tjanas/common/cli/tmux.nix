@@ -18,7 +18,8 @@
       set -g set-titles-string '#S / #W'
 
       bind r source-file ~/.config/tmux/tmux.conf
-      bind-key -r f run-shell 'tmux neww switch-project'
+      bind f run-shell 'tmux neww switch-project'
+      bind C-f run-shell 'clone-tmux-client'
     '';
     historyLimit = 50000;
     keyMode = "vi";

@@ -27,5 +27,6 @@
       enable = true;
       fuzzySearchFactor = 2;
     };
+    zoxide.enable = true;
   };
 }

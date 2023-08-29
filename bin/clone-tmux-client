@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+unset TMUX
+nohup "${TERMINAL:-xterm}" -e switch-project "$PWD" &>/dev/null &
