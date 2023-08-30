@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-channel=$(curl -s 'https://open.fm/radio/api/v2/ofm/stations_slug.json' \
-    | jq -r '.channels[] | .id + " - " + .name' \
-    | sort -nk1 \
-    | rofi -i -dmenu -p openfm \
-    | cut -d' ' -f1)
+set -euo pipefail
 
-if [ ! -z "$channel" ]; then
-    alacritty -t openfm -e mpv --volume=70 "https://stream.open.fm/$channel"
+channel=$(curl -s 'https://open.fm/radio/api/v2/ofm/stations_slug.json' |
+    jq -r '.channels[] | .id + " - " + .name' |
+    sort -nk1 |
+    rofi -i -dmenu -p openfm |
+    cut -d' ' -f1)
+
+if [ -n "$channel" ]; then
+    "${TERMINAL:-xterm}" -t openfm -e mpv "https://stream.open.fm/$channel"
 fi

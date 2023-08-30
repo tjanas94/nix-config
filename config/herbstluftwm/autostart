@@ -33,6 +33,7 @@ hc keybind $Mod-Mod1-l spawn sh -c "sleep 0.25 && xset dpms force off"
 hc keybind $Mod-Mod1-b spawn systemd-run-app brave
 hc keybind $Mod-Mod1-p spawn systemd-run-app rofi-pass
 hc keybind $Mod-Mod1-o spawn systemd-run-app openfm
+hc keybind $Mod-Mod1-y spawn systemd-run-app yt-player
 hc keybind $Mod-Mod1-e spawn systemd-run-app emacsclient -a emacs -c
 hc keybind $Mod-Mod1-c spawn systemd-run-app emacsclient -a emacs -ce '(funcall +calendar-open-function)'
 hc keybind $Mod-Mod1-f spawn systemd-run-app emacsclient -a emacs -ce '(dired-jump)'
@@ -210,6 +211,7 @@ hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 hc rule fixedsize floating=on
 hc rule title='openfm' tag=9
+hc rule title='yt-player' tag=9
 
 hc set tree_style '╾│ ├└╼─┐'
 

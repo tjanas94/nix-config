@@ -1,3 +1,0 @@
-#!/bin/sh
-
-mpv --no-video --volume=70 --ytdl-raw-options='yes-playlist=' "$1"
