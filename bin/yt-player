@@ -2,7 +2,10 @@
 
 set -euo pipefail
 
-url=$(rg -IB1 'www.youtube.com/(watch|playlist)' "$HOME/org" | rofi -i -dmenu -p yt-player | perl -pe 's# *##')
+url=$(rg -IB1 'www.youtube.com/(watch|playlist)' "$HOME/org" |
+    perl -pe 's/^(-| ) //; s/\n/: / if $. % 2' |
+    rofi -i -dmenu -p yt-player |
+    perl -pe 's#^.* ##')
 
 if [ -n "$url" ]; then
     "${TERMINAL:-xterm}" -t yt-player -e mpv --no-video --ytdl-raw-options='yes-playlist=' "$url"
