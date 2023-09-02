@@ -3,6 +3,7 @@
     ./common
     ./common/devenv/devtools.nix
     ./common/devenv/emacs.nix
+    ./common/devenv/neovim.nix
     ./common/devenv/scripts.nix
     ./common/programs/alacritty.nix
     ./common/programs/autorandr.nix

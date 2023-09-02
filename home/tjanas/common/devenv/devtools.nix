@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    nodePackages."@tailwindcss/language-server"
     nodePackages.bash-language-server
     nodePackages.dockerfile-language-server-nodejs
     nodePackages.prettier
@@ -21,6 +22,7 @@
     jdt-language-server
     lazydocker
     lazygit
+    lua-language-server
     maven
     nodejs
     (python3.withPackages (ps: with ps; [black grip isort mypy pip python-lsp-server pyls-isort pylsp-mypy python-lsp-black] ++ black.optional-dependencies.d ++ python-lsp-server.optional-dependencies.all))
