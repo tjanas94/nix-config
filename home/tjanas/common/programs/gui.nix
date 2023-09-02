@@ -1,20 +1,23 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{ inputs
+, pkgs
+, ...
+}:
+let
   mpv =
-    pkgs.wrapMpv (pkgs.mpv-unwrapped.override {
-      pipewireSupport = false;
-      vapoursynthSupport = true;
-    }) {
-      scripts = with pkgs.mpvScripts; [mpris sponsorblock quality-menu];
-      youtubeSupport = true;
-    };
+    pkgs.wrapMpv
+      (pkgs.mpv-unwrapped.override {
+        pipewireSupport = false;
+        vapoursynthSupport = true;
+      })
+      {
+        scripts = with pkgs.mpvScripts; [ mpris sponsorblock quality-menu ];
+        youtubeSupport = true;
+      };
   thunar = pkgs.xfce.thunar.override {
-    thunarPlugins = with pkgs.xfce; [thunar-archive-plugin thunar-volman];
+    thunarPlugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
   };
-in {
+in
+{
   programs = {
     brave.enable = true;
     browserpass.enable = true;
@@ -42,7 +45,7 @@ in {
 
     xcape = {
       enable = true;
-      mapExpression = {Caps_Lock = "Escape";};
+      mapExpression = { Caps_Lock = "Escape"; };
     };
   };
 

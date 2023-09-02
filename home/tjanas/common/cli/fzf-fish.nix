@@ -1,7 +1,6 @@
-{
-  lib,
-  pkgs,
-  ...
+{ lib
+, pkgs
+, ...
 }: {
   programs = {
     fish.shellInit = lib.mkOrder 200 ''

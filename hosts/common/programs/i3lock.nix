@@ -1,10 +1,12 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   lockscreen = pkgs.writeShellScript "lockscreen" ''
     if [ -z "$(lsusb | grep Yubico)" ]; then
       loginctl list-sessions --no-legend | cut -d' ' -f1 | xargs -n1 loginctl lock-session
     fi
   '';
-in {
+in
+{
   programs = {
     i3lock.enable = true;
 

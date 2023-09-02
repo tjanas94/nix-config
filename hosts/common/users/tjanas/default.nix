@@ -1,14 +1,16 @@
-{config, ...}: let
+{ config, ... }:
+let
   ifTheyExist = groups:
     builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-in {
+in
+{
   users = {
     mutableUsers = false;
     users.tjanas = {
       isNormalUser = true;
       description = "Tomasz Janas";
       extraGroups =
-        ["wheel"]
+        [ "wheel" ]
         ++ ifTheyExist [
           "audio"
           "dialout"

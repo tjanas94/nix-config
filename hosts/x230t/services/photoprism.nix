@@ -1,4 +1,4 @@
-{config, ...}: {
+{ config, ... }: {
   services = {
     nginx.virtualHosts."photoprism.janas.dev" = {
       forceSSL = true;
@@ -10,7 +10,7 @@
     };
 
     mysql = {
-      ensureDatabases = ["photoprism"];
+      ensureDatabases = [ "photoprism" ];
       ensureUsers = [
         {
           name = "photoprism";
@@ -38,7 +38,7 @@
 
   systemd = {
     timers."photoprism-index" = {
-      wantedBy = ["timers.target"];
+      wantedBy = [ "timers.target" ];
       timerConfig.OnCalendar = "hourly";
     };
 
@@ -66,11 +66,11 @@
         ProtectKernelLogs = true;
         ProtectKernelModules = true;
         ProtectKernelTunables = true;
-        RestrictAddressFamilies = ["AF_UNIX" "AF_INET" "AF_INET6"];
+        RestrictAddressFamilies = [ "AF_UNIX" "AF_INET" "AF_INET6" ];
         RestrictNamespaces = true;
         RestrictRealtime = true;
         SystemCallArchitectures = "native";
-        SystemCallFilter = ["@system-service" "~@privileged @setuid @keyring"];
+        SystemCallFilter = [ "@system-service" "~@privileged @setuid @keyring" ];
         UMask = "0066";
       };
       environment = config.systemd.services.photoprism.environment;
@@ -79,8 +79,8 @@
 
   fileSystems."/var/lib/private/photoprism/originals" = {
     device = "/data/shares/public";
-    options = ["bind"];
+    options = [ "bind" ];
   };
 
-  environment.persistence."/persist".directories = ["/var/lib/private/photoprism"];
+  environment.persistence."/persist".directories = [ "/var/lib/private/photoprism" ];
 }

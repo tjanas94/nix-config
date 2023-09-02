@@ -29,7 +29,7 @@
   };
 
   users = {
-    groups.samba = {};
+    groups.samba = { };
     users.samba = {
       group = "samba";
       isSystemUser = true;

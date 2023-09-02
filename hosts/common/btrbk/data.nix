@@ -19,8 +19,8 @@
           snapshot_dir = "backup/local-system";
           snapshot_preserve_min = "all";
           subvolume = {
-            "home" = {};
-            "persist" = {};
+            "home" = { };
+            "persist" = { };
           };
         };
       };

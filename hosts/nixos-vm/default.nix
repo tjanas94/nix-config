@@ -1,7 +1,7 @@
 {
-  imports = [./hardware-configuration.nix ../workstation.nix];
+  imports = [ ./hardware-configuration.nix ../workstation.nix ];
 
-  boot.loader.grub.devices = ["/dev/vda"];
+  boot.loader.grub.devices = [ "/dev/vda" ];
   swapFile.size = 2 * 1024;
 
   sops.defaultSopsFile = ./secrets.yaml;

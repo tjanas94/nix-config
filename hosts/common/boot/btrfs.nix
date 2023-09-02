@@ -1,7 +1,6 @@
-{
-  config,
-  lib,
-  ...
+{ config
+, lib
+, ...
 }: {
   boot.initrd.postDeviceCommands = lib.mkBefore ''
     mkdir -p /mnt
@@ -28,51 +27,51 @@
     "/" = {
       device = "/dev/disk/by-label/nixos-system";
       fsType = "btrfs";
-      options = ["subvol=root" "compress=zstd" "noatime"];
+      options = [ "subvol=root" "compress=zstd" "noatime" ];
     };
 
     "/boot" = {
       device = "/dev/disk/by-label/boot";
       fsType = "vfat";
-      options = ["noatime"];
+      options = [ "noatime" ];
     };
 
     "/home" = {
       device = "/dev/disk/by-label/nixos-system";
       fsType = "btrfs";
-      options = ["subvol=home" "compress=zstd"];
+      options = [ "subvol=home" "compress=zstd" ];
     };
 
     "/nix" = {
       device = "/dev/disk/by-label/nixos-system";
       fsType = "btrfs";
-      options = ["subvol=nix" "compress=zstd" "noatime"];
+      options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
     "/persist" = {
       device = "/dev/disk/by-label/nixos-system";
       fsType = "btrfs";
-      options = ["subvol=persist" "compress=zstd" "noatime"];
+      options = [ "subvol=persist" "compress=zstd" "noatime" ];
       neededForBoot = true;
     };
 
     "/var/log" = {
       device = "/dev/disk/by-label/nixos-system";
       fsType = "btrfs";
-      options = ["subvol=log" "compress=zstd" "noatime"];
+      options = [ "subvol=log" "compress=zstd" "noatime" ];
       neededForBoot = true;
     };
 
     "/swap" = {
       device = "/dev/disk/by-label/nixos-system";
       fsType = "btrfs";
-      options = ["subvol=swap" "noatime"];
+      options = [ "subvol=swap" "noatime" ];
     };
 
     "/mnt/btrfs_system" = {
       device = "/dev/disk/by-label/nixos-system";
       fsType = "btrfs";
-      options = ["subvolid=5" "noatime"];
+      options = [ "subvolid=5" "noatime" ];
     };
   };
 }

@@ -1,4 +1,4 @@
-{config, ...}: {
+{ config, ... }: {
   security.acme = {
     acceptTerms = true;
     defaults.email = "tomek@janas.dev";
@@ -10,6 +10,6 @@
     };
   };
 
-  environment.persistence."/persist".directories = ["/var/lib/acme"];
+  environment.persistence."/persist".directories = [ "/var/lib/acme" ];
   sops.secrets.ovh-dns.owner = config.users.users.acme.name;
 }

@@ -1,9 +1,8 @@
-{
-  config,
-  inputs,
-  lib,
-  outputs,
-  ...
+{ config
+, inputs
+, lib
+, outputs
+, ...
 }: {
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
@@ -18,16 +17,16 @@
     };
 
     settings = {
-      trusted-users = ["root" "@wheel"];
+      trusted-users = [ "root" "@wheel" ];
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
       warn-dirty = false;
     };
 
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) inputs;
+    registry = lib.mapAttrs (_: flake: { inherit flake; }) inputs;
 
     nixPath =
       lib.mapAttrsToList (key: value: "${key}=${value.to.path}")
-      config.nix.registry;
+        config.nix.registry;
   };
 }

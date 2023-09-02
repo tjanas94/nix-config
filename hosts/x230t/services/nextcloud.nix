@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   services = {
     nginx.virtualHosts."nextcloud.janas.dev" = {
@@ -42,6 +41,6 @@
     };
   };
 
-  environment.persistence."/persist".directories = ["/var/lib/nextcloud"];
+  environment.persistence."/persist".directories = [ "/var/lib/nextcloud" ];
   sops.secrets.nextcloud-adminpass.owner = config.users.users.nextcloud.name;
 }

@@ -1,5 +1,5 @@
-{inputs}: {
-  additions = pkgs: _: import ../pkgs {inherit pkgs;};
+{ inputs }: {
+  additions = pkgs: _: import ../pkgs { inherit pkgs; };
 
   modifications = final: prev: {
     herbstluftwm = prev.herbstluftwm.overrideAttrs (old: {

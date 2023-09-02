@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     nodePackages."@tailwindcss/language-server"
     nodePackages.bash-language-server
@@ -8,7 +8,6 @@
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
-    alejandra
     cmake
     dockfmt
     editorconfig-core-c
@@ -24,8 +23,9 @@
     lazygit
     lua-language-server
     maven
+    nixpkgs-fmt
     nodejs
-    (python3.withPackages (ps: with ps; [black grip isort mypy pip python-lsp-server pyls-isort pylsp-mypy python-lsp-black] ++ black.optional-dependencies.d ++ python-lsp-server.optional-dependencies.all))
+    (python3.withPackages (ps: with ps; [ black grip isort mypy pip python-lsp-server pyls-isort pylsp-mypy python-lsp-black ] ++ black.optional-dependencies.d ++ python-lsp-server.optional-dependencies.all))
     rnix-lsp
     shellcheck
     shfmt

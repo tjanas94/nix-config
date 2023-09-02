@@ -1,8 +1,10 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   pass =
     pkgs.pass.withExtensions
-    (exts: with exts; [pass-import pass-update]);
-in {
+      (exts: with exts; [ pass-import pass-update ]);
+in
+{
   programs = {
     htop.enable = true;
     jq.enable = true;

@@ -14,7 +14,7 @@
         vaultwarden-users vaultwarden vaultwarden
       '';
 
-      ensureDatabases = ["vaultwarden"];
+      ensureDatabases = [ "vaultwarden" ];
       ensureUsers = [
         {
           name = "vaultwarden";
@@ -33,5 +33,5 @@
     };
   };
 
-  environment.persistence."/persist".directories = ["/var/lib/bitwarden_rs"];
+  environment.persistence."/persist".directories = [ "/var/lib/bitwarden_rs" ];
 }

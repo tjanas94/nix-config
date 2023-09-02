@@ -29,5 +29,5 @@
     };
   };
 
-  environment.persistence."/persist".directories = ["/var/lib/gitea"];
+  environment.persistence."/persist".directories = [ "/var/lib/gitea" ];
 }

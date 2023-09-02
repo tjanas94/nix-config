@@ -8,5 +8,5 @@
     };
   };
 
-  environment.persistence."/persist".directories = ["/var/lib/docker"];
+  environment.persistence."/persist".directories = [ "/var/lib/docker" ];
 }

@@ -1,8 +1,8 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{ config
+, pkgs
+, ...
+}:
+let
   common-config = {
     encryption = {
       mode = "repokey-blake2";
@@ -30,13 +30,14 @@
       yearly = 1;
     };
   };
-in {
+in
+{
   services.borgbackup.jobs = {
     "home-backup" =
       common-config
       // {
         repo = "local-backup:home-backup.borg";
-        startAt = [];
+        startAt = [ ];
         paths = [
           "/mnt/snapshots/lenovo-home"
           "/mnt/snapshots/x230t-home"
@@ -52,7 +53,7 @@ in {
       common-config
       // {
         repo = "local-backup:usb-backup.borg";
-        startAt = [];
+        startAt = [ ];
         paths = [
           "/mnt/snapshots/lenovo-data/archiwum"
           "/mnt/snapshots/lenovo-data/Documents"
@@ -88,14 +89,14 @@ in {
 
   fileSystems."/mnt/snapshots" = {
     device = "/mnt/btrfs_data/backup/latest";
-    options = ["bind"];
+    options = [ "bind" ];
   };
 
-  environment.persistence."/persist".directories = ["/root/.cache/borg" "/root/.config/borg"];
+  environment.persistence."/persist".directories = [ "/root/.cache/borg" "/root/.config/borg" ];
 
   sops.secrets = {
-    borgbackup-config = {};
-    borgbackup-key = {};
-    borgbackup-passphrase = {};
+    borgbackup-config = { };
+    borgbackup-key = { };
+    borgbackup-passphrase = { };
   };
 }

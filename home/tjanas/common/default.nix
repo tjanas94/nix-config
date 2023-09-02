@@ -1,4 +1,4 @@
-{outputs, ...}: {
+{ outputs, ... }: {
   imports =
     [
       ./cli/aliases.nix

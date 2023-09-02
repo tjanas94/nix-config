@@ -2,7 +2,7 @@
   programs.ssh = {
     enable = true;
     hashKnownHosts = true;
-    includes = ["config.d/*"];
+    includes = [ "config.d/*" ];
     extraConfig = ''
       AddKeysToAgent yes
       IdentitiesOnly yes

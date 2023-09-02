@@ -1,7 +1,6 @@
-{
-  config,
-  inputs,
-  ...
+{ config
+, inputs
+, ...
 }: {
   imports = [
     inputs.hardware.nixosModules.lenovo-thinkpad-x230
@@ -25,17 +24,17 @@
     "/data" = {
       device = "/dev/disk/by-label/nixos-usb-data";
       fsType = "btrfs";
-      options = ["subvol=data" "compress=zstd"];
+      options = [ "subvol=data" "compress=zstd" ];
     };
 
     "/mnt/btrfs_data" = {
       device = "/dev/disk/by-label/nixos-usb-data";
       fsType = "btrfs";
-      options = ["subvolid=5" "noatime"];
+      options = [ "subvolid=5" "noatime" ];
     };
   };
 
-  boot.loader.grub.devices = ["/dev/sda"];
+  boot.loader.grub.devices = [ "/dev/sda" ];
   services.xserver.wacom.enable = true;
   swapFile.size = 4 * 1024;
 

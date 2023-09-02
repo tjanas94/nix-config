@@ -1,4 +1,4 @@
-{lib, ...}: {
+{ lib, ... }: {
   swapFile = {
     enable = lib.mkDefault true;
     path = "/swap/swapfile";

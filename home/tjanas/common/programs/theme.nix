@@ -1,6 +1,8 @@
-{pkgs, ...}: let
-  hasklig-nerdfont = pkgs.nerdfonts.override {fonts = ["Hasklig"];};
-in {
+{ pkgs, ... }:
+let
+  hasklig-nerdfont = pkgs.nerdfonts.override { fonts = [ "Hasklig" ]; };
+in
+{
   fonts.fontconfig.enable = true;
 
   gtk = {

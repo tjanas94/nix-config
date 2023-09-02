@@ -1,6 +1,7 @@
 let
   dnsmasq-dir = "/etc/dnsmasq.d";
-in {
+in
+{
   services.dnsmasq = {
     enable = true;
     settings = {
@@ -11,5 +12,5 @@ in {
     };
   };
 
-  environment.persistence."/persist".directories = [dnsmasq-dir];
+  environment.persistence."/persist".directories = [ dnsmasq-dir ];
 }

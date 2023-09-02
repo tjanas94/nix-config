@@ -1,9 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   hardware.sane.enable = true;
 
   services.printing = {
     enable = true;
-    drivers = with pkgs; [gutenprint];
+    drivers = with pkgs; [ gutenprint ];
     browsing = true;
     browsedConf = ''
       BrowseDNSSDSubTypes _cups,_print

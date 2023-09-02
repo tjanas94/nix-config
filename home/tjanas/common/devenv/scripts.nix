@@ -5,6 +5,6 @@
       recursive = true;
     };
 
-    sessionPath = ["$HOME/.local/bin"];
+    sessionPath = [ "$HOME/.local/bin" ];
   };
 }

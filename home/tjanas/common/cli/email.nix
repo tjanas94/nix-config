@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.mbsync.enable = true;
   programs.msmtp.enable = true;
   programs.notmuch.enable = true;

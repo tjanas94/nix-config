@@ -28,66 +28,69 @@
     doomemacs.flake = false;
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    forAllSystems = nixpkgs.lib.genAttrs [
-      "x86_64-linux"
-    ];
-  in rec {
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
-    overlays =
-      import ./overlays {inherit inputs;};
+  outputs =
+    { self
+    , nixpkgs
+    , ...
+    } @ inputs:
+    let
+      inherit (self) outputs;
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+      ];
+    in
+    rec {
+      nixosModules = import ./modules/nixos;
+      homeManagerModules = import ./modules/home-manager;
+      overlays =
+        import ./overlays { inherit inputs; };
 
-    packages =
-      forAllSystems (
+      packages =
+        forAllSystems
+          (
+            system:
+            import ./pkgs { pkgs = nixpkgs.legacyPackages.${system}; }
+          )
+        // {
+          x86_64-linux.installer = nixosConfigurations.installer.config.system.build.isoImage;
+        };
+
+      devShells = forAllSystems (
         system:
-          import ./pkgs {pkgs = nixpkgs.legacyPackages.${system};}
-      )
-      // {
-        x86_64-linux.installer = nixosConfigurations.installer.config.system.build.isoImage;
-      };
+        import ./shell.nix { pkgs = nixpkgs.legacyPackages.${system}; }
+      );
 
-    devShells = forAllSystems (
-      system:
-        import ./shell.nix {pkgs = nixpkgs.legacyPackages.${system};}
-    );
+      formatter =
+        forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
 
-    formatter =
-      forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      legacyPackages = forAllSystems (system:
+        import nixpkgs {
+          inherit system;
+          overlays = builtins.attrValues overlays;
+          config.allowUnfree = true;
+        });
 
-    legacyPackages = forAllSystems (system:
-      import nixpkgs {
-        inherit system;
-        overlays = builtins.attrValues overlays;
-        config.allowUnfree = true;
-      });
-
-    nixosConfigurations = {
-      dell = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/dell];
-      };
-      installer = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/installer];
-      };
-      lenovo = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/lenovo];
-      };
-      nixos-vm = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/nixos-vm];
-      };
-      x230t = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/x230t];
+      nixosConfigurations = {
+        dell = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/dell ];
+        };
+        installer = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/installer ];
+        };
+        lenovo = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/lenovo ];
+        };
+        nixos-vm = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/nixos-vm ];
+        };
+        x230t = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/x230t ];
+        };
       };
     };
-  };
 }

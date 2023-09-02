@@ -1,8 +1,8 @@
-{config, ...}: {
+{ config, ... }: {
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;
-    devices = ["nodev"];
+    devices = [ "nodev" ];
     users.root.hashedPasswordFile = config.sops.secrets.grub-password.path;
   };
 

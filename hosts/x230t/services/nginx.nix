@@ -1,4 +1,4 @@
-{config, ...}: {
+{ config, ... }: {
   services.nginx = {
     enable = true;
     recommendedTlsSettings = true;
@@ -8,6 +8,6 @@
     clientMaxBodySize = "1g";
   };
 
-  networking.firewall.allowedTCPPorts = [80 443];
-  users.users.nginx.extraGroups = [config.users.users.acme.group];
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  users.users.nginx.extraGroups = [ config.users.users.acme.group ];
 }

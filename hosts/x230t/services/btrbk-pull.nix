@@ -1,4 +1,4 @@
-{config, ...}: {
+{ config, ... }: {
   services.btrbk.instances.lenovo = {
     onCalendar = "hourly";
     settings = {
@@ -21,8 +21,8 @@
           target = "/mnt/btrfs_data/backup/lenovo-system";
           snapshot_dir = "backup/local-system";
           subvolume = {
-            "home" = {};
-            "persist" = {};
+            "home" = { };
+            "persist" = { };
           };
         };
       };

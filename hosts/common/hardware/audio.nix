@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   sound.enable = true;
 
   hardware.pulseaudio = {
@@ -6,5 +6,5 @@
     package = pkgs.pulseaudioFull;
   };
 
-  environment.persistence."/persist".directories = ["/var/lib/alsa"];
+  environment.persistence."/persist".directories = [ "/var/lib/alsa" ];
 }

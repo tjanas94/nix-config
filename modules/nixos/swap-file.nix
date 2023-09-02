@@ -1,11 +1,11 @@
-{
-  config,
-  lib,
-  ...
+{ config
+, lib
+, ...
 }:
 with lib; let
   cfg = config.swapFile;
-in {
+in
+{
   options.swapFile = {
     enable = mkEnableOption "swap file";
 

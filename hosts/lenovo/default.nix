@@ -1,7 +1,6 @@
-{
-  config,
-  inputs,
-  ...
+{ config
+, inputs
+, ...
 }: {
   imports = [
     inputs.hardware.nixosModules.common-cpu-intel
@@ -33,13 +32,13 @@
     "/data" = {
       device = "/dev/disk/by-label/nixos-data";
       fsType = "btrfs";
-      options = ["subvol=data" "compress=zstd"];
+      options = [ "subvol=data" "compress=zstd" ];
     };
 
     "/mnt/btrfs_data" = {
       device = "/dev/disk/by-label/nixos-data";
       fsType = "btrfs";
-      options = ["subvolid=5" "noatime"];
+      options = [ "subvolid=5" "noatime" ];
     };
   };
 
@@ -48,7 +47,7 @@
     nvidiaBusId = "PCI:1:0:0";
   };
 
-  services.xserver.videoDrivers = ["displaylink" "modesetting" "nvidia"];
+  services.xserver.videoDrivers = [ "displaylink" "modesetting" "nvidia" ];
 
   sops.defaultSopsFile = ./secrets.yaml;
   networking.hostName = "lenovo";
