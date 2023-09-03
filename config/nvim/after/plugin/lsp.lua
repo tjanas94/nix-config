@@ -29,6 +29,9 @@ lsp.on_attach(function(client, bufnr)
     if client.name == 'tsserver' then
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentFormattingRangeProvider = false
+    elseif client.name == 'bashls' then
+        vim.keymap.set('n', '<leader>cf', '<cmd>%!shfmt -s -i 4<CR>', opts)
+        vim.keymap.set('x', '<leader>cf', '!shfmt -s -i 4<CR>', opts)
     elseif client.name == 'eslint' then
         vim.keymap.set({ 'n', 'x' }, '<leader>cf', vim.cmd.EslintFixAll, opts)
     elseif client.supports_method('textDocument/formatting') then
