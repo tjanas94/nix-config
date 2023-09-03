@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  jdtls = pkgs.writeShellScriptBin "jdtls" "exec -a $0 ${pkgs.jdt-language-server}/bin/jdt-language-server $@";
+in
+{
   home.packages = with pkgs; [
     nodePackages."@tailwindcss/language-server"
     nodePackages.bash-language-server
@@ -19,6 +23,7 @@
     html-tidy
     jdk
     jdt-language-server
+    jdtls
     lazydocker
     lazygit
     lua-language-server
