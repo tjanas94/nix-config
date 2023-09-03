@@ -34,6 +34,7 @@
       nvim-treesitter-textobjects
       telescope-fzf-native-nvim
       telescope-nvim
+      trouble-nvim
       undotree
       vim-abolish
       vim-be-good
