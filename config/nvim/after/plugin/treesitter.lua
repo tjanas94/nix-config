@@ -15,6 +15,24 @@ require('nvim-treesitter.configs').setup({
       node_decremental = '<S-TAB>',
     },
   },
+  refactor = {
+    highlight_definitions = {
+      enable = true,
+      -- Set to false if you have an `updatetime` of ~100.
+      clear_on_cursor_move = true,
+    },
+    navigation = {
+      enable = true,
+      -- Assign keymaps to false to disable them, e.g. `goto_definition = false`.
+      keymaps = {
+        goto_definition = false,
+        list_definitions = false,
+        list_definitions_toc = false,
+        goto_next_usage = "<a-*>",
+        goto_previous_usage = "<a-#>",
+      },
+    },
+  },
   textobjects = {
     select = {
       enable = true,

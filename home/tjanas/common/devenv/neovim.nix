@@ -31,6 +31,7 @@
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
       nvim-treesitter-context
+      nvim-treesitter-refactor
       nvim-treesitter-textobjects
       telescope-fzf-native-nvim
       telescope-nvim
