@@ -9,6 +9,7 @@
     clock24 = true;
     escapeTime = 0;
     extraConfig = ''
+      set -g detach-on-destroy off
       set -g renumber-windows on
       set -g status-left-length '80'
       set -g status-right-length '80'

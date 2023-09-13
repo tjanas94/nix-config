@@ -1,4 +1,5 @@
-{ lib
+{ config
+, lib
 , inputs
 , pkgs
 , ...
@@ -23,7 +24,7 @@
       emacs-all-the-icons-fonts
     ];
 
-    sessionPath = [ "$XDG_CONFIG_HOME/emacs/bin" ];
+    sessionPath = [ "${config.xdg.configHome}/emacs/bin" ];
   };
 
   xdg.configFile.doom = {
@@ -32,10 +33,10 @@
   };
 
   home.activation.installDoomEmacs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
-       ${pkgs.git}/bin/git clone -n "https://github.com/doomemacs/doomemacs" "$XDG_CONFIG_HOME/emacs"
+    if [ ! -d "${config.xdg.configHome}/emacs" ]; then
+       ${pkgs.git}/bin/git clone -n "https://github.com/doomemacs/doomemacs" "${config.xdg.configHome}/emacs"
     fi
-    ${pkgs.git}/bin/git -C "$XDG_CONFIG_HOME/emacs" fetch
-    ${pkgs.git}/bin/git -C "$XDG_CONFIG_HOME/emacs" checkout -f ${inputs.doomemacs.rev}
+    ${pkgs.git}/bin/git -C "${config.xdg.configHome}/emacs" fetch || exit 0
+    ${pkgs.git}/bin/git -C "${config.xdg.configHome}/emacs" checkout -f ${inputs.doomemacs.rev}
   '';
 }
