@@ -30,6 +30,7 @@ if [ -z "$HAS_SESSION" ]; then
     SESSION=$(tmux new-session -ds "$SELECTED_NAME" -c "$PROJECT" -PF '#S' 'vi .')
 elif [ -z "$SESSION" ]; then
     SESSION=$(tmux new-session -dt "$SELECTED_NAME" -c "$PROJECT" -PF '#S')
+    tmux new-window -t "$SESSION":
 fi
 
 zoxide add "$PROJECT"
