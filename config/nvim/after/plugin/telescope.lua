@@ -1,4 +1,5 @@
 local builtin = require('telescope.builtin')
+local ht = require('haskell-tools')
 require('telescope').load_extension('fzf')
 
 vim.keymap.set('n', '<leader><space>', builtin.git_files)
@@ -8,3 +9,4 @@ vim.keymap.set('n', '<leader>/', builtin.live_grep)
 vim.keymap.set('n', '<leader>*', builtin.grep_string)
 vim.keymap.set('n', '<leader>vd', builtin.diagnostics)
 vim.keymap.set('n', '<leader>vh', builtin.help_tags)
+vim.keymap.set('n', '<leader>vs', ht.hoogle.hoogle_signature)

@@ -22,7 +22,7 @@ in
           "video"
           "wireshark"
         ];
-      passwordFile = config.sops.secrets.tjanas-password.path;
+      hashedPasswordFile = config.sops.secrets.tjanas-password.path;
       openssh.authorizedKeys.keys = import ./authorized-keys.nix;
     };
   };

@@ -4,6 +4,8 @@ let
 in
 {
   home.packages = with pkgs; [
+    haskellPackages.cabal-fmt
+    haskellPackages.fourmolu
     nodePackages."@tailwindcss/language-server"
     nodePackages.bash-language-server
     nodePackages.dockerfile-language-server-nodejs
@@ -12,14 +14,19 @@ in
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
+    cabal-install
     cmake
     dockfmt
     editorconfig-core-c
     gcc
+    ghc
+    ghcid
     gnumake
     go
     gotools
     gopls
+    haskell-language-server
+    hlint
     html-tidy
     jdk
     jdt-language-server

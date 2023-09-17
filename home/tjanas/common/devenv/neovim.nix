@@ -24,6 +24,7 @@
       gitsigns-nvim
       gruvbox-nvim
       harpoon
+      haskell-tools-nvim
       lsp-zero-nvim
       lualine-nvim
       luasnip
@@ -35,7 +36,6 @@
       nvim-treesitter-textobjects
       telescope-fzf-native-nvim
       telescope-nvim
-      trouble-nvim
       undotree
       vim-abolish
       vim-be-good
