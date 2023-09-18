@@ -39,8 +39,20 @@ lsp.on_attach(function(client, bufnr)
     end
 end)
 
-lsp.setup_servers({ 'bashls', 'cssls', 'dockerls', 'eslint', 'gopls', 'hls', 'html', 'jdtls', 'jsonls', 'pylsp', 'rnix',
+lsp.setup_servers({ 'bashls', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls', 'jsonls', 'pylsp', 'rnix',
     'tailwindcss', 'yamlls' })
+
+lsp.setup_servers({
+    'hls',
+    opts = {
+        settings = {
+            haskell = {
+                cabalFormattingProvider = "cabalfmt",
+                formattingProvider = "fourmolu",
+            },
+        },
+    }
+})
 
 lsp.setup_servers({
     'tsserver',

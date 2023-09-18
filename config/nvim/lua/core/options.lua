@@ -27,6 +27,7 @@ vim.filetype.add({
     extension = {
         cdt = 'javascript',
         ctp = 'php',
+        handlebars = 'handlebars',
         jqtpl = 'html',
     },
 })

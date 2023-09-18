@@ -27,7 +27,7 @@ HAS_SESSION=$(tmux list-sessions -f "$FILTER" 2>/dev/null || true)
 SESSION=$(tmux list-sessions -f "#{&&:#{?session_attached,0,1},${FILTER}}" -F '#S' 2>/dev/null | head -n1 || true)
 
 if [ -z "$HAS_SESSION" ]; then
-    SESSION=$(tmux new-session -ds "$SELECTED_NAME" -c "$PROJECT" -PF '#S' 'vi .')
+    SESSION=$(tmux new-session -ds "$SELECTED_NAME" -c "$PROJECT" -PF '#S' 'direnv exec . vi .')
 elif [ -z "$SESSION" ]; then
     SESSION=$(tmux new-session -dt "$SELECTED_NAME" -c "$PROJECT" -PF '#S')
     tmux new-window -t "$SESSION":
