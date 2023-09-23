@@ -18,7 +18,6 @@
 
   programs.ssh.startAgent = true;
   networking.firewall.allowedTCPPorts = [ 22 ];
-  security.pam.enableSSHAgentAuth = true;
 
   users.users.root.openssh.authorizedKeys.keys = import ../users/tjanas/authorized-keys.nix;
 }
