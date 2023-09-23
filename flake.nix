@@ -30,6 +30,10 @@
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
     emacs-overlay.inputs.nixpkgs-stable.follows = "nixpkgs-stable";
 
+    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+    pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
+    pre-commit-hooks.inputs.nixpkgs-stable.follows = "nixpkgs-stable";
+
     wallpapers.url = "git+https://gitlab.com/dwt1/wallpapers.git";
     wallpapers.flake = false;
 
@@ -40,22 +44,29 @@
   outputs =
     { self
     , nixpkgs
+    , pre-commit-hooks
     , ...
     } @ inputs:
     let
       inherit (nixpkgs) lib;
       inherit (self) outputs;
       systems = [ "x86_64-linux" ];
-      pkgsFor = system: import nixpkgs {
+      pkgsFor = lib.genAttrs systems (system: import nixpkgs {
         inherit system;
         overlays = builtins.attrValues self.overlays;
         config.allowUnfree = true;
-      };
-      forAllSystems = f: lib.genAttrs systems (system: f (pkgsFor system));
+      });
+      forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
     in
     rec {
       inherit lib;
-      devShells = forAllSystems (pkgs: import ./shell.nix { inherit pkgs; });
+      checks = forAllSystems (pkgs: {
+        pre-commit-check = pre-commit-hooks.lib.${pkgs.system}.run {
+          src = ./.;
+          hooks.nixpkgs-fmt.enable = true;
+        };
+      });
+      devShells = forAllSystems (pkgs: import ./shell.nix { inherit pkgs outputs; });
       formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
       legacyPackages = forAllSystems (pkgs: pkgs);
       packages = forAllSystems (pkgs: import ./pkgs { inherit pkgs; })

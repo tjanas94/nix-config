@@ -1,5 +1,6 @@
-{ pkgs }: with pkgs; {
+{ pkgs, outputs }: with pkgs; {
   default = mkShell {
+    inherit (outputs.checks.${pkgs.system}.pre-commit-check) shellHook;
     NIX_CONFIG = "experimental-features = nix-command flakes repl-flake";
     nativeBuildInputs = [
       age
