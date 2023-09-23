@@ -43,60 +43,49 @@
     , ...
     } @ inputs:
     let
+      inherit (nixpkgs) lib;
       inherit (self) outputs;
-      forAllSystems = nixpkgs.lib.genAttrs [
-        "x86_64-linux"
-      ];
+      systems = [ "x86_64-linux" ];
+      pkgsFor = system: import nixpkgs {
+        inherit system;
+        overlays = builtins.attrValues self.overlays;
+        config.allowUnfree = true;
+      };
+      forAllSystems = f: lib.genAttrs systems (system: f (pkgsFor system));
     in
     rec {
-      nixosModules = import ./modules/nixos;
-      homeManagerModules = import ./modules/home-manager;
-      overlays =
-        import ./overlays { inherit inputs; };
-
-      packages =
-        forAllSystems
-          (
-            system:
-            import ./pkgs { pkgs = nixpkgs.legacyPackages.${system}; }
-          )
+      inherit lib;
+      devShells = forAllSystems (pkgs: import ./shell.nix { inherit pkgs; });
+      formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
+      legacyPackages = forAllSystems (pkgs: pkgs);
+      packages = forAllSystems (pkgs: import ./pkgs { inherit pkgs; })
         // {
-          x86_64-linux.installer = nixosConfigurations.installer.config.system.build.isoImage;
-        };
+        x86_64-linux.installer =
+          nixosConfigurations.installer.config.system.build.isoImage;
+      };
 
-      devShells = forAllSystems (
-        system:
-        import ./shell.nix { pkgs = nixpkgs.legacyPackages.${system}; }
-      );
-
-      formatter =
-        forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
-
-      legacyPackages = forAllSystems (system:
-        import nixpkgs {
-          inherit system;
-          overlays = builtins.attrValues overlays;
-          config.allowUnfree = true;
-        });
+      homeManagerModules = import ./modules/home-manager;
+      nixosModules = import ./modules/nixos;
+      overlays = import ./overlays { inherit inputs; };
 
       nixosConfigurations = {
-        dell = nixpkgs.lib.nixosSystem {
+        dell = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/dell ];
         };
-        installer = nixpkgs.lib.nixosSystem {
+        installer = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/installer ];
         };
-        lenovo = nixpkgs.lib.nixosSystem {
+        lenovo = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/lenovo ];
         };
-        nixos-vm = nixpkgs.lib.nixosSystem {
+        nixos-vm = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/nixos-vm ];
         };
-        x230t = nixpkgs.lib.nixosSystem {
+        x230t = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/x230t ];
         };

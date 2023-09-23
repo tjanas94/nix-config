@@ -57,9 +57,6 @@ in
     luajitPackages.luacheck
     stylua
 
-    nixpkgs-fmt
-    rnix-lsp
-
     pythonEnv
   ];
 

@@ -1,3 +1,3 @@
-{ pkgs ? (import ../nixpkgs.nix) { } }: {
-  install-system = pkgs.callPackage ./install-system { };
+{ pkgs }: with pkgs; {
+  install-system = callPackage ./install-system { };
 }

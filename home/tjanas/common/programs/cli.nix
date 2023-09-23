@@ -14,7 +14,6 @@ in
 
   home.packages = with pkgs; [
     nodePackages.aws-azure-login
-    age
     amazon-ecr-credential-helper
     ansible
     awscli2
@@ -54,8 +53,6 @@ in
     screen
     samba
     socat
-    sops
-    ssh-to-age
     vcsh
     wget
     whois

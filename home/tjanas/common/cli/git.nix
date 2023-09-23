@@ -29,6 +29,7 @@
     ignores = [
       "node_modules/"
       "__pycache__/"
+      ".direnv/"
       "*.bak"
       "*.env"
       "*.log"

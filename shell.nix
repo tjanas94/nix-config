@@ -1,9 +1,19 @@
-{ pkgs ? (import ./nixpkgs.nix) { } }: {
-  default = pkgs.mkShell {
+{ pkgs }: with pkgs; {
+  default = mkShell {
     NIX_CONFIG = "experimental-features = nix-command flakes repl-flake";
-    nativeBuildInputs = with pkgs; [ age git gnupg jq nix pinentry-curses sops ssh-to-age ];
+    nativeBuildInputs = [
+      age
+      git
+      gnupg
+      nix
+      nixpkgs-fmt
+      pinentry-curses
+      rnix-lsp
+      sops
+      ssh-to-age
+    ];
   };
-  node18 = pkgs.mkShell {
-    nativeBuildInputs = with pkgs; [ nodejs-slim-18_x nodejs-18_x.pkgs.npm ];
+  node18 = mkShell {
+    nativeBuildInputs = [ nodejs-slim-18_x nodejs-18_x.pkgs.npm ];
   };
 }
