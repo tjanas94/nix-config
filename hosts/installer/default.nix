@@ -8,7 +8,7 @@
 
   nix = {
     daemonCPUSchedPolicy = "idle";
-    settings.experimental-features = "nix-command flakes";
+    settings.experimental-features = "nix-command flakes repl-flake";
   };
 
   users.users = {

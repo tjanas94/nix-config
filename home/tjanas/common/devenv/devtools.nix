@@ -51,7 +51,6 @@ in
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
-    yarn
 
     lua-language-server
     luajit
