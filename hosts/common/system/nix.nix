@@ -25,6 +25,7 @@
       ];
       trusted-users = [ "root" "@wheel" ];
       experimental-features = "nix-command flakes repl-flake";
+      accept-flake-config = true;
       auto-optimise-store = true;
       warn-dirty = false;
     };
