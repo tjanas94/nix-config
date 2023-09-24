@@ -2,7 +2,10 @@
 
 set -exuo pipefail
 
-export NIX_CONFIG='experimental-features = nix-command flakes repl-flake'
+export NIX_CONFIG='
+experimental-features = nix-command flakes repl-flake
+accept-flake-config = true
+'
 
 if [ -z ${FLAKE+x} ]; then
     FLAKE=github:tjanas94/nix-config
