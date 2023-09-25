@@ -26,4 +26,13 @@
       }
     ];
   };
+
+  security.sudo.extraRules = [
+    {
+      users = [ "btrbk" ];
+      commands = [
+        { command = "/run/current-system/sw/bin/btrfs"; options = [ "NOPASSWD" ]; }
+      ];
+    }
+  ];
 }
