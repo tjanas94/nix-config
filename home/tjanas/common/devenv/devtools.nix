@@ -57,6 +57,8 @@ in
     luajitPackages.luacheck
     stylua
 
+    rnix-lsp
+
     pythonEnv
   ];
 
