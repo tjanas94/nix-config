@@ -9,6 +9,13 @@ lsp.set_preferences({
     }
 })
 
+lsp.setup_nvim_cmp({
+  mapping = lsp.defaults.cmp_mappings({
+    ['<Tab>'] = vim.NIL,
+    ['<S-Tab>'] = vim.NIL,
+  })
+})
+
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 

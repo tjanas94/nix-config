@@ -20,6 +20,7 @@
       cmp-nvim-lsp
       cmp-nvim-lua
       comment-nvim
+      copilot-vim
       friendly-snippets
       gitsigns-nvim
       gruvbox-nvim
