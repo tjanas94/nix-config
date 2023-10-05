@@ -2,13 +2,8 @@
 
 set -euo pipefail
 
-if [ $# -ne 2 ]; then
-    echo "usage: $0 <source> <target>" >&2
-    exit 1
-fi
-
-SOURCE="$1"
-TARGET="$2"
+SOURCE="$PWD"
+TARGET="${1:-dev}:"
 RSYNCSOURCE=$(perl -pe "s#$HOME#$HOME/.#" <<<"$SOURCE")
 IGNORE_GIT=""
 
