@@ -1,14 +1,6 @@
 { pkgs, ... }:
 let
   jdtls = pkgs.writeShellScriptBin "jdtls" "exec -a $0 ${pkgs.jdt-language-server}/bin/jdt-language-server $@";
-  haskellEnv = pkgs.haskellPackages.ghcWithHoogle (hs: with hs; [
-    cabal-fmt.bin
-    cabal-install
-    fourmolu
-    ghcid.bin
-    haskell-language-server
-    hlint
-  ]);
   pythonEnv = pkgs.python3.withPackages (ps: with ps; [
     black
     grip
@@ -36,8 +28,6 @@ in
     gotools
     gopls
 
-    haskellEnv
-
     jdk
     jdt-language-server
     jdtls
@@ -61,6 +51,4 @@ in
 
     pythonEnv
   ];
-
-  home.file.".ghci".source = ../../../../config/ghci;
 }

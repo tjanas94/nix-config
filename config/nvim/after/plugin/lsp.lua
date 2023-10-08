@@ -10,10 +10,10 @@ lsp.set_preferences({
 })
 
 lsp.setup_nvim_cmp({
-  mapping = lsp.defaults.cmp_mappings({
-    ['<Tab>'] = vim.NIL,
-    ['<S-Tab>'] = vim.NIL,
-  })
+    mapping = lsp.defaults.cmp_mappings({
+        ['<Tab>'] = vim.NIL,
+        ['<S-Tab>'] = vim.NIL,
+    })
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -46,20 +46,8 @@ lsp.on_attach(function(client, bufnr)
     end
 end)
 
-lsp.setup_servers({ 'bashls', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls', 'jsonls', 'pylsp', 'rnix',
-    'tailwindcss', 'yamlls' })
-
-lsp.setup_servers({
-    'hls',
-    opts = {
-        settings = {
-            haskell = {
-                cabalFormattingProvider = "cabalfmt",
-                formattingProvider = "fourmolu",
-            },
-        },
-    }
-})
+lsp.setup_servers({ 'bashls', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls', 'jsonls', 'ocamllsp', 'pylsp',
+    'rnix', 'tailwindcss', 'yamlls' })
 
 lsp.setup_servers({
     'tsserver',

@@ -25,7 +25,6 @@
       gitsigns-nvim
       gruvbox-nvim
       harpoon
-      haskell-tools-nvim
       lsp-zero-nvim
       lualine-nvim
       luasnip

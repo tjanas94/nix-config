@@ -1,4 +1,0 @@
-:set prompt "\x03BB> "
-:set prompt-cont " > "
-:def hoogle return . Text.Printf.printf ":!hoogle \"%s\""
-:def! doc return . Text.Printf.printf ":!hoogle --info \"%s\""
