@@ -13,8 +13,8 @@ in
   };
 
   home.packages = with pkgs; [
-    nodePackages.aws-azure-login
     amazon-ecr-credential-helper
+    aws-azure-login
     ansible
     awscli2
     binutils

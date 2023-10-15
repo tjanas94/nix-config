@@ -4,6 +4,9 @@ set -euo pipefail
 
 vm="${1:-dev}"
 
+PUPPETEER_EXECUTABLE_PATH="$(command -v google-chrome-stable)"
+export PUPPETEER_EXECUTABLE_PATH
+
 aws-azure-login --no-prompt -a
 
 cat <<EOF | sftp "$vm"
