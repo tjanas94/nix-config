@@ -1,4 +1,11 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }:
+let
+  harpoon-git = pkgs.vimPlugins.harpoon.overrideAttrs (_: {
+    name = "harpoon-git";
+    src = inputs.harpoon;
+  });
+in
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -24,7 +31,7 @@
       friendly-snippets
       gitsigns-nvim
       gruvbox-nvim
-      harpoon
+      harpoon-git
       lsp-zero-nvim
       lualine-nvim
       luasnip

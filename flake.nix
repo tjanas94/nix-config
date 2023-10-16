@@ -39,6 +39,9 @@
 
     doomemacs.url = "github:doomemacs/doomemacs";
     doomemacs.flake = false;
+
+    harpoon.url = "github:theprimeagen/harpoon";
+    harpoon.flake = false;
   };
 
   outputs =
