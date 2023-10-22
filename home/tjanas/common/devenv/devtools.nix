@@ -47,7 +47,7 @@ in
     luajitPackages.luacheck
     stylua
 
-    rnix-lsp
+    nixd
 
     pythonEnv
   ];

@@ -46,8 +46,8 @@ lsp.on_attach(function(client, bufnr)
     end
 end)
 
-lsp.setup_servers({ 'bashls', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls', 'jsonls', 'ocamllsp', 'pylsp',
-    'rnix', 'tailwindcss', 'yamlls' })
+lsp.setup_servers({ 'bashls', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls', 'jsonls', 'pylsp', 'nixd',
+    'tailwindcss', 'yamlls' })
 
 lsp.setup_servers({
     'tsserver',

@@ -30,6 +30,9 @@
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
     emacs-overlay.inputs.nixpkgs-stable.follows = "nixpkgs-stable";
 
+    nixd.url = "github:nix-community/nixd";
+    nixd.inputs.nixpkgs.follows = "nixpkgs";
+
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
     pre-commit-hooks.inputs.nixpkgs-stable.follows = "nixpkgs-stable";
