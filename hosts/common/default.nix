@@ -9,8 +9,8 @@
       ./btrbk/system.nix
       ./home-manager.nix
       ./persistence.nix
-      ./programs/fish.nix
       ./programs/global.nix
+      ./programs/zsh.nix
       ./services/avahi.nix
       ./services/openssh.nix
       ./sops.nix

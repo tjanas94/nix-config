@@ -24,7 +24,6 @@
     historyLimit = 50000;
     keyMode = "vi";
     shortcut = "a";
-    shell = "${pkgs.fish}/bin/fish";
     terminal = "screen-256color";
     plugins = with pkgs.tmuxPlugins; [
       gruvbox

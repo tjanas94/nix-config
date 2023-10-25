@@ -27,6 +27,7 @@
       enable = true;
       fuzzySearchFactor = 2;
     };
+    starship.enable = true;
     zoxide.enable = true;
   };
 }

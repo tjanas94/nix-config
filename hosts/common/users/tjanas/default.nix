@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   ifTheyExist = groups:
     builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
@@ -24,6 +24,7 @@ in
         ];
       hashedPasswordFile = config.sops.secrets.tjanas-password.path;
       openssh.authorizedKeys.keys = import ./authorized-keys.nix;
+      shell = pkgs.zsh;
     };
   };
 

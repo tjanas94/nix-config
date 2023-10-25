@@ -14,7 +14,10 @@
     extraConfig = {
       apply.whitespace = "nowarn";
       init.defaultBranch = "master";
-      merge.tool = "vimdiff";
+      merge = {
+        tool = "vimdiff";
+        conflictStyle = "diff3";
+      };
       mergetool = {
         keepBackup = false;
         prompt = false;
@@ -39,6 +42,12 @@
       "*.tmp"
       "*~"
     ];
-    delta.enable = true;
+    delta = {
+      enable = true;
+      options = {
+        line-numbers = true;
+        navigate = true;
+      };
+    };
   };
 }
