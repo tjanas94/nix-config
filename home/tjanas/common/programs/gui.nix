@@ -62,9 +62,7 @@ in
     libreoffice-fresh
     networkmanagerapplet
     pavucontrol
-    pgadmin4
     playerctl
-    postman
     pulsemixer
     remmina
     scrot
