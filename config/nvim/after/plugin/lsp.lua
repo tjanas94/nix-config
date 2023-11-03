@@ -9,7 +9,11 @@ lsp.set_preferences({
     }
 })
 
+local sources = lsp.defaults.cmp_sources()
+table.insert(sources, 1, { name = 'conjure' })
+
 lsp.setup_nvim_cmp({
+    sources = sources,
     mapping = lsp.defaults.cmp_mappings({
         ['<Tab>'] = vim.NIL,
         ['<S-Tab>'] = vim.NIL,
@@ -46,8 +50,8 @@ lsp.on_attach(function(client, bufnr)
     end
 end)
 
-lsp.setup_servers({ 'bashls', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls', 'jsonls', 'pylsp', 'nixd',
-    'tailwindcss', 'yamlls' })
+lsp.setup_servers({ 'bashls', 'clojure_lsp', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls', 'jsonls', 'pylsp',
+    'nixd', 'tailwindcss', 'yamlls' })
 
 lsp.setup_servers({
     'tsserver',

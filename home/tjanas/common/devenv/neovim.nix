@@ -4,6 +4,14 @@ let
     name = "harpoon-git";
     src = inputs.harpoon;
   });
+  nvim-paredit-git = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-paredit-git";
+    src = inputs.nvim-paredit;
+  };
+  nvim-paredit-fennel-git = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-paredit-fennel-git";
+    src = inputs.nvim-paredit-fennel;
+  };
 in
 {
   programs.neovim = {
@@ -23,10 +31,12 @@ in
     plugins = with pkgs.vimPlugins; [
       cmp_luasnip
       cmp-buffer
+      cmp-conjure
       cmp-path
       cmp-nvim-lsp
       cmp-nvim-lua
       comment-nvim
+      conjure
       copilot-vim
       friendly-snippets
       gitsigns-nvim
@@ -35,8 +45,11 @@ in
       lsp-zero-nvim
       lualine-nvim
       luasnip
+      nvim-autopairs
       nvim-cmp
       nvim-lspconfig
+      nvim-paredit-git
+      nvim-paredit-fennel-git
       nvim-treesitter.withAllGrammars
       nvim-treesitter-context
       nvim-treesitter-refactor
@@ -46,7 +59,9 @@ in
       undotree
       vim-abolish
       vim-be-good
+      vim-dispatch
       vim-fugitive
+      vim-jack-in
       vim-repeat
       vim-sleuth
       vim-surround

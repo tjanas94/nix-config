@@ -17,6 +17,13 @@ in
   home.packages = with pkgs; [
     editorconfig-core-c
 
+    babashka
+    clojure
+    clojure-lsp
+    fennel
+    joker
+    leiningen
+
     nodePackages.bash-language-server
     shellcheck
     shfmt
@@ -33,6 +40,7 @@ in
     jdtls
     maven
 
+    bun
     html-tidy
     nodejs
     nodePackages."@tailwindcss/language-server"
