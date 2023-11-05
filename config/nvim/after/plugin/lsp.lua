@@ -43,6 +43,9 @@ lsp.on_attach(function(client, bufnr)
     elseif client.name == 'bashls' then
         vim.keymap.set('n', '<leader>cf', '<cmd>%!shfmt -s -i 4<CR>', opts)
         vim.keymap.set('x', '<leader>cf', '!shfmt -s -i 4<CR>', opts)
+    elseif client.name == 'clojure_lsp' then
+        vim.keymap.set('n', '<leader>cf', '<cmd>%!joker --format -<CR>', opts)
+        vim.keymap.set('x', '<leader>cf', '!joker --format -<CR>', opts)
     elseif client.name == 'eslint' then
         vim.keymap.set({ 'n', 'x' }, '<leader>cf', vim.cmd.EslintFixAll, opts)
     elseif client.supports_method('textDocument/formatting') then
