@@ -43,6 +43,7 @@ in
     bun
     html-tidy
     nodejs
+    nodePackages."@astrojs/language-server"
     nodePackages."@tailwindcss/language-server"
     nodePackages.prettier
     nodePackages.typescript

@@ -53,8 +53,8 @@ lsp.on_attach(function(client, bufnr)
     end
 end)
 
-lsp.setup_servers({ 'bashls', 'clojure_lsp', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls', 'jsonls', 'pylsp',
-    'nixd', 'tailwindcss', 'yamlls' })
+lsp.setup_servers({ 'astro', 'bashls', 'clojure_lsp', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls', 'jsonls',
+    'pylsp', 'nixd', 'tailwindcss', 'yamlls' })
 
 lsp.setup_servers({
     'tsserver',
