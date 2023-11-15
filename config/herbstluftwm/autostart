@@ -56,6 +56,7 @@ hc keybind XF86AudioRaiseVolume spawn amixer set Master 5%+ unmute
 hc keybind XF86AudioNext spawn playerctl -p mpv next
 hc keybind XF86AudioMute spawn amixer set Master toggle
 hc keybind XF86AudioPlay spawn playerctl -p mpv play-pause
+hc keybind XF86AudioPause spawn playerctl -p mpv play-pause
 hc keybind XF86AudioStop spawn playerctl -a pause
 hc keybind Print spawn systemd-run-app scrot -s
 

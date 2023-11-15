@@ -6,6 +6,7 @@
     enable = true;
     initExtra = ''
       ${pkgs.srandrd}/bin/srandrd autorandr -c
+      ${pkgs.xbindkeys}/bin/xbindkeys
     '';
   };
 
@@ -15,4 +16,9 @@
     source = inputs.wallpapers.outPath;
     recursive = true;
   };
+
+  home.file.".xbindkeysrc".text = ''
+    "${pkgs.xdotool}/bin/xdotool key XF86AudioPlay"
+      c:208
+  '';
 }
