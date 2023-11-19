@@ -1,26 +1,6 @@
-local lsp = require('lsp-zero').preset('system-lsp')
+local lsp_zero = require('lsp-zero')
 
-lsp.set_preferences({
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
-})
-
-local sources = lsp.defaults.cmp_sources()
-table.insert(sources, 1, { name = 'conjure' })
-
-lsp.setup_nvim_cmp({
-    sources = sources,
-    mapping = lsp.defaults.cmp_mappings({
-        ['<Tab>'] = vim.NIL,
-        ['<S-Tab>'] = vim.NIL,
-    })
-})
-
-lsp.on_attach(function(client, bufnr)
+lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -37,10 +17,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 
-    if client.name == 'tsserver' then
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentFormattingRangeProvider = false
-    elseif client.name == 'bashls' then
+    if client.name == 'bashls' then
         vim.keymap.set('n', '<leader>cf', '<cmd>%!shfmt -s -i 4<CR>', opts)
         vim.keymap.set('x', '<leader>cf', '!shfmt -s -i 4<CR>', opts)
     elseif client.name == 'clojure_lsp' then
@@ -53,23 +30,80 @@ lsp.on_attach(function(client, bufnr)
     end
 end)
 
-lsp.setup_servers({ 'astro', 'bashls', 'clojure_lsp', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls', 'jsonls',
-    'pylsp', 'nixd', 'tailwindcss', 'yamlls' })
+lsp_zero.setup_servers({ 'astro', 'bashls', 'clojure_lsp', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls',
+    'jsonls', 'nixd', 'pylsp', 'tailwindcss', 'yamlls' })
 
-lsp.setup_servers({
-    'tsserver',
-    opts = {
-        init_options = {
-            tsserver = {
-                path = vim.g.tsserver_path,
-            },
+local lspconfig = require('lspconfig')
+lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
+lspconfig.tsserver.setup({
+    init_options = {
+        tsserver = {
+            path = vim.g.tsserver_path,
         },
-    }
+    },
+    on_init = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentFormattingRangeProvider = false
+    end,
 })
 
-lsp.nvim_workspace()
-lsp.setup()
+lsp_zero.set_sign_icons({
+    error = 'E',
+    warn = 'W',
+    hint = 'H',
+    info = 'I'
+})
 
 vim.diagnostic.config({
-    virtual_text = true
+    virtual_text = true,
+    severity_sort = true,
+    float = {
+        style = 'minimal',
+        border = 'rounded',
+        source = 'always',
+        header = '',
+        prefix = '',
+    },
+})
+
+local cmp = require('cmp')
+local cmp_action = lsp_zero.cmp_action()
+local cmp_format = lsp_zero.cmp_format()
+
+require('luasnip.loaders.from_vscode').lazy_load()
+
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
+cmp.setup({
+    formatting = cmp_format,
+    preselect = 'item',
+    completion = {
+        completeopt = 'menu,menuone,noinsert',
+    },
+    window = {
+        documentation = cmp.config.window.bordered(),
+    },
+    sources = {
+        { name = 'conjure' },
+        { name = 'path' },
+        { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
+        { name = 'buffer',  keyword_length = 3 },
+        { name = 'luasnip', keyword_length = 2 },
+    },
+    mapping = cmp.mapping.preset.insert({
+        -- confirm completion item
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+
+        -- toggle completion menu
+        ['<C-e>'] = cmp_action.toggle_completion(),
+
+        -- navigate between snippet placeholder
+        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+
+        -- scroll documentation window
+        ['<C-d>'] = cmp.mapping.scroll_docs(5),
+        ['<C-u>'] = cmp.mapping.scroll_docs(-5),
+    }),
 })

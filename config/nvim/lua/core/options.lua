@@ -22,7 +22,6 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.exrc = true
-vim.opt.completeopt = { 'menuone', 'noselect' }
 
 vim.filetype.add({
     extension = {
