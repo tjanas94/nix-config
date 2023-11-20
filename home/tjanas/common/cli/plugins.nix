@@ -30,4 +30,8 @@
     starship.enable = true;
     zoxide.enable = true;
   };
+
+  xdg.configFile."direnv/lib/parent.sh".text = ''
+    source_up_if_exists .envrc
+  '';
 }
