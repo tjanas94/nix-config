@@ -17,6 +17,11 @@
     "net.ipv4.ip_unprivileged_port_start" = 0;
   };
 
+  hardware.logitech.wireless = {
+    enable = true;
+    enableGraphical = true;
+  };
+
   home-manager.users.tjanas = import ../home/tjanas/workstation.nix;
   location.provider = "geoclue2";
 
