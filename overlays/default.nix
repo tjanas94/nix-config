@@ -2,10 +2,7 @@
   additions = pkgs: _: import ../pkgs { inherit pkgs; };
 
   modifications = final: prev: {
-    inherit (final.nixpkgs-stable) awscli2 msmtp;
-    herbstluftwm = prev.herbstluftwm.overrideAttrs (old: {
-      doCheck = false;
-    });
+    inherit (final.nixpkgs-stable) awscli2;
   };
 
   stable-packages = final: _prev: {
