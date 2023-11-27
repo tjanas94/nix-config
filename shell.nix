@@ -20,7 +20,7 @@
         ssh-to-age
       ];
     };
-  node18 = mkShell {
-    nativeBuildInputs = [ nodejs-slim-18_x nodejs-18_x.pkgs.npm ];
+  node20 = mkShell {
+    nativeBuildInputs = [ nodejs-slim_20 nodejs_20.pkgs.npm ];
   };
 }
