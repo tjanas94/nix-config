@@ -61,8 +61,12 @@ in
     pythonEnv
 
     cargo
+    cargo-cache
+    cargo-watch
+    clippy
     clang
     rust-analyzer
     rustc
+    rustfmt
   ];
 }
