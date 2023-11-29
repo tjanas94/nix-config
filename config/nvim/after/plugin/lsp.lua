@@ -31,7 +31,7 @@ lsp_zero.on_attach(function(client, bufnr)
 end)
 
 lsp_zero.setup_servers({ 'astro', 'bashls', 'clojure_lsp', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls',
-    'jsonls', 'nixd', 'pylsp', 'tailwindcss', 'yamlls' })
+    'jsonls', 'nixd', 'pylsp', 'rust_analyzer', 'tailwindcss', 'yamlls' })
 
 local lspconfig = require('lspconfig')
 lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())

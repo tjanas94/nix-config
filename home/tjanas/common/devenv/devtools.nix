@@ -59,5 +59,10 @@ in
     nixd
 
     pythonEnv
+
+    cargo
+    clang
+    rust-analyzer
+    rustc
   ];
 }

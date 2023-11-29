@@ -17,7 +17,6 @@ in
     aws-azure-login
     ansible
     awscli2
-    binutils
     btop
     dnsutils
     docker-compose
