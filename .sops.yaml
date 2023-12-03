@@ -1,6 +1,6 @@
 anchors:
   - &dell age1uvd9szwgg3zass82fhg4xyx3qm7kn6dtknnxmylyc39ykrhuupdqt4pr3g
-  - &lenovo age15wy4pdek4mjflc9je4lp0pw96xdjp3r73f9ad6syysjh5da5pvjqrxj6cg
+  - &hp age15wy4pdek4mjflc9je4lp0pw96xdjp3r73f9ad6syysjh5da5pvjqrxj6cg
   - &nixos-vm age17pzf28qms6xna4pfyyflvrg9ks4w9dsfh0qs4esz3nl0jm4ds4pqwdthjs
   - &x230t age1kmhmqv39xsatvcjtkgkzy65c0e02z7g0uedknaneq5z8xz594dgqpk4gdg
   - &tjanas CAE5FB0B2554626A9A899F0E3194693FF9330274
@@ -9,7 +9,7 @@ creation_rules:
   - key_groups:
     - age:
       - *dell
-      - *lenovo
+      - *hp
       - *nixos-vm
       - *x230t
       pgp:
@@ -23,10 +23,10 @@ creation_rules:
     path_regex: hosts/dell/secrets.ya?ml$
   - key_groups:
     - age:
-      - *lenovo
+      - *hp
       pgp:
       - *tjanas
-    path_regex: hosts/lenovo/secrets.ya?ml$
+    path_regex: hosts/hp/secrets.ya?ml$
   - key_groups:
     - age:
       - *nixos-vm

@@ -100,9 +100,9 @@
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/installer ];
         };
-        lenovo = lib.nixosSystem {
+        hp = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/lenovo ];
+          modules = [ ./hosts/hp ];
         };
         nixos-vm = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };

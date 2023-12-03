@@ -15,9 +15,9 @@ let
       for i in /mnt/snapshots/*; do
         ${utillinux}/bin/mountpoint -q $i && ${utillinux}/bin/umount $i
       done
-      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/lenovo-data/data.* | sort -r | head -1) /mnt/snapshots/lenovo-data
-      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/lenovo-system/home.* | sort -r | head -1) /mnt/snapshots/lenovo-home
-      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/lenovo-system/persist.* | sort -r | head -1) /mnt/snapshots/lenovo-persist
+      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/hp-system/data.* | sort -r | head -1) /mnt/snapshots/hp-data
+      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/hp-system/home.* | sort -r | head -1) /mnt/snapshots/hp-home
+      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/hp-system/persist.* | sort -r | head -1) /mnt/snapshots/hp-persist
       ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/local-data/data.* | sort -r | head -1) /mnt/snapshots/x230t-data
       ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_system/backup/local-system/home.* | sort -r | head -1) /mnt/snapshots/x230t-home
       ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_system/backup/local-system/persist.* | sort -r | head -1) /mnt/snapshots/x230t-persist
@@ -39,7 +39,7 @@ in
         repo = "local-backup:home-backup.borg";
         startAt = [ ];
         paths = [
-          "/mnt/snapshots/lenovo-home"
+          "/mnt/snapshots/hp-home"
           "/mnt/snapshots/x230t-home"
         ];
         exclude = [
@@ -55,9 +55,9 @@ in
         repo = "local-backup:usb-backup.borg";
         startAt = [ ];
         paths = [
-          "/mnt/snapshots/lenovo-data/archiwum"
-          "/mnt/snapshots/lenovo-data/Documents"
-          "/mnt/snapshots/lenovo-persist"
+          "/mnt/snapshots/hp-data/archiwum"
+          "/mnt/snapshots/hp-data/Documents"
+          "/mnt/snapshots/hp-persist"
           "/mnt/snapshots/x230t-data/shares"
           "/mnt/snapshots/x230t-persist"
         ];
@@ -73,9 +73,9 @@ in
         repo = "remote-backup:repo";
         startAt = "16:30";
         paths = [
-          "/mnt/snapshots/lenovo-data/archiwum"
-          "/mnt/snapshots/lenovo-data/Documents"
-          "/mnt/snapshots/lenovo-persist"
+          "/mnt/snapshots/hp-data/archiwum"
+          "/mnt/snapshots/hp-data/Documents"
+          "/mnt/snapshots/hp-persist"
           "/mnt/snapshots/x230t-data/shares"
           "/mnt/snapshots/x230t-persist"
         ];

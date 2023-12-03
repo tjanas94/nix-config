@@ -1,5 +1,5 @@
 { config, ... }: {
-  services.btrbk.instances.lenovo = {
+  services.btrbk.instances.hp = {
     onCalendar = "hourly";
     settings = {
       snapshot_create = "no";
@@ -12,15 +12,11 @@
       timestamp_format = "long";
 
       volume = {
-        "ssh://lenovo.janas.dev/mnt/btrfs_data" = {
-          target = "/mnt/btrfs_data/backup/lenovo-data";
-          snapshot_dir = "backup/local-data";
-          subvolume = "data";
-        };
-        "ssh://lenovo.janas.dev/mnt/btrfs_system" = {
-          target = "/mnt/btrfs_data/backup/lenovo-system";
+        "ssh://hp.janas.dev/mnt/btrfs_system" = {
+          target = "/mnt/btrfs_data/backup/hp-system";
           snapshot_dir = "backup/local-system";
           subvolume = {
+            "data" = { };
             "home" = { };
             "persist" = { };
           };
