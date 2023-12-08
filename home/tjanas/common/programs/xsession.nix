@@ -5,7 +5,6 @@
   xsession = {
     enable = true;
     initExtra = ''
-      ${pkgs.srandrd}/bin/srandrd autorandr -c
       ${pkgs.xbindkeys}/bin/xbindkeys
     '';
   };
