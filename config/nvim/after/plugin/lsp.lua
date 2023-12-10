@@ -31,10 +31,19 @@ lsp_zero.on_attach(function(client, bufnr)
 end)
 
 lsp_zero.setup_servers({ 'astro', 'bashls', 'clojure_lsp', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls',
-    'jsonls', 'nixd', 'pylsp', 'rust_analyzer', 'tailwindcss', 'yamlls' })
+    'jsonls', 'nixd', 'pylsp', 'tailwindcss', 'yamlls' })
 
 local lspconfig = require('lspconfig')
 lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
+lspconfig.rust_analyzer.setup({
+    settings = {
+        ["rust-analyzer"] = {
+            check = {
+                command = "clippy",
+            },
+        },
+    },
+})
 lspconfig.tsserver.setup({
     init_options = {
         tsserver = {
