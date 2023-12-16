@@ -42,9 +42,6 @@
 
     doomemacs.url = "github:doomemacs/doomemacs";
     doomemacs.flake = false;
-
-    harpoon.url = "github:theprimeagen/harpoon";
-    harpoon.flake = false;
   };
 
   outputs =
@@ -57,15 +54,15 @@
       inherit (nixpkgs) lib;
       inherit (self) outputs;
       systems = [ "x86_64-linux" ];
-      pkgsFor = lib.genAttrs systems (system: import nixpkgs {
+      legacyPackages = lib.genAttrs systems (system: import nixpkgs {
         inherit system;
         overlays = builtins.attrValues self.overlays;
         config.allowUnfree = true;
       });
-      forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
+      forAllSystems = f: lib.genAttrs systems (system: f legacyPackages.${system});
     in
     rec {
-      inherit lib;
+      inherit lib legacyPackages;
       checks = forAllSystems (pkgs: {
         pre-commit-check = pre-commit-hooks.lib.${pkgs.system}.run {
           src = ./.;
@@ -74,7 +71,6 @@
       });
       devShells = forAllSystems (pkgs: import ./shell.nix { inherit pkgs outputs; });
       formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
-      legacyPackages = forAllSystems (pkgs: pkgs);
       packages = forAllSystems (pkgs: import ./pkgs { inherit pkgs; })
         // {
         x86_64-linux.installer =
