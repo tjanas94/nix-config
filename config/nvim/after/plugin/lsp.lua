@@ -20,9 +20,6 @@ lsp_zero.on_attach(function(client, bufnr)
     if client.name == 'bashls' then
         vim.keymap.set('n', '<leader>cf', '<cmd>%!shfmt -s -i 4<CR>', opts)
         vim.keymap.set('x', '<leader>cf', '!shfmt -s -i 4<CR>', opts)
-    elseif client.name == 'clojure_lsp' then
-        vim.keymap.set('n', '<leader>cf', '<cmd>%!joker --format -<CR>', opts)
-        vim.keymap.set('x', '<leader>cf', '!joker --format -<CR>', opts)
     elseif client.name == 'eslint' then
         vim.keymap.set({ 'n', 'x' }, '<leader>cf', vim.cmd.EslintFixAll, opts)
     elseif client.supports_method('textDocument/formatting') then
@@ -30,8 +27,8 @@ lsp_zero.on_attach(function(client, bufnr)
     end
 end)
 
-lsp_zero.setup_servers({ 'astro', 'bashls', 'clojure_lsp', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls',
-    'jsonls', 'nixd', 'pylsp', 'tailwindcss', 'yamlls' })
+lsp_zero.setup_servers({ 'astro', 'bashls', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls', 'jsonls', 'nixd',
+    'pylsp', 'tailwindcss', 'yamlls' })
 
 local lspconfig = require('lspconfig')
 lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
@@ -93,7 +90,6 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     },
     sources = {
-        { name = 'conjure' },
         { name = 'path' },
         { name = 'nvim_lsp' },
         { name = 'nvim_lua' },

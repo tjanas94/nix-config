@@ -1,7 +1,5 @@
 /.direnv
 /result
-.clj-kondo
-.lsp
 .pre-commit-config.yaml
 flycheck_config.el
 flycheck_init.el

@@ -288,38 +288,6 @@
         "type": "github"
       }
     },
-    "nvim-paredit": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1698321060,
-        "narHash": "sha256-AVyKw8pLokld+9a1h5EbKJpbyfOBF8kjbMyQKWB6e4I=",
-        "owner": "julienvincent",
-        "repo": "nvim-paredit",
-        "rev": "58187546e73504f5fdf6a6074031ed845efa86f8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "julienvincent",
-        "repo": "nvim-paredit",
-        "type": "github"
-      }
-    },
-    "nvim-paredit-fennel": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1694444128,
-        "narHash": "sha256-+lQetMbP/H8cKXcxuPiQtEel5jyRDxCsfjwF+1SPVNg=",
-        "owner": "julienvincent",
-        "repo": "nvim-paredit-fennel",
-        "rev": "33380e743109c89fae6823cea4b9f81e635dbeff",
-        "type": "github"
-      },
-      "original": {
-        "owner": "julienvincent",
-        "repo": "nvim-paredit-fennel",
-        "type": "github"
-      }
-    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -358,8 +326,6 @@
         "nixd": "nixd",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
-        "nvim-paredit": "nvim-paredit",
-        "nvim-paredit-fennel": "nvim-paredit-fennel",
         "pre-commit-hooks": "pre-commit-hooks",
         "sops-nix": "sops-nix",
         "wallpapers": "wallpapers"

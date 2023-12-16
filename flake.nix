@@ -45,12 +45,6 @@
 
     harpoon.url = "github:theprimeagen/harpoon";
     harpoon.flake = false;
-
-    nvim-paredit.url = "github:julienvincent/nvim-paredit";
-    nvim-paredit.flake = false;
-
-    nvim-paredit-fennel.url = "github:julienvincent/nvim-paredit-fennel";
-    nvim-paredit-fennel.flake = false;
   };
 
   outputs =
