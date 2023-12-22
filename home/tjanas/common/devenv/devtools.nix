@@ -25,8 +25,10 @@ in
     nodePackages.dockerfile-language-server-nodejs
 
     go
-    gotools
+    gofumpt
     gopls
+    gotools
+    go-tools
 
     jdk
     jdt-language-server
@@ -38,6 +40,7 @@ in
     nodejs
     nodePackages."@astrojs/language-server"
     nodePackages."@tailwindcss/language-server"
+    nodePackages.graphql-language-service-cli
     nodePackages.prettier
     nodePackages.typescript
     nodePackages.typescript-language-server
@@ -58,8 +61,12 @@ in
     cargo-watch
     clippy
     clang
+    clang-tools
     rust-analyzer
     rustc
     rustfmt
+
+    zig
+    zls
   ];
 }

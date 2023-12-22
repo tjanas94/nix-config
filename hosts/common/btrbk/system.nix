@@ -1,12 +1,11 @@
 { pkgs, ... }: {
   services.btrbk = {
-    extraPackages = [ pkgs.lz4 ];
-
     instances.system = {
       onCalendar = "hourly";
       settings = {
         snapshot_preserve_min = "2d";
         snapshot_preserve = "14d 8w 6m 1y";
+        stream_compress = "lz4";
         timestamp_format = "long";
 
         volume."/mnt/btrfs_system" = {

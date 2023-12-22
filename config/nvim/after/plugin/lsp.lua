@@ -27,10 +27,23 @@ lsp_zero.on_attach(function(client, bufnr)
     end
 end)
 
-lsp_zero.setup_servers({ 'astro', 'bashls', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jdtls', 'jsonls', 'nixd',
-    'pylsp', 'tailwindcss', 'yamlls' })
+lsp_zero.setup_servers({ 'astro', 'bashls', 'clangd', 'cssls', 'dockerls', 'eslint', 'graphql', 'html', 'jdtls', 'jsonls',
+    'nixd', 'pylsp', 'tailwindcss', 'yamlls', 'zls' })
 
 local lspconfig = require('lspconfig')
+lspconfig.gopls.setup({
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            completeUnimported = true,
+            gofumpt = true,
+            staticcheck = true,
+            usePlaceholders = true,
+        },
+    },
+})
 lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
 lspconfig.rust_analyzer.setup({
     settings = {
