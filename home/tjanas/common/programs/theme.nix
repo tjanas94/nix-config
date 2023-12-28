@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ inputs
+, pkgs
+, ...
+}:
 let
   hasklig-nerdfont = pkgs.nerdfonts.override { fonts = [ "Hasklig" ]; };
 in
@@ -16,4 +19,9 @@ in
     gruvbox-dark-gtk
     numix-icon-theme
   ];
+
+  xdg.configFile.wallpapers = {
+    source = inputs.wallpapers.outPath;
+    recursive = true;
+  };
 }

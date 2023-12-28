@@ -1,7 +1,4 @@
-{ inputs
-, pkgs
-, ...
-}: {
+{ pkgs, ... }: {
   xsession = {
     enable = true;
     initExtra = ''
@@ -11,13 +8,25 @@
 
   xresources.properties."Xft.dpi" = 108;
 
-  xdg.configFile.wallpapers = {
-    source = inputs.wallpapers.outPath;
-    recursive = true;
-  };
-
   home.file.".xbindkeysrc".text = ''
     "${pkgs.xdotool}/bin/xdotool key XF86AudioPlay"
       c:208
   '';
+
+  home.packages = with pkgs; [
+    arandr
+    feh
+    scrot
+    xsel
+  ];
+
+  services = {
+    picom.enable = true;
+    unclutter.enable = true;
+
+    xcape = {
+      enable = true;
+      mapExpression = { Caps_Lock = "Escape"; };
+    };
+  };
 }

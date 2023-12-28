@@ -22,6 +22,7 @@
       maxCacheTtlSsh = 900;
       enableSshSupport = true;
       enableExtraSocket = true;
+      pinentryFlavor = "qt";
     };
   };
 

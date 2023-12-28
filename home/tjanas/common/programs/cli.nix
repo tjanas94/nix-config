@@ -14,8 +14,9 @@ in
 
   home.packages = with pkgs; [
     amazon-ecr-credential-helper
-    aws-azure-login
+    android-tools
     ansible
+    aws-azure-login
     awscli2
     btop
     dnsutils

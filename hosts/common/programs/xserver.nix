@@ -1,8 +1,6 @@
 {
-  programs.dconf.enable = true;
-
   services = {
-    gvfs.enable = true;
+    redshift.enable = true;
 
     xserver = {
       enable = true;

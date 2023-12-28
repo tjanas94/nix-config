@@ -39,23 +39,11 @@ in
     yt-dlp.enable = true;
   };
 
-  services = {
-    picom.enable = true;
-    unclutter.enable = true;
-
-    xcape = {
-      enable = true;
-      mapExpression = { Caps_Lock = "Escape"; };
-    };
-  };
-
   home.packages = with pkgs; [
-    android-tools
-    arandr
-    feh
     filezilla
     gimp
     inkscape
+    imv
     jetbrains.idea-community
     keepassxc
     libnotify
@@ -65,13 +53,11 @@ in
     playerctl
     pulsemixer
     remmina
-    scrot
     simple-scan
     thunar
     trezor-suite
     virt-manager
     wireshark
-    xsel
     yubikey-manager
     yubikey-manager-qt
   ];

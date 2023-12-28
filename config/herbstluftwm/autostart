@@ -35,30 +35,24 @@ hc keybind $Mod-Mod1-p spawn systemd-run-app rofi-pass
 hc keybind $Mod-Mod1-o spawn systemd-run-app openfm
 hc keybind $Mod-Mod1-y spawn systemd-run-app yt-player
 hc keybind $Mod-Mod1-e spawn systemd-run-app emacsclient -a emacs -c
-hc keybind $Mod-Mod1-c spawn systemd-run-app emacsclient -a emacs -ce '(funcall +calendar-open-function)'
-hc keybind $Mod-Mod1-f spawn systemd-run-app emacsclient -a emacs -ce '(dired-jump)'
-hc keybind $Mod-Mod1-n spawn systemd-run-app emacsclient -a emacs -ce '(elfeed)'
-hc keybind $Mod-Mod1-m spawn systemd-run-app emacsclient -a emacs -ce '(funcall +notmuch-home-function)'
-hc keybind $Mod-Mod1-t spawn systemd-run-app emacsclient -a emacs -ce '(+eshell/here)'
-hc keybind $Mod-Mod1-Return spawn systemd-run-app emacsclient -a emacs -ce '(+vterm/here nil)'
-hc keybind $Mod-Mod1-Shift-Return spawn systemd-run-app emacsclient -a emacs -ce '(projectile-switch-project)'
 
-hc keybind $Mod-F9 spawn playerctl -p mpv previous
-hc keybind $Mod-F10 spawn amixer set Master 5%- unmute
-hc keybind $Mod-F11 spawn amixer set Master 5%+ unmute
-hc keybind $Mod-F12 spawn playerctl -p mpv next
-hc keybind $Mod-minus spawn amixer set Master toggle
-hc keybind $Mod-equal spawn playerctl -p mpv play-pause
-hc keybind $Mod-Shift-equal spawn playerctl -a pause
+hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -5%
+hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
+hc keybind XF86AudioMute spawn pactl set-sink-mute @DEFAULT_SINK@ toggle
+hc keybind Shift-XF86AudioMute spawn pactl set-source-mute @DEFAULT_SOURCE@ toggle
+hc keybind XF86AudioMicMute spawn pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+hc keybind XF86MonBrightnessUp spawn light -A 10
+hc keybind XF86MonBrightnessDown spawn light -U 10
+
 hc keybind XF86AudioPrev spawn playerctl -p mpv previous
-hc keybind XF86AudioLowerVolume spawn amixer set Master 5%- unmute
-hc keybind XF86AudioRaiseVolume spawn amixer set Master 5%+ unmute
 hc keybind XF86AudioNext spawn playerctl -p mpv next
-hc keybind XF86AudioMute spawn amixer set Master toggle
 hc keybind XF86AudioPlay spawn playerctl -p mpv play-pause
 hc keybind XF86AudioPause spawn playerctl -p mpv play-pause
 hc keybind XF86AudioStop spawn playerctl -a pause
+
 hc keybind Print spawn systemd-run-app scrot -s
+hc keybind Shift-Print spawn systemd-run-app scrot -u
 
 # basic movement in tiling and floating mode
 # focusing clients

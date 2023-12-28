@@ -1,14 +1,15 @@
 {
   imports = [
     ./common
-    ./common/hardware/audio.nix
     ./common/hardware/bluetooth.nix
     ./common/hardware/printer.nix
     ./common/programs/dnsmasq.nix
     ./common/programs/docker.nix
+    # ./common/programs/greetd.nix
     ./common/programs/i3lock.nix
     ./common/programs/libvirt.nix
     ./common/programs/lightdm.nix
+    ./common/programs/pipewire.nix
     ./common/programs/xserver.nix
   ];
 
@@ -26,14 +27,22 @@
   location.provider = "geoclue2";
 
   programs = {
+    dconf.enable = true;
+    # hyprland.enable = true;
+    light.enable = true;
     steam.enable = true;
     wireshark.enable = true;
   };
 
   services = {
+    gvfs.enable = true;
     pcscd.enable = true;
-    redshift.enable = true;
     trezord.enable = true;
+  };
+
+  security = {
+    pam.services.swaylock = { };
+    polkit.enable = true;
   };
 
   systemd.extraConfig = ''
