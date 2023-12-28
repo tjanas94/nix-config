@@ -43,7 +43,6 @@ in
     filezilla
     gimp
     inkscape
-    imv
     jetbrains.idea-community
     keepassxc
     libnotify

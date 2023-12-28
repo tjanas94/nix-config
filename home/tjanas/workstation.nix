@@ -12,7 +12,6 @@
     ./common/programs/herbstluftwm.nix
     ./common/programs/polybar.nix
     ./common/programs/rofi-pass.nix
-    # ./common/programs/sway.nix
     ./common/programs/sxiv.nix
     ./common/programs/theme.nix
     ./common/programs/xsession.nix

@@ -5,7 +5,6 @@
     ./common/hardware/printer.nix
     ./common/programs/dnsmasq.nix
     ./common/programs/docker.nix
-    # ./common/programs/greetd.nix
     ./common/programs/i3lock.nix
     ./common/programs/libvirt.nix
     ./common/programs/lightdm.nix
@@ -28,7 +27,6 @@
 
   programs = {
     dconf.enable = true;
-    # hyprland.enable = true;
     light.enable = true;
     steam.enable = true;
     wireshark.enable = true;
@@ -38,11 +36,6 @@
     gvfs.enable = true;
     pcscd.enable = true;
     trezord.enable = true;
-  };
-
-  security = {
-    pam.services.swaylock = { };
-    polkit.enable = true;
   };
 
   systemd.extraConfig = ''
