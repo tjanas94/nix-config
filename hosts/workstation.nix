@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   imports = [
     ./common
     ./common/hardware/bluetooth.nix
@@ -41,4 +41,8 @@
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';
+
+  environment.systemPackages = with pkgs; [
+    pcscliteWithPolkit.out
+  ];
 }

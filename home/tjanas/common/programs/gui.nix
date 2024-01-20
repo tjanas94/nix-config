@@ -57,7 +57,7 @@ in
     trezor-suite
     virt-manager
     wireshark
-    yubikey-manager
-    yubikey-manager-qt
+    nixpkgs-stable.yubikey-manager
+    nixpkgs-stable.yubikey-manager-qt
   ];
 }
