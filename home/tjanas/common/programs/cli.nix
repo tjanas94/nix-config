@@ -2,14 +2,17 @@
 let
   pass =
     pkgs.pass.withExtensions
-      (exts: with exts; [ pass-import pass-update ]);
+      (exts: with exts; [ pass-import pass-otp pass-update ]);
 in
 {
   programs = {
     htop.enable = true;
     jq.enable = true;
     k9s.enable = true;
-    password-store.enable = true;
+    password-store = {
+      enable = true;
+      package = pass;
+    };
   };
 
   home.packages = with pkgs; [
