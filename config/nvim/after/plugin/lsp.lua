@@ -27,8 +27,8 @@ lsp_zero.on_attach(function(client, bufnr)
     end
 end)
 
-lsp_zero.setup_servers({ 'astro', 'bashls', 'clangd', 'cssls', 'dockerls', 'eslint', 'graphql', 'html', 'jdtls', 'jsonls',
-    'nixd', 'pylsp', 'tailwindcss', 'yamlls', 'zls' })
+lsp_zero.setup_servers({ 'astro', 'bashls', 'clangd', 'cssls', 'dockerls', 'eslint', 'html', 'jdtls', 'jsonls', 'nixd',
+    'pylsp', 'tailwindcss', 'yamlls', 'zls' })
 
 local lspconfig = require('lspconfig')
 lspconfig.gopls.setup({
@@ -43,6 +43,9 @@ lspconfig.gopls.setup({
             usePlaceholders = true,
         },
     },
+})
+lspconfig.graphql.setup({
+    filetypes = { 'graphql', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
 })
 lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
 lspconfig.rust_analyzer.setup({
