@@ -29,7 +29,7 @@ hc keybind $Mod-Shift-Return spawn systemd-run-app "${TERMINAL:-xterm}" -e switc
 hc keybind $Mod-space spawn systemd-run-app rofi -modi combi -show combi -combi-modi drun,run
 hc keybind $Mod-slash spawn systemd-run-app rofi -show window
 
-hc keybind $Mod-Mod1-l spawn sh -c "sleep 0.25 && xset dpms force off"
+hc keybind $Mod-Mod1-l spawn sh -c "i3lock -nc000000"
 hc keybind $Mod-Mod1-b spawn systemd-run-app brave
 hc keybind $Mod-Mod1-p spawn systemd-run-app rofi-pass
 hc keybind $Mod-Mod1-o spawn systemd-run-app openfm
