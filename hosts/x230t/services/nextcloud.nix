@@ -28,7 +28,7 @@
         adminpassFile = config.sops.secrets.nextcloud-adminpass.path;
         dbtype = "pgsql";
       };
-      extraOptions.default_phone_region = "PL";
+      settings.default_phone_region = "PL";
       phpExtraExtensions = all: [
         (all.smbclient.overrideAttrs (_: {
           name = "php-smbclient-1.1.1";

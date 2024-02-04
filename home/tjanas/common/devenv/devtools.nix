@@ -1,6 +1,5 @@
 { pkgs, ... }:
 let
-  jdtls = pkgs.writeShellScriptBin "jdtls" "exec -a $0 ${pkgs.jdt-language-server}/bin/jdt-language-server $@";
   pythonEnv = pkgs.python3.withPackages (ps: with ps; [
     black
     grip
@@ -32,7 +31,6 @@ in
 
     jdk
     jdt-language-server
-    jdtls
     maven
 
     bun

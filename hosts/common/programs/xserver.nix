@@ -8,7 +8,7 @@
         enable = true;
         touchpad.disableWhileTyping = true;
       };
-      xkbOptions = "caps:ctrl_modifier,shift:both_capslock,terminate:ctrl_alt_bksp";
+      xkb.options = "caps:ctrl_modifier,shift:both_capslock,terminate:ctrl_alt_bksp";
     };
   };
 }
