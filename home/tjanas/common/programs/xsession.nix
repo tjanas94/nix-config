@@ -23,10 +23,5 @@
   services = {
     picom.enable = true;
     unclutter.enable = true;
-
-    xcape = {
-      enable = true;
-      mapExpression = { Caps_Lock = "Escape"; };
-    };
   };
 }
