@@ -21,6 +21,7 @@
       cmp-nvim-lsp
       cmp-nvim-lua
       comment-nvim
+      conform-nvim
       copilot-vim
       friendly-snippets
       gitsigns-nvim

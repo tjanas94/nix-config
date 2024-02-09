@@ -1,4 +1,22 @@
 local lsp_zero = require('lsp-zero')
+local conform = require('conform')
+
+conform.setup({
+    formatters_by_ft = {
+        astro = { "prettierd" },
+        graphql = { "prettierd" },
+        javascript = { "prettierd" },
+        javascriptreact = { "prettierd" },
+        typescript = { "prettierd" },
+        typescriptreact = { "prettierd" },
+        sh = { "shfmt" },
+    },
+    formatters = {
+        shfmt = {
+            prepend_args = { "-i", "4" },
+        },
+    },
+});
 
 lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
@@ -17,14 +35,9 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 
-    if client.name == 'bashls' then
-        vim.keymap.set('n', '<leader>cf', '<cmd>%!shfmt -s -i 4<CR>', opts)
-        vim.keymap.set('x', '<leader>cf', '!shfmt -s -i 4<CR>', opts)
-    elseif client.name == 'eslint' then
-        vim.keymap.set({ 'n', 'x' }, '<leader>cf', vim.cmd.EslintFixAll, opts)
-    elseif client.supports_method('textDocument/formatting') then
-        vim.keymap.set({ 'n', 'x' }, '<leader>cf', function() vim.lsp.buf.format({ async = true }) end, opts)
-    end
+    vim.keymap.set({ 'n', 'x' }, '<leader>cf', function()
+        conform.format({ bufnr = bufnr, lsp_fallback = true })
+    end, opts)
 end)
 
 lsp_zero.setup_servers({ 'astro', 'bashls', 'clangd', 'cssls', 'dockerls', 'eslint', 'html', 'jdtls', 'jsonls', 'nixd',
