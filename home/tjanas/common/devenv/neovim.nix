@@ -41,6 +41,7 @@
       undotree
       vim-abolish
       vim-be-good
+      vim-dispatch
       vim-fugitive
       vim-repeat
       vim-sleuth
