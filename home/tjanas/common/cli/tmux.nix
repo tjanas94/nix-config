@@ -19,7 +19,7 @@
 
       bind r source-file ~/.config/tmux/tmux.conf
       bind f neww switch-project
-      bind C-f run-shell 'clone-tmux-client'
+      bind -n C-M-f run-shell clone-tmux-client
       bind -n C-M-s switch-client -l
       bind -n C-M-h neww 'vi ~/workspace/projects.txt'
       bind -n C-M-a run-shell 'pwd >> ~/workspace/projects.txt'

@@ -122,10 +122,7 @@ hc keybind $Mod-p pseudotile toggle
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
 # I.e. if there are two windows within a frame, the grid layout is skipped.
-hc keybind $Mod-Shift-space                                                           \
-            or , and . compare tags.focus.curframe_wcount = 2                   \
-                     . cycle_layout +1 vertical horizontal max vertical grid    \
-               , cycle_layout +1
+hc keybind $Mod-Shift-space cycle_layout 1 vertical max
 
 # mouse
 hc mouseunbind --all
@@ -205,6 +202,9 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 hc rule fixedsize floating=on
 hc rule title='openfm' tag=9
 hc rule title='yt-player' tag=9
+
+hc watch tags.focus.tiling.focused_frame.content_geometry
+hc -i attribute_changed | awk '{ split($4, size, "[x+]"); if (size[1] < size[2]) system("herbstclient set_layout vertical"); }' &
 
 hc set tree_style '╾│ ├└╼─┐'
 
