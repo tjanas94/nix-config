@@ -23,10 +23,10 @@
       bind -n C-M-s switch-client -l
       bind -n C-M-h neww 'vi ~/workspace/projects.txt'
       bind -n C-M-a run-shell 'pwd >> ~/workspace/projects.txt'
-      bind -n C-M-n run-shell 'switch-project "$(sed -n "1{p;q}" ~/workspace/projects.txt)"'
-      bind -n C-M-e run-shell 'switch-project "$(sed -n "2{p;q}" ~/workspace/projects.txt)"'
-      bind -n C-M-i run-shell 'switch-project "$(sed -n "3{p;q}" ~/workspace/projects.txt)"'
-      bind -n C-M-o run-shell 'switch-project "$(sed -n "4{p;q}" ~/workspace/projects.txt)"'
+      bind -n C-M-n run-shell 'switch-pinned-project 1'
+      bind -n C-M-e run-shell 'switch-pinned-project 2'
+      bind -n C-M-i run-shell 'switch-pinned-project 3'
+      bind -n C-M-o run-shell 'switch-pinned-project 4'
     '';
     historyLimit = 50000;
     keyMode = "vi";

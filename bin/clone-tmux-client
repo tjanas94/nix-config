@@ -5,5 +5,5 @@ set -euo pipefail
 unset TMUX
 herbstclient focus right
 nohup "${TERMINAL:-xterm}" -e switch-project "$PWD" &>/dev/null &
-sleep 0.2
+herbstclient --wait --count 1 &>/dev/null
 herbstclient focus left

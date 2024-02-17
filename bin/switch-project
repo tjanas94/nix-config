@@ -5,35 +5,26 @@ set -euo pipefail
 PREFIX="$HOME/workspace"
 
 if [ $# -eq 0 ]; then
-    SELECTED=$(find "$PREFIX" -maxdepth 5 -name '.git' |
-        perl -pe "s#/.git\$##" |
-        while read -r p; do
-            zoxide query -s "$p" 2>/dev/null || echo "0.0 $p"
-        done | sort -rnk1 |
-        perl -pe "s#^.*?$PREFIX/##" |
-        fzf --no-sort --exact)
+    PROJECT=$(select-project)
 else
-    SELECTED=$(realpath "$1" | perl -pe "s#$PREFIX/##")
+    PROJECT=$(realpath "$1")
 fi
 
-if [ -z "$SELECTED" ]; then
+if [ -z "$PROJECT" ]; then
     exit 0
 fi
 
-PROJECT="$PREFIX/$SELECTED"
-SELECTED_NAME=$(perl -pe "tr#.#_#" <<<"$SELECTED")
-FILTER="#{==:#{?session_group,#{session_group},#S},${SELECTED_NAME}}"
+PROJECT_NAME=$(perl -pe "s#$PREFIX/##; tr#.#_#" <<<"$PROJECT")
+FILTER="#{==:#{?session_group,#{session_group},#S},${PROJECT_NAME}}"
 HAS_SESSION=$(tmux list-sessions -f "$FILTER" 2>/dev/null || true)
 SESSION=$(tmux list-sessions -f "#{&&:#{?session_attached,0,1},${FILTER}}" -F '#S' 2>/dev/null | head -n1 || true)
 
 if [ -z "$HAS_SESSION" ]; then
-    SESSION=$(tmux new-session -ds "$SELECTED_NAME" -c "$PROJECT" -PF '#S' 'direnv exec . vi . || vi .')
+    SESSION=$(tmux new-session -ds "$PROJECT_NAME" -c "$PROJECT" -PF '#S' 'direnv exec . vi . || vi .')
 elif [ -z "$SESSION" ]; then
-    SESSION=$(tmux new-session -dt "$SELECTED_NAME" -c "$PROJECT" -PF '#S')
+    SESSION=$(tmux new-session -dt "$PROJECT_NAME" -c "$PROJECT" -PF '#S')
     tmux new-window -t "$SESSION":
 fi
-
-zoxide add "$PROJECT"
 
 if [ -z ${TMUX+x} ]; then
     tmux attach-session -t "$SESSION"

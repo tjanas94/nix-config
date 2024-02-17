@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+PREFIX="$HOME/workspace"
+
+RESULT=$(find "$PREFIX" -maxdepth 5 -name '.git' |
+    perl -pe "s#/.git\$##" |
+    while read -r p; do
+        zoxide query -s "$p" 2>/dev/null || echo "0.0 $p"
+    done | sort -rnk1 |
+    perl -pe "s#^.*?$PREFIX/##" |
+    fzf --no-sort --exact)
+
+PROJECT="$PREFIX/$RESULT"
+zoxide add "$PROJECT"
+echo "$PROJECT"
