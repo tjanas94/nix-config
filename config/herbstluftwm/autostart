@@ -19,27 +19,35 @@ hc keyunbind --all
 # if you have a super key you will be much happier with Mod set to Mod4
 #Mod=Mod1    # Use alt as the main modifier
 Mod=Mod4 # Use the super key as the main modifier
+App=$Mod-Mod1-Shift-Control
+Project=$Mod-Mod1
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 
 hc keybind $Mod-Return spawn systemd-run-app "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
-hc keybind $Mod-Shift-Return spawn systemd-run-app "${TERMINAL:-xterm}" -e switch-project
 hc keybind $Mod-space spawn systemd-run-app rofi -modi combi -show combi -combi-modi drun,run
 hc keybind $Mod-slash spawn systemd-run-app rofi -show window
 
-hc keybind $Mod-Mod1-l spawn sh -c "i3lock -nc000000"
-hc keybind $Mod-Mod1-b spawn systemd-run-app brave
-hc keybind $Mod-Mod1-p spawn systemd-run-app rofi-pass
-hc keybind $Mod-Mod1-o spawn systemd-run-app openfm
-hc keybind $Mod-Mod1-y spawn systemd-run-app yt-player
-hc keybind $Mod-Mod1-e spawn systemd-run-app emacsclient -a emacs -c
+hc keybind $App-b spawn systemd-run-app brave
+hc keybind $App-e spawn systemd-run-app emacsclient -a emacs -c
+hc keybind $App-f spawn systemd-run-app filezilla
+hc keybind $App-h spawn systemd-run-app "${TERMINAL:-xterm}" -e btop
+hc keybind $App-k spawn systemd-run-app keepassxc
+hc keybind $App-l spawn sh -c "i3lock -nc000000"
+hc keybind $App-o spawn systemd-run-app openfm
+hc keybind $App-p spawn systemd-run-app rofi-pass
+hc keybind $App-s spawn systemd-run-app pavucontrol
+hc keybind $App-t spawn systemd-run-app thunar
+hc keybind $App-y spawn systemd-run-app yt-player
 
-hc keybind $Mod-Mod1-Control-n spawn systemd-run-app "${TERMINAL:-xterm}" -e switch-pinned-project 1
-hc keybind $Mod-Mod1-Control-e spawn systemd-run-app "${TERMINAL:-xterm}" -e switch-pinned-project 2
-hc keybind $Mod-Mod1-Control-i spawn systemd-run-app "${TERMINAL:-xterm}" -e switch-pinned-project 3
-hc keybind $Mod-Mod1-Control-o spawn systemd-run-app "${TERMINAL:-xterm}" -e switch-pinned-project 4
+hc keybind $Project-space spawn systemd-run-app "${TERMINAL:-xterm}" -e switch-project
+hc keybind $Project-s use_previous
+hc keybind $Project-n spawn systemd-run-app "${TERMINAL:-xterm}" -e switch-pinned-project 1
+hc keybind $Project-e spawn systemd-run-app "${TERMINAL:-xterm}" -e switch-pinned-project 2
+hc keybind $Project-i spawn systemd-run-app "${TERMINAL:-xterm}" -e switch-pinned-project 3
+hc keybind $Project-o spawn systemd-run-app "${TERMINAL:-xterm}" -e switch-pinned-project 4
 
 hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -5%
 hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -115,7 +123,6 @@ for i in "${!tag_names[@]}"; do
 done
 
 # cycle through tags
-hc keybind $Mod-t use_previous
 hc keybind $Mod-period use_index +1 --skip-visible
 hc keybind $Mod-comma use_index -1 --skip-visible
 hc keybind $Mod-Shift-period chain , move_index +1 --skip-visible , use_index +1 --skip-visible
@@ -123,7 +130,7 @@ hc keybind $Mod-Shift-comma chain , move_index -1 --skip-visible , use_index -1 
 
 # layouting
 hc keybind $Mod-r remove
-hc keybind $Mod-s floating toggle
+hc keybind $Mod-Shift-f floating toggle
 hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-p pseudotile toggle
 # The following cycles through the available layouts within a frame, but skips
@@ -211,6 +218,7 @@ hc rule title='openfm' tag=9
 hc rule title='yt-player' tag=9
 
 hc watch tags.focus.tiling.focused_frame.content_geometry
+pkill -fx 'herbstclient -i attribute_changed' || true
 hc -i attribute_changed | awk '{ split($4, size, "[x+]"); if (size[1] < size[2]) system("herbstclient set_layout vertical"); }' &
 
 hc set tree_style '╾│ ├└╼─┐'

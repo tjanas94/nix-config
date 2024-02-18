@@ -18,7 +18,7 @@
       set -g set-titles-string '#S / #W'
 
       bind r source-file ~/.config/tmux/tmux.conf
-      bind f neww switch-project
+      bind -n C-M-Space neww switch-project
       bind -n C-M-f run-shell clone-tmux-client
       bind -n C-M-s switch-client -l
       bind -n C-M-h neww 'vi ~/workspace/projects.txt'

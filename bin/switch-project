@@ -23,7 +23,7 @@ if [ -z "$HAS_SESSION" ]; then
     SESSION=$(tmux new-session -ds "$PROJECT_NAME" -c "$PROJECT" -PF '#S' 'direnv exec . vi . || vi .')
 elif [ -z "$SESSION" ]; then
     SESSION=$(tmux new-session -dt "$PROJECT_NAME" -c "$PROJECT" -PF '#S')
-    tmux new-window -t "$SESSION":
+    tmux new-window -t "$SESSION": -c "$PROJECT"
 fi
 
 if [ -z ${TMUX+x} ]; then
