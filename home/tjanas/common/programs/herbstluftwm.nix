@@ -1,5 +1,7 @@
 { lib, ... }: {
   xsession.windowManager.herbstluftwm.enable = true;
-  xdg.configFile."herbstluftwm/autostart".source =
-    lib.mkForce ../../../../config/herbstluftwm/autostart;
+  xdg.configFile.herbstluftwm = {
+    source = lib.mkForce ../../../../config/herbstluftwm;
+    recursive = true;
+  };
 }

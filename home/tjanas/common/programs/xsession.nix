@@ -8,11 +8,6 @@
 
   xresources.properties."Xft.dpi" = 108;
 
-  home.file.".xbindkeysrc".text = ''
-    "${pkgs.xdotool}/bin/xdotool key XF86AudioPlay"
-      c:208
-  '';
-
   home.packages = with pkgs; [
     arandr
     feh

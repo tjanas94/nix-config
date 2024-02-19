@@ -1,10 +1,7 @@
-{ lib, pkgs, ... }: {
-  programs.alacritty = {
-    enable = true;
-    package = pkgs.nixpkgs-stable.alacritty;
-  };
-  xdg.configFile."alacritty/alacritty.yml".source =
-    lib.mkForce ../../../../config/alacritty/alacritty.yml;
+{ lib, ... }: {
+  programs.alacritty.enable = true;
+  xdg.configFile."alacritty/alacritty.toml".source =
+    lib.mkForce ../../../../config/alacritty/alacritty.toml;
 
   home.sessionVariables.TERMINAL = "alacritty";
 }
