@@ -9,7 +9,8 @@ in
   services.sxhkd = {
     enable = true;
     keybindings = {
-      "${Mod} + shift + {q,r,c}" = "herbstclient {quit,reload,close}";
+      "${Mod} + shift + {q,c}" = "herbstclient {quit,close}";
+      "${Mod} + shift + r" = "pkill -usr1 -x sxhkd; herbstclient reload";
       "${Mod} + Return" = "systemd-run-app ${Terminal}";
       "${Mod} + space" = "systemd-run-app rofi -modi combi -show combi -combi-modi drun,run";
       "${Mod} + slash" = "systemd-run-app rofi -show window";
