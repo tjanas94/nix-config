@@ -2,13 +2,14 @@
 
 set -euo pipefail
 
-SOURCE="$PWD"
 TARGET="${1:-dev}:"
-RSYNCSOURCE=$(perl -pe "s#$HOME#$HOME/.#" <<<"$SOURCE")
-IGNORE_GIT=""
 
-if [ -f "$SOURCE"/.git ]; then
-    IGNORE_GIT="--exclude=.git"
+RSYNCSOURCE=$(perl -pe "s#$HOME#$HOME/.#" <<<"$PWD")
+rsync -havPR --delete --exclude-from=<(git -C "$PWD" ls-files --exclude-standard -oi --directory) "$RSYNCSOURCE" "$TARGET"
+
+if [ -d ../.bare ]; then
+    pushd ../.bare
+    RSYNCSOURCE=$(perl -pe "s#$HOME#$HOME/.#" <<<"$PWD")
+    rsync -havPR --delete "$RSYNCSOURCE" "$TARGET"
+    popd
 fi
-
-rsync -chavzPR --delete "$IGNORE_GIT" --exclude-from=<(git -C "$SOURCE" ls-files --exclude-standard -oi --directory) "$RSYNCSOURCE" "$TARGET"
