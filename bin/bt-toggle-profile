@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <device prefix>"
+    exit 1
+fi
+
+prefix="${1//:/_}"
+device="$(pactl --format=json list cards 2>/dev/null | jq -r '.[].name | select(. | startswith("bluez_card.'"$prefix"'"))')"
+profile="$(pactl --format=json list cards 2>/dev/null | jq -r '.[] | select(.name=="'"$device"'") | .active_profile')"
+
+if [ "$profile" = "a2dp-sink" ]; then
+    pactl set-card-profile "$device" headset-head-unit
+else
+    pactl set-card-profile "$device" a2dp-sink
+fi

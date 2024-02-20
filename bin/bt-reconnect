@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <device prefix>"
+    exit 1
+fi
+
+device="$(bluetoothctl devices | awk "/$1/"' { print $2 }')"
+bluetoothctl disconnect "$device"
+sleep 1
+bluetoothctl connect "$device"
