@@ -31,6 +31,11 @@ URL="$2"
 PROJECT="$(find-project "$URL")"
 
 if [ ! -d "$PROJECT/$SEPARATE_GIT_DIR" ]; then
+    if [ "$ACTION" = "clone" ] && ! git ls-remote --heads "$URL" &>/dev/null; then
+        echo "Repository not found: $URL"
+        exit 1
+    fi
+
     mkdir -p "$PROJECT"
     cd "$PROJECT"
 
