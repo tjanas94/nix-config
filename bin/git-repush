@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -exuo pipefail
 
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 REMOTE="${1:-origin}"
-shift
+shift || true
 
 git push -d "$REMOTE" "$BRANCH"
 git push "$REMOTE" "$BRANCH" "$@"
