@@ -1,4 +1,5 @@
 { config
+, lib
 , inputs
 , ...
 }: {
@@ -8,7 +9,7 @@
     ../workstation.nix
   ];
 
-  services.btrbk.instances.system.settings.snapshot_preserve = "no";
+  services.btrbk.instances.system.settings.snapshot_preserve = lib.mkForce "no";
 
   sops.defaultSopsFile = ./secrets.yaml;
   networking.hostName = "dell";
