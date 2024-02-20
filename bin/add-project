@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+exec 6>&1 >&2
+SEPARATE_GIT_DIR=".bare"
+REMOTE_NAME="origin"
+
+function result() {
+    echo "$@" >&6
+}
+
+if [ $# -ne 2 ]; then
+    echo "usage: $(basename "$0") <clone|init> <repository>"
+    exit 1
+fi
+
+case "$1" in
+clone)
+    ACTION=clone
+    ;;
+init)
+    ACTION=init
+    ;;
+*)
+    echo "Invalid action: $1"
+    exit 1
+    ;;
+esac
+
+URL="$2"
+PROJECT="$(find-project "$URL")"
+
+if [ ! -d "$PROJECT/$SEPARATE_GIT_DIR" ]; then
+    mkdir -p "$PROJECT"
+    cd "$PROJECT"
+
+    if [ "$ACTION" = "clone" ]; then
+        git clone --separate-git-dir="$SEPARATE_GIT_DIR" -n "$URL" "$PROJECT"
+    else
+        git init --separate-git-dir="$SEPARATE_GIT_DIR"
+        git remote add "$REMOTE_NAME" "$URL"
+    fi
+
+    git config core.bare true
+    rm .git
+fi
+
+cd "$PROJECT/$SEPARATE_GIT_DIR"
+BRANCH=$(git symbolic-ref HEAD | perl -pe 's#refs/heads/##')
+WORKTREE="$PROJECT/$(basename "$BRANCH")"
+
+if [ ! -d "$WORKTREE" ]; then
+    if [ "$ACTION" = "clone" ]; then
+        git worktree add "$WORKTREE" "$BRANCH"
+    else
+        EMPTY_COMMIT=$(git mktree </dev/null | xargs git commit-tree -m 'initial commit')
+        git worktree add -b "$BRANCH" "$WORKTREE" "$EMPTY_COMMIT"
+    fi
+fi
+
+result "$WORKTREE"
