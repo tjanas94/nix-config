@@ -11,6 +11,7 @@
       # key = "6A2CC42E4E64130E!";
       signByDefault = true;
     };
+    aliases.wip = "commit -nm 'WIP'";
     extraConfig = {
       apply.whitespace = "nowarn";
       init.defaultBranch = "master";

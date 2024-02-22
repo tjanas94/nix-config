@@ -1,4 +1,5 @@
 vim.keymap.set('n', '<leader>gb', ':Git branch<space>')
+vim.keymap.set('n', '<leader>gcw', '<cmd>Git wip<CR>')
 vim.keymap.set('n', '<leader>gd', '<cmd>Gdiffsplit!<CR>')
 vim.keymap.set('n', '<leader>ge', '<cmd>Gedit<CR>')
 vim.keymap.set('n', '<leader>gh', '<cmd>0Gclog<CR>')

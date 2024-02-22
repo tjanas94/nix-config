@@ -59,8 +59,8 @@ in
       "${App} + b" = "systemd-run-app brave";
       "${App} + d; h; p" = "bt-toggle-profile E8:EE:CC";
       "${App} + d; h; r" = "bt-reconnect E8:EE:CC";
-      "${App} + d; m; r" = "bt-reconnect D5:A3:9B";
       "${App} + d; m; p" = "bt-setup-device D5:A3:9B";
+      "${App} + d; m; r" = "bt-reconnect D5:A3:9B";
       "${App} + e" = "systemd-run-app emacsclient -a emacs -c";
       "${App} + f" = "systemd-run-app filezilla";
       "${App} + h" = "systemd-run-app ${Terminal} -e btop";
