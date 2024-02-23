@@ -10,6 +10,7 @@ hc emit_hook reload
 
 hc set_layout max
 hc set default_frame_layout max
+hc set swap_monitors_to_get_tag off
 hc set wmname LG3D
 
 # remove all existing keybindings
