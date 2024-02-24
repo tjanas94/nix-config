@@ -78,3 +78,5 @@ require('nvim-treesitter.configs').setup({
     },
   },
 })
+
+vim.keymap.set('n', '<leader>tc', '<cmd>TSContextToggle<CR>')
