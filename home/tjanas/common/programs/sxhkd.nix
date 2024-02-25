@@ -9,7 +9,7 @@ in
   services.sxhkd = {
     enable = true;
     keybindings = {
-      "${Mod} + shift + {q,c}" = "herbstclient {quit,close}";
+      "${Mod} + shift + q" = "herbstclient quit";
       "${Mod} + shift + r" = "pkill -usr1 -x sxhkd; herbstclient reload";
       "${Mod} + Return" = "systemd-run-app ${Terminal}";
       "${Mod} + space" = "systemd-run-app rofi -modi combi -show combi -combi-modi drun,run";
@@ -18,26 +18,26 @@ in
       "${Mod} + {_,shift + ,ctrl +}{Left,Down,Up,Right}" = "herbstclient {focus,shift,resize} {left,down,up,right} {_,_,0.05}";
       "${Mod} + {_,shift + ,ctrl +}{h,j,k,l}" = "herbstclient {focus,shift,resize} {left,down,up,right} {_,_,0.05}";
 
+      "${Mod} + r" = "herbstclient remove";
       "${Mod} + {u,o}" = "herbstclient split {bottom,right} 0.5";
+      "${Mod} + shift + u" = "herbstclient split vertical 0.75";
       "${Mod} + shift + o" = "herbstclient split right 0.6";
       "${Mod} + ctrl + o" = "herbstclient chain , split left 0.25 , split right 0.6666";
       "${Mod} + ctrl + space" = "herbstclient split explode";
 
       "${Mod} + {1-9}" = "herbstclient use {1-9}";
       "${Mod} + shift + {1-9}" = "i={1-9}; herbstclient chain , move $i , use $i";
-
       "${Mod} + {period,comma}" = "herbstclient use_index {+,-}1 --skip-visible";
       "${Mod} + shift + {period,comma}" = "i={+,-}1; herbstclient chain , move_index $i --skip-visible , use_index $i --skip-visible";
 
-      "${Mod} + r" = "herbstclient remove";
-      "${Mod} + shift + f" = "herbstclient floating toggle";
-      "${Mod} + f" = "herbstclient fullscreen toggle";
-      "${Mod} + p" = "herbstclient pseudotile toggle";
+      "${Mod} + {_,shift + ,ctrl +}f" = "herbstclient {fullscreen,floating,pseudotile} toggle";
+      "${Mod} + p; {v,h,g,m}" = "herbstclient set_layout {vertical,horizontal,grid,max}";
       "${Mod} + shift + space" = "herbstclient cycle_layout 1 vertical max";
 
       "${Mod} + {_, shift + }BackSpace" = "herbstclient cycle_monitor {+,-}1";
       "${Mod} + {_, shift + }Tab" = "herbstclient cycle {+,-}1";
-      "${Mod} + c" = "herbstclient cycle_all";
+      "${Mod} + {_, shift + }c" = "herbstclient cycle_all {+,-}1";
+      "${Mod} + {_, shift + }s" = "herbstclient cycle_frame {+,-}1";
       "${Mod} + i" = "herbstclient jumpto urgent";
 
       "XF86Audio{Lower,Raise}Volume" = "pactl set-sink-volume @DEFAULT_SINK@ {-,+}5%";
@@ -73,6 +73,7 @@ in
       "${App} + y" = "systemd-run-app yt-player";
 
       "${Project} + space" = "systemd-run-app ${Terminal} -e switch-project";
+      "${Project} + c" = "herbstclient close";
       "${Project} + s" = "herbstclient use_previous";
       "${Project} + {n,e,i,o}" = "systemd-run-app ${Terminal} -e switch-pinned-project {1,2,3,4}";
     };
