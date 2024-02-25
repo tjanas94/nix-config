@@ -14,6 +14,8 @@
     aliases.wip = "commit -nm 'WIP'";
     extraConfig = {
       apply.whitespace = "nowarn";
+      branch.autoSetupMerge = "always";
+      checkout.defaultRemote = "origin";
       init.defaultBranch = "master";
       merge = {
         tool = "vimdiff";
@@ -29,6 +31,7 @@
         autoSetupRemote = true;
       };
       tag.gpgSign = true;
+      worktree.guessRemote = true;
     };
     ignores = [
       "node_modules/"
