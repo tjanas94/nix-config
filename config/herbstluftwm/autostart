@@ -123,8 +123,9 @@ hc -i '(attribute_changed|reload)' | while read -r hook attr prev next; do
             hc set_attr my_lastmonitor "$prev"
             ;;
         tags.focus.tiling.focused_frame.content_geometry)
+            layout="$(hc attr tags.focus.tiling.focused_frame.algorithm)"
             IFS='x+' read -r width height _ _ <<<"$next"
-            if ((width < height)); then
+            if [[ "$layout" == "max" ]] && ((width < height)); then
                 hc set_layout vertical
             fi
             ;;
