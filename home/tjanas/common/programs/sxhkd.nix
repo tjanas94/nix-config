@@ -74,7 +74,9 @@ in
 
       "${Project} + space" = "systemd-run-app ${Terminal} -e switch-project";
       "${Project} + c" = "herbstclient close";
-      "${Project} + s" = "herbstclient use_previous";
+      "${Project} + s" = "herbstclient substitute LASTWIN my_lastwin jumpto LASTWIN";
+      "${Project} + m" = "herbstclient substitute LASTMONITOR my_lastmonitor focus_monitor LASTMONITOR";
+      "${Project} + t" = "herbstclient use_previous";
       "${Project} + {n,e,i,o}" = "systemd-run-app ${Terminal} -e switch-pinned-project {1,2,3,4}";
     };
   };

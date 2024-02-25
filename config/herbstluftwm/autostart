@@ -105,9 +105,36 @@ hc rule fixedsize floating=on
 hc rule title='openfm' tag=9
 hc rule title='yt-player' tag=9
 
+hc try new_attr string my_lastwin
+hc try new_attr string my_lastmonitor
+hc watch clients.focus.winid
+hc watch monitors.focus.index
 hc watch tags.focus.tiling.focused_frame.content_geometry
-pkill -fx 'herbstclient -i attribute_changed' || true
-hc -i attribute_changed | awk '{ split($4, size, "[x+]"); if (size[1] < size[2]) system("herbstclient set_layout vertical"); }' &
+herbstclient -i '(attribute_changed|reload)' | while read -r hook attr prev next; do
+    case "$hook" in
+    attribute_changed)
+        case "$attr" in
+        clients.focus.winid)
+            if [[ "$prev" != "0x0" ]]; then
+                hc set_attr my_lastwin "$prev"
+            fi
+            ;;
+        monitors.focus.index)
+            hc set_attr my_lastmonitor "$prev"
+            ;;
+        tags.focus.tiling.focused_frame.content_geometry)
+            IFS='x+' read -r width height _ _ <<<"$next"
+            if ((width < height)); then
+                hc set_layout vertical
+            fi
+            ;;
+        esac
+        ;;
+    *)
+        break
+        ;;
+    esac
+done &
 
 hc set tree_style '╾│ ├└╼─┐'
 
