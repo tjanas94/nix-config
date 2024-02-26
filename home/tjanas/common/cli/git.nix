@@ -14,7 +14,7 @@
     aliases.wip = "commit -nm 'WIP'";
     extraConfig = {
       apply.whitespace = "nowarn";
-      branch.autoSetupMerge = "always";
+      branch.autoSetupMerge = "inherit";
       checkout.defaultRemote = "origin";
       init.defaultBranch = "master";
       merge = {
