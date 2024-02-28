@@ -11,15 +11,20 @@
       # key = "6A2CC42E4E64130E!";
       signByDefault = true;
     };
-    aliases.wip = "commit -nm 'WIP'";
+    aliases = {
+      wip = "commit -nm 'WIP'";
+      r2p = "reset --hard @{push}";
+      r2u = "reset --hard @{upstream}";
+    };
     extraConfig = {
       apply.whitespace = "nowarn";
       branch.autoSetupMerge = "inherit";
       checkout.defaultRemote = "origin";
+      commit.verbose = true;
       init.defaultBranch = "master";
       merge = {
         tool = "vimdiff";
-        conflictStyle = "diff3";
+        conflictStyle = "zdiff3";
       };
       mergetool = {
         keepBackup = false;

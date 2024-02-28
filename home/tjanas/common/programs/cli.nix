@@ -36,6 +36,7 @@ in
     imagemagick
     kubectx
     kubectl
+    lazygit
     lynx
     moreutils
     mtr
