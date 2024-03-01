@@ -10,7 +10,8 @@
     withRuby = true;
     withPython3 = true;
     extraConfig = ''
-      let g:tsserver_path = '${pkgs.typescript}/lib/node_modules/typescript/lib/tsserver.js'
+      let g:tsserver_path = '${pkgs.typescript}/lib/node_modules/typescript/lib'
+      let g:astro_plugin_path = '${pkgs.nodePackages."@astrojs/ts-plugin"}/lib/node_modules/@astrojs/ts-plugin'
       lua require('core')
     '';
 

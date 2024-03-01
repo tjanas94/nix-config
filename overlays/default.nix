@@ -2,6 +2,7 @@
   additions = pkgs: _: import ../pkgs { inherit pkgs; };
 
   modifications = final: prev: {
+    nodePackages = prev.nodePackages // final.callPackage ../pkgs/node-packages { };
     inherit (final.nixpkgs-stable) awscli2;
   };
 

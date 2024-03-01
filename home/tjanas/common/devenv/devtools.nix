@@ -36,6 +36,7 @@ in
     html-tidy
     nodejs
     nodePackages."@astrojs/language-server"
+    nodePackages."@astrojs/ts-plugin"
     nodePackages."@tailwindcss/language-server"
     nodePackages.graphql-language-service-cli
     nodePackages.prettier

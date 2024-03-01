@@ -3,17 +3,18 @@ local conform = require('conform')
 
 conform.setup({
     formatters_by_ft = {
-        astro = { "prettierd" },
-        graphql = { "prettierd" },
-        javascript = { "prettierd" },
-        javascriptreact = { "prettierd" },
-        typescript = { "prettierd" },
-        typescriptreact = { "prettierd" },
-        sh = { "shfmt" },
+        astro = { 'prettierd' },
+        graphql = { 'prettierd' },
+        javascript = { 'prettierd' },
+        javascriptreact = { 'prettierd' },
+        nix = { 'nixpkgs_fmt' },
+        typescript = { 'prettierd' },
+        typescriptreact = { 'prettierd' },
+        sh = { 'shfmt' },
     },
     formatters = {
         shfmt = {
-            prepend_args = { "-i", "4" },
+            prepend_args = { '-i', '4' },
         },
     },
 });
@@ -40,10 +41,17 @@ lsp_zero.on_attach(function(client, bufnr)
     end, opts)
 end)
 
-lsp_zero.setup_servers({ 'astro', 'bashls', 'clangd', 'cssls', 'dockerls', 'eslint', 'html', 'jdtls', 'jsonls', 'nixd',
-    'pylsp', 'tailwindcss', 'yamlls', 'zls' })
+lsp_zero.setup_servers({ 'bashls', 'clangd', 'cssls', 'dockerls', 'eslint', 'html', 'jdtls', 'jsonls', 'nixd', 'pylsp',
+    'tailwindcss', 'yamlls', 'zls' })
 
 local lspconfig = require('lspconfig')
+lspconfig.astro.setup({
+    init_options = {
+        typescript = {
+            tsdk = vim.g.tsserver_path,
+        },
+    },
+})
 lspconfig.gopls.setup({
     settings = {
         gopls = {
@@ -63,23 +71,25 @@ lspconfig.graphql.setup({
 lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
 lspconfig.rust_analyzer.setup({
     settings = {
-        ["rust-analyzer"] = {
+        ['rust-analyzer'] = {
             check = {
-                command = "clippy",
+                command = 'clippy',
             },
         },
     },
 })
 lspconfig.tsserver.setup({
     init_options = {
+        plugins = {
+            {
+                name = '@astrojs/ts-plugin',
+                location = vim.g.astro_plugin_path,
+            },
+        },
         tsserver = {
             path = vim.g.tsserver_path,
         },
     },
-    on_init = function(client)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentFormattingRangeProvider = false
-    end,
 })
 
 lsp_zero.set_sign_icons({
