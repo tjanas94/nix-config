@@ -64,6 +64,7 @@ in
     unzip
     usbutils
     wol
+    xdotool
     xkcdpass
     zbar
     zip

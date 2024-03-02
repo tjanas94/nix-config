@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "doomemacs": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1709171466,
-        "narHash": "sha256-Th+aCtv3XX2vnvsPgY9lcASZzQpvClsDu1U+z1WGpno=",
-        "owner": "doomemacs",
-        "repo": "doomemacs",
-        "rev": "35dc13632b3177b9efedad212f2180f69e756853",
-        "type": "github"
-      },
-      "original": {
-        "owner": "doomemacs",
-        "repo": "doomemacs",
-        "type": "github"
-      }
-    },
     "emacs-overlay": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -300,7 +284,6 @@
     },
     "root": {
       "inputs": {
-        "doomemacs": "doomemacs",
         "emacs-overlay": "emacs-overlay",
         "hardware": "hardware",
         "home-manager": "home-manager",
