@@ -9,7 +9,10 @@
         blink-cursor-mode nil
         global-auto-revert-mode t
         dired-kill-when-opening-new-dired-buffer t
-        recentf-mode t)
+        recentf-mode t
+        tab-width 4
+        make-backup-files nil
+        auto-save-default nil)
 
 (setopt enable-recursive-minibuffers t
         completion-cycle-threshold 1
