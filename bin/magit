@@ -2,9 +2,10 @@
 
 set -euo pipefail
 
-winid="$(xdotool search --name "magit: .*")" || true
+winid="$(xdotool search --class emacs)" || true
 
 if [ -n "$winid" ]; then
+    emacsclient -a 'emacs --eval' -ne '(magit-status)'
     xdotool windowactivate "$winid"
 else
     emacsclient -a 'emacs --eval' -cne '(magit-status)'

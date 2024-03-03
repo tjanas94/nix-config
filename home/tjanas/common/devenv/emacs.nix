@@ -4,6 +4,7 @@
     extraPackages = epkgs:
       with epkgs; [
         magit
+        ob-http
         which-key
       ];
   };

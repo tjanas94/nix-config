@@ -4,7 +4,6 @@
 
 (setopt delete-selection-mode t
         electric-indent-mode nil
-        electric-pair-mode t
         indent-tabs-mode nil
         blink-cursor-mode nil
         global-auto-revert-mode t
@@ -12,7 +11,8 @@
         recentf-mode t
         tab-width 4
         make-backup-files nil
-        auto-save-default nil)
+        auto-save-default nil
+        create-lockfiles nil)
 
 (setopt enable-recursive-minibuffers t
         completion-cycle-threshold 1
@@ -43,8 +43,17 @@
 
 (use-package magit
   :config
-  (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
+  (setopt magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 
 (use-package which-key
   :config
   (which-key-mode))
+
+(use-package org
+  :config
+  (setopt org-confirm-babel-evaluate nil)
+  (add-to-list 'org-modules 'org-tempo)
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (http . t))))

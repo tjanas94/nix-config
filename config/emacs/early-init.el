@@ -6,9 +6,7 @@
                              (setq gc-cons-threshold (* 2 1024 1024)
                                    file-name-handler-alist old-file-name-handler)))
 
-(setopt default-frame-alist '((background-color . "#000000")
-                              (mouse-color . "#FFFFFF"))
-        menu-bar-mode nil
+(setopt menu-bar-mode nil
         scroll-bar-mode nil
         tool-bar-mode nil
         inhibit-startup-screen t
