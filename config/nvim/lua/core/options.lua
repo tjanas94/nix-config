@@ -22,6 +22,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.exrc = true
+vim.opt.path:append('**')
 
 vim.filetype.add({
     extension = {
