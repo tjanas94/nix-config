@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+PID="$(pgrep -f 'vi --embed' | xargs pwdx | grep "$PWD" | head -n1 | cut -d: -f1)"
+
+if [ -z "$PID" ]; then
+    echo "No nvim instance found" >&2
+    exit 1
+fi
+
+SERVER="$XDG_RUNTIME_DIR/nvim.${PID}.0"
+nvim --server "$SERVER" "$@"

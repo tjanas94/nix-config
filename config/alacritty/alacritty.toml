@@ -163,3 +163,13 @@ instance = "Alacritty"
 [window.padding]
 x = 6
 y = 6
+
+[hints]
+alphabet = "arstdhneio"
+
+[[hints.enabled]]
+regex = "[^( ]+\\..+:\\d+:\\d+"
+command = "jump-to-error"
+hyperlinks = true
+mouse.enabled = true
+binding = { key = "E", mods = "Control|Shift" }
