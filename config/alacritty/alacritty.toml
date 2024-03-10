@@ -168,8 +168,19 @@ y = 6
 alphabet = "arstdhneio"
 
 [[hints.enabled]]
-regex = "[^( ]+\\..+:\\d+:\\d+"
+command = "xdg-open"
+hyperlinks = true
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "U", mods = "Control|Shift" }
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|go‐pher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+
+[[hints.enabled]]
 command = "jump-to-error"
 hyperlinks = true
+post_processing = true
+persist = false
 mouse.enabled = true
 binding = { key = "E", mods = "Control|Shift" }
+regex = "[^( ]+\\.\\w+:\\d+:\\d+"

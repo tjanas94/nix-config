@@ -8,4 +8,4 @@ if [ $# -eq 0 ]; then
 fi
 
 IFS=: read -r file line column <<<"$1"
-tmux-nvim --remote-send "<C-\><C-n>:e $file<CR>:call cursor($line, $column)<CR>"
+tmux-nvim --remote-send "<C-\><C-n>:e $file<CR>:call cursor($line, $column)<CR>zz"
