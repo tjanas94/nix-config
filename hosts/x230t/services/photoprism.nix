@@ -44,7 +44,7 @@
 
     services."photoprism-index" = {
       script = ''
-        ${config.services.photoprism.package}/bin/photoprism index
+        ${config.services.photoprism.package}/bin/photoprism index --cleanup
       '';
       serviceConfig = {
         Type = "oneshot";

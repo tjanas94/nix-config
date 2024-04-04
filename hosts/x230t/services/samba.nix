@@ -19,10 +19,12 @@
     shares.public = {
       path = "/data/shares/public";
       browseable = "yes";
-      "read only" = "no";
-      "guest ok" = "yes";
-      "create mask" = "0644";
-      "directory mask" = "0755";
+      writeable = "yes";
+      public = "yes";
+      "create mask" = "0664";
+      "force create mode" = "0664";
+      "directory mask" = "2775";
+      "force directory mode" = "2775";
       "force user" = "samba";
       "force group" = "samba";
     };
