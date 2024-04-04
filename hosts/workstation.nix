@@ -25,6 +25,10 @@
   home-manager.users.tjanas = import ../home/tjanas/workstation.nix;
   location.provider = "geoclue2";
 
+  networking.networkmanager.unmanaged = [
+    "type:wireguard"
+  ];
+
   programs = {
     dconf.enable = true;
     light.enable = true;
@@ -44,5 +48,6 @@
 
   environment.systemPackages = with pkgs; [
     pcscliteWithPolkit.out
+    wireguard-tools
   ];
 }

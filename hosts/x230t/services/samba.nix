@@ -10,7 +10,7 @@
       security = user
       #use sendfile = yes
       #max protocol = smb2
-      hosts allow = 192.168.88. 127.0.0.1 localhost
+      hosts allow = 10.1.10. 10.1.40. 10.1.50. 127.0.0.1 localhost
       hosts deny = 0.0.0.0/0
       guest account = nobody
       map to guest = bad user
