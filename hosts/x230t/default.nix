@@ -34,7 +34,7 @@
     };
   };
 
-  boot.loader.grub.devices = [ "/dev/sda" ];
+  boot.loader.grub.devices = [ "/dev/sdb" ];
   services.xserver.wacom.enable = true;
   swapFile.size = 4 * 1024;
 

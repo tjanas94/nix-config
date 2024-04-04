@@ -13,9 +13,9 @@
         git
         gnupg
         nix
+        nixd
         nixpkgs-fmt
         pinentry-curses
-        rnix-lsp
         sops
         ssh-to-age
       ];

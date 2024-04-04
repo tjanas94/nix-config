@@ -3,7 +3,7 @@
     enable = true;
     autocd = true;
     dotDir = ".config/zsh";
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     historySubstringSearch = {
       enable = true;

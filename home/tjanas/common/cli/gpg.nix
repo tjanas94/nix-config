@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
   programs.gpg = {
     enable = true;
     publicKeys = [
@@ -22,7 +22,7 @@
       maxCacheTtlSsh = 900;
       enableSshSupport = true;
       enableExtraSocket = true;
-      pinentryFlavor = "qt";
+      pinentryPackage = pkgs.pinentry-qt;
     };
   };
 

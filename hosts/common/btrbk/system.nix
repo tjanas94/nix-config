@@ -1,4 +1,7 @@
 { pkgs, ... }: {
+  environment.systemPackages = with pkgs; [
+    lz4
+  ];
   services.btrbk = {
     instances.system = {
       onCalendar = "hourly";

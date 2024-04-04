@@ -54,7 +54,7 @@ in
     remmina
     simple-scan
     thunar
-    trezor-suite
+    nixpkgs-stable.trezor-suite
     virt-manager
     wireshark
     nixpkgs-stable.yubikey-manager

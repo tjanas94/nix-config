@@ -1,1 +1,1 @@
-DEV=/dev/sda
+DEV=/dev/sdb
