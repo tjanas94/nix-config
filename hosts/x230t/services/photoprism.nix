@@ -82,5 +82,8 @@
     options = [ "bind" ];
   };
 
-  environment.persistence."/persist".directories = [ "/var/lib/private/photoprism" ];
+  environment.persistence."/persist".directories = [{
+    directory = "/var/lib/private/photoprism";
+    mode = "0700";
+  }];
 }
