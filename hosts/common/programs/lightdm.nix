@@ -1,7 +1,6 @@
 {
   services.xserver.displayManager = {
     lightdm.enable = true;
-    defaultSession = "xsession";
     session = [
       {
         manage = "desktop";
@@ -10,4 +9,5 @@
       }
     ];
   };
+  services.displayManager.defaultSession = "xsession";
 }

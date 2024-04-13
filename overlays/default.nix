@@ -3,7 +3,6 @@
 
   modifications = final: prev: {
     nodePackages = prev.nodePackages // final.callPackage ../pkgs/node-packages { };
-    inherit (final.nixpkgs-stable) awscli2;
   };
 
   stable-packages = final: _prev: {

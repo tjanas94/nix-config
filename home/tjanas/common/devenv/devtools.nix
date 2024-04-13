@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  pythonEnv = pkgs.python3.withPackages (ps: with ps; [
+  pythonEnv = pkgs.nixpkgs-stable.python3.withPackages (ps: with ps; [
     black
     isort
     mypy

@@ -54,10 +54,10 @@ in
     remmina
     simple-scan
     thunar
-    nixpkgs-stable.trezor-suite
+    trezor-suite
     virt-manager
     wireshark
-    nixpkgs-stable.yubikey-manager
-    nixpkgs-stable.yubikey-manager-qt
+    yubikey-manager
+    yubikey-manager-qt
   ];
 }
