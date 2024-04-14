@@ -80,8 +80,11 @@ in
           "/mnt/snapshots/x230t-persist"
         ];
         exclude = [
+          "**/var/lib/cni"
           "**/var/lib/docker"
+          "**/var/lib/kubelet"
           "**/var/lib/libvirt"
+          "**/var/lib/rancher"
           "**/var/lib/systemd"
         ];
       };

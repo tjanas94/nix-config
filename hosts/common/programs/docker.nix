@@ -1,12 +1,5 @@
 {
-  virtualisation = {
-    docker.enable = true;
-
-    docker.rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
+  virtualisation.docker.enable = true;
 
   environment.persistence."/persist".directories = [ "/var/lib/docker" ];
 }

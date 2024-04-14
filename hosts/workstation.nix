@@ -6,6 +6,7 @@
     ./common/programs/dnsmasq.nix
     ./common/programs/docker.nix
     ./common/programs/i3lock.nix
+    ./common/programs/k3s.nix
     ./common/programs/libvirt.nix
     ./common/programs/lightdm.nix
     ./common/programs/pipewire.nix

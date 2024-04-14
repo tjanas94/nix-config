@@ -36,6 +36,7 @@ in
     imagemagick
     kubectx
     kubectl
+    kubernetes-helm
     lazygit
     lynx
     moreutils
