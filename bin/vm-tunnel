@@ -4,4 +4,4 @@ set -euo pipefail
 
 vm="${1:-dev}"
 pkill -f "ssh -R 4321:localhost:4321" || true
-ssh -R 4321:localhost:4321 -R 3000:localhost:3000 -R 3001:localhost:3001 -o ControlMaster=no -fN "$vm"
+ssh -R 4321:localhost:4321 -R 3000:localhost:3000 -R 3001:localhost:3001 -R 5173:localhost:5173 -o ControlMaster=no -fN "$vm"
