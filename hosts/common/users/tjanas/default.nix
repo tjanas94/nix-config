@@ -18,6 +18,7 @@ in
           "libvirtd"
           "lp"
           "networkmanager"
+          "podman"
           "scanner"
           "video"
           "wireshark"

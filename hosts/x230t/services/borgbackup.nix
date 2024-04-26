@@ -44,6 +44,7 @@ in
         ];
         exclude = [
           "**/.cache"
+          "**/.local/share/containers"
           "**/.local/share/docker"
           "**/.local/share/Steam"
           "**/.npm"
@@ -80,11 +81,9 @@ in
           "/mnt/snapshots/x230t-persist"
         ];
         exclude = [
-          "**/var/lib/cni"
+          "**/var/lib/containers"
           "**/var/lib/docker"
-          "**/var/lib/kubelet"
           "**/var/lib/libvirt"
-          "**/var/lib/rancher"
           "**/var/lib/systemd"
         ];
       };

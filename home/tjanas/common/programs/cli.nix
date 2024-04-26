@@ -22,6 +22,7 @@ in
     aws-azure-login
     awscli2
     btop
+    buildah
     dnsutils
     docker-compose
     docker-credential-helpers
@@ -34,6 +35,7 @@ in
     glib
     gping
     imagemagick
+    kind
     kubectx
     kubectl
     kubernetes-helm
@@ -49,6 +51,7 @@ in
     paperkey
     perl
     pciutils
+    podman-compose
     poppler_utils
     procs
     pv
@@ -56,8 +59,9 @@ in
     qrencode
     rdiff-backup
     ripgrep
-    screen
     samba
+    screen
+    skopeo
     socat
     vcsh
     wget
