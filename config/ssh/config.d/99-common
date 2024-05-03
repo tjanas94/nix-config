@@ -1,0 +1,5 @@
+Host github github.com
+  User git
+  HostName github.com
+  RequestTTY no
+  Include lib.d/common-identity

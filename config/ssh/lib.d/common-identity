@@ -1,0 +1,6 @@
+IdentitiesOnly yes
+IdentityFile ~/.ssh/public.d/id_ed25519_5.pub
+IdentityFile ~/.ssh/public.d/id_ed25519_4.pub
+IdentityFile ~/.ssh/public.d/id_rsa_3.pub
+IdentityFile ~/.ssh/public.d/id_ed25519_2.pub
+IdentityFile ~/.ssh/public.d/id_ed25519_1.pub
