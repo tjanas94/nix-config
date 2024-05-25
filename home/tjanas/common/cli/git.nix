@@ -35,6 +35,7 @@
         default = "current";
         autoSetupRemote = true;
       };
+      rerere.enabled = true;
       tag.gpgSign = true;
       worktree.guessRemote = true;
     };
