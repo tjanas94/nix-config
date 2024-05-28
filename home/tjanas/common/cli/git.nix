@@ -18,9 +18,13 @@
     };
     extraConfig = {
       apply.whitespace = "nowarn";
-      branch.autoSetupMerge = "inherit";
+      branch = {
+        autoSetupMerge = "inherit";
+        sort = "-committerdate";
+      };
       checkout.defaultRemote = "origin";
       commit.verbose = true;
+      diff.algorithm = "histogram";
       init.defaultBranch = "master";
       merge = {
         tool = "vimdiff";
@@ -34,6 +38,10 @@
       push = {
         default = "current";
         autoSetupRemote = true;
+      };
+      rebase = {
+        autoSquash = true;
+        updateRefs = true;
       };
       rerere.enabled = true;
       tag.gpgSign = true;
