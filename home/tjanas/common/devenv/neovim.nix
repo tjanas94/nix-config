@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   programs.neovim = {
     enable = true;
@@ -10,6 +10,7 @@
     withRuby = true;
     withPython3 = true;
     extraConfig = ''
+      let g:jdtls_path = '${pkgs.jdt-language-server}/bin/jdtls'
       let g:tsserver_path = '${pkgs.typescript}/lib/node_modules/typescript/lib'
       let g:astro_plugin_path = '${pkgs.nodePackages."@astrojs/ts-plugin"}/lib/node_modules/@astrojs/ts-plugin'
       lua require('core')
@@ -33,6 +34,7 @@
       luasnip
       nvim-cmp
       nvim-lspconfig
+      nvim-jdtls
       nvim-treesitter.withAllGrammars
       nvim-treesitter-context
       nvim-treesitter-refactor

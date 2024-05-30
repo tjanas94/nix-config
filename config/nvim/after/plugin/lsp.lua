@@ -5,6 +5,7 @@ conform.setup({
     formatters_by_ft = {
         astro = { 'prettierd' },
         graphql = { 'prettierd' },
+        java = { 'google-java-format' },
         javascript = { 'prettierd' },
         javascriptreact = { 'prettierd' },
         nix = { 'nixpkgs_fmt' },
@@ -13,6 +14,9 @@ conform.setup({
         sh = { 'shfmt' },
     },
     formatters = {
+        ['google-java-format'] = {
+            prepend_args = { '-a' },
+        },
         shfmt = {
             prepend_args = { '-i', '4' },
         },
@@ -41,7 +45,7 @@ lsp_zero.on_attach(function(client, bufnr)
     end, opts)
 end)
 
-lsp_zero.setup_servers({ 'bashls', 'clangd', 'cssls', 'dockerls', 'eslint', 'html', 'jdtls', 'jsonls', 'nixd', 'pylsp',
+lsp_zero.setup_servers({ 'bashls', 'clangd', 'cssls', 'dockerls', 'eslint', 'html', 'jsonls', 'nixd', 'pylsp',
     'tailwindcss', 'yamlls', 'zls' })
 
 local lspconfig = require('lspconfig')

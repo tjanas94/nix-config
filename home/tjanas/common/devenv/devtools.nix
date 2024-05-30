@@ -28,6 +28,7 @@ in
     gotools
     go-tools
 
+    google-java-format
     jdk
     jdt-language-server
     maven
