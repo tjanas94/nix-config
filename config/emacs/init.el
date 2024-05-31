@@ -2,9 +2,7 @@
         use-short-answers t
         confirm-kill-emacs 'yes-or-no-p)
 
-(setopt delete-selection-mode t
-        electric-indent-mode nil
-        indent-tabs-mode nil
+(setopt indent-tabs-mode nil
         blink-cursor-mode nil
         global-auto-revert-mode t
         dired-kill-when-opening-new-dired-buffer t
@@ -12,7 +10,8 @@
         tab-width 4
         make-backup-files nil
         auto-save-default nil
-        create-lockfiles nil)
+        create-lockfiles nil
+        show-paren-mode 0)
 
 (setopt enable-recursive-minibuffers t
         completion-cycle-threshold 1
@@ -57,3 +56,21 @@
    'org-babel-load-languages
    '((emacs-lisp . t)
      (http . t))))
+
+(use-package paredit
+  :hook
+  ((emacs-lisp-mode . paredit-mode)
+   (eval-expression-minibuffer-setup . paredit-mode)
+   (ielm-mode . paredit-mode)
+   (lisp-interaction-mode . paredit-mode)
+   (lisp-mode . paredit-mode)
+   (slime-repl-mode . paredit-mode)
+   (slime-repl-mode . override-slime-del-key))
+  :config
+  (defun override-slime-del-key ()
+    (define-key slime-repl-mode-map
+      (read-kbd-macro paredit-backward-delete-key) nil)))
+
+(use-package slime
+  :config
+  (setopt inferior-lisp-program "sbcl"))

@@ -47,6 +47,8 @@ in
     nodePackages.yaml-language-server
     prettierd
 
+    sbcl
+
     lua-language-server
     luajit
     luajitPackages.luacheck

@@ -5,6 +5,8 @@
       with epkgs; [
         magit
         ob-http
+        paredit
+        slime
         which-key
       ];
   };
