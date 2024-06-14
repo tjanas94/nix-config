@@ -1,7 +1,7 @@
 { pkgs, outputs }: with pkgs; {
   default =
     let
-      installPreCommit = outputs.checks.${pkgs.system}.pre-commit-check.shellHook;
+      installPreCommit = outputs.checks.${system}.pre-commit-check.shellHook;
     in
     mkShell {
       shellHook = ''
@@ -15,6 +15,7 @@
         nix
         nixd
         nixpkgs-fmt
+        node2nix
         pinentry-curses
         sops
         ssh-to-age

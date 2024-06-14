@@ -1,15 +1,14 @@
-{ inputs
-, pkgs
+{ pkgs
 , ...
 }:
 let
   mpv =
-    pkgs.wrapMpv
-      (pkgs.mpv-unwrapped.override {
-        pipewireSupport = false;
-        vapoursynthSupport = true;
-      })
+    pkgs.mpv-unwrapped.wrapper
       {
+        mpv = pkgs.mpv-unwrapped.override {
+          pipewireSupport = false;
+          vapoursynthSupport = true;
+        };
         scripts = with pkgs.mpvScripts; [ mpris sponsorblock quality-menu ];
         youtubeSupport = true;
       };

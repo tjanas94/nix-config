@@ -1,3 +1,4 @@
 [
-    "@astrojs/ts-plugin"
+    "@astrojs/ts-plugin",
+    "bash-language-server"
 ]

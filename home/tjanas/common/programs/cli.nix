@@ -63,6 +63,7 @@ in
     screen
     skopeo
     socat
+    sops
     vcsh
     wget
     whois

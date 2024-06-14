@@ -55,6 +55,7 @@ in
     stylua
 
     nixd
+    nixpkgs-fmt
 
     pythonEnv
 
