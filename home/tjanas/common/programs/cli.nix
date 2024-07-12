@@ -34,6 +34,7 @@ in
     file
     glib
     gping
+    htmlq
     imagemagick
     kind
     kubectx
