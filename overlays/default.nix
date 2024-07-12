@@ -3,6 +3,9 @@
 
   modifications = final: prev: {
     nodePackages = prev.nodePackages // final.callPackage ../pkgs/node-packages { };
+    herbstluftwm = prev.herbstluftwm.overrideAttrs (old: {
+      doCheck = false;
+    });
   };
 
   stable-packages = final: _prev: {
