@@ -23,7 +23,7 @@ conform.setup({
     },
 });
 
-lsp_zero.on_attach(function(client, bufnr)
+lsp_zero.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -45,8 +45,8 @@ lsp_zero.on_attach(function(client, bufnr)
     end, opts)
 end)
 
-lsp_zero.setup_servers({ 'bashls', 'clangd', 'cssls', 'dockerls', 'eslint', 'html', 'jsonls', 'nixd', 'pylsp',
-    'tailwindcss', 'yamlls', 'zls' })
+lsp_zero.setup_servers({ 'bashls', 'clangd', 'clojure_lsp', 'cssls', 'dockerls', 'eslint', 'html', 'jsonls', 'nixd',
+    'pylsp', 'tailwindcss', 'yamlls', 'zls' })
 
 local lspconfig = require('lspconfig')
 lspconfig.astro.setup({
@@ -109,7 +109,7 @@ vim.diagnostic.config({
     float = {
         style = 'minimal',
         border = 'rounded',
-        source = 'always',
+        source = true,
         header = '',
         prefix = '',
     },
@@ -118,6 +118,12 @@ vim.diagnostic.config({
 local cmp = require('cmp')
 local cmp_action = lsp_zero.cmp_action()
 local cmp_format = lsp_zero.cmp_format()
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
+cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
+)
 
 require('luasnip.loaders.from_vscode').lazy_load()
 
@@ -138,6 +144,7 @@ cmp.setup({
         { name = 'nvim_lua' },
         { name = 'buffer',  keyword_length = 3 },
         { name = 'luasnip', keyword_length = 2 },
+        { name = 'conjure' },
     },
     mapping = cmp.mapping.preset.insert({
         -- confirm completion item

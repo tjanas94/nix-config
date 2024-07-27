@@ -19,10 +19,12 @@
     plugins = with pkgs.vimPlugins; [
       cmp_luasnip
       cmp-buffer
+      cmp-conjure
       cmp-path
       cmp-nvim-lsp
       cmp-nvim-lua
       comment-nvim
+      conjure
       conform-nvim
       copilot-vim
       friendly-snippets
@@ -32,9 +34,11 @@
       lsp-zero-nvim
       lualine-nvim
       luasnip
+      nvim-autopairs
       nvim-cmp
       nvim-lspconfig
       nvim-jdtls
+      nvim-paredit
       nvim-treesitter.withAllGrammars
       nvim-treesitter-context
       nvim-treesitter-refactor

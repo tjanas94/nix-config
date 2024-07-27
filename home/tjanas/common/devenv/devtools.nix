@@ -19,6 +19,10 @@ in
     shellcheck
     shfmt
 
+    babashka
+    clojure
+    clojure-lsp
+
     dockfmt
     nodePackages.dockerfile-language-server-nodejs
 
