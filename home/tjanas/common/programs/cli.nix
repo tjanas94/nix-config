@@ -2,7 +2,7 @@
 let
   pass =
     pkgs.pass.withExtensions
-      (exts: with exts; [ pass-import pass-otp pass-update ]);
+      (exts: with exts; [ pass-otp pass-update ]);
 in
 {
   programs = {

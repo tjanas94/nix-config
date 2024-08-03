@@ -4,13 +4,13 @@
 
 let
   sources = {
-    "@astrojs/compiler-2.9.2" = {
+    "@astrojs/compiler-2.10.1" = {
       name = "_at_astrojs_slash_compiler";
       packageName = "@astrojs/compiler";
-      version = "2.9.2";
+      version = "2.10.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@astrojs/compiler/-/compiler-2.9.2.tgz";
-        sha512 = "Vpu0Ffsj8SoV+N0DFHlxxOMKHwSC9059Xy/OlG1t6uFYSoJXxkBC2WyF6igO7x10V+8uJrhOxaXr3nA90kJXow==";
+        url = "https://registry.npmjs.org/@astrojs/compiler/-/compiler-2.10.1.tgz";
+        sha512 = "XmM4j6BjvOVMag2xELq0JuG2yKOW8wgIu6dvb9BsjbGYmnvoStJn/pqEzVqc1EBszf2xYT7onIkftIOUz9AwrQ==";
       };
     };
     "@jridgewell/sourcemap-codec-1.5.0" = {
@@ -391,6 +391,15 @@ let
         sha512 = "X+8T3GoiwTVlJbicx/sIAF+yuJAqz8VvwJyoMVhwEMoEKE/fkDmrqUgDMyBECcM2A2frVZIUj5HI/ErRXCfOeA==";
       };
     };
+    "vscode-languageserver-textdocument-1.0.12" = {
+      name = "vscode-languageserver-textdocument";
+      packageName = "vscode-languageserver-textdocument";
+      version = "1.0.12";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/vscode-languageserver-textdocument/-/vscode-languageserver-textdocument-1.0.12.tgz";
+        sha512 = "cxWNPesCnQCcMPeenjKKsOCKQZ/L6Tv19DTRIGuLWe32lyzWhihGVJ/rcckZXJxfdKCFvRLS3fpBIsV/ZGX4zA==";
+      };
+    };
     "vscode-languageserver-types-3.17.2" = {
       name = "vscode-languageserver-types";
       packageName = "vscode-languageserver-types";
@@ -451,20 +460,20 @@ in
   "@astrojs/ts-plugin" = nodeEnv.buildNodePackage {
     name = "_at_astrojs_slash_ts-plugin";
     packageName = "@astrojs/ts-plugin";
-    version = "1.9.0";
+    version = "1.9.1";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@astrojs/ts-plugin/-/ts-plugin-1.9.0.tgz";
-      sha512 = "QastYNlKF2I0oOksKRm3bG8auk2AlyD6be7ptHzSHKj/ikUvK9ObnS2ruGFh0h8aQ760Qw7aEJ9JZT/IZ7t46A==";
+      url = "https://registry.npmjs.org/@astrojs/ts-plugin/-/ts-plugin-1.9.1.tgz";
+      sha512 = "Rijik6fzJAIAqK9+4iNm+b4TFk82HwEVtK+U5z3XJQJKet8vRQI8V2L27D4jXLjSpsKHvV+rmGlqQOOyXaucgg==";
     };
     dependencies = [
-      sources."@astrojs/compiler-2.9.2"
+      sources."@astrojs/compiler-2.10.1"
       sources."@jridgewell/sourcemap-codec-1.5.0"
       sources."@volar/language-core-2.4.0-alpha.18"
       sources."@volar/source-map-2.4.0-alpha.18"
       sources."@volar/typescript-2.4.0-alpha.18"
       sources."path-browserify-1.0.1"
       sources."semver-7.6.3"
-      sources."vscode-languageserver-textdocument-1.0.11"
+      sources."vscode-languageserver-textdocument-1.0.12"
       sources."vscode-uri-3.0.8"
     ];
     buildInputs = globalBuildInputs;
