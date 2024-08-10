@@ -22,6 +22,6 @@
       ];
     };
   node20 = mkShell {
-    nativeBuildInputs = [ nodejs-slim_20 nodejs_20.pkgs.npm ];
+    nativeBuildInputs = [ nodejs-slim_20 nodejs_20.pkgs.npm bun ];
   };
 }
