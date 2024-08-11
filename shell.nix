@@ -1,4 +1,4 @@
-{ pkgs, outputs }: with pkgs; {
+{ lib, pkgs, outputs }: with pkgs; {
   default =
     let
       installPreCommit = outputs.checks.${system}.pre-commit-check.shellHook;
@@ -23,5 +23,6 @@
     };
   node20 = mkShell {
     nativeBuildInputs = [ nodejs-slim_20 nodejs_20.pkgs.npm bun ];
+    LD_LIBRARY_PATH = lib.makeLibraryPath [ stdenv.cc.cc ];
   };
 }

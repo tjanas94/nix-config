@@ -66,7 +66,7 @@
           hooks.nixpkgs-fmt.enable = true;
         };
       });
-      devShells = forAllSystems (pkgs: import ./shell.nix { inherit pkgs outputs; });
+      devShells = forAllSystems (pkgs: import ./shell.nix { inherit lib pkgs outputs; });
       formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
       packages = forAllSystems (pkgs: import ./pkgs { inherit pkgs; })
         // {
