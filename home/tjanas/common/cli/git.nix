@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   programs.git = {
     enable = true;
     userName = "Tomasz Janas";
@@ -65,6 +65,7 @@
     ];
     delta = {
       enable = true;
+      package = pkgs.nixpkgs-stable.delta;
       options = {
         line-numbers = true;
         navigate = true;
