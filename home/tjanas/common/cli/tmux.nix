@@ -1,5 +1,4 @@
 { pkgs
-, inputs
 , ...
 }: {
   programs.tmux = {
@@ -21,6 +20,7 @@
       bind -n C-M-Space neww switch-project
       bind -n C-M-f run-shell clone-tmux-client
       bind -n C-M-c kill-window \; kill-session
+      bind -n C-M-r respawn-pane -k
       bind -n C-M-s switch-client -l
       bind -n C-M-g neww lazygit
       bind -n C-M-m neww magit
