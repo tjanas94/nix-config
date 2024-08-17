@@ -1,4 +1,3 @@
-{ lib, ... }:
 let
   Mod = "super";
   App = "${Mod} + alt + shift + ctrl";
@@ -57,6 +56,7 @@ in
       "shift + Print" = "systemd-run-app scrot -u";
 
       "${App} + b" = "systemd-run-app brave";
+      "${App} + d; d; r" = "autorandr -c";
       "${App} + d; h; p" = "bt-toggle-profile E8:EE:CC";
       "${App} + d; h; r" = "bt-reconnect E8:EE:CC";
       "${App} + d; m; p" = "bt-setup-device D5:A3:9B";
@@ -78,6 +78,7 @@ in
       "${Project} + m" = "herbstclient substitute LASTMONITOR my_lastmonitor focus_monitor LASTMONITOR";
       "${Project} + t" = "herbstclient use_previous";
       "${Project} + {n,e,i,o}" = "systemd-run-app ${Terminal} -e switch-pinned-project {1,2,3,4}";
+      "${Project} + {4,5,6,minus}" = "systemd-run-app rofi -show window -auto-select -filter {'alacritty / zsh', 'alacritty / vi', '– brave', 'microsoft teams'}";
     };
   };
 }
