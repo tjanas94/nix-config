@@ -66,9 +66,9 @@
           hooks.nixpkgs-fmt.enable = true;
         };
       });
-      devShells = forAllSystems (pkgs: import ./shell.nix { inherit lib pkgs outputs; });
+      devShells = forAllSystems (pkgs: pkgs.callPackage ./shell.nix { inherit outputs; });
       formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
-      packages = forAllSystems (pkgs: import ./pkgs { inherit pkgs; })
+      packages = forAllSystems (pkgs: pkgs.callPackage ./pkgs { })
         // {
         x86_64-linux.installer =
           nixosConfigurations.installer.config.system.build.isoImage;
