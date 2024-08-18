@@ -1,4 +1,4 @@
-{ inputs }: {
+{ inputs, ... }: {
   additions = pkgs: _: import ../pkgs { inherit pkgs; };
 
   modifications = final: prev: {

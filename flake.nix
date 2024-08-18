@@ -50,6 +50,7 @@
     let
       inherit (nixpkgs) lib;
       inherit (self) outputs;
+      specialArgs = { inherit inputs outputs; };
       systems = [ "x86_64-linux" ];
       legacyPackages = lib.genAttrs systems (system: import nixpkgs {
         inherit system;
@@ -66,37 +67,40 @@
           hooks.nixpkgs-fmt.enable = true;
         };
       });
-      devShells = forAllSystems (pkgs: pkgs.callPackage ./shell.nix { inherit outputs; });
+      devShells = forAllSystems (pkgs: pkgs.callPackage ./shell.nix specialArgs);
       formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
-      packages = forAllSystems (pkgs: pkgs.callPackage ./pkgs { })
-        // {
-        x86_64-linux.installer =
-          nixosConfigurations.installer.config.system.build.isoImage;
-      };
+      packages =
+        let packages = forAllSystems (pkgs: pkgs.callPackage ./pkgs { });
+        in packages // {
+          x86_64-linux = packages.x86_64-linux // {
+            installer =
+              nixosConfigurations.installer.config.system.build.isoImage;
+          };
+        };
 
       homeManagerModules = import ./modules/home-manager;
       nixosModules = import ./modules/nixos;
-      overlays = import ./overlays { inherit inputs; };
+      overlays = import ./overlays specialArgs;
 
       nixosConfigurations = {
         dell = lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+          inherit specialArgs;
           modules = [ ./hosts/dell ];
         };
         installer = lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+          inherit specialArgs;
           modules = [ ./hosts/installer ];
         };
         hp = lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+          inherit specialArgs;
           modules = [ ./hosts/hp ];
         };
         nixos-vm = lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+          inherit specialArgs;
           modules = [ ./hosts/nixos-vm ];
         };
         x230t = lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+          inherit specialArgs;
           modules = [ ./hosts/x230t ];
         };
       };

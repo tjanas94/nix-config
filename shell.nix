@@ -1,4 +1,4 @@
-{ lib, pkgs, outputs }: with pkgs; {
+{ lib, pkgs, outputs, ... }: with pkgs; {
   default =
     let
       installPreCommit = outputs.checks.${system}.pre-commit-check.shellHook;
