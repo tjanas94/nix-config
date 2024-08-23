@@ -6,6 +6,6 @@
   environment.persistence."/persist" = {
     hideMounts = true;
     files = [ "/etc/machine-id" ];
-    directories = [ "/var/lib/systemd" ];
+    directories = [ "/var/lib/nixos" "/var/lib/systemd" ];
   };
 }
