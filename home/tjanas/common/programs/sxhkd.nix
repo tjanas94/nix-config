@@ -78,7 +78,7 @@ in
       "${Project} + m" = "herbstclient substitute LASTMONITOR my_lastmonitor focus_monitor LASTMONITOR";
       "${Project} + t" = "herbstclient use_previous";
       "${Project} + {n,e,i,o}" = "systemd-run-app ${Terminal} -e switch-pinned-project {1,2,3,4}";
-      "${Project} + {4,5,6,minus}" = "systemd-run-app rofi -show window -replace -normal-window -auto-select -filter {'alacritty / ', 'alacritty / vi', '– brave', 'microsoft teams'}";
+      "${Project} + shift + {n,e,i,o}" = "systemd-run-app rofi -show window -replace -normal-window -auto-select -filter {'alacritty / ', 'alacritty / vi', '– brave', 'microsoft teams'}";
     };
   };
 }
