@@ -1,6 +1,7 @@
 {
   imports = [
     ./acme.nix
+    ./adguardhome.nix
     ./borgbackup.nix
     ./btrbk-pull.nix
     ./gitea.nix
@@ -11,6 +12,7 @@
     ./postgresql.nix
     ./samba.nix
     ./syncthing.nix
+    ./unbound.nix
     ./vaultwarden.nix
   ];
 }
