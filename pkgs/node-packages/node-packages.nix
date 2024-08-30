@@ -130,58 +130,58 @@ let
         sha512 = "XuySG1E38YScSJoMlqovLru4KTUNSjgVTIjyh7qMX6aNN5HY5Ct5LhRJdxO79JtTzKfzV/bnWpz+zquYrISsvw==";
       };
     };
-    "@volar/kit-2.4.0" = {
+    "@volar/kit-2.4.1" = {
       name = "_at_volar_slash_kit";
       packageName = "@volar/kit";
-      version = "2.4.0";
+      version = "2.4.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/kit/-/kit-2.4.0.tgz";
-        sha512 = "uqwtPKhrbnP+3f8hs+ltDYXLZ6Wdbs54IzkaPocasI4aBhqWLht5qXctE1MqpZU52wbH359E0u9nhxEFmyon+w==";
+        url = "https://registry.npmjs.org/@volar/kit/-/kit-2.4.1.tgz";
+        sha512 = "XCHjrxcvjh/GEBiJt2e1KfsP8aQ+z7ZXRKR/5BA2/SFVzM+pKpL9iHZZJN7QGMsqTOt8FgN8XQhTp8qqURn+cw==";
       };
     };
-    "@volar/language-core-2.4.0" = {
+    "@volar/language-core-2.4.1" = {
       name = "_at_volar_slash_language-core";
       packageName = "@volar/language-core";
-      version = "2.4.0";
+      version = "2.4.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/language-core/-/language-core-2.4.0.tgz";
-        sha512 = "FTla+khE+sYK0qJP+6hwPAAUwiNHVMph4RUXpxf/FIPKUP61NFrVZorml4mjFShnueR2y9/j8/vnh09YwVdH7A==";
+        url = "https://registry.npmjs.org/@volar/language-core/-/language-core-2.4.1.tgz";
+        sha512 = "9AKhC7Qn2mQYxj7Dz3bVxeOk7gGJladhWixUYKef/o0o7Bm4an+A3XvmcTHVqZ8stE6lBVH++g050tBtJ4TZPQ==";
       };
     };
-    "@volar/language-server-2.4.0" = {
+    "@volar/language-server-2.4.1" = {
       name = "_at_volar_slash_language-server";
       packageName = "@volar/language-server";
-      version = "2.4.0";
+      version = "2.4.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/language-server/-/language-server-2.4.0.tgz";
-        sha512 = "rmGIjAxWekWQiGH97Mosb4juiD/hfFYNQKV5Py9r7vDOLSkbIwRhITbwHm88NJKs8P6TNc6w/PfBXN6yjKadJg==";
+        url = "https://registry.npmjs.org/@volar/language-server/-/language-server-2.4.1.tgz";
+        sha512 = "aVaUjuQEPFJZckNwziCqrmiirsVnV3LK9Kbl1Hq5C4G6RTyof2xSdYKwyL2Azv41DkgkW85lJ2F6zVX3cpQfzw==";
       };
     };
-    "@volar/language-service-2.4.0" = {
+    "@volar/language-service-2.4.1" = {
       name = "_at_volar_slash_language-service";
       packageName = "@volar/language-service";
-      version = "2.4.0";
+      version = "2.4.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/language-service/-/language-service-2.4.0.tgz";
-        sha512 = "4P3yeQXIL68mLfS3n6P3m02IRg3GnLHUU9k/1PCHEfm5FG9bySkDOc72dbBn2vAa2BxOqm18bmmZXrsWuQ5AOw==";
+        url = "https://registry.npmjs.org/@volar/language-service/-/language-service-2.4.1.tgz";
+        sha512 = "Q3NVjZTAz0Vnco70Rgcryq2eDPWkFBdpzr84aYqOGvVC4SBjq1Wsx0d9NyA4seQHfHWwbZyzyviKRm+htyRlKg==";
       };
     };
-    "@volar/source-map-2.4.0" = {
+    "@volar/source-map-2.4.1" = {
       name = "_at_volar_slash_source-map";
       packageName = "@volar/source-map";
-      version = "2.4.0";
+      version = "2.4.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/source-map/-/source-map-2.4.0.tgz";
-        sha512 = "2ceY8/NEZvN6F44TXw2qRP6AQsvCYhV2bxaBPWxV9HqIfkbRydSksTFObCF1DBDNBfKiZTS8G/4vqV6cvjdOIQ==";
+        url = "https://registry.npmjs.org/@volar/source-map/-/source-map-2.4.1.tgz";
+        sha512 = "Xq6ep3OZg9xUqN90jEgB9ztX5SsTz1yiV8wiQbcYNjWkek+Ie3dc8l7AVt3EhDm9mSIR58oWczHkzM2H6HIsmQ==";
       };
     };
-    "@volar/typescript-2.4.0" = {
+    "@volar/typescript-2.4.1" = {
       name = "_at_volar_slash_typescript";
       packageName = "@volar/typescript";
-      version = "2.4.0";
+      version = "2.4.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/typescript/-/typescript-2.4.0.tgz";
-        sha512 = "9zx3lQWgHmVd+JRRAHUSRiEhe4TlzL7U7e6ulWXOxHH/WNYxzKwCvZD7WYWEZFdw4dHfTD9vUR0yPQO6GilCaQ==";
+        url = "https://registry.npmjs.org/@volar/typescript/-/typescript-2.4.1.tgz";
+        sha512 = "UoRzC0PXcwajFQTu8XxKSYNsWNBtVja6Y9gC8eLv7kYm+UEKJCcZ8g7dialsOYA0HKs3Vpg57MeCsawFLC6m9Q==";
       };
     };
     "@vscode/emmet-helper-2.9.3" = {
@@ -427,13 +427,13 @@ let
         sha512 = "8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==";
       };
     };
-    "micromatch-4.0.7" = {
+    "micromatch-4.0.8" = {
       name = "micromatch";
       packageName = "micromatch";
-      version = "4.0.7";
+      version = "4.0.8";
       src = fetchurl {
-        url = "https://registry.npmjs.org/micromatch/-/micromatch-4.0.7.tgz";
-        sha512 = "LPP/3KorzCwBxfeUuZmaR6bG2kdeHSbe0P2tY3FLRU4vYrjYz5hI4QZwV0njUx3jeuKe67YukQ1LSPZBKDqO/Q==";
+        url = "https://registry.npmjs.org/micromatch/-/micromatch-4.0.8.tgz";
+        sha512 = "PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==";
       };
     };
     "minimatch-9.0.2" = {
@@ -715,22 +715,22 @@ let
         sha512 = "L+gbDiLDQQ1rZUbJ3mf3doDsoQUa8OZM/xdpk/unMg1Vz24Zmi2Ign8GrZyBD7bRoIQDwOH9gdktGDKzRPpUNw==";
       };
     };
-    "vscode-css-languageservice-6.3.0" = {
+    "vscode-css-languageservice-6.3.1" = {
       name = "vscode-css-languageservice";
       packageName = "vscode-css-languageservice";
-      version = "6.3.0";
+      version = "6.3.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/vscode-css-languageservice/-/vscode-css-languageservice-6.3.0.tgz";
-        sha512 = "nU92imtkgzpCL0xikrIb8WvedV553F2BENzgz23wFuok/HLN5BeQmroMy26pUwFxV2eV8oNRmYCUv8iO7kSMhw==";
+        url = "https://registry.npmjs.org/vscode-css-languageservice/-/vscode-css-languageservice-6.3.1.tgz";
+        sha512 = "1BzTBuJfwMc3A0uX4JBdJgoxp74cjj4q2mDJdp49yD/GuAq4X0k5WtK6fNcMYr+FfJ9nqgR6lpfCSZDkARJ5qQ==";
       };
     };
-    "vscode-html-languageservice-5.3.0" = {
+    "vscode-html-languageservice-5.3.1" = {
       name = "vscode-html-languageservice";
       packageName = "vscode-html-languageservice";
-      version = "5.3.0";
+      version = "5.3.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/vscode-html-languageservice/-/vscode-html-languageservice-5.3.0.tgz";
-        sha512 = "C4Z3KsP5Ih+fjHpiBc5jxmvCl+4iEwvXegIrzu2F5pktbWvQaBT3YkVPk8N+QlSSMk8oCG6PKtZ/Sq2YHb5e8g==";
+        url = "https://registry.npmjs.org/vscode-html-languageservice/-/vscode-html-languageservice-5.3.1.tgz";
+        sha512 = "ysUh4hFeW/WOWz/TO9gm08xigiSsV/FOAZ+DolgJfeLftna54YdmZ4A+lIn46RbdO3/Qv5QHTn1ZGqmrXQhZyA==";
       };
     };
     "vscode-json-languageservice-4.1.8" = {
@@ -983,12 +983,12 @@ in
       sources."@nodelib/fs.scandir-2.1.5"
       sources."@nodelib/fs.stat-2.0.5"
       sources."@nodelib/fs.walk-1.2.8"
-      sources."@volar/kit-2.4.0"
-      sources."@volar/language-core-2.4.0"
-      sources."@volar/language-server-2.4.0"
-      sources."@volar/language-service-2.4.0"
-      sources."@volar/source-map-2.4.0"
-      sources."@volar/typescript-2.4.0"
+      sources."@volar/kit-2.4.1"
+      sources."@volar/language-core-2.4.1"
+      sources."@volar/language-server-2.4.1"
+      sources."@volar/language-service-2.4.1"
+      sources."@volar/source-map-2.4.1"
+      sources."@volar/typescript-2.4.1"
       (sources."@vscode/emmet-helper-2.9.3" // {
         dependencies = [
           sources."vscode-uri-2.1.2"
@@ -1011,7 +1011,7 @@ in
       sources."jsonc-parser-2.3.1"
       sources."lodash-4.17.21"
       sources."merge2-1.4.1"
-      sources."micromatch-4.0.7"
+      sources."micromatch-4.0.8"
       sources."muggle-string-0.4.1"
       sources."path-browserify-1.0.1"
       sources."picomatch-2.3.1"
@@ -1037,8 +1037,8 @@ in
       sources."volar-service-typescript-0.0.61"
       sources."volar-service-typescript-twoslash-queries-0.0.61"
       sources."volar-service-yaml-0.0.61"
-      sources."vscode-css-languageservice-6.3.0"
-      sources."vscode-html-languageservice-5.3.0"
+      sources."vscode-css-languageservice-6.3.1"
+      sources."vscode-html-languageservice-5.3.1"
       (sources."vscode-json-languageservice-4.1.8" // {
         dependencies = [
           sources."jsonc-parser-3.3.1"
@@ -1088,9 +1088,9 @@ in
       sources."@astrojs/compiler-2.10.3"
       sources."@astrojs/yaml2ts-0.2.1"
       sources."@jridgewell/sourcemap-codec-1.5.0"
-      sources."@volar/language-core-2.4.0"
-      sources."@volar/source-map-2.4.0"
-      sources."@volar/typescript-2.4.0"
+      sources."@volar/language-core-2.4.1"
+      sources."@volar/source-map-2.4.1"
+      sources."@volar/typescript-2.4.1"
       sources."path-browserify-1.0.1"
       sources."semver-7.6.3"
       sources."vscode-languageserver-textdocument-1.0.12"
@@ -1137,7 +1137,7 @@ in
       sources."is-glob-4.0.3"
       sources."is-number-7.0.0"
       sources."merge2-1.4.1"
-      sources."micromatch-4.0.7"
+      sources."micromatch-4.0.8"
       sources."minimatch-9.0.2"
       sources."node-fetch-2.7.0"
       sources."picomatch-2.3.1"
