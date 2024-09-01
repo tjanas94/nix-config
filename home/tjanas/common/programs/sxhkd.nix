@@ -68,7 +68,7 @@ in
       "${App} + l" = "systemd-run-app i3lock -nc000000";
       "${App} + o" = "systemd-run-app openfm";
       "${App} + p" = "systemd-run-app rofi-pass";
-      "${App} + s" = "systemd-run-app pavucontrol";
+      "${App} + s" = "systemd-run-app pavucontrol -t 1";
       "${App} + t" = "systemd-run-app thunar";
       "${App} + y" = "systemd-run-app yt-player";
 
