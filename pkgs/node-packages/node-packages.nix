@@ -130,58 +130,58 @@ let
         sha512 = "XuySG1E38YScSJoMlqovLru4KTUNSjgVTIjyh7qMX6aNN5HY5Ct5LhRJdxO79JtTzKfzV/bnWpz+zquYrISsvw==";
       };
     };
-    "@volar/kit-2.4.1" = {
+    "@volar/kit-2.4.2" = {
       name = "_at_volar_slash_kit";
       packageName = "@volar/kit";
-      version = "2.4.1";
+      version = "2.4.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/kit/-/kit-2.4.1.tgz";
-        sha512 = "XCHjrxcvjh/GEBiJt2e1KfsP8aQ+z7ZXRKR/5BA2/SFVzM+pKpL9iHZZJN7QGMsqTOt8FgN8XQhTp8qqURn+cw==";
+        url = "https://registry.npmjs.org/@volar/kit/-/kit-2.4.2.tgz";
+        sha512 = "sHCJv/nd8ZYsP/WKoTIQTboKbJ4F7oerv6PJK/ji374JTn3fqNnp4EV0V+Iiw60V7oUOWozhh7k6nugUUYDFWg==";
       };
     };
-    "@volar/language-core-2.4.1" = {
+    "@volar/language-core-2.4.2" = {
       name = "_at_volar_slash_language-core";
       packageName = "@volar/language-core";
-      version = "2.4.1";
+      version = "2.4.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/language-core/-/language-core-2.4.1.tgz";
-        sha512 = "9AKhC7Qn2mQYxj7Dz3bVxeOk7gGJladhWixUYKef/o0o7Bm4an+A3XvmcTHVqZ8stE6lBVH++g050tBtJ4TZPQ==";
+        url = "https://registry.npmjs.org/@volar/language-core/-/language-core-2.4.2.tgz";
+        sha512 = "sONt5RLvLL1SlBdhyUSthZzuKePbJ7DwFFB9zT0eyWpDl+v7GXGh/RkPxxWaR22bIhYtTzp4Ka1MWatl/53Riw==";
       };
     };
-    "@volar/language-server-2.4.1" = {
+    "@volar/language-server-2.4.2" = {
       name = "_at_volar_slash_language-server";
       packageName = "@volar/language-server";
-      version = "2.4.1";
+      version = "2.4.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/language-server/-/language-server-2.4.1.tgz";
-        sha512 = "aVaUjuQEPFJZckNwziCqrmiirsVnV3LK9Kbl1Hq5C4G6RTyof2xSdYKwyL2Azv41DkgkW85lJ2F6zVX3cpQfzw==";
+        url = "https://registry.npmjs.org/@volar/language-server/-/language-server-2.4.2.tgz";
+        sha512 = "BoGGGar5kzWnCxv41nnpplPQz+ntHgOSYshxH7CqNo5DOz5R3WXtkDA6T6bOpt70JeejoNyk/5kINV8KGeI17Q==";
       };
     };
-    "@volar/language-service-2.4.1" = {
+    "@volar/language-service-2.4.2" = {
       name = "_at_volar_slash_language-service";
       packageName = "@volar/language-service";
-      version = "2.4.1";
+      version = "2.4.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/language-service/-/language-service-2.4.1.tgz";
-        sha512 = "Q3NVjZTAz0Vnco70Rgcryq2eDPWkFBdpzr84aYqOGvVC4SBjq1Wsx0d9NyA4seQHfHWwbZyzyviKRm+htyRlKg==";
+        url = "https://registry.npmjs.org/@volar/language-service/-/language-service-2.4.2.tgz";
+        sha512 = "tJAfl1RouBcSPfgY7ivV/CWH6G/cOzwflMUFnfR7qTLZht7azx4CwlndiyGiL7lGcnfi7OZBKXd8Oqy9jhKZCA==";
       };
     };
-    "@volar/source-map-2.4.1" = {
+    "@volar/source-map-2.4.2" = {
       name = "_at_volar_slash_source-map";
       packageName = "@volar/source-map";
-      version = "2.4.1";
+      version = "2.4.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/source-map/-/source-map-2.4.1.tgz";
-        sha512 = "Xq6ep3OZg9xUqN90jEgB9ztX5SsTz1yiV8wiQbcYNjWkek+Ie3dc8l7AVt3EhDm9mSIR58oWczHkzM2H6HIsmQ==";
+        url = "https://registry.npmjs.org/@volar/source-map/-/source-map-2.4.2.tgz";
+        sha512 = "qiGfGgeZ5DEarPX3S+HcFktFCjfDrFPCXKeXNbrlB7v8cvtPRm8YVwoXOdGG1NhaL5rMlv5BZPVQyu4EdWWIvA==";
       };
     };
-    "@volar/typescript-2.4.1" = {
+    "@volar/typescript-2.4.2" = {
       name = "_at_volar_slash_typescript";
       packageName = "@volar/typescript";
-      version = "2.4.1";
+      version = "2.4.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/typescript/-/typescript-2.4.1.tgz";
-        sha512 = "UoRzC0PXcwajFQTu8XxKSYNsWNBtVja6Y9gC8eLv7kYm+UEKJCcZ8g7dialsOYA0HKs3Vpg57MeCsawFLC6m9Q==";
+        url = "https://registry.npmjs.org/@volar/typescript/-/typescript-2.4.2.tgz";
+        sha512 = "m2uZduhaHO1SZuagi30OsjI/X1gwkaEAC+9wT/nCNAtJ5FqXEkKvUncHmffG7ESDZPlFFUBK4vJ0D9Hfr+f2EA==";
       };
     };
     "@vscode/emmet-helper-2.9.3" = {
@@ -931,13 +931,13 @@ let
         sha512 = "CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==";
       };
     };
-    "yaml-2.5.0" = {
+    "yaml-2.5.1" = {
       name = "yaml";
       packageName = "yaml";
-      version = "2.5.0";
+      version = "2.5.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/yaml/-/yaml-2.5.0.tgz";
-        sha512 = "2wWLbGbYDiSqqIKoPjar3MPgB94ErzCtrNE1FdqGuaO0pi2JGjmE8aW8TDZwzU7vuxcGRdL/4gPQwQ7hD5AMSw==";
+        url = "https://registry.npmjs.org/yaml/-/yaml-2.5.1.tgz";
+        sha512 = "bLQOjaX/ADgQ20isPJRvF0iRUHIxVhYvr53Of7wGcWlO2jvtUlH5m87DsmulFVxRpNLOnI4tB6p/oh8D7kpn9Q==";
       };
     };
     "yaml-language-server-1.15.0" = {
@@ -964,10 +964,10 @@ in
   "@astrojs/language-server" = nodeEnv.buildNodePackage {
     name = "_at_astrojs_slash_language-server";
     packageName = "@astrojs/language-server";
-    version = "2.14.1";
+    version = "2.14.2";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@astrojs/language-server/-/language-server-2.14.1.tgz";
-      sha512 = "mkKtCTPRD4dyKdAqIP0zmmPyO/ZABOqFESnaVca47Dg/sAagJnDSEsDUDzNbHFh1+9Dj1o5y4iwNsxJboGdaNg==";
+      url = "https://registry.npmjs.org/@astrojs/language-server/-/language-server-2.14.2.tgz";
+      sha512 = "daUJ/+/2pPF3eGG4tVdXKyw0tabUDrJKwLzU8VTuNhEHIn3VZAIES6VT3+mX0lmKcMiKM8/bjZdfY+fPfmnsMA==";
     };
     dependencies = [
       sources."@astrojs/compiler-2.10.3"
@@ -983,12 +983,12 @@ in
       sources."@nodelib/fs.scandir-2.1.5"
       sources."@nodelib/fs.stat-2.0.5"
       sources."@nodelib/fs.walk-1.2.8"
-      sources."@volar/kit-2.4.1"
-      sources."@volar/language-core-2.4.1"
-      sources."@volar/language-server-2.4.1"
-      sources."@volar/language-service-2.4.1"
-      sources."@volar/source-map-2.4.1"
-      sources."@volar/typescript-2.4.1"
+      sources."@volar/kit-2.4.2"
+      sources."@volar/language-core-2.4.2"
+      sources."@volar/language-server-2.4.2"
+      sources."@volar/language-service-2.4.2"
+      sources."@volar/source-map-2.4.2"
+      sources."@volar/typescript-2.4.2"
       (sources."@vscode/emmet-helper-2.9.3" // {
         dependencies = [
           sources."vscode-uri-2.1.2"
@@ -1051,7 +1051,7 @@ in
       sources."vscode-languageserver-types-3.17.5"
       sources."vscode-nls-5.2.0"
       sources."vscode-uri-3.0.8"
-      sources."yaml-2.5.0"
+      sources."yaml-2.5.1"
       (sources."yaml-language-server-1.15.0" // {
         dependencies = [
           sources."request-light-0.5.8"
@@ -1079,23 +1079,23 @@ in
   "@astrojs/ts-plugin" = nodeEnv.buildNodePackage {
     name = "_at_astrojs_slash_ts-plugin";
     packageName = "@astrojs/ts-plugin";
-    version = "1.10.1";
+    version = "1.10.2";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@astrojs/ts-plugin/-/ts-plugin-1.10.1.tgz";
-      sha512 = "T7Z8fob6bkgLlcYiJSsn84wF5XelS0VJSEC4BRPnEHZj3eeOrmmMl8uZqBTJ+zArGMOfyhhA7X+SUGRIAZApHQ==";
+      url = "https://registry.npmjs.org/@astrojs/ts-plugin/-/ts-plugin-1.10.2.tgz";
+      sha512 = "Q7EvUh9dU9Ufi6Jfe5JRcisBuremlLZ7jJImUY2/eMe6OVwCXSmETDir/tVwT0K+lnfNiUwju9qHZYX2/5ch0Q==";
     };
     dependencies = [
       sources."@astrojs/compiler-2.10.3"
       sources."@astrojs/yaml2ts-0.2.1"
       sources."@jridgewell/sourcemap-codec-1.5.0"
-      sources."@volar/language-core-2.4.1"
-      sources."@volar/source-map-2.4.1"
-      sources."@volar/typescript-2.4.1"
+      sources."@volar/language-core-2.4.2"
+      sources."@volar/source-map-2.4.2"
+      sources."@volar/typescript-2.4.2"
       sources."path-browserify-1.0.1"
       sources."semver-7.6.3"
       sources."vscode-languageserver-textdocument-1.0.12"
       sources."vscode-uri-3.0.8"
-      sources."yaml-2.5.0"
+      sources."yaml-2.5.1"
     ];
     buildInputs = globalBuildInputs;
     meta = {
