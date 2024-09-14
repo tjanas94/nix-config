@@ -3,9 +3,16 @@
 
   modifications = final: prev: {
     nodePackages = prev.nodePackages // final.callPackage ../pkgs/node-packages { };
-    herbstluftwm = prev.herbstluftwm.overrideAttrs (old: {
+    bun = prev.bun.overrideAttrs rec {
+      version = "1.1.27";
+      src = prev.fetchurl {
+        url = "https://github.com/oven-sh/bun/releases/download/bun-v${version}/bun-linux-x64.zip";
+        hash = "sha256-Ir0EQH+bnHPwOTakrO/ZQ6pyeOWvhu5bK5j+YLN8Myc=";
+      };
+    };
+    herbstluftwm = prev.herbstluftwm.overrideAttrs {
       doCheck = false;
-    });
+    };
   };
 
   stable-packages = final: _prev: {
