@@ -265,13 +265,13 @@ let
         sha512 = "s1NQ63WQ7RNXH6Efb2cwuyRlfpbtdZubvfNe4vCuoyGPewNPY7vah8JUSOFBiJ+jr99Qh8t0xKv0oITc1dclgw==";
       };
     };
-    "emmet-2.4.8" = {
+    "emmet-2.4.11" = {
       name = "emmet";
       packageName = "emmet";
-      version = "2.4.8";
+      version = "2.4.11";
       src = fetchurl {
-        url = "https://registry.npmjs.org/emmet/-/emmet-2.4.8.tgz";
-        sha512 = "wFe/dxsx7oi/M2UJ/3yBu4Fm24Irho6lqut4C1YFaZebCvCCMygoDGC7W6I+8+K8PAjfa/Ojn52UHi8WCdDiRA==";
+        url = "https://registry.npmjs.org/emmet/-/emmet-2.4.11.tgz";
+        sha512 = "23QPJB3moh/U9sT4rQzGgeyyGIrcM+GH5uVYg2C6wZIxAIJq7Ng3QLT79tl8FUwDXhyq9SusfknOrofAKqvgyQ==";
       };
     };
     "encoding-0.1.13" = {
@@ -301,13 +301,13 @@ let
         sha512 = "oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==";
       };
     };
-    "fast-uri-3.0.1" = {
+    "fast-uri-3.0.2" = {
       name = "fast-uri";
       packageName = "fast-uri";
-      version = "3.0.1";
+      version = "3.0.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/fast-uri/-/fast-uri-3.0.1.tgz";
-        sha512 = "MWipKbbYiYI0UC7cl8m/i/IWTqfC8YXsqjzybjddLsFjStroQzsHXkc73JutMvBiXmOvapk+axIl79ig5t55Bw==";
+        url = "https://registry.npmjs.org/fast-uri/-/fast-uri-3.0.2.tgz";
+        sha512 = "GR6f0hD7XXyNJa25Tb9BuIdN0tdr+0BMi6/CJPH3wJO1JjNG3n/VsSw38AwRdKZABm8lGbPfakLRkYzx2V9row==";
       };
     };
     "fastq-1.17.1" = {
@@ -823,15 +823,6 @@ let
         sha512 = "mb1bvRJN8SVznADSGWM9u/b07H7Ecg0I3OgXDuLdn307rl/J3A9YD6/eYOssqhecL27hK1IPZAsaqh00i/Jljg==";
       };
     };
-    "vscode-languageserver-textdocument-1.0.11" = {
-      name = "vscode-languageserver-textdocument";
-      packageName = "vscode-languageserver-textdocument";
-      version = "1.0.11";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/vscode-languageserver-textdocument/-/vscode-languageserver-textdocument-1.0.11.tgz";
-        sha512 = "X+8T3GoiwTVlJbicx/sIAF+yuJAqz8VvwJyoMVhwEMoEKE/fkDmrqUgDMyBECcM2A2frVZIUj5HI/ErRXCfOeA==";
-      };
-    };
     "vscode-languageserver-textdocument-1.0.12" = {
       name = "vscode-languageserver-textdocument";
       packageName = "vscode-languageserver-textdocument";
@@ -895,13 +886,13 @@ let
         sha512 = "AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw==";
       };
     };
-    "web-tree-sitter-0.22.5" = {
+    "web-tree-sitter-0.23.0" = {
       name = "web-tree-sitter";
       packageName = "web-tree-sitter";
-      version = "0.22.5";
+      version = "0.23.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/web-tree-sitter/-/web-tree-sitter-0.22.5.tgz";
-        sha512 = "rGX2jRXjcGOhf35zWyO0i/+Wjz4/KVUYN9Oh3AhDsZ0fGOgTIkw/bMhqwvc8L7HgMK8rqDq9RcROWc7lnsnhWg==";
+        url = "https://registry.npmjs.org/web-tree-sitter/-/web-tree-sitter-0.23.0.tgz";
+        sha512 = "p1T+ju2H30fpVX2q5yr+Wv/NfdMMWMjQp9Q+4eEPrHAJpPFh9DPfI2Yr9L1f5SA5KPE+g1cNUqPbpihxUDzmVw==";
       };
     };
     "webidl-conversions-3.0.1" = {
@@ -997,10 +988,10 @@ in
       sources."@vscode/l10n-0.0.18"
       sources."ajv-8.17.1"
       sources."braces-3.0.3"
-      sources."emmet-2.4.8"
+      sources."emmet-2.4.11"
       sources."fast-deep-equal-3.1.3"
       sources."fast-glob-3.3.2"
-      sources."fast-uri-3.0.1"
+      sources."fast-uri-3.0.2"
       sources."fastq-1.17.1"
       sources."fill-range-7.1.1"
       sources."glob-parent-5.1.2"
@@ -1110,10 +1101,10 @@ in
   bash-language-server = nodeEnv.buildNodePackage {
     name = "bash-language-server";
     packageName = "bash-language-server";
-    version = "5.4.0";
+    version = "5.4.2";
     src = fetchurl {
-      url = "https://registry.npmjs.org/bash-language-server/-/bash-language-server-5.4.0.tgz";
-      sha512 = "YLCIBjnwdxvlwlurTA4Be7UfPXDzaWCJKzJwzO8rVjJH0QlbhPvo3FXkYOBXPLg81G4hb0ZbhSAi4+yrs7j5cQ==";
+      url = "https://registry.npmjs.org/bash-language-server/-/bash-language-server-5.4.2.tgz";
+      sha512 = "3N2INRlio63A5CwvDz2sZEWFp46H3sm7OD2IU/kr8MSYKAIRt/xD23arT7daJfYKLC+I6ijWsvaFs9tP6Bo00Q==";
     };
     dependencies = [
       sources."@nodelib/fs.scandir-2.1.5"
@@ -1152,9 +1143,9 @@ in
       sources."vscode-jsonrpc-8.0.2"
       sources."vscode-languageserver-8.0.2"
       sources."vscode-languageserver-protocol-3.17.2"
-      sources."vscode-languageserver-textdocument-1.0.11"
+      sources."vscode-languageserver-textdocument-1.0.12"
       sources."vscode-languageserver-types-3.17.2"
-      sources."web-tree-sitter-0.22.5"
+      sources."web-tree-sitter-0.23.0"
       sources."webidl-conversions-3.0.1"
       sources."whatwg-url-5.0.0"
       sources."zod-3.22.4"
