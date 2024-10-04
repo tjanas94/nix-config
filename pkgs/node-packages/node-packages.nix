@@ -955,10 +955,10 @@ in
   "@astrojs/language-server" = nodeEnv.buildNodePackage {
     name = "_at_astrojs_slash_language-server";
     packageName = "@astrojs/language-server";
-    version = "2.14.2";
+    version = "2.15.0";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@astrojs/language-server/-/language-server-2.14.2.tgz";
-      sha512 = "daUJ/+/2pPF3eGG4tVdXKyw0tabUDrJKwLzU8VTuNhEHIn3VZAIES6VT3+mX0lmKcMiKM8/bjZdfY+fPfmnsMA==";
+      url = "https://registry.npmjs.org/@astrojs/language-server/-/language-server-2.15.0.tgz";
+      sha512 = "wJHSjGApm5X8Rg1GvkevoatZBfvaFizY4kCPvuSYgs3jGCobuY3KstJGKC1yNLsRJlDweHruP+J54iKn9vEKoA==";
     };
     dependencies = [
       sources."@astrojs/compiler-2.10.3"

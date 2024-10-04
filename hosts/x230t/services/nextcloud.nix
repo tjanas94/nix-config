@@ -19,7 +19,7 @@
 
     nextcloud = {
       enable = true;
-      package = pkgs.nextcloud29;
+      package = pkgs.nextcloud30;
       hostName = "nextcloud.janas.dev";
       https = true;
       database.createLocally = true;

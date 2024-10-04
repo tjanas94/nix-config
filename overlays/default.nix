@@ -10,6 +10,8 @@
         hash = "sha256-RnKczYB/IkUYVBnRktCFhHsmvObQovVMfCilqJq3q1g=";
       };
     };
+    # https://github.com/NixOS/nixpkgs/issues/345752
+    contour = final.nixpkgs-stable.contour;
     herbstluftwm = prev.herbstluftwm.overrideAttrs {
       doCheck = false;
     };

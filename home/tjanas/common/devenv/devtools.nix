@@ -54,8 +54,6 @@ in
     sbcl
 
     lua-language-server
-    luajit
-    luajitPackages.luacheck
     stylua
 
     nixd
