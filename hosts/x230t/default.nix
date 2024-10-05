@@ -1,5 +1,4 @@
-{ config
-, inputs
+{ inputs
 , ...
 }: {
   imports = [
@@ -41,4 +40,16 @@
   sops.defaultSopsFile = ./secrets.yaml;
   networking.hostName = "x230t";
   system.stateVersion = "22.11";
+
+  services.smartd = {
+    enable = true;
+    devices = [
+      {
+        device = "/dev/sda";
+      }
+      {
+        device = "/dev/sdb";
+      }
+    ];
+  };
 }

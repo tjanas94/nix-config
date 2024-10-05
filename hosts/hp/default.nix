@@ -1,5 +1,4 @@
-{ config
-, inputs
+{ inputs
 , ...
 }: {
   imports = [
@@ -26,4 +25,13 @@
   sops.defaultSopsFile = ./secrets.yaml;
   networking.hostName = "hp";
   system.stateVersion = "22.11";
+
+  services.smartd = {
+    enable = true;
+    devices = [
+      {
+        device = "/dev/nvme0n1";
+      }
+    ];
+  };
 }
