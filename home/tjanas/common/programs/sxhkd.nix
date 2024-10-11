@@ -21,7 +21,7 @@ in
       "${Mod} + {u,o}" = "herbstclient split {bottom,right} 0.5";
       "${Mod} + shift + u" = "herbstclient split vertical 0.75";
       "${Mod} + shift + o" = "herbstclient split right 0.6";
-      "${Mod} + ctrl + o" = "herbstclient chain , split left 0.25 , split right 0.6666";
+      "${Mod} + ctrl + o" = "herbstclient chain , split left 0.2857 , split right 0.6";
       "${Mod} + ctrl + space" = "herbstclient split explode";
 
       "${Mod} + {1-9}" = "herbstclient use {1-9}";

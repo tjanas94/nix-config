@@ -127,6 +127,8 @@ hc -i '(attribute_changed|reload)' | while read -r hook attr prev next; do
             IFS='x+' read -r width height _ _ <<<"$next"
             if [[ "$layout" == "max" ]] && ((width < height)); then
                 hc set_layout vertical
+            elif [[ "$layout" == "vertical" ]] && ((width >= height)); then
+                hc set_layout max
             fi
             ;;
         esac
