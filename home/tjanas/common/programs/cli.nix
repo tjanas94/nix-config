@@ -20,7 +20,7 @@ in
     android-tools
     ansible
     aws-azure-login
-    nixpkgs-stable.awscli2
+    awscli2
     btop
     buildah
     dnsutils

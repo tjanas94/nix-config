@@ -65,7 +65,7 @@
     ];
     delta = {
       enable = true;
-      package = pkgs.nixpkgs-stable.delta;
+      package = pkgs.delta;
       options = {
         line-numbers = true;
         navigate = true;
