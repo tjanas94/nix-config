@@ -301,13 +301,13 @@ let
         sha512 = "oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==";
       };
     };
-    "fast-uri-3.0.2" = {
+    "fast-uri-3.0.3" = {
       name = "fast-uri";
       packageName = "fast-uri";
-      version = "3.0.2";
+      version = "3.0.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/fast-uri/-/fast-uri-3.0.2.tgz";
-        sha512 = "GR6f0hD7XXyNJa25Tb9BuIdN0tdr+0BMi6/CJPH3wJO1JjNG3n/VsSw38AwRdKZABm8lGbPfakLRkYzx2V9row==";
+        url = "https://registry.npmjs.org/fast-uri/-/fast-uri-3.0.3.tgz";
+        sha512 = "aLrHthzCjH5He4Z2H9YZ+v6Ujb9ocRuW6ZzkJQOrTxleEijANq4v1TsaPaVG1PZcuurEzrLcWRyYBYXD5cEiaw==";
       };
     };
     "fastq-1.17.1" = {
@@ -922,13 +922,13 @@ let
         sha512 = "CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==";
       };
     };
-    "yaml-2.5.1" = {
+    "yaml-2.6.0" = {
       name = "yaml";
       packageName = "yaml";
-      version = "2.5.1";
+      version = "2.6.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/yaml/-/yaml-2.5.1.tgz";
-        sha512 = "bLQOjaX/ADgQ20isPJRvF0iRUHIxVhYvr53Of7wGcWlO2jvtUlH5m87DsmulFVxRpNLOnI4tB6p/oh8D7kpn9Q==";
+        url = "https://registry.npmjs.org/yaml/-/yaml-2.6.0.tgz";
+        sha512 = "a6ae//JvKDEra2kdi1qzCyrJW/WZCgFi8ydDV+eXExl95t+5R+ijnqHJbz9tmMh8FUjx3iv2fCQ4dclAQlO2UQ==";
       };
     };
     "yaml-language-server-1.15.0" = {
@@ -955,10 +955,10 @@ in
   "@astrojs/language-server" = nodeEnv.buildNodePackage {
     name = "_at_astrojs_slash_language-server";
     packageName = "@astrojs/language-server";
-    version = "2.15.0";
+    version = "2.15.3";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@astrojs/language-server/-/language-server-2.15.0.tgz";
-      sha512 = "wJHSjGApm5X8Rg1GvkevoatZBfvaFizY4kCPvuSYgs3jGCobuY3KstJGKC1yNLsRJlDweHruP+J54iKn9vEKoA==";
+      url = "https://registry.npmjs.org/@astrojs/language-server/-/language-server-2.15.3.tgz";
+      sha512 = "2qYkHkiqduB2F6OY+zAikd2hZP1xq5LqB0RqLCMoT7KLbfspnx6qtxOueF2n1P4+YUXRHUJVfLA4FoJCEfoMDg==";
     };
     dependencies = [
       sources."@astrojs/compiler-2.10.3"
@@ -991,7 +991,7 @@ in
       sources."emmet-2.4.11"
       sources."fast-deep-equal-3.1.3"
       sources."fast-glob-3.3.2"
-      sources."fast-uri-3.0.2"
+      sources."fast-uri-3.0.3"
       sources."fastq-1.17.1"
       sources."fill-range-7.1.1"
       sources."glob-parent-5.1.2"
@@ -1042,7 +1042,7 @@ in
       sources."vscode-languageserver-types-3.17.5"
       sources."vscode-nls-5.2.0"
       sources."vscode-uri-3.0.8"
-      sources."yaml-2.5.1"
+      sources."yaml-2.6.0"
       (sources."yaml-language-server-1.15.0" // {
         dependencies = [
           sources."request-light-0.5.8"
@@ -1070,10 +1070,10 @@ in
   "@astrojs/ts-plugin" = nodeEnv.buildNodePackage {
     name = "_at_astrojs_slash_ts-plugin";
     packageName = "@astrojs/ts-plugin";
-    version = "1.10.2";
+    version = "1.10.3";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@astrojs/ts-plugin/-/ts-plugin-1.10.2.tgz";
-      sha512 = "Q7EvUh9dU9Ufi6Jfe5JRcisBuremlLZ7jJImUY2/eMe6OVwCXSmETDir/tVwT0K+lnfNiUwju9qHZYX2/5ch0Q==";
+      url = "https://registry.npmjs.org/@astrojs/ts-plugin/-/ts-plugin-1.10.3.tgz";
+      sha512 = "VzuOdZaxJo2aDCCsdtqcFZGhAWHCDV6Ph6qO58fiqcOBVKVKTl6oINzJqiUBIfeEgnV0UucCpPaJtdAUZAnPKQ==";
     };
     dependencies = [
       sources."@astrojs/compiler-2.10.3"
@@ -1086,7 +1086,7 @@ in
       sources."semver-7.6.3"
       sources."vscode-languageserver-textdocument-1.0.12"
       sources."vscode-uri-3.0.8"
-      sources."yaml-2.5.1"
+      sources."yaml-2.6.0"
     ];
     buildInputs = globalBuildInputs;
     meta = {

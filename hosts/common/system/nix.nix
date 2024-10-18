@@ -24,7 +24,7 @@
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
       trusted-users = [ "root" "@wheel" ];
-      experimental-features = "nix-command flakes repl-flake";
+      experimental-features = "nix-command flakes";
       accept-flake-config = true;
       auto-optimise-store = true;
       warn-dirty = false;
