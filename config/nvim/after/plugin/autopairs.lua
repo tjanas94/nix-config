@@ -1,7 +1,6 @@
 local autopairs = require('nvim-autopairs')
+local lisps = { 'clojure', 'fennel', 'lisp', 'scheme' }
 
-autopairs.setup({
-    disable_filetype = { 'TelescopePrompt' }
-})
-autopairs.get_rules("'")[1].not_filetypes = { 'clojure' }
-autopairs.get_rules("`")[1].not_filetypes = { 'clojure' }
+autopairs.setup()
+autopairs.get_rules("'")[1].not_filetypes = lisps
+autopairs.get_rules("`")[1].not_filetypes = lisps

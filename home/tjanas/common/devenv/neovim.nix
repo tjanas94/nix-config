@@ -50,6 +50,7 @@
       vim-be-good
       vim-dispatch
       vim-fugitive
+      vim-jack-in
       vim-repeat
       vim-sleuth
       vim-surround

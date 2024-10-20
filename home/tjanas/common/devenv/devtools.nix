@@ -14,6 +14,7 @@ in
 {
   home.packages = with pkgs; [
     editorconfig-core-c
+    gnumake
 
     nodePackages.bash-language-server
     shellcheck
@@ -51,9 +52,15 @@ in
     nodePackages.yaml-language-server
     prettierd
 
+    guile
+    roswell
     sbcl
 
     lua-language-server
+    luajit
+    luajitPackages.fennel
+    luajitPackages.luacheck
+    luajitPackages.luarocks
     stylua
 
     nixd

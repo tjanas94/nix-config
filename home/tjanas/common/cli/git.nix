@@ -59,6 +59,7 @@
       "*.log"
       "*.py[cod]"
       "*.retry"
+      "*.sock"
       "*.swp"
       "*.tmp"
       "*~"
