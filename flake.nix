@@ -33,6 +33,9 @@
     nixd.url = "github:nix-community/nixd";
     nixd.inputs.nixpkgs.follows = "nixpkgs";
 
+    nvim-paredit.url = "github:julienvincent/nvim-paredit";
+    nvim-paredit.flake = false;
+
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
     pre-commit-hooks.inputs.nixpkgs-stable.follows = "nixpkgs-stable";

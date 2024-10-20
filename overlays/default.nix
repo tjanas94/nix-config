@@ -13,6 +13,12 @@
     herbstluftwm = prev.herbstluftwm.overrideAttrs {
       doCheck = false;
     };
+    vimPlugins = prev.vimPlugins // {
+      nvim-paredit = final.vimUtils.buildVimPlugin {
+        name = "nvim-paredit";
+        src = inputs.nvim-paredit;
+      };
+    };
   };
 
   stable-packages = final: _prev: {

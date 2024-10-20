@@ -255,6 +255,22 @@
         "type": "github"
       }
     },
+    "nvim-paredit": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729205948,
+        "narHash": "sha256-/yS52WOI9FSmo9Rk22PpuU3SCH1GCcqQpao82kmEYAM=",
+        "owner": "julienvincent",
+        "repo": "nvim-paredit",
+        "rev": "f842d84854f3ad5231bc85f52ee94f3fb4ede326",
+        "type": "github"
+      },
+      "original": {
+        "owner": "julienvincent",
+        "repo": "nvim-paredit",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -290,6 +306,7 @@
         "nixd": "nixd",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
+        "nvim-paredit": "nvim-paredit",
         "pre-commit-hooks": "pre-commit-hooks",
         "sops-nix": "sops-nix",
         "wallpapers": "wallpapers"
