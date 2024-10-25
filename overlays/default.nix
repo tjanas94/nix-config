@@ -10,6 +10,7 @@
         hash = "sha256-oAIFp9WnScRx+VJXwknnUMBQT7S9nugyD+45qJu6qFg=";
       };
     };
+    ccid = final.nixpkgs-stable.ccid;
     herbstluftwm = prev.herbstluftwm.overrideAttrs {
       doCheck = false;
     };
