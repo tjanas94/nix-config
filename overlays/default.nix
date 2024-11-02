@@ -4,13 +4,12 @@
   modifications = final: prev: {
     nodePackages = prev.nodePackages // final.callPackage ../pkgs/node-packages { };
     bun = prev.bun.overrideAttrs rec {
-      version = "1.1.33";
+      version = "1.1.34";
       src = prev.fetchurl {
         url = "https://github.com/oven-sh/bun/releases/download/bun-v${version}/bun-linux-x64.zip";
-        hash = "sha256-oAIFp9WnScRx+VJXwknnUMBQT7S9nugyD+45qJu6qFg=";
+        hash = "sha256-S8AA/1CWxTSHZ60E2ZNQXyEAOalYgCc6dte9CvD8Lx8=";
       };
     };
-    ccid = final.nixpkgs-stable.ccid;
     herbstluftwm = prev.herbstluftwm.overrideAttrs {
       doCheck = false;
     };
