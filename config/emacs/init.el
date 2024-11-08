@@ -1,28 +1,31 @@
+(setopt menu-bar-mode nil
+        scroll-bar-mode nil
+        tool-bar-mode nil
+        inhibit-startup-screen t
+        initial-scratch-message nil)
+
 (setopt initial-major-mode 'org-mode
         use-short-answers t
         confirm-kill-emacs 'yes-or-no-p)
 
 (setopt indent-tabs-mode nil
-        blink-cursor-mode nil
+        tab-width 4
         global-auto-revert-mode t
+        global-auto-revert-non-file-buffers t
         dired-kill-when-opening-new-dired-buffer t
         recentf-mode t
-        tab-width 4
+        savehist-mode t
+        save-place-mode t
         make-backup-files nil
-        auto-save-default nil
-        create-lockfiles nil
-        show-paren-mode 0)
+        create-lockfiles nil)
 
-(setopt enable-recursive-minibuffers t
-        completion-cycle-threshold 1
-        completions-detailed t
-        tab-always-indent 'complete
-        completion-styles '(basic initials substring)
-        completion-auto-help 'always
-        completions-max-height 20
-        completions-format 'one-column
-        completions-group t
-        completion-auto-select 'second-tab)
+(setopt fido-vertical-mode t
+        enable-recursive-minibuffers t
+        completion-styles '(flex)
+        completion-ignore-case t
+        read-file-name-completion-ignore-case t
+        read-buffer-completion-ignore-case t
+        read-extended-command-predicate #'command-completion-default-include-p)
 
 (setopt line-number-mode t
         column-number-mode t
@@ -30,23 +33,9 @@
         display-line-numbers-width 3
         global-display-line-numbers-mode t)
 
-(use-package emacs
-  :config
-  (load-theme 'modus-vivendi)
-  (savehist-mode)
-  (windmove-default-keybindings 'control)
-  :bind
-  (("C-x k" . kill-this-buffer)
-  :map minibuffer-mode-map
-  ("TAB" . minibuffer-complete)))
+(setopt which-key-mode t)
 
-(use-package magit
-  :config
-  (setopt magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
-
-(use-package which-key
-  :config
-  (which-key-mode))
+(load-theme 'ef-elea-dark t)
 
 (use-package org
   :config
@@ -74,3 +63,7 @@
 (use-package slime
   :config
   (setopt inferior-lisp-program "sbcl"))
+
+(unless (and (fboundp 'server-running-p)
+             (server-running-p))
+  (server-start))

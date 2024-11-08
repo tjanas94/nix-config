@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   programs.neovim = {
     enable = true;
@@ -9,12 +9,6 @@
     withNodeJs = true;
     withRuby = true;
     withPython3 = true;
-    extraConfig = ''
-      let g:jdtls_path = '${pkgs.jdt-language-server}/bin/jdtls'
-      let g:tsserver_path = '${pkgs.typescript}/lib/node_modules/typescript/lib'
-      let g:astro_plugin_path = '${pkgs.nodePackages."@astrojs/ts-plugin"}/lib/node_modules/@astrojs/ts-plugin'
-      lua require('core')
-    '';
 
     plugins = with pkgs.vimPlugins; [
       cmp_luasnip
@@ -57,8 +51,5 @@
     ];
   };
 
-  xdg.configFile.nvim = {
-    source = ../../../../config/nvim;
-    recursive = true;
-  };
+  xdg.configFile.nvim.source = config.lib.file.mkOutOfStoreSymlink "/home/tjanas/workspace/github.com/tjanas94/nix-config/master/config/nvim";
 }

@@ -1,20 +1,23 @@
-{
+{ config, pkgs, ... }: {
   programs.emacs = {
     enable = true;
+    package = pkgs.emacs-git;
     extraPackages = epkgs:
       with epkgs; [
+        ef-themes
         magit
         ob-http
         paredit
         slime
+        treesit-grammars.with-all-grammars
         which-key
       ];
   };
 
-  services.emacs.enable = true;
-
-  xdg.configFile.emacs = {
-    source = ../../../../config/emacs;
-    recursive = true;
+  services.emacs = {
+    enable = true;
+    startWithUserSession = false;
   };
+
+  xdg.configFile.emacs.source = config.lib.file.mkOutOfStoreSymlink "/home/tjanas/workspace/github.com/tjanas94/nix-config/master/config/emacs";
 }
