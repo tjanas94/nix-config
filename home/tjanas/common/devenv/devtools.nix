@@ -39,12 +39,12 @@ in
     maven
 
     bun
-    graphiql.graphql-language-service-cli
     html-tidy
     nodejs
     nodePackages."@astrojs/language-server"
     nodePackages."@astrojs/ts-plugin"
     nodePackages."@tailwindcss/language-server"
+    nodePackages.graphql-language-service-cli
     nodePackages.prettier
     nodePackages.typescript
     nodePackages.typescript-language-server
