@@ -184,13 +184,13 @@ let
         sha512 = "F8ZtBMhSXyYKuBfGpYwqA5rsONnOwAVvjyE7KPYJ7wgZqo2roASqNWUnianOomJX5u1cxeRooHV59N0PhvEOgw==";
       };
     };
-    "@vscode/emmet-helper-2.9.3" = {
+    "@vscode/emmet-helper-2.10.0" = {
       name = "_at_vscode_slash_emmet-helper";
       packageName = "@vscode/emmet-helper";
-      version = "2.9.3";
+      version = "2.10.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@vscode/emmet-helper/-/emmet-helper-2.9.3.tgz";
-        sha512 = "rB39LHWWPQYYlYfpv9qCoZOVioPCftKXXqrsyqN1mTWZM6dTnONT63Db+03vgrBbHzJN45IrgS/AGxw9iiqfEw==";
+        url = "https://registry.npmjs.org/@vscode/emmet-helper/-/emmet-helper-2.10.0.tgz";
+        sha512 = "UHw1EQRgLbSYkyB73/7wR/IzV6zTBnbzEHuuU4Z6b95HKf2lmeTdGwBIwspWBSRrnIA1TI2x2tetBym6ErA7Gw==";
       };
     };
     "@vscode/l10n-0.0.18" = {
@@ -868,15 +868,6 @@ let
         sha512 = "RAaHx7B14ZU04EU31pT+rKz2/zSl7xMsfIZuo8pd+KZO6PXtQmpevpq3vxvWNcrGbdmhM/rr5Uw5Mz+NBfhVng==";
       };
     };
-    "vscode-uri-2.1.2" = {
-      name = "vscode-uri";
-      packageName = "vscode-uri";
-      version = "2.1.2";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/vscode-uri/-/vscode-uri-2.1.2.tgz";
-        sha512 = "8TEXQxlldWAuIODdukIb+TR5s+9Ds40eSJrw+1iDDA9IFORPjMELarNQE3myz5XIkWWpdprmJjm1/SxMlWOC8A==";
-      };
-    };
     "vscode-uri-3.0.8" = {
       name = "vscode-uri";
       packageName = "vscode-uri";
@@ -980,11 +971,7 @@ in
       sources."@volar/language-service-2.4.10"
       sources."@volar/source-map-2.4.10"
       sources."@volar/typescript-2.4.10"
-      (sources."@vscode/emmet-helper-2.9.3" // {
-        dependencies = [
-          sources."vscode-uri-2.1.2"
-        ];
-      })
+      sources."@vscode/emmet-helper-2.10.0"
       sources."@vscode/l10n-0.0.18"
       sources."ajv-8.17.1"
       sources."braces-3.0.3"
