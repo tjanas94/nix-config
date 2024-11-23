@@ -45,7 +45,7 @@ in
     jetbrains.idea-community
     keepassxc
     libnotify
-    libreoffice-fresh
+    libreoffice
     networkmanagerapplet
     pavucontrol
     playerctl

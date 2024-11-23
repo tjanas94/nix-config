@@ -21,7 +21,6 @@
 
     sops-nix.url = "github:mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    sops-nix.inputs.nixpkgs-stable.follows = "nixpkgs-stable";
 
     nix-index-database.url = "github:mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
