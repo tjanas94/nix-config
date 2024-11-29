@@ -481,13 +481,13 @@ let
         sha512 = "JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==";
       };
     };
-    "prettier-3.3.3" = {
+    "prettier-3.4.1" = {
       name = "prettier";
       packageName = "prettier";
-      version = "3.3.3";
+      version = "3.4.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/prettier/-/prettier-3.3.3.tgz";
-        sha512 = "i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==";
+        url = "https://registry.npmjs.org/prettier/-/prettier-3.4.1.tgz";
+        sha512 = "G+YdqtITVZmOJje6QkXQWzl3fSfMxFwm1tjTyo9exhkmWSqC4Yhd1+lug++IlR2mvRVAxEDDWYkQdeSztajqgg==";
       };
     };
     "prettier-plugin-astro-0.14.1" = {
@@ -993,7 +993,7 @@ in
       sources."muggle-string-0.4.1"
       sources."path-browserify-1.0.1"
       sources."picomatch-2.3.1"
-      sources."prettier-3.3.3"
+      sources."prettier-3.4.1"
       sources."prettier-plugin-astro-0.14.1"
       sources."queue-microtask-1.2.3"
       sources."request-light-0.7.0"
