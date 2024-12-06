@@ -481,13 +481,13 @@ let
         sha512 = "JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==";
       };
     };
-    "prettier-3.4.1" = {
+    "prettier-3.4.2" = {
       name = "prettier";
       packageName = "prettier";
-      version = "3.4.1";
+      version = "3.4.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/prettier/-/prettier-3.4.1.tgz";
-        sha512 = "G+YdqtITVZmOJje6QkXQWzl3fSfMxFwm1tjTyo9exhkmWSqC4Yhd1+lug++IlR2mvRVAxEDDWYkQdeSztajqgg==";
+        url = "https://registry.npmjs.org/prettier/-/prettier-3.4.2.tgz";
+        sha512 = "e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ==";
       };
     };
     "prettier-plugin-astro-0.14.1" = {
@@ -715,22 +715,22 @@ let
         sha512 = "k7gvv7sk3wa+nGll3MaSKyjwQsJjIGCHFjVkl3wjaSP2nouKyn9aokGmqjrl39mi88Oy49giog2GkZH526wjig==";
       };
     };
-    "vscode-css-languageservice-6.3.1" = {
+    "vscode-css-languageservice-6.3.2" = {
       name = "vscode-css-languageservice";
       packageName = "vscode-css-languageservice";
-      version = "6.3.1";
+      version = "6.3.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/vscode-css-languageservice/-/vscode-css-languageservice-6.3.1.tgz";
-        sha512 = "1BzTBuJfwMc3A0uX4JBdJgoxp74cjj4q2mDJdp49yD/GuAq4X0k5WtK6fNcMYr+FfJ9nqgR6lpfCSZDkARJ5qQ==";
+        url = "https://registry.npmjs.org/vscode-css-languageservice/-/vscode-css-languageservice-6.3.2.tgz";
+        sha512 = "GEpPxrUTAeXWdZWHev1OJU9lz2Q2/PPBxQ2TIRmLGvQiH3WZbqaNoute0n0ewxlgtjzTW3AKZT+NHySk5Rf4Eg==";
       };
     };
-    "vscode-html-languageservice-5.3.1" = {
+    "vscode-html-languageservice-5.3.2" = {
       name = "vscode-html-languageservice";
       packageName = "vscode-html-languageservice";
-      version = "5.3.1";
+      version = "5.3.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/vscode-html-languageservice/-/vscode-html-languageservice-5.3.1.tgz";
-        sha512 = "ysUh4hFeW/WOWz/TO9gm08xigiSsV/FOAZ+DolgJfeLftna54YdmZ4A+lIn46RbdO3/Qv5QHTn1ZGqmrXQhZyA==";
+        url = "https://registry.npmjs.org/vscode-html-languageservice/-/vscode-html-languageservice-5.3.2.tgz";
+        sha512 = "3MgFQqVG+iQVNG7QI/slaoL7lJpne0nssX082kjUF1yn/YJa8BWCLeCJjM0YpTlp8A7JT1+J22mk4qSPx3NjSQ==";
       };
     };
     "vscode-json-languageservice-4.1.8" = {
@@ -993,7 +993,7 @@ in
       sources."muggle-string-0.4.1"
       sources."path-browserify-1.0.1"
       sources."picomatch-2.3.1"
-      sources."prettier-3.4.1"
+      sources."prettier-3.4.2"
       sources."prettier-plugin-astro-0.14.1"
       sources."queue-microtask-1.2.3"
       sources."request-light-0.7.0"
@@ -1015,8 +1015,8 @@ in
       sources."volar-service-typescript-0.0.62"
       sources."volar-service-typescript-twoslash-queries-0.0.62"
       sources."volar-service-yaml-0.0.62"
-      sources."vscode-css-languageservice-6.3.1"
-      sources."vscode-html-languageservice-5.3.1"
+      sources."vscode-css-languageservice-6.3.2"
+      sources."vscode-html-languageservice-5.3.2"
       (sources."vscode-json-languageservice-4.1.8" // {
         dependencies = [
           sources."jsonc-parser-3.3.1"
