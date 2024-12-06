@@ -3,13 +3,6 @@
 
   modifications = final: prev: {
     nodePackages = prev.nodePackages // final.callPackage ../pkgs/node-packages { };
-    bun = prev.bun.overrideAttrs rec {
-      version = "1.1.38";
-      src = prev.fetchurl {
-        url = "https://github.com/oven-sh/bun/releases/download/bun-v${version}/bun-linux-x64.zip";
-        hash = "sha256-ph2lNX4o1Jd/zNSFH+1i/02j6jOFMAXH3ZPayAvFOTI=";
-      };
-    };
     herbstluftwm = prev.herbstluftwm.overrideAttrs {
       doCheck = false;
     };

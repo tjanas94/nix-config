@@ -25,4 +25,8 @@
     nativeBuildInputs = [ nodejs-slim_20 nodejs_20.pkgs.npm nodejs_20.pkgs.node-gyp bun ];
     LD_LIBRARY_PATH = lib.makeLibraryPath [ stdenv.cc.cc ];
   };
+  node22 = mkShell {
+    nativeBuildInputs = [ nodejs-slim_22 nodejs_22.pkgs.npm nodejs_22.pkgs.node-gyp bun ];
+    LD_LIBRARY_PATH = lib.makeLibraryPath [ stdenv.cc.cc ];
+  };
 }
