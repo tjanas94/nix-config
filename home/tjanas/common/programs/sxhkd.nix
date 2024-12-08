@@ -12,7 +12,7 @@ in
       "${Mod} + shift + r" = "pkill -usr1 -x sxhkd; herbstclient reload";
       "${Mod} + Return" = "systemd-run-app ${Terminal}";
       "${Mod} + space" = "systemd-run-app rofi -modi combi -show combi -combi-modi drun,run";
-      "${Mod} + slash" = "systemd-run-app rofi -show window";
+      "${Mod} + semicolon" = "systemd-run-app rofi -show window";
 
       "${Mod} + {_,shift + ,ctrl +}{Left,Down,Up,Right}" = "herbstclient {focus,shift,resize} {left,down,up,right} {_,_,0.05}";
       "${Mod} + {_,shift + ,ctrl +}{h,j,k,l}" = "herbstclient {focus,shift,resize} {left,down,up,right} {_,_,0.05}";
