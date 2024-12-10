@@ -41,6 +41,7 @@ in
   home.packages = with pkgs; [
     filezilla
     gimp
+    gpgme
     inkscape
     jetbrains.idea-community
     keepassxc
@@ -53,6 +54,7 @@ in
     remmina
     simple-scan
     thunar
+    thunderbird
     trezor-suite
     virt-manager
     wireshark

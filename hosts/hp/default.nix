@@ -10,10 +10,6 @@
     ./services
   ];
 
-  home-manager.users.tjanas.imports = [
-    ../../home/tjanas/common/cli/email.nix
-  ];
-
   fileSystems."/data" = {
     device = "/dev/disk/by-label/nixos-system";
     fsType = "btrfs";

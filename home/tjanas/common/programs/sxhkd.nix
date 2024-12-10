@@ -62,9 +62,8 @@ in
       "${App} + d; m; p" = "bt-setup-device D5:A3:9B";
       "${App} + d; m; r" = "bt-reconnect D5:A3:9B";
       "${App} + e" = "systemd-run-app emacsclient -a emacs -c";
-      "${App} + f" = "systemd-run-app filezilla";
       "${App} + h" = "systemd-run-app ${Terminal} -e btop";
-      "${App} + k" = "systemd-run-app keepassxc";
+      "${App} + m" = "systemd-run-app thunderbird";
       "${App} + l" = "systemd-run-app i3lock -nc000000";
       "${App} + o" = "systemd-run-app openfm";
       "${App} + p" = "systemd-run-app rofi-pass";
