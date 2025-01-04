@@ -94,6 +94,15 @@ let
         sha512 = "gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==";
       };
     };
+    "@mixmark-io/domino-2.2.0" = {
+      name = "_at_mixmark-io_slash_domino";
+      packageName = "@mixmark-io/domino";
+      version = "2.2.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@mixmark-io/domino/-/domino-2.2.0.tgz";
+        sha512 = "Y28PR25bHXUg88kCV7nivXrP2Nj2RueZ3/l/jdx6J9f8J4nsEGcgX0Qe6lt7Pa+J79+kPiJU3LguR6O/6zrLOw==";
+      };
+    };
     "@nodelib/fs.scandir-2.1.5" = {
       name = "_at_nodelib_slash_fs.scandir";
       packageName = "@nodelib/fs.scandir";
@@ -247,15 +256,6 @@ let
         sha512 = "yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==";
       };
     };
-    "domino-2.1.6" = {
-      name = "domino";
-      packageName = "domino";
-      version = "2.1.6";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/domino/-/domino-2.1.6.tgz";
-        sha512 = "3VdM/SXBZX2omc9JF9nOPCtDaYQ67BGp5CoLpIQlO2KCAPETs8TcDHacF26jXadGbvUteZzRTeos2fhID5+ucQ==";
-      };
-    };
     "editorconfig-2.0.0" = {
       name = "editorconfig";
       packageName = "editorconfig";
@@ -310,13 +310,13 @@ let
         sha512 = "aLrHthzCjH5He4Z2H9YZ+v6Ujb9ocRuW6ZzkJQOrTxleEijANq4v1TsaPaVG1PZcuurEzrLcWRyYBYXD5cEiaw==";
       };
     };
-    "fastq-1.17.1" = {
+    "fastq-1.18.0" = {
       name = "fastq";
       packageName = "fastq";
-      version = "1.17.1";
+      version = "1.18.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/fastq/-/fastq-1.17.1.tgz";
-        sha512 = "sRVD3lWVIXWg6By68ZN7vho9a1pQcN/WBFaAAsDDFzlJjvoGx0P8z7V1t72grFJfJhu3YPZBuu25f7Kaw2jN1w==";
+        url = "https://registry.npmjs.org/fastq/-/fastq-1.18.0.tgz";
+        sha512 = "QKHXPW0hD8g4UET03SdOdunzSouc9N4AuHdsX8XNcTsuz+yYFILVNIX4l9yHABMhiEI9Db0JTTIpu0wB+Y1QQw==";
       };
     };
     "fill-range-7.1.1" = {
@@ -616,13 +616,13 @@ let
         sha512 = "N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==";
       };
     };
-    "turndown-7.1.3" = {
+    "turndown-7.2.0" = {
       name = "turndown";
       packageName = "turndown";
-      version = "7.1.3";
+      version = "7.2.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/turndown/-/turndown-7.1.3.tgz";
-        sha512 = "Z3/iJ6IWh8VBiACWQJaA5ulPQE5E1QwvBHj00uGzdQxdRnd8fh1DPqNOJqzQDu6DkOstORrtXzf/9adB+vMtEA==";
+        url = "https://registry.npmjs.org/turndown/-/turndown-7.2.0.tgz";
+        sha512 = "eCZGBN4nNNqM9Owkv9HAtWRYfLA4h909E/WGAWWBpmB275ehNhZyk87/Tpvjbp0jjNl9XwCsbe6bm6CqFsgD+A==";
       };
     };
     "typesafe-path-0.2.2" = {
@@ -877,13 +877,13 @@ let
         sha512 = "AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw==";
       };
     };
-    "web-tree-sitter-0.23.0" = {
+    "web-tree-sitter-0.24.5" = {
       name = "web-tree-sitter";
       packageName = "web-tree-sitter";
-      version = "0.23.0";
+      version = "0.24.5";
       src = fetchurl {
-        url = "https://registry.npmjs.org/web-tree-sitter/-/web-tree-sitter-0.23.0.tgz";
-        sha512 = "p1T+ju2H30fpVX2q5yr+Wv/NfdMMWMjQp9Q+4eEPrHAJpPFh9DPfI2Yr9L1f5SA5KPE+g1cNUqPbpihxUDzmVw==";
+        url = "https://registry.npmjs.org/web-tree-sitter/-/web-tree-sitter-0.24.5.tgz";
+        sha512 = "+J/2VSHN8J47gQUAvF8KDadrfz6uFYVjxoxbKWDoXVsH2u7yLdarCnIURnrMA6uSRkgX3SdmqM5BOoQjPdSh5w==";
       };
     };
     "webidl-conversions-3.0.1" = {
@@ -913,13 +913,13 @@ let
         sha512 = "CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==";
       };
     };
-    "yaml-2.6.1" = {
+    "yaml-2.7.0" = {
       name = "yaml";
       packageName = "yaml";
-      version = "2.6.1";
+      version = "2.7.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/yaml/-/yaml-2.6.1.tgz";
-        sha512 = "7r0XPzioN/Q9kXBro/XPnA6kznR73DHq+GXh5ON7ZozRO6aMjbmiBuKste2wslTFkC5d1dw0GooOCepZXJ2SAg==";
+        url = "https://registry.npmjs.org/yaml/-/yaml-2.7.0.tgz";
+        sha512 = "+hSoy/QHluxmC9kCIJyL/uyFmLmc+e5CFR5Wa+bpIhIj85LVb9ZH2nVnqrHoSvKogwODv0ClqZkmiSSaIH5LTA==";
       };
     };
     "yaml-language-server-1.15.0" = {
@@ -931,13 +931,13 @@ let
         sha512 = "N47AqBDCMQmh6mBLmI6oqxryHRzi33aPFPsJhYy3VTUGCdLHYjGh4FZzpUjRlphaADBBkDmnkM/++KNIOHi5Rw==";
       };
     };
-    "zod-3.22.4" = {
+    "zod-3.24.1" = {
       name = "zod";
       packageName = "zod";
-      version = "3.22.4";
+      version = "3.24.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/zod/-/zod-3.22.4.tgz";
-        sha512 = "iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==";
+        url = "https://registry.npmjs.org/zod/-/zod-3.24.1.tgz";
+        sha512 = "muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==";
       };
     };
   };
@@ -979,7 +979,7 @@ in
       sources."fast-deep-equal-3.1.3"
       sources."fast-glob-3.3.2"
       sources."fast-uri-3.0.3"
-      sources."fastq-1.17.1"
+      sources."fastq-1.18.0"
       sources."fill-range-7.1.1"
       sources."glob-parent-5.1.2"
       sources."is-extglob-2.1.1"
@@ -1029,7 +1029,7 @@ in
       sources."vscode-languageserver-types-3.17.5"
       sources."vscode-nls-5.2.0"
       sources."vscode-uri-3.0.8"
-      sources."yaml-2.6.1"
+      sources."yaml-2.7.0"
       (sources."yaml-language-server-1.15.0" // {
         dependencies = [
           sources."request-light-0.5.8"
@@ -1073,7 +1073,7 @@ in
       sources."semver-7.6.3"
       sources."vscode-languageserver-textdocument-1.0.12"
       sources."vscode-uri-3.0.8"
-      sources."yaml-2.6.1"
+      sources."yaml-2.7.0"
     ];
     buildInputs = globalBuildInputs;
     meta = {
@@ -1088,12 +1088,13 @@ in
   bash-language-server = nodeEnv.buildNodePackage {
     name = "bash-language-server";
     packageName = "bash-language-server";
-    version = "5.4.2";
+    version = "5.4.3";
     src = fetchurl {
-      url = "https://registry.npmjs.org/bash-language-server/-/bash-language-server-5.4.2.tgz";
-      sha512 = "3N2INRlio63A5CwvDz2sZEWFp46H3sm7OD2IU/kr8MSYKAIRt/xD23arT7daJfYKLC+I6ijWsvaFs9tP6Bo00Q==";
+      url = "https://registry.npmjs.org/bash-language-server/-/bash-language-server-5.4.3.tgz";
+      sha512 = "bWpLfob5YAOKKbhxyIldvalP+xrBORrUDZMbcPJAhrhC+xiEVREGV9LfFc01Ce5HhpN+f3sNn+sOYlBf+EO98g==";
     };
     dependencies = [
+      sources."@mixmark-io/domino-2.2.0"
       sources."@nodelib/fs.scandir-2.1.5"
       sources."@nodelib/fs.stat-2.0.5"
       sources."@nodelib/fs.walk-1.2.8"
@@ -1102,11 +1103,10 @@ in
       sources."brace-expansion-2.0.1"
       sources."braces-3.0.3"
       sources."commander-11.1.0"
-      sources."domino-2.1.6"
       sources."editorconfig-2.0.0"
       sources."encoding-0.1.13"
       sources."fast-glob-3.3.2"
-      sources."fastq-1.17.1"
+      sources."fastq-1.18.0"
       sources."fill-range-7.1.1"
       sources."fuzzy-search-3.2.1"
       sources."glob-parent-5.1.2"
@@ -1126,16 +1126,16 @@ in
       sources."semver-7.6.3"
       sources."to-regex-range-5.0.1"
       sources."tr46-0.0.3"
-      sources."turndown-7.1.3"
+      sources."turndown-7.2.0"
       sources."vscode-jsonrpc-8.0.2"
       sources."vscode-languageserver-8.0.2"
       sources."vscode-languageserver-protocol-3.17.2"
       sources."vscode-languageserver-textdocument-1.0.12"
       sources."vscode-languageserver-types-3.17.2"
-      sources."web-tree-sitter-0.23.0"
+      sources."web-tree-sitter-0.24.5"
       sources."webidl-conversions-3.0.1"
       sources."whatwg-url-5.0.0"
-      sources."zod-3.22.4"
+      sources."zod-3.24.1"
     ];
     buildInputs = globalBuildInputs;
     meta = {

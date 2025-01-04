@@ -3,19 +3,17 @@
 
   modifications = final: prev: {
     nodePackages = prev.nodePackages // final.callPackage ../pkgs/node-packages { };
-    herbstluftwm = prev.herbstluftwm.overrideAttrs {
-      doCheck = false;
-    };
-    vimPlugins = prev.vimPlugins // {
-      nvim-paredit = final.vimUtils.buildVimPlugin {
-        name = "nvim-paredit";
-        src = inputs.nvim-paredit;
-      };
-    };
   };
 
   stable-packages = final: _prev: {
     nixpkgs-stable = import inputs.nixpkgs-stable {
+      inherit (final) system;
+      config.allowUnfree = true;
+    };
+  };
+
+  unstable-small-packages = final: _prev: {
+    nixpkgs-unstable-small = import inputs.nixpkgs-unstable-small {
       inherit (final) system;
       config.allowUnfree = true;
     };

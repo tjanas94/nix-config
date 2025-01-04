@@ -27,7 +27,6 @@ in
     docker-compose
     docker-credential-helpers
     duf
-    duplicity
     expect
     fd
     fluxcd

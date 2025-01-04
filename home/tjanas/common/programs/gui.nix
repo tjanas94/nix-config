@@ -39,12 +39,9 @@ in
   };
 
   home.packages = with pkgs; [
-    filezilla
     gimp
     gpgme
     inkscape
-    jetbrains.idea-community
-    keepassxc
     libnotify
     libreoffice
     networkmanagerapplet
