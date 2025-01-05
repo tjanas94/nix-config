@@ -20,7 +20,7 @@
 
   sops.defaultSopsFile = ./secrets.yaml;
   networking.hostName = "hp";
-  system.stateVersion = "22.11";
+  system.stateVersion = "24.11";
 
   services.smartd = {
     enable = true;

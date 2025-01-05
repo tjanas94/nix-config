@@ -12,5 +12,5 @@
 
   sops.defaultSopsFile = ./secrets.yaml;
   networking.hostName = "dell";
-  system.stateVersion = "22.11";
+  system.stateVersion = "24.11";
 }

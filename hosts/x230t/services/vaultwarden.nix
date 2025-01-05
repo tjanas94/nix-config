@@ -33,5 +33,5 @@
     };
   };
 
-  environment.persistence."/persist".directories = [ "/var/lib/bitwarden_rs" ];
+  environment.persistence."/persist".directories = [ "/var/lib/vaultwarden" ];
 }
