@@ -4,15 +4,11 @@ set -euo pipefail
 
 vm="${1:-dev}"
 
-PUPPETEER_EXECUTABLE_PATH="$(command -v google-chrome-stable)"
-export PUPPETEER_EXECUTABLE_PATH
-
-aws-azure-login --no-prompt -a
-
 cat <<EOF | sftp "$vm"
+put $HOME/.saml2aws .saml2aws
 mkdir .aws
 put $HOME/.aws/config .aws
-put $HOME/.aws/credentials .aws
+put $HOME/.aws/saml-credentials .aws
 mkdir .kube
 put $HOME/.kube/config .kube
 EOF

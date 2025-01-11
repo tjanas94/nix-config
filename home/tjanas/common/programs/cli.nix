@@ -19,7 +19,6 @@ in
     amazon-ecr-credential-helper
     android-tools
     ansible
-    aws-azure-login
     awscli2
     btop
     buildah
@@ -27,6 +26,7 @@ in
     docker-compose
     docker-credential-helpers
     duf
+    envsubst
     expect
     fd
     fluxcd
@@ -39,6 +39,7 @@ in
     kubectx
     kubectl
     kubernetes-helm
+    kustomize
     lazygit
     lynx
     moreutils
@@ -60,6 +61,7 @@ in
     rdiff-backup
     ripgrep
     samba
+    saml2aws
     screen
     skopeo
     socat

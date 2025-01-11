@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec saml2aws login --skip-prompt --credential-process --credentials-file="$HOME/.aws/saml-credentials" "$@" 2>/dev/tty
