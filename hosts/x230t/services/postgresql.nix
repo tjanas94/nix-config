@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   services.postgresql = {
     enable = true;
-    package = pkgs.nixpkgs-unstable-small.postgresql;
+    package = pkgs.postgresql_17;
   };
   environment.persistence."/persist".directories = [ "/var/lib/postgresql" ];
 }

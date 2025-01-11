@@ -12,13 +12,6 @@
     };
   };
 
-  unstable-small-packages = final: _prev: {
-    nixpkgs-unstable-small = import inputs.nixpkgs-unstable-small {
-      inherit (final) system;
-      config.allowUnfree = true;
-    };
-  };
-
   emacs-overlay = inputs.emacs-overlay.overlays.default;
   nixd = inputs.nixd.overlays.default;
 }

@@ -301,13 +301,22 @@ let
         sha512 = "oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==";
       };
     };
-    "fast-uri-3.0.3" = {
+    "fast-glob-3.3.3" = {
+      name = "fast-glob";
+      packageName = "fast-glob";
+      version = "3.3.3";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/fast-glob/-/fast-glob-3.3.3.tgz";
+        sha512 = "7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==";
+      };
+    };
+    "fast-uri-3.0.5" = {
       name = "fast-uri";
       packageName = "fast-uri";
-      version = "3.0.3";
+      version = "3.0.5";
       src = fetchurl {
-        url = "https://registry.npmjs.org/fast-uri/-/fast-uri-3.0.3.tgz";
-        sha512 = "aLrHthzCjH5He4Z2H9YZ+v6Ujb9ocRuW6ZzkJQOrTxleEijANq4v1TsaPaVG1PZcuurEzrLcWRyYBYXD5cEiaw==";
+        url = "https://registry.npmjs.org/fast-uri/-/fast-uri-3.0.5.tgz";
+        sha512 = "5JnBCWpFlMo0a3ciDy/JckMzzv1U9coZrIhedq+HXxxUfDTAiS0LA8OKVao4G9BxmCVck/jtA5r3KAtRWEyD8Q==";
       };
     };
     "fastq-1.18.0" = {
@@ -634,13 +643,13 @@ let
         sha512 = "OJabfkAg1WLZSqJAJ0Z6Sdt3utnbzr/jh+NAHoyWHJe8CMSy79Gm085094M9nvTPy22KzTVn5Zq5mbapCI/hPA==";
       };
     };
-    "typescript-5.7.2" = {
+    "typescript-5.7.3" = {
       name = "typescript";
       packageName = "typescript";
-      version = "5.7.2";
+      version = "5.7.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/typescript/-/typescript-5.7.2.tgz";
-        sha512 = "i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==";
+        url = "https://registry.npmjs.org/typescript/-/typescript-5.7.3.tgz";
+        sha512 = "84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==";
       };
     };
     "typescript-auto-import-cache-0.3.5" = {
@@ -977,8 +986,8 @@ in
       sources."braces-3.0.3"
       sources."emmet-2.4.11"
       sources."fast-deep-equal-3.1.3"
-      sources."fast-glob-3.3.2"
-      sources."fast-uri-3.0.3"
+      sources."fast-glob-3.3.3"
+      sources."fast-uri-3.0.5"
       sources."fastq-1.18.0"
       sources."fill-range-7.1.1"
       sources."glob-parent-5.1.2"
@@ -1006,7 +1015,7 @@ in
       sources."suf-log-2.5.3"
       sources."to-regex-range-5.0.1"
       sources."typesafe-path-0.2.2"
-      sources."typescript-5.7.2"
+      sources."typescript-5.7.3"
       sources."typescript-auto-import-cache-0.3.5"
       sources."volar-service-css-0.0.62"
       sources."volar-service-emmet-0.0.62"

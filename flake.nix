@@ -12,7 +12,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-unstable-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     hardware.url = "github:nixos/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
