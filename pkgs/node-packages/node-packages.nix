@@ -310,13 +310,13 @@ let
         sha512 = "7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==";
       };
     };
-    "fast-uri-3.0.5" = {
+    "fast-uri-3.0.6" = {
       name = "fast-uri";
       packageName = "fast-uri";
-      version = "3.0.5";
+      version = "3.0.6";
       src = fetchurl {
-        url = "https://registry.npmjs.org/fast-uri/-/fast-uri-3.0.5.tgz";
-        sha512 = "5JnBCWpFlMo0a3ciDy/JckMzzv1U9coZrIhedq+HXxxUfDTAiS0LA8OKVao4G9BxmCVck/jtA5r3KAtRWEyD8Q==";
+        url = "https://registry.npmjs.org/fast-uri/-/fast-uri-3.0.6.tgz";
+        sha512 = "Atfo14OibSv5wAp4VWNsFYE1AchQRTv9cBGWET4pZWHzYshFSS9NQI6I57rdKn9croWVMbYFbLhJ+yJvmZIIHw==";
       };
     };
     "fastq-1.18.0" = {
@@ -987,7 +987,7 @@ in
       sources."emmet-2.4.11"
       sources."fast-deep-equal-3.1.3"
       sources."fast-glob-3.3.3"
-      sources."fast-uri-3.0.5"
+      sources."fast-uri-3.0.6"
       sources."fastq-1.18.0"
       sources."fill-range-7.1.1"
       sources."glob-parent-5.1.2"
