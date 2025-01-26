@@ -33,7 +33,7 @@ crtc 1
 mode 1920x1200
 pos 5360x0
 rate 59.95
-rotate right
+rotate left
 x-prop-audio auto
 x-prop-broadcast_rgb Automatic
 x-prop-max_bpc 12
