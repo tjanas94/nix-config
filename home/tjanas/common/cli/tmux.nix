@@ -22,8 +22,9 @@
       bind -n C-M-c kill-window \; kill-session
       bind -n C-M-r respawn-pane -k
       bind -n C-M-s switch-client -l
-      bind -n C-M-g neww lazygit
-      bind -n C-M-m neww magit
+      bind -n C-M-l neww lazygit
+      bind -n C-M-g neww magit
+      bind -n C-M-k neww k9s
       bind -n C-M-h neww 'vi ~/workspace/projects.txt'
       bind -n C-M-a run-shell 'pwd >> ~/workspace/projects.txt'
       bind -n C-M-n run-shell 'switch-pinned-project 1'
