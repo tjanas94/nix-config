@@ -319,13 +319,13 @@ let
         sha512 = "Atfo14OibSv5wAp4VWNsFYE1AchQRTv9cBGWET4pZWHzYshFSS9NQI6I57rdKn9croWVMbYFbLhJ+yJvmZIIHw==";
       };
     };
-    "fastq-1.18.0" = {
+    "fastq-1.19.0" = {
       name = "fastq";
       packageName = "fastq";
-      version = "1.18.0";
+      version = "1.19.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/fastq/-/fastq-1.18.0.tgz";
-        sha512 = "QKHXPW0hD8g4UET03SdOdunzSouc9N4AuHdsX8XNcTsuz+yYFILVNIX4l9yHABMhiEI9Db0JTTIpu0wB+Y1QQw==";
+        url = "https://registry.npmjs.org/fastq/-/fastq-1.19.0.tgz";
+        sha512 = "7SFSRCNjBQIZH/xZR3iy5iQYR8aGBE0h3VG6/cwlbrpdciNYBMotQav8c1XI3HjHH+NikUpP53nPdlZSdWmFzA==";
       };
     };
     "fill-range-7.1.1" = {
@@ -589,13 +589,13 @@ let
         sha512 = "CWZ8XiSim+fJVG0cFLStwDvft1VI7uvXdCNJYXhDvowiv+DsbD1nXLiQ4zrE5UBvj5DWZJ93cwN0NX5PMsr1Pw==";
       };
     };
-    "semver-7.6.3" = {
+    "semver-7.7.0" = {
       name = "semver";
       packageName = "semver";
-      version = "7.6.3";
+      version = "7.7.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/semver/-/semver-7.6.3.tgz";
-        sha512 = "oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==";
+        url = "https://registry.npmjs.org/semver/-/semver-7.7.0.tgz";
+        sha512 = "DrfFnPzblFmNrIZzg5RzHegbiRWg7KMR7btwi2yjHwx06zsUbO5g613sVwEV7FTwmzJu+Io0lJe2GJ3LxqpvBQ==";
       };
     };
     "suf-log-2.5.3" = {
@@ -988,7 +988,7 @@ in
       sources."fast-deep-equal-3.1.3"
       sources."fast-glob-3.3.3"
       sources."fast-uri-3.0.6"
-      sources."fastq-1.18.0"
+      sources."fastq-1.19.0"
       sources."fill-range-7.1.1"
       sources."glob-parent-5.1.2"
       sources."is-extglob-2.1.1"
@@ -1011,7 +1011,7 @@ in
       sources."run-parallel-1.2.0"
       sources."s.color-0.0.15"
       sources."sass-formatter-0.7.9"
-      sources."semver-7.6.3"
+      sources."semver-7.7.0"
       sources."suf-log-2.5.3"
       sources."to-regex-range-5.0.1"
       sources."typesafe-path-0.2.2"
@@ -1079,7 +1079,7 @@ in
       sources."@volar/source-map-2.4.11"
       sources."@volar/typescript-2.4.11"
       sources."path-browserify-1.0.1"
-      sources."semver-7.6.3"
+      sources."semver-7.7.0"
       sources."vscode-languageserver-textdocument-1.0.12"
       sources."vscode-uri-3.0.8"
       sources."yaml-2.7.0"
@@ -1115,7 +1115,7 @@ in
       sources."editorconfig-2.0.0"
       sources."encoding-0.1.13"
       sources."fast-glob-3.3.2"
-      sources."fastq-1.18.0"
+      sources."fastq-1.19.0"
       sources."fill-range-7.1.1"
       sources."fuzzy-search-3.2.1"
       sources."glob-parent-5.1.2"
@@ -1132,7 +1132,7 @@ in
       sources."reusify-1.0.4"
       sources."run-parallel-1.2.0"
       sources."safer-buffer-2.1.2"
-      sources."semver-7.6.3"
+      sources."semver-7.7.0"
       sources."to-regex-range-5.0.1"
       sources."tr46-0.0.3"
       sources."turndown-7.2.0"
