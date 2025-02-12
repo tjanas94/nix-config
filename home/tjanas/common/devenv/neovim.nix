@@ -2,31 +2,28 @@
 {
   programs.neovim = {
     enable = true;
+    package = pkgs.neovim;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
 
     plugins = with pkgs.vimPlugins; [
-      cmp_luasnip
-      cmp-buffer
+      blink-cmp
+      blink-cmp-copilot
+      blink-compat
       cmp-conjure
-      cmp-path
-      cmp-nvim-lsp
-      cmp-nvim-lua
       comment-nvim
       conjure
       conform-nvim
-      copilot-vim
+      copilot-lua
       friendly-snippets
       gitsigns-nvim
       gruvbox-nvim
       harpoon2
-      lsp-zero-nvim
+      lazydev-nvim
       lualine-nvim
-      luasnip
       nvim-autopairs
-      nvim-cmp
       nvim-lspconfig
       nvim-jdtls
       nvim-paredit
@@ -34,6 +31,7 @@
       nvim-treesitter-context
       nvim-treesitter-refactor
       nvim-treesitter-textobjects
+      oil-nvim
       telescope-fzf-native-nvim
       telescope-nvim
       undotree
@@ -45,6 +43,8 @@
       vim-repeat
       vim-sleuth
       vim-surround
+      vim-textobj-entire
+      vim-textobj-user
     ];
   };
 

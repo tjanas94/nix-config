@@ -14,4 +14,5 @@
 
   emacs-overlay = inputs.emacs-overlay.overlays.default;
   nixd = inputs.nixd.overlays.default;
+  neovim-nightly = inputs.neovim-nightly-overlay.overlays.default;
 }
