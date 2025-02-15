@@ -4,13 +4,13 @@
 
 let
   sources = {
-    "@astrojs/compiler-2.10.3" = {
+    "@astrojs/compiler-2.10.4" = {
       name = "_at_astrojs_slash_compiler";
       packageName = "@astrojs/compiler";
-      version = "2.10.3";
+      version = "2.10.4";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@astrojs/compiler/-/compiler-2.10.3.tgz";
-        sha512 = "bL/O7YBxsFt55YHU021oL+xz+B/9HvGNId3F9xURN16aeqDK9juHGktdkCSXz+U4nqFACq6ZFvWomOzhV+zfPw==";
+        url = "https://registry.npmjs.org/@astrojs/compiler/-/compiler-2.10.4.tgz";
+        sha512 = "86B3QGagP99MvSNwuJGiYSBHnh8nLvm2Q1IFI15wIUJJsPeQTO3eb2uwBmrqRsXykeR/mBzH8XCgz5AAt1BJrQ==";
       };
     };
     "@astrojs/yaml2ts-0.2.2" = {
@@ -490,13 +490,13 @@ let
         sha512 = "JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==";
       };
     };
-    "prettier-3.4.2" = {
+    "prettier-3.5.1" = {
       name = "prettier";
       packageName = "prettier";
-      version = "3.4.2";
+      version = "3.5.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/prettier/-/prettier-3.4.2.tgz";
-        sha512 = "e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ==";
+        url = "https://registry.npmjs.org/prettier/-/prettier-3.5.1.tgz";
+        sha512 = "hPpFQvHwL3Qv5AdRvBFMhnKo4tYxp0ReXiPn2bxkiohEX6mBeBwEpBSQTkD458RaaDKQMYSp4hX4UtfUTA5wDw==";
       };
     };
     "prettier-plugin-astro-0.14.1" = {
@@ -961,7 +961,7 @@ in
       sha512 = "JivzASqTPR2bao9BWsSc/woPHH7OGSGc9aMxXL4U6egVTqBycB3ZHdBJPuOCVtcGLrzdWTosAqVPz1BVoxE0+A==";
     };
     dependencies = [
-      sources."@astrojs/compiler-2.10.3"
+      sources."@astrojs/compiler-2.10.4"
       sources."@astrojs/yaml2ts-0.2.2"
       sources."@emmetio/abbreviation-2.3.3"
       sources."@emmetio/css-abbreviation-2.1.8"
@@ -1002,7 +1002,7 @@ in
       sources."muggle-string-0.4.1"
       sources."path-browserify-1.0.1"
       sources."picomatch-2.3.1"
-      sources."prettier-3.4.2"
+      sources."prettier-3.5.1"
       sources."prettier-plugin-astro-0.14.1"
       sources."queue-microtask-1.2.3"
       sources."request-light-0.7.0"
@@ -1072,7 +1072,7 @@ in
       sha512 = "rapryQINgv5VLZF884R/wmgX3mM9eH1PC/I3kkPV9rP6lEWrRN1YClF3bGcDHFrf8EtTLc0Wqxne1Uetpevozg==";
     };
     dependencies = [
-      sources."@astrojs/compiler-2.10.3"
+      sources."@astrojs/compiler-2.10.4"
       sources."@astrojs/yaml2ts-0.2.2"
       sources."@jridgewell/sourcemap-codec-1.5.0"
       sources."@volar/language-core-2.4.11"
