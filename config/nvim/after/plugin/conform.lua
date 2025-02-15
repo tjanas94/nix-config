@@ -1,4 +1,5 @@
-require('conform').setup({
+local conform = require('conform')
+conform.setup({
     formatters_by_ft = {
         astro = { 'prettierd' },
         graphql = { 'prettierd' },
@@ -24,5 +25,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
     vim.opt_local.formatexpr = "v:lua.require'conform'.formatexpr()"
+    vim.keymap.set({ 'n', 'x' }, '<leader>cf', function()
+        conform.format({ bufnr = event.buf })
+    end, { buffer = event.buf })
   end,
 })
