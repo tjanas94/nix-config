@@ -33,6 +33,7 @@ in
     file
     glib
     gping
+    grafana-loki
     htmlq
     imagemagick
     kind
@@ -46,6 +47,7 @@ in
     mtr
     ncdu
     nmap
+    oidc-agent
     openssl
     p7zip
     pandoc
