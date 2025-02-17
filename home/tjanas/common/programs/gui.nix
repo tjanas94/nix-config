@@ -40,6 +40,7 @@ in
 
   home.packages = with pkgs; [
     gimp
+    gp-saml-gui
     gpgme
     inkscape
     libnotify

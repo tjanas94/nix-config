@@ -10,6 +10,7 @@
     ./common/programs/dunst.nix
     ./common/programs/gui.nix
     ./common/programs/herbstluftwm.nix
+    ./common/programs/polkit.nix
     ./common/programs/polybar.nix
     ./common/programs/rofi-pass.nix
     ./common/programs/sxhkd.nix
