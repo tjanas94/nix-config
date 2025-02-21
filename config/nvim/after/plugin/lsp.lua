@@ -25,9 +25,6 @@ lspconfig.gopls.setup({
         },
     },
 })
-lspconfig.graphql.setup({
-    filetypes = { 'graphql', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
-})
 lspconfig.html.setup({})
 lspconfig.jsonls.setup({})
 lspconfig.nixd.setup({})
