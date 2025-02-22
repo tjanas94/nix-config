@@ -14,8 +14,7 @@ in
         ++ ifTheyExist [
           "audio"
           "dialout"
-          "docker"
-          "libvirtd"
+          "incus-admin"
           "lp"
           "networkmanager"
           "podman"

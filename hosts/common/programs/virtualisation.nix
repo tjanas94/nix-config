@@ -1,30 +1,63 @@
-{ lib
-, pkgs
-, ...
-}: {
+{
+  networking = {
+    firewall.trustedInterfaces = [ "incusbr0" ];
+    nftables.enable = true;
+  };
+
   virtualisation = {
-    docker = {
+    incus = {
       enable = true;
-      rootless.enable = true;
+      socketActivation = true;
+      preseed = {
+        networks = [
+          {
+            config = {
+              "ipv4.address" = "10.0.100.1/24";
+              "ipv4.nat" = "true";
+            };
+            name = "incusbr0";
+            type = "bridge";
+          }
+        ];
+        profiles = [
+          {
+            devices = {
+              eth0 = {
+                name = "eth0";
+                network = "incusbr0";
+                type = "nic";
+              };
+              root = {
+                path = "/";
+                pool = "default";
+                size = "35GiB";
+                type = "disk";
+              };
+            };
+            name = "default";
+          }
+        ];
+        storage_pools = [
+          {
+            config = {
+              source = "/var/lib/incus/storage-pools/default";
+            };
+            driver = "dir";
+            name = "default";
+          }
+        ];
+      };
     };
-    libvirtd = {
-      enable = true;
-      qemu.runAsRoot = false;
-    };
+
     podman = {
       enable = true;
+      dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
   };
 
-  system = {
-    nssModules = [ pkgs.libvirt ];
-    nssDatabases.hosts = lib.mkBefore [ "libvirt" "libvirt_guest" ];
-  };
-
   environment.persistence."/persist".directories = [
     "/var/lib/containers"
-    "/var/lib/docker"
-    "/var/lib/libvirt"
+    "/var/lib/incus"
   ];
 }

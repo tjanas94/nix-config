@@ -54,7 +54,6 @@ in
     thunar
     thunderbird
     trezor-suite
-    virt-manager
     wireshark
     yubikey-manager
     yubikey-manager-qt

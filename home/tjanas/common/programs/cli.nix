@@ -54,7 +54,6 @@ in
     paperkey
     perl
     pciutils
-    podman-compose
     poppler_utils
     procs
     pv

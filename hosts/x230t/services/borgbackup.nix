@@ -63,8 +63,10 @@ in
           "/mnt/snapshots/x230t-persist"
         ];
         exclude = [
+          "**/var/lib/containers"
           "**/var/lib/docker"
           "**/var/lib/libvirt"
+          "**/var/lib/incus"
           "**/var/lib/systemd"
         ];
       };
@@ -84,6 +86,7 @@ in
           "**/var/lib/containers"
           "**/var/lib/docker"
           "**/var/lib/libvirt"
+          "**/var/lib/incus"
           "**/var/lib/systemd"
         ];
       };
