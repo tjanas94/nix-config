@@ -7,7 +7,10 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
 
 require('copilot').setup()
 require('blink.cmp').setup({
-    keymap = { preset = 'default' },
+    keymap = {
+      ['<Up>'] = {},
+      ['<Down>'] = {},
+    },
     appearance = {
       use_nvim_cmp_as_default = true,
       nerd_font_variant = 'mono'
