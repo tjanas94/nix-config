@@ -54,6 +54,11 @@
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
+
+    containers = {
+      containersConf.settings.containers.userns = "keep-id";
+      storage.settings.storage.driver = "btrfs";
+    };
   };
 
   environment.persistence."/persist".directories = [
