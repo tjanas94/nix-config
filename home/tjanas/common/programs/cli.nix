@@ -6,6 +6,8 @@ let
 in
 {
   programs = {
+    gh.enable = true;
+    gh-dash.enable = true;
     htop.enable = true;
     jq.enable = true;
     k9s.enable = true;

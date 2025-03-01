@@ -25,6 +25,7 @@
       bind -n C-M-l neww lazygit
       bind -n C-M-g neww magit
       bind -n C-M-k neww k9s
+      bind -n C-M-d neww 'gh dash'
       bind -n C-M-h neww 'vi ~/workspace/projects.txt'
       bind -n C-M-a run-shell 'pwd >> ~/workspace/projects.txt'
       bind -n C-M-n run-shell 'switch-pinned-project 1'
