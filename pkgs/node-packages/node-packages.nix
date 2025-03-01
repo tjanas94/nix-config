@@ -319,13 +319,13 @@ let
         sha512 = "Atfo14OibSv5wAp4VWNsFYE1AchQRTv9cBGWET4pZWHzYshFSS9NQI6I57rdKn9croWVMbYFbLhJ+yJvmZIIHw==";
       };
     };
-    "fastq-1.19.0" = {
+    "fastq-1.19.1" = {
       name = "fastq";
       packageName = "fastq";
-      version = "1.19.0";
+      version = "1.19.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/fastq/-/fastq-1.19.0.tgz";
-        sha512 = "7SFSRCNjBQIZH/xZR3iy5iQYR8aGBE0h3VG6/cwlbrpdciNYBMotQav8c1XI3HjHH+NikUpP53nPdlZSdWmFzA==";
+        url = "https://registry.npmjs.org/fastq/-/fastq-1.19.1.tgz";
+        sha512 = "GwLTyxkCXjXbxqIhTsMI2Nui8huMPtnxg7krajPJAjnEG/iiOS7i+zCtWGZR9G0NBKbXKh6X9m9UIsYX/N6vvQ==";
       };
     };
     "fill-range-7.1.1" = {
@@ -490,13 +490,13 @@ let
         sha512 = "JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==";
       };
     };
-    "prettier-3.5.1" = {
+    "prettier-3.5.2" = {
       name = "prettier";
       packageName = "prettier";
-      version = "3.5.1";
+      version = "3.5.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/prettier/-/prettier-3.5.1.tgz";
-        sha512 = "hPpFQvHwL3Qv5AdRvBFMhnKo4tYxp0ReXiPn2bxkiohEX6mBeBwEpBSQTkD458RaaDKQMYSp4hX4UtfUTA5wDw==";
+        url = "https://registry.npmjs.org/prettier/-/prettier-3.5.2.tgz";
+        sha512 = "lc6npv5PH7hVqozBR7lkBNOGXV9vMwROAPlumdBkX0wTbbzPu/U1hk5yL8p2pt4Xoc+2mkT8t/sow2YrV/M5qg==";
       };
     };
     "prettier-plugin-astro-0.14.1" = {
@@ -544,13 +544,13 @@ let
         sha512 = "Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==";
       };
     };
-    "reusify-1.0.4" = {
+    "reusify-1.1.0" = {
       name = "reusify";
       packageName = "reusify";
-      version = "1.0.4";
+      version = "1.1.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/reusify/-/reusify-1.0.4.tgz";
-        sha512 = "U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==";
+        url = "https://registry.npmjs.org/reusify/-/reusify-1.1.0.tgz";
+        sha512 = "g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==";
       };
     };
     "run-parallel-1.2.0" = {
@@ -643,13 +643,13 @@ let
         sha512 = "OJabfkAg1WLZSqJAJ0Z6Sdt3utnbzr/jh+NAHoyWHJe8CMSy79Gm085094M9nvTPy22KzTVn5Zq5mbapCI/hPA==";
       };
     };
-    "typescript-5.7.3" = {
+    "typescript-5.8.2" = {
       name = "typescript";
       packageName = "typescript";
-      version = "5.7.3";
+      version = "5.8.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/typescript/-/typescript-5.7.3.tgz";
-        sha512 = "84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==";
+        url = "https://registry.npmjs.org/typescript/-/typescript-5.8.2.tgz";
+        sha512 = "aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==";
       };
     };
     "typescript-auto-import-cache-0.3.5" = {
@@ -988,7 +988,7 @@ in
       sources."fast-deep-equal-3.1.3"
       sources."fast-glob-3.3.3"
       sources."fast-uri-3.0.6"
-      sources."fastq-1.19.0"
+      sources."fastq-1.19.1"
       sources."fill-range-7.1.1"
       sources."glob-parent-5.1.2"
       sources."is-extglob-2.1.1"
@@ -1002,12 +1002,12 @@ in
       sources."muggle-string-0.4.1"
       sources."path-browserify-1.0.1"
       sources."picomatch-2.3.1"
-      sources."prettier-3.5.1"
+      sources."prettier-3.5.2"
       sources."prettier-plugin-astro-0.14.1"
       sources."queue-microtask-1.2.3"
       sources."request-light-0.7.0"
       sources."require-from-string-2.0.2"
-      sources."reusify-1.0.4"
+      sources."reusify-1.1.0"
       sources."run-parallel-1.2.0"
       sources."s.color-0.0.15"
       sources."sass-formatter-0.7.9"
@@ -1015,7 +1015,7 @@ in
       sources."suf-log-2.5.3"
       sources."to-regex-range-5.0.1"
       sources."typesafe-path-0.2.2"
-      sources."typescript-5.7.3"
+      sources."typescript-5.8.2"
       sources."typescript-auto-import-cache-0.3.5"
       sources."volar-service-css-0.0.62"
       sources."volar-service-emmet-0.0.62"
@@ -1115,7 +1115,7 @@ in
       sources."editorconfig-2.0.0"
       sources."encoding-0.1.13"
       sources."fast-glob-3.3.2"
-      sources."fastq-1.19.0"
+      sources."fastq-1.19.1"
       sources."fill-range-7.1.1"
       sources."fuzzy-search-3.2.1"
       sources."glob-parent-5.1.2"
@@ -1129,7 +1129,7 @@ in
       sources."node-fetch-2.7.0"
       sources."picomatch-2.3.1"
       sources."queue-microtask-1.2.3"
-      sources."reusify-1.0.4"
+      sources."reusify-1.1.0"
       sources."run-parallel-1.2.0"
       sources."safer-buffer-2.1.2"
       sources."semver-7.7.1"
