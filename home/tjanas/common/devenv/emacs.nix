@@ -6,6 +6,7 @@
       with epkgs; [
         ef-themes
         magit
+        nix-mode
         ob-http
         paredit
         slime

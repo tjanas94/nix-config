@@ -3,6 +3,7 @@
 .pre-commit-config.yaml
 flycheck_config.el
 flycheck_init.el
+config/emacs/*.eld
 config/emacs/eln-cache
 config/emacs/eshell
 config/emacs/history

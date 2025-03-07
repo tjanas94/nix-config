@@ -37,6 +37,18 @@
 
 (load-theme 'ef-elea-dark t)
 
+(defun tjanas/refresh-project-list ()
+  (interactive)
+  (setq project--list '())
+  (seq-do
+   (lambda (d) (project-remember-project (list 'vc 'Git d)))
+   (magit-list-repos)))
+
+(use-package magit
+  :config
+  (require 'magit-extras)
+  (setopt magit-repository-directories '(("~/workspace" . 4))))
+
 (use-package org
   :config
   (setopt org-confirm-babel-evaluate nil)
@@ -58,7 +70,7 @@
   :config
   (defun override-slime-del-key ()
     (define-key slime-repl-mode-map
-      (read-kbd-macro paredit-backward-delete-key) nil)))
+                (read-kbd-macro paredit-backward-delete-key) nil)))
 
 (use-package slime
   :config
