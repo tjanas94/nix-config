@@ -39,6 +39,8 @@ lspconfig.rust_analyzer.setup({
     },
 })
 lspconfig.tailwindcss.setup({})
+lspconfig.terraformls.setup({})
+lspconfig.tflint.setup({})
 lspconfig.ts_ls.setup({
     init_options = {
         plugins = {

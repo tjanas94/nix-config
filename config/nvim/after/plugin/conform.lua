@@ -10,6 +10,10 @@ conform.setup({
         typescript = { 'prettierd' },
         typescriptreact = { 'prettierd' },
         sh = { 'shfmt' },
+        hcl = { 'terraform_fmt' },
+        terraform = { 'terraform_fmt' },
+        tf = { 'terraform_fmt' },
+        ['terraform-vars'] = { 'terraform_fmt' },
     },
     formatters = {
         ['google-java-format'] = {

@@ -77,6 +77,10 @@ in
     rustc
     rustfmt
 
+    terraform
+    terraform-ls
+    tflint
+
     zig
     zls
   ];
