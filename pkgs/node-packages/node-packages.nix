@@ -724,22 +724,22 @@ let
         sha512 = "k7gvv7sk3wa+nGll3MaSKyjwQsJjIGCHFjVkl3wjaSP2nouKyn9aokGmqjrl39mi88Oy49giog2GkZH526wjig==";
       };
     };
-    "vscode-css-languageservice-6.3.2" = {
+    "vscode-css-languageservice-6.3.3" = {
       name = "vscode-css-languageservice";
       packageName = "vscode-css-languageservice";
-      version = "6.3.2";
+      version = "6.3.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/vscode-css-languageservice/-/vscode-css-languageservice-6.3.2.tgz";
-        sha512 = "GEpPxrUTAeXWdZWHev1OJU9lz2Q2/PPBxQ2TIRmLGvQiH3WZbqaNoute0n0ewxlgtjzTW3AKZT+NHySk5Rf4Eg==";
+        url = "https://registry.npmjs.org/vscode-css-languageservice/-/vscode-css-languageservice-6.3.3.tgz";
+        sha512 = "xXa+ftMPv6JxRgzkvPwZuDCafIdwDW3kyijGcfij1a2qBVScr2qli6MfgJzYm/AMYdbHq9I/4hdpKV0Thim2EA==";
       };
     };
-    "vscode-html-languageservice-5.3.2" = {
+    "vscode-html-languageservice-5.3.3" = {
       name = "vscode-html-languageservice";
       packageName = "vscode-html-languageservice";
-      version = "5.3.2";
+      version = "5.3.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/vscode-html-languageservice/-/vscode-html-languageservice-5.3.2.tgz";
-        sha512 = "3MgFQqVG+iQVNG7QI/slaoL7lJpne0nssX082kjUF1yn/YJa8BWCLeCJjM0YpTlp8A7JT1+J22mk4qSPx3NjSQ==";
+        url = "https://registry.npmjs.org/vscode-html-languageservice/-/vscode-html-languageservice-5.3.3.tgz";
+        sha512 = "AK/jJM0VIWRrlfqkDBMZxNMnxYT5I2uoMVRoNJ5ePSplnSaT9mbYjqJlxxeLvUrOW7MEH0vVIDzU48u44QZE0w==";
       };
     };
     "vscode-json-languageservice-4.1.8" = {
@@ -1024,8 +1024,8 @@ in
       sources."volar-service-typescript-0.0.62"
       sources."volar-service-typescript-twoslash-queries-0.0.62"
       sources."volar-service-yaml-0.0.62"
-      sources."vscode-css-languageservice-6.3.2"
-      sources."vscode-html-languageservice-5.3.2"
+      sources."vscode-css-languageservice-6.3.3"
+      sources."vscode-html-languageservice-5.3.3"
       (sources."vscode-json-languageservice-4.1.8" // {
         dependencies = [
           sources."jsonc-parser-3.3.1"

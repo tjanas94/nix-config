@@ -56,6 +56,6 @@ in
     trezor-suite
     wireshark
     yubikey-manager
-    yubikey-manager-qt
+    yubioath-flutter
   ];
 }
