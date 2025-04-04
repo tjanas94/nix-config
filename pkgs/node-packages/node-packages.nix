@@ -724,13 +724,13 @@ let
         sha512 = "k7gvv7sk3wa+nGll3MaSKyjwQsJjIGCHFjVkl3wjaSP2nouKyn9aokGmqjrl39mi88Oy49giog2GkZH526wjig==";
       };
     };
-    "vscode-css-languageservice-6.3.3" = {
+    "vscode-css-languageservice-6.3.4" = {
       name = "vscode-css-languageservice";
       packageName = "vscode-css-languageservice";
-      version = "6.3.3";
+      version = "6.3.4";
       src = fetchurl {
-        url = "https://registry.npmjs.org/vscode-css-languageservice/-/vscode-css-languageservice-6.3.3.tgz";
-        sha512 = "xXa+ftMPv6JxRgzkvPwZuDCafIdwDW3kyijGcfij1a2qBVScr2qli6MfgJzYm/AMYdbHq9I/4hdpKV0Thim2EA==";
+        url = "https://registry.npmjs.org/vscode-css-languageservice/-/vscode-css-languageservice-6.3.4.tgz";
+        sha512 = "qutdhFg4hnlf6IsOynwtfsN8W0Xc7g3SZd+KK9F2moUEjHtkcZoj5p8uH7BSwHx9hSEXjwKgSRRyHTXThfwAkQ==";
       };
     };
     "vscode-html-languageservice-5.3.3" = {
@@ -922,13 +922,13 @@ let
         sha512 = "CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==";
       };
     };
-    "yaml-2.7.0" = {
+    "yaml-2.7.1" = {
       name = "yaml";
       packageName = "yaml";
-      version = "2.7.0";
+      version = "2.7.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/yaml/-/yaml-2.7.0.tgz";
-        sha512 = "+hSoy/QHluxmC9kCIJyL/uyFmLmc+e5CFR5Wa+bpIhIj85LVb9ZH2nVnqrHoSvKogwODv0ClqZkmiSSaIH5LTA==";
+        url = "https://registry.npmjs.org/yaml/-/yaml-2.7.1.tgz";
+        sha512 = "10ULxpnOCQXxJvBgxsn9ptjq6uviG/htZKk9veJGhlqn3w/DxQ631zFF+nlQXLwmImeS5amR2dl2U8sg6U9jsQ==";
       };
     };
     "yaml-language-server-1.15.0" = {
@@ -1024,7 +1024,7 @@ in
       sources."volar-service-typescript-0.0.62"
       sources."volar-service-typescript-twoslash-queries-0.0.62"
       sources."volar-service-yaml-0.0.62"
-      sources."vscode-css-languageservice-6.3.3"
+      sources."vscode-css-languageservice-6.3.4"
       sources."vscode-html-languageservice-5.3.3"
       (sources."vscode-json-languageservice-4.1.8" // {
         dependencies = [
@@ -1038,7 +1038,7 @@ in
       sources."vscode-languageserver-types-3.17.5"
       sources."vscode-nls-5.2.0"
       sources."vscode-uri-3.1.0"
-      sources."yaml-2.7.0"
+      sources."yaml-2.7.1"
       (sources."yaml-language-server-1.15.0" // {
         dependencies = [
           sources."request-light-0.5.8"
@@ -1082,7 +1082,7 @@ in
       sources."semver-7.7.1"
       sources."vscode-languageserver-textdocument-1.0.12"
       sources."vscode-uri-3.1.0"
-      sources."yaml-2.7.0"
+      sources."yaml-2.7.1"
     ];
     buildInputs = globalBuildInputs;
     meta = {
