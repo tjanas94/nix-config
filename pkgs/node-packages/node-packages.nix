@@ -130,13 +130,13 @@ let
         sha512 = "oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==";
       };
     };
-    "@one-ini/wasm-0.1.1" = {
+    "@one-ini/wasm-0.2.0" = {
       name = "_at_one-ini_slash_wasm";
       packageName = "@one-ini/wasm";
-      version = "0.1.1";
+      version = "0.2.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@one-ini/wasm/-/wasm-0.1.1.tgz";
-        sha512 = "XuySG1E38YScSJoMlqovLru4KTUNSjgVTIjyh7qMX6aNN5HY5Ct5LhRJdxO79JtTzKfzV/bnWpz+zquYrISsvw==";
+        url = "https://registry.npmjs.org/@one-ini/wasm/-/wasm-0.2.0.tgz";
+        sha512 = "n+L/BvrwKUn7q5O3wHGo+CJZAqfewh38+37sk+eBzv/39lM9pPgPRd4sOZRvSRzo0ukLxzyXso4WlGj2oKZ5hA==";
       };
     };
     "@volar/kit-2.4.12" = {
@@ -247,22 +247,22 @@ let
         sha512 = "yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==";
       };
     };
-    "commander-11.1.0" = {
+    "commander-13.1.0" = {
       name = "commander";
       packageName = "commander";
-      version = "11.1.0";
+      version = "13.1.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/commander/-/commander-11.1.0.tgz";
-        sha512 = "yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==";
+        url = "https://registry.npmjs.org/commander/-/commander-13.1.0.tgz";
+        sha512 = "/rFeCpNJQbhSZjGVwO9RFV3xPqbnERS8MmIQzCtD/zl6gpJuV/bMLuN92oG3F7d8oDEHHRrujSXNUr8fpjntKw==";
       };
     };
-    "editorconfig-2.0.0" = {
+    "editorconfig-2.0.1" = {
       name = "editorconfig";
       packageName = "editorconfig";
-      version = "2.0.0";
+      version = "2.0.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/editorconfig/-/editorconfig-2.0.0.tgz";
-        sha512 = "s1NQ63WQ7RNXH6Efb2cwuyRlfpbtdZubvfNe4vCuoyGPewNPY7vah8JUSOFBiJ+jr99Qh8t0xKv0oITc1dclgw==";
+        url = "https://registry.npmjs.org/editorconfig/-/editorconfig-2.0.1.tgz";
+        sha512 = "jMVc7LbF/M13cSpBiVWGut+qhIyOddIhSXPAntMSboEigGFGaQmBow9ZrVog0VT2K89qm0cyGHa7FRhcOqP8hA==";
       };
     };
     "emmet-2.4.11" = {
@@ -290,15 +290,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz";
         sha512 = "f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==";
-      };
-    };
-    "fast-glob-3.3.2" = {
-      name = "fast-glob";
-      packageName = "fast-glob";
-      version = "3.3.2";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/fast-glob/-/fast-glob-3.3.2.tgz";
-        sha512 = "oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==";
       };
     };
     "fast-glob-3.3.3" = {
@@ -445,13 +436,13 @@ let
         sha512 = "PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==";
       };
     };
-    "minimatch-9.0.2" = {
+    "minimatch-10.0.1" = {
       name = "minimatch";
       packageName = "minimatch";
-      version = "9.0.2";
+      version = "10.0.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/minimatch/-/minimatch-9.0.2.tgz";
-        sha512 = "PZOT9g5v2ojiTL7r1xF6plNHLtOeTpSlDI007As2NlA2aYBMfVom17yqa6QzhmDP8QOhn7LjHTg7DFCVSSa6yg==";
+        url = "https://registry.npmjs.org/minimatch/-/minimatch-10.0.1.tgz";
+        sha512 = "ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ==";
       };
     };
     "muggle-string-0.4.1" = {
@@ -643,13 +634,13 @@ let
         sha512 = "OJabfkAg1WLZSqJAJ0Z6Sdt3utnbzr/jh+NAHoyWHJe8CMSy79Gm085094M9nvTPy22KzTVn5Zq5mbapCI/hPA==";
       };
     };
-    "typescript-5.8.2" = {
+    "typescript-5.8.3" = {
       name = "typescript";
       packageName = "typescript";
-      version = "5.8.2";
+      version = "5.8.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/typescript/-/typescript-5.8.2.tgz";
-        sha512 = "aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==";
+        url = "https://registry.npmjs.org/typescript/-/typescript-5.8.3.tgz";
+        sha512 = "p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==";
       };
     };
     "typescript-auto-import-cache-0.3.5" = {
@@ -940,13 +931,13 @@ let
         sha512 = "N47AqBDCMQmh6mBLmI6oqxryHRzi33aPFPsJhYy3VTUGCdLHYjGh4FZzpUjRlphaADBBkDmnkM/++KNIOHi5Rw==";
       };
     };
-    "zod-3.24.1" = {
+    "zod-3.24.2" = {
       name = "zod";
       packageName = "zod";
-      version = "3.24.1";
+      version = "3.24.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/zod/-/zod-3.24.1.tgz";
-        sha512 = "muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==";
+        url = "https://registry.npmjs.org/zod/-/zod-3.24.2.tgz";
+        sha512 = "lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==";
       };
     };
   };
@@ -1015,7 +1006,7 @@ in
       sources."suf-log-2.5.3"
       sources."to-regex-range-5.0.1"
       sources."typesafe-path-0.2.2"
-      sources."typescript-5.8.2"
+      sources."typescript-5.8.3"
       sources."typescript-auto-import-cache-0.3.5"
       sources."volar-service-css-0.0.62"
       sources."volar-service-emmet-0.0.62"
@@ -1097,24 +1088,24 @@ in
   bash-language-server = nodeEnv.buildNodePackage {
     name = "bash-language-server";
     packageName = "bash-language-server";
-    version = "5.4.3";
+    version = "5.6.0";
     src = fetchurl {
-      url = "https://registry.npmjs.org/bash-language-server/-/bash-language-server-5.4.3.tgz";
-      sha512 = "bWpLfob5YAOKKbhxyIldvalP+xrBORrUDZMbcPJAhrhC+xiEVREGV9LfFc01Ce5HhpN+f3sNn+sOYlBf+EO98g==";
+      url = "https://registry.npmjs.org/bash-language-server/-/bash-language-server-5.6.0.tgz";
+      sha512 = "DCuV+/BZAAozsp5blvi6jDnU/ZDaTpJpWM0zqwGjnirfqv7iBsMK32xOze/jipxU0PUZ6CBUKgRUMKI7Kk70Lg==";
     };
     dependencies = [
       sources."@mixmark-io/domino-2.2.0"
       sources."@nodelib/fs.scandir-2.1.5"
       sources."@nodelib/fs.stat-2.0.5"
       sources."@nodelib/fs.walk-1.2.8"
-      sources."@one-ini/wasm-0.1.1"
+      sources."@one-ini/wasm-0.2.0"
       sources."balanced-match-1.0.2"
       sources."brace-expansion-2.0.1"
       sources."braces-3.0.3"
-      sources."commander-11.1.0"
-      sources."editorconfig-2.0.0"
+      sources."commander-13.1.0"
+      sources."editorconfig-2.0.1"
       sources."encoding-0.1.13"
-      sources."fast-glob-3.3.2"
+      sources."fast-glob-3.3.3"
       sources."fastq-1.19.1"
       sources."fill-range-7.1.1"
       sources."fuzzy-search-3.2.1"
@@ -1125,7 +1116,7 @@ in
       sources."is-number-7.0.0"
       sources."merge2-1.4.1"
       sources."micromatch-4.0.8"
-      sources."minimatch-9.0.2"
+      sources."minimatch-10.0.1"
       sources."node-fetch-2.7.0"
       sources."picomatch-2.3.1"
       sources."queue-microtask-1.2.3"
@@ -1144,7 +1135,7 @@ in
       sources."web-tree-sitter-0.24.5"
       sources."webidl-conversions-3.0.1"
       sources."whatwg-url-5.0.0"
-      sources."zod-3.24.1"
+      sources."zod-3.24.2"
     ];
     buildInputs = globalBuildInputs;
     meta = {
