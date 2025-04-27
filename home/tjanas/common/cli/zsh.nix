@@ -12,7 +12,7 @@
     };
     history.path = "${config.xdg.dataHome}/zsh/history";
     defaultKeymap = "emacs";
-    initExtra = ''
+    initContent = ''
       bindkey "^[[1;3C" forward-word
       bindkey "^[[1;3D" backward-word
       bindkey "^[[1;5C" forward-word

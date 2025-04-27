@@ -139,58 +139,58 @@ let
         sha512 = "n+L/BvrwKUn7q5O3wHGo+CJZAqfewh38+37sk+eBzv/39lM9pPgPRd4sOZRvSRzo0ukLxzyXso4WlGj2oKZ5hA==";
       };
     };
-    "@volar/kit-2.4.12" = {
+    "@volar/kit-2.4.13" = {
       name = "_at_volar_slash_kit";
       packageName = "@volar/kit";
-      version = "2.4.12";
+      version = "2.4.13";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/kit/-/kit-2.4.12.tgz";
-        sha512 = "f9JE8oy9C2rBcCWxUYKUF23hOXz4mwgVXFjk7nHhxzplaoVjEOsKpBm8NI2nBH7Cwu8DRxDwBsbIxMl/8wlLxw==";
+        url = "https://registry.npmjs.org/@volar/kit/-/kit-2.4.13.tgz";
+        sha512 = "x5b2JwVT+0YQcIR4uX0NaW9Ocf3ShQRvoA18OK9ZYoFyqIYnK/niuLc8uI7hcVaey2S3EPBe3QvLGD69DJ/t6Q==";
       };
     };
-    "@volar/language-core-2.4.12" = {
+    "@volar/language-core-2.4.13" = {
       name = "_at_volar_slash_language-core";
       packageName = "@volar/language-core";
-      version = "2.4.12";
+      version = "2.4.13";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/language-core/-/language-core-2.4.12.tgz";
-        sha512 = "RLrFdXEaQBWfSnYGVxvR2WrO6Bub0unkdHYIdC31HzIEqATIuuhRRzYu76iGPZ6OtA4Au1SnW0ZwIqPP217YhA==";
+        url = "https://registry.npmjs.org/@volar/language-core/-/language-core-2.4.13.tgz";
+        sha512 = "MnQJ7eKchJx5Oz+YdbqyFUk8BN6jasdJv31n/7r6/WwlOOv7qzvot6B66887l2ST3bUW4Mewml54euzpJWA6bg==";
       };
     };
-    "@volar/language-server-2.4.12" = {
+    "@volar/language-server-2.4.13" = {
       name = "_at_volar_slash_language-server";
       packageName = "@volar/language-server";
-      version = "2.4.12";
+      version = "2.4.13";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/language-server/-/language-server-2.4.12.tgz";
-        sha512 = "KC0YqTXCZMaImMWyAKC+dLB2BXjfz80kqesJkV6oXxJsGEQPfmdqug299idwtrT6FVSmZ7q5UrPfvgKwA0S3JA==";
+        url = "https://registry.npmjs.org/@volar/language-server/-/language-server-2.4.13.tgz";
+        sha512 = "g8ucG5+FJgQT2r+Te1Pk+ppoPHCwzJ54gq/oN1utjtA3+iE9hp5E+M60Ks+hhGrexUPC/E3EABDQlCagmEal+Q==";
       };
     };
-    "@volar/language-service-2.4.12" = {
+    "@volar/language-service-2.4.13" = {
       name = "_at_volar_slash_language-service";
       packageName = "@volar/language-service";
-      version = "2.4.12";
+      version = "2.4.13";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/language-service/-/language-service-2.4.12.tgz";
-        sha512 = "nifOPGYYPnCmxja6/ML/Gl2EgFkUdw4gLbYqbh8FjqX3gSpXSZl/0ebqORjKo1KW56YWHWRZd1jFutEtCiRYhA==";
+        url = "https://registry.npmjs.org/@volar/language-service/-/language-service-2.4.13.tgz";
+        sha512 = "yngNLIxt1w3S60YLTRAa7MSE1IRmXcxGA9ttLjndY0Jc3owCFjeAWSPeXBILZBJOtdT8rP07JY1ozwUls/gvRg==";
       };
     };
-    "@volar/source-map-2.4.12" = {
+    "@volar/source-map-2.4.13" = {
       name = "_at_volar_slash_source-map";
       packageName = "@volar/source-map";
-      version = "2.4.12";
+      version = "2.4.13";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/source-map/-/source-map-2.4.12.tgz";
-        sha512 = "bUFIKvn2U0AWojOaqf63ER0N/iHIBYZPpNGogfLPQ68F5Eet6FnLlyho7BS0y2HJ1jFhSif7AcuTx1TqsCzRzw==";
+        url = "https://registry.npmjs.org/@volar/source-map/-/source-map-2.4.13.tgz";
+        sha512 = "l/EBcc2FkvHgz2ZxV+OZK3kMSroMr7nN3sZLF2/f6kWW66q8+tEL4giiYyFjt0BcubqJhBt6soYIrAPhg/Yr+Q==";
       };
     };
-    "@volar/typescript-2.4.12" = {
+    "@volar/typescript-2.4.13" = {
       name = "_at_volar_slash_typescript";
       packageName = "@volar/typescript";
-      version = "2.4.12";
+      version = "2.4.13";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@volar/typescript/-/typescript-2.4.12.tgz";
-        sha512 = "HJB73OTJDgPc80K30wxi3if4fSsZZAOScbj2fcicMuOPoOkcf9NNAINb33o+DzhBdF9xTKC1gnPmIRDous5S0g==";
+        url = "https://registry.npmjs.org/@volar/typescript/-/typescript-2.4.13.tgz";
+        sha512 = "Ukz4xv84swJPupZeoFsQoeJEOm7U9pqsEnaGGgt5ni3SCTa22m8oJP5Nng3Wed7Uw5RBELdLxxORX8YhJPyOgQ==";
       };
     };
     "@vscode/emmet-helper-2.11.0" = {
@@ -715,22 +715,22 @@ let
         sha512 = "k7gvv7sk3wa+nGll3MaSKyjwQsJjIGCHFjVkl3wjaSP2nouKyn9aokGmqjrl39mi88Oy49giog2GkZH526wjig==";
       };
     };
-    "vscode-css-languageservice-6.3.4" = {
+    "vscode-css-languageservice-6.3.5" = {
       name = "vscode-css-languageservice";
       packageName = "vscode-css-languageservice";
-      version = "6.3.4";
+      version = "6.3.5";
       src = fetchurl {
-        url = "https://registry.npmjs.org/vscode-css-languageservice/-/vscode-css-languageservice-6.3.4.tgz";
-        sha512 = "qutdhFg4hnlf6IsOynwtfsN8W0Xc7g3SZd+KK9F2moUEjHtkcZoj5p8uH7BSwHx9hSEXjwKgSRRyHTXThfwAkQ==";
+        url = "https://registry.npmjs.org/vscode-css-languageservice/-/vscode-css-languageservice-6.3.5.tgz";
+        sha512 = "ehEIMXYPYEz/5Svi2raL9OKLpBt5dSAdoCFoLpo0TVFKrVpDemyuQwS3c3D552z/qQCg3pMp8oOLMObY6M3ajQ==";
       };
     };
-    "vscode-html-languageservice-5.3.3" = {
+    "vscode-html-languageservice-5.4.0" = {
       name = "vscode-html-languageservice";
       packageName = "vscode-html-languageservice";
-      version = "5.3.3";
+      version = "5.4.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/vscode-html-languageservice/-/vscode-html-languageservice-5.3.3.tgz";
-        sha512 = "AK/jJM0VIWRrlfqkDBMZxNMnxYT5I2uoMVRoNJ5ePSplnSaT9mbYjqJlxxeLvUrOW7MEH0vVIDzU48u44QZE0w==";
+        url = "https://registry.npmjs.org/vscode-html-languageservice/-/vscode-html-languageservice-5.4.0.tgz";
+        sha512 = "9/cbc90BSYCghmHI7/VbWettHZdC7WYpz2g5gBK6UDUI1MkZbM773Q12uAYJx9jzAiNHPpyo6KzcwmcnugncAQ==";
       };
     };
     "vscode-json-languageservice-4.1.8" = {
@@ -965,12 +965,12 @@ in
       sources."@nodelib/fs.scandir-2.1.5"
       sources."@nodelib/fs.stat-2.0.5"
       sources."@nodelib/fs.walk-1.2.8"
-      sources."@volar/kit-2.4.12"
-      sources."@volar/language-core-2.4.12"
-      sources."@volar/language-server-2.4.12"
-      sources."@volar/language-service-2.4.12"
-      sources."@volar/source-map-2.4.12"
-      sources."@volar/typescript-2.4.12"
+      sources."@volar/kit-2.4.13"
+      sources."@volar/language-core-2.4.13"
+      sources."@volar/language-server-2.4.13"
+      sources."@volar/language-service-2.4.13"
+      sources."@volar/source-map-2.4.13"
+      sources."@volar/typescript-2.4.13"
       sources."@vscode/emmet-helper-2.11.0"
       sources."@vscode/l10n-0.0.18"
       sources."ajv-8.17.1"
@@ -1015,8 +1015,8 @@ in
       sources."volar-service-typescript-0.0.62"
       sources."volar-service-typescript-twoslash-queries-0.0.62"
       sources."volar-service-yaml-0.0.62"
-      sources."vscode-css-languageservice-6.3.4"
-      sources."vscode-html-languageservice-5.3.3"
+      sources."vscode-css-languageservice-6.3.5"
+      sources."vscode-html-languageservice-5.4.0"
       (sources."vscode-json-languageservice-4.1.8" // {
         dependencies = [
           sources."jsonc-parser-3.3.1"
@@ -1066,9 +1066,9 @@ in
       sources."@astrojs/compiler-2.11.0"
       sources."@astrojs/yaml2ts-0.2.2"
       sources."@jridgewell/sourcemap-codec-1.5.0"
-      sources."@volar/language-core-2.4.12"
-      sources."@volar/source-map-2.4.12"
-      sources."@volar/typescript-2.4.12"
+      sources."@volar/language-core-2.4.13"
+      sources."@volar/source-map-2.4.13"
+      sources."@volar/typescript-2.4.13"
       sources."path-browserify-1.0.1"
       sources."semver-7.7.1"
       sources."vscode-languageserver-textdocument-1.0.12"
