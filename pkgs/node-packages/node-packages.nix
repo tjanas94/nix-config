@@ -4,13 +4,13 @@
 
 let
   sources = {
-    "@astrojs/compiler-2.11.0" = {
+    "@astrojs/compiler-2.12.0" = {
       name = "_at_astrojs_slash_compiler";
       packageName = "@astrojs/compiler";
-      version = "2.11.0";
+      version = "2.12.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@astrojs/compiler/-/compiler-2.11.0.tgz";
-        sha512 = "zZOO7i+JhojO8qmlyR/URui6LyfHJY6m+L9nwyX5GiKD78YoRaZ5tzz6X0fkl+5bD3uwlDHayf6Oe8Fu36RKNg==";
+        url = "https://registry.npmjs.org/@astrojs/compiler/-/compiler-2.12.0.tgz";
+        sha512 = "7bCjW6tVDpUurQLeKBUN9tZ5kSv5qYrGmcn0sG0IwacL7isR2ZbyyA3AdZ4uxsuUFOS2SlgReTH7wkxO6zpqWA==";
       };
     };
     "@astrojs/yaml2ts-0.2.2" = {
@@ -952,7 +952,7 @@ in
       sha512 = "JivzASqTPR2bao9BWsSc/woPHH7OGSGc9aMxXL4U6egVTqBycB3ZHdBJPuOCVtcGLrzdWTosAqVPz1BVoxE0+A==";
     };
     dependencies = [
-      sources."@astrojs/compiler-2.11.0"
+      sources."@astrojs/compiler-2.12.0"
       sources."@astrojs/yaml2ts-0.2.2"
       sources."@emmetio/abbreviation-2.3.3"
       sources."@emmetio/css-abbreviation-2.1.8"
@@ -1063,7 +1063,7 @@ in
       sha512 = "rapryQINgv5VLZF884R/wmgX3mM9eH1PC/I3kkPV9rP6lEWrRN1YClF3bGcDHFrf8EtTLc0Wqxne1Uetpevozg==";
     };
     dependencies = [
-      sources."@astrojs/compiler-2.11.0"
+      sources."@astrojs/compiler-2.12.0"
       sources."@astrojs/yaml2ts-0.2.2"
       sources."@jridgewell/sourcemap-codec-1.5.0"
       sources."@volar/language-core-2.4.13"
