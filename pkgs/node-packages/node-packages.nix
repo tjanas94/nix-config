@@ -580,13 +580,13 @@ let
         sha512 = "CWZ8XiSim+fJVG0cFLStwDvft1VI7uvXdCNJYXhDvowiv+DsbD1nXLiQ4zrE5UBvj5DWZJ93cwN0NX5PMsr1Pw==";
       };
     };
-    "semver-7.7.1" = {
+    "semver-7.7.2" = {
       name = "semver";
       packageName = "semver";
-      version = "7.7.1";
+      version = "7.7.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/semver/-/semver-7.7.1.tgz";
-        sha512 = "hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA==";
+        url = "https://registry.npmjs.org/semver/-/semver-7.7.2.tgz";
+        sha512 = "RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA==";
       };
     };
     "suf-log-2.5.3" = {
@@ -1002,7 +1002,7 @@ in
       sources."run-parallel-1.2.0"
       sources."s.color-0.0.15"
       sources."sass-formatter-0.7.9"
-      sources."semver-7.7.1"
+      sources."semver-7.7.2"
       sources."suf-log-2.5.3"
       sources."to-regex-range-5.0.1"
       sources."typesafe-path-0.2.2"
@@ -1070,7 +1070,7 @@ in
       sources."@volar/source-map-2.4.13"
       sources."@volar/typescript-2.4.13"
       sources."path-browserify-1.0.1"
-      sources."semver-7.7.1"
+      sources."semver-7.7.2"
       sources."vscode-languageserver-textdocument-1.0.12"
       sources."vscode-uri-3.1.0"
       sources."yaml-2.7.1"
@@ -1123,7 +1123,7 @@ in
       sources."reusify-1.1.0"
       sources."run-parallel-1.2.0"
       sources."safer-buffer-2.1.2"
-      sources."semver-7.7.1"
+      sources."semver-7.7.2"
       sources."to-regex-range-5.0.1"
       sources."tr46-0.0.3"
       sources."turndown-7.2.0"
