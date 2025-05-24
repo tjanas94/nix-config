@@ -5,8 +5,8 @@
     nodePackages = prev.nodePackages // final.callPackage ../pkgs/node-packages { };
   };
 
-  stable-packages = final: _prev: {
-    nixpkgs-stable = import inputs.nixpkgs-stable {
+  unstable-packages = final: _prev: {
+    nixpkgs-unstable = import inputs.nixpkgs-unstable {
       inherit (final) system;
       config.allowUnfree = true;
     };

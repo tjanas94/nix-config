@@ -14,6 +14,7 @@
       ./services/avahi.nix
       ./services/openssh.nix
       ./sops.nix
+      ./system/auto-upgrade.nix
       ./system/locale.nix
       ./system/network.nix
       ./system/nix.nix

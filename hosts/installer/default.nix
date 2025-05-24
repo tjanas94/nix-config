@@ -1,5 +1,4 @@
-{ pkgs
-, modulesPath
+{ modulesPath
 , ...
 }: {
   imports = [
@@ -8,6 +7,7 @@
 
   nix = {
     daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
     settings = {
       experimental-features = "nix-command flakes";
       accept-flake-config = true;

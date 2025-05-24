@@ -45,6 +45,8 @@
     DefaultTimeoutStopSec=10s
   '';
 
+  system.autoUpgrade.operation = "boot";
+
   environment.systemPackages = with pkgs; [
     wireguard-tools
   ];

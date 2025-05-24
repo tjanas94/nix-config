@@ -39,7 +39,7 @@
 
   sops.defaultSopsFile = ./secrets.yaml;
   networking.hostName = "x230t";
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 
   services.smartd = {
     enable = true;
