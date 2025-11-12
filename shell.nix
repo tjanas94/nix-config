@@ -13,7 +13,6 @@
         git
         gnupg
         nix
-        nixd
         nixpkgs-fmt
         node2nix
         pinentry-curses
