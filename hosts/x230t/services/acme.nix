@@ -5,11 +5,11 @@
 
     certs."janas.dev" = {
       domain = "*.janas.dev";
-      dnsProvider = "ovh";
-      credentialsFile = config.sops.secrets.ovh-dns.path;
+      dnsProvider = "cloudflare";
+      credentialsFile = config.sops.secrets.acme-dns.path;
     };
   };
 
   environment.persistence."/persist".directories = [ "/var/lib/acme" ];
-  sops.secrets.ovh-dns.owner = config.users.users.acme.name;
+  sops.secrets.acme-dns.owner = config.users.users.acme.name;
 }
