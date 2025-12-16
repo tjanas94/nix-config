@@ -56,7 +56,7 @@ in
     paperkey
     perl
     pciutils
-    poppler_utils
+    poppler-utils
     procs
     pv
     pwgen

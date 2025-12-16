@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs-git;
+    package = pkgs.emacs;
     extraPackages = epkgs:
       with epkgs; [
         ef-themes

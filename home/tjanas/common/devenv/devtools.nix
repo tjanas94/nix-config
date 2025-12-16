@@ -25,7 +25,7 @@ in
     clojure-lsp
 
     dockfmt
-    nodePackages.dockerfile-language-server-nodejs
+    dockerfile-language-server
 
     go
     gofumpt
@@ -56,7 +56,6 @@ in
     sbcl
 
     lua-language-server
-    luajit
     luajitPackages.fennel
     luajitPackages.luacheck
     luajitPackages.luarocks

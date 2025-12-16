@@ -13,14 +13,14 @@ let
     doInit = false;
     preHook = with pkgs; ''
       for i in /mnt/snapshots/*; do
-        ${utillinux}/bin/mountpoint -q $i && ${utillinux}/bin/umount $i
+        ${util-linux}/bin/mountpoint -q $i && ${util-linux}/bin/umount $i
       done
-      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/hp-system/data.* | sort -r | head -1) /mnt/snapshots/hp-data
-      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/hp-system/home.* | sort -r | head -1) /mnt/snapshots/hp-home
-      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/hp-system/persist.* | sort -r | head -1) /mnt/snapshots/hp-persist
-      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/local-data/data.* | sort -r | head -1) /mnt/snapshots/x230t-data
-      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_system/backup/local-system/home.* | sort -r | head -1) /mnt/snapshots/x230t-home
-      ${utillinux}/bin/mount -B $(ls -1d /mnt/btrfs_system/backup/local-system/persist.* | sort -r | head -1) /mnt/snapshots/x230t-persist
+      ${util-linux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/hp-system/data.* | sort -r | head -1) /mnt/snapshots/hp-data
+      ${util-linux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/hp-system/home.* | sort -r | head -1) /mnt/snapshots/hp-home
+      ${util-linux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/hp-system/persist.* | sort -r | head -1) /mnt/snapshots/hp-persist
+      ${util-linux}/bin/mount -B $(ls -1d /mnt/btrfs_data/backup/local-data/data.* | sort -r | head -1) /mnt/snapshots/x230t-data
+      ${util-linux}/bin/mount -B $(ls -1d /mnt/btrfs_system/backup/local-system/home.* | sort -r | head -1) /mnt/snapshots/x230t-home
+      ${util-linux}/bin/mount -B $(ls -1d /mnt/btrfs_system/backup/local-system/persist.* | sort -r | head -1) /mnt/snapshots/x230t-persist
     '';
     prune.keep = {
       within = "2d";
